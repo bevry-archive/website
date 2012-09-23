@@ -1,0 +1,171 @@
+// Coded in Stylus: http://learnboost.github.com/stylus/
+
+// ====================================
+// Imports
+
+// nib: http://visionmedia.github.com/nib/
+@import 'nib'
+
+
+// ====================================
+// Responsive Layout Awesomeness
+// https://gist.github.com/1549029
+// Published under the "public domain" using the Creative Commons Zero - http://creativecommons.org/publicdomain/zero/1.0/
+
+// Everything
+*
+	// Make paddings be included within the width
+	box-sizing border-box
+
+// Provide our wrapper mixin
+// Contains our resize transition
+wrapper($site-width = 70%)
+	$site-margin = ((100% - $site-width) / 2)
+	margin-left: $site-margin
+	margin-right: $site-margin
+	transition: margin 0.3s ease-out
+
+// Provide our column mixin
+column()
+	display: inline
+	float: left
+	overflow: hidden
+
+
+// ====================================
+// Configuration
+
+// Backgrounds
+colorBackground = #FDFBF1
+colorBlockBg = #FCFCFA
+colorBlockBorder = #E2E0D8
+colorSubblockBg = #F4F0E7
+
+// Text
+colorHeading = #3F3931
+colorSubheading = #999992
+colorMenu = #403931
+colorNav = colorHeading
+colorSubnav = colorMenu
+colorBlockHeading = colorSubheading
+colorAccent = #F44D27
+colorActive = colorAccent
+colorLink = #0085B0
+colorContent = #4C4439
+
+// Fonts
+fontMyraid = Myriad Pro
+fontMyraidBoldest = 700
+fontMyraidBold = 600
+fontMyraidNormal = 500
+fontMyraidLight = 500
+fontMyraidLightest = 500
+
+// Mixins
+mixinHeading()
+	font-family: fontMyraid
+	font-weight: fontMyraidBold
+	color: colorHeading
+mixinSubheading()
+	font-family: fontMyraid
+	font-weight: fontMyraidNormal
+	color: colorSubheading
+mixinNav()
+	font-family: fontMyraid
+	font-weight: fontMyraidBoldest
+	color: colorNav
+mixinMenu()
+	font-family: fontMyraid
+	font-weight: fontMyraidBoldest
+	color: colorMenu
+mixinBlock()
+	background: colorBlockBg
+	border: 1px solid colorBlockBorder
+	color: colorContent
+	padding: 1em 2em
+	h2
+		font-weight: fontMyraidBoldest
+		color: colorAccent
+		font-size: 18px
+mixinSubblock()
+	background: colorSubblockBg
+	color: colorContent
+	padding: 1em 2em
+	margin: 1em 0
+	h1
+		font-weight: fontMyraidBoldest
+		font-size: 18px
+		display: inline
+	h2
+		font-weight: fontMyraidLightest
+		color: colorAccent
+		font-size: 16px
+		display: inline
+
+// ====================================
+// Styles
+
+body
+	background: colorBackground url(/images/bg.gif) repeat
+	color: colorContent
+	font-smooth: always
+	-webkit-font-smoothing: antialiased
+	text-rendering: optimizeLegibility
+
+.container
+	margin: 2em 5%
+	position: relative
+
+.topbar
+	position: relative
+	margin-bottom: 1em
+	.heading
+		mixinHeading()
+		font-size: 48px
+		display: inline
+	.subheading
+		mixinSubheading()
+		font-size: 24px
+		display: inline
+	.account
+		mixinMenu()
+		font-size: 14px
+		display: inline
+		position: absolute
+		right: 0
+		bottom: 0
+
+.sidebar
+	position: absolute
+	width: 225px
+	font-size: 18px
+	nav,li
+		list-style: none
+	li
+		margin: 0.5em 0
+	li.active
+		color: colorActive
+	a
+		text-decoration: none
+		mixinNav()
+		&:hover
+			text-decoration: underline
+
+.mainbar
+	position: absolute
+	left: 250px
+	width: 100%
+	padding-right: 250px
+	em
+		color: colorAccent
+		font-style: normal
+	a,a:link
+		text-decoration: none
+		color: colorLink
+		font-weight: fontMyraidBold
+	a:hover
+		text-decoration: underline
+	.block
+		mixinBlock()
+	.subblock
+		mixinSubblock()
