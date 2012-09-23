@@ -1,5 +1,7 @@
 # Prepare
-{type,showDate,showDescription,showContent,emptyText,dateFormat} = @
+{moment,items,activeItemID,activeClassname,inactiveClassname,type,showDate,showDescription,showContent,emptyText,dateFormat} = @
+activeClassname ?= 'active'
+inactiveClassname ?= 'inactive'
 type or= 'items'
 showDate ?= true
 showDescription ?= true
@@ -10,15 +12,16 @@ dateFormat or= "YYYY-MM-DD"
 # Document List
 nav ".list-#{type}", "typeof":"dc:collection", ->
 	# Empty
-	unless @items.length
+	unless items.length
 		p ".list-#{type}-empty", ->
 			emptyText
 		return
 
 	# Exists
-	@items.forEach (item) ->
+	items.forEach (item) ->
 		# Item
-		li ".list-#{type}-item", "typeof":"soic:page", about:item.url, ->
+		itemClassname = if item.id is activeItemID then activeClassname else inactiveClassname
+		li ".list-#{type}-item"+(if itemClassname then '.'+itemClassname else ''), "typeof":"soic:page", about:item.url, ->
 			# Link
 			a ".list-#{type}-link", href:item.url, ->
 				# Title
@@ -28,7 +31,7 @@ nav ".list-#{type}", "typeof":"dc:collection", ->
 				# Date
 				if showDate
 					span ".list-#{type}-date", property:"dc:date", ->
-						@moment(item.date).format(dateFormat)
+						moment(item.date).format(dateFormat)
 
 			# Display the description if it exists
 			if showDescription and item.description

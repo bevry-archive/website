@@ -12,6 +12,7 @@ div '.container', ->
 		nav '.navbar', ->
 			text @partial('list/menu.html.coffee',{
 				items: @getCollection('pages').toJSON()
+				activeItemID: @document.id
 				partial: @partial
 				moment: @moment
 			})
