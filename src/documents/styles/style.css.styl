@@ -79,28 +79,53 @@ mixinMenu()
 	font-weight: fontMyraidBoldest
 	color: colorMenu
 mixinBlock()
+	box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
+	border: 1px solid hsl(53, 19%, 80%) // colorBlockBorder
+	border-radius: 8px
 	background: colorBlockBg
-	border: 1px solid colorBlockBorder
 	color: colorContent
-	padding: 1em 2em
-	h2
-		font-weight: fontMyraidBoldest
-		color: colorAccent
-		font-size: 18px
-mixinSubblock()
-	background: colorSubblockBg
-	color: colorContent
-	padding: 1em 2em
-	margin: 1em 0
+	padding: 1em 4%
 	h1
-		font-weight: fontMyraidBoldest
-		font-size: 18px
-		display: inline
+		margin-bottom: -1em
 	h2
-		font-weight: fontMyraidLightest
+		font-weight: fontMyraidBoldest
 		color: colorAccent
-		font-size: 16px
-		display: inline
+		font-size: 18px
+		margin-top: 4em
+mixinSubblock()
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
+	border: 1px solid hsl(42, 19%, 80%) // colorBlockBorder
+	border-radius: 8px
+	background: hsl(42, 37%, 93%) // colorSubblockBg
+	color: colorContent
+	padding: 2em 2em 1em
+	margin: 1.5em 0
+	position: relative
+	&.subblock-yesavatar
+		.subblock-avatar
+			width: 128px*.85
+			margin-top: 0.5em
+			position: absolute
+			left: 0
+			text-align: center
+			.subblock-avatar-image
+				max-width: 96px*.7
+		.subblock-main
+			padding-left: 96px*.8
+	header
+		position: relative
+		h1,h2
+			display: inline
+			margin: 0
+			padding: 0
+		h1
+			font-weight: fontMyraidBoldest
+			font-size: 18px
+		h2
+			font-weight: fontMyraidLightest
+			color: colorAccent
+			font-size: 16px
+			float: right
 
 // ====================================
 // Styles
@@ -109,8 +134,10 @@ body
 	background: colorBackground url(/images/bg.gif) repeat
 	color: colorContent
 	font-smooth: always
+	font-family: fontMyraid
 	-webkit-font-smoothing: antialiased
 	text-rendering: optimizeLegibility
+	padding-bottom: 2em
 
 .container
 	margin: 2em 5%
@@ -118,7 +145,7 @@ body
 
 .topbar
 	position: relative
-	margin-bottom: 1em
+	margin-bottom: 1.5em
 	.heading
 		mixinHeading()
 		font-size: 48px
@@ -137,12 +164,12 @@ body
 
 .sidebar
 	position: absolute
-	width: 225px
+	width: 150px
 	font-size: 18px
 	nav,li
 		list-style: none
 	li
-		margin: 0.5em 0
+		margin: 0 0 0.5em
 	li.active
 		> a
 			color: colorActive
@@ -153,10 +180,8 @@ body
 			text-decoration: underline
 
 .mainbar
-	position: absolute
-	left: 250px
+	padding-left: 11% // 250px
 	width: 100%
-	padding-right: 250px
 	em
 		color: colorAccent
 		font-style: normal

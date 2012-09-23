@@ -7,7 +7,9 @@ h2 "Support Channels"
 
 text @partial "content/subblock.html.coffee", {
 	avatar: '/images/stackoverflow.gif'
-	heading: "Stack Overflow"
+	heading: """
+		<a href="http://stackoverflow.com/questions/ask">Stack Overflow</a>
+		"""
 	subheading: "Stackoverflow owns &amp; manages, Bevry participates"
 	content: """
 		<t render="markdown">
@@ -20,7 +22,9 @@ text @partial "content/subblock.html.coffee", {
 
 text @partial "content/subblock.html.coffee", {
 	avatar: '/images/book.gif'
-	heading: "Helpdesk"
+	heading: """
+		<a href="http://support.bevry.me">Helpdesk</a>
+		"""
 	subheading: "Bevry owns, manages &amp; participates"
 	content: """
 		<t render="markdown">
@@ -46,3 +50,58 @@ text """
 	*Business hours are 9am to 5pm Sydney Time (+10:00) Monday to Friday with limited support on Saturday and no guaranteed support on Sunday.*
 	</t:premiumsupport>
 	"""
+
+
+
+h2 "Other Channels"
+
+text @partial "content/subblock.html.coffee", {
+	avatar: '/images/octocat.gif'
+	heading: """
+		<a href="https://github.com/bevry">GitHub</a>
+		"""
+	subheading: "GitHub owns, Bevry manages &amp; participates"
+	content: """
+		<t render="markdown">
+		GitHub is the social programming community and the place to host your open-source projects. Bevry hosts all their projects on github, and uses the built-in Issues functionality for development tasks and the discussions surrounding them. For instance, if you send in an email and that spawns a new development task we may reference you to the github issue behind it so you can track and participate in its progress. You can also use it to submit bugfixes yourself, and provide feature requests. Do not use this channel for questions or support.
+		</t>
+		"""
+}
+
+text @partial "content/subblock.html.coffee", {
+	avatar: '/images/irc.gif'
+	heading: """
+		<a href="irc://chat.freenode.net:6997/bevry">Internet Relay Chat (IRC)</a>
+		"""
+	subheading: "Bevry owns, manages &amp; participates"
+	content: """
+		<t render="markdown">
+		Bevry opperates several IRC chatrooms the freenode chat server that you can find our team hanging out on during business hours. Use [#bevry](irc://chat.freenode.net:6997/bevry) for projects that do not have their own channel.</p>
+
+		Channels we operate:
+		[#bevry](irc://chat.freenode.net:6997/bevry),
+		[#docpad](irc://chat.freenode.net:6997/docpad),
+		[#history.js](irc://chat.freenode.net:6997/history.js)
+		</t>
+		"""
+}
+
+text @partial "content/subblock.html.coffee", {
+	avatar: '/images/twitter.gif'
+	heading: """
+		<a href="https://twitter.com/bevryme">Twitter</a>
+		"""
+	subheading: "Bevry owns, manages &amp; participates"
+	content: """
+		<t render="markdown">
+		Bevry operates several twitter accounts you can reach  and mention us on. Use [@BevryMe](https://twitter.com/bevryme) for projects that do not have their own account.
+
+		Accounts we operate:
+		[@BevryMe](https://twitter.com/bevryme),
+		[@DocPad](https://twitter.com/docpad),
+		[@HistoryJS](https://twitter.com/historyjs),
+		[@QueryEngine](https://twitter.com/queryengine),
+		[@StartupHostel](https://twitter.com/startuphostel)
+		</t>
+		"""
+}

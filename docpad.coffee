@@ -41,7 +41,7 @@ docpadConfig = {
 
 		text:
 			heading: 'Bevry'
-			subheading: 'doing whatever we can to empower developers everywhere'
+			subheading: ' &nbsp; doing whatever we can to empower developers everywhere'
 			myaccount: 'My Account'
 
 		link:
