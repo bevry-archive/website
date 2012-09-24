@@ -35,11 +35,8 @@ column()
 // ====================================
 // Configuration
 
-// Backgrounds
-colorBackground = #FDFBF1
-colorBlockBg = #FCFCFA
-colorBlockBorder = #E2E0D8
-colorSubblockBg = #F4F0E7
+// Variables
+theme = "gray"
 
 // Text
 colorHeading = #3F3931
@@ -61,77 +58,39 @@ fontMyraidNormal = 500
 fontMyraidLight = 500
 fontMyraidLightest = 500
 
+
+// ====================================
 // Mixins
+
+// Heading
 mixinHeading()
 	font-family: fontMyraid
 	font-weight: fontMyraidBold
 	color: colorHeading
+
+// Subheading
 mixinSubheading()
 	font-family: fontMyraid
 	font-weight: fontMyraidNormal
 	color: colorSubheading
+
+// Nav
 mixinNav()
 	font-family: fontMyraid
 	font-weight: fontMyraidBoldest
 	color: colorNav
+
+// Menu
 mixinMenu()
 	font-family: fontMyraid
 	font-weight: fontMyraidBoldest
 	color: colorMenu
-mixinBlock()
-	box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
-	border: 1px solid hsl(53, 19%, 80%) // colorBlockBorder
-	border-radius: 8px
-	background: colorBlockBg
-	color: colorContent
-	padding: 1em 4%
-	h1
-		margin-bottom: -1em
-	h2
-		font-weight: fontMyraidBoldest
-		color: colorAccent
-		font-size: 18px
-		margin-top: 4em
-mixinSubblock()
-	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
-	border: 1px solid hsl(42, 19%, 80%) // colorBlockBorder
-	border-radius: 8px
-	background: hsl(42, 37%, 93%) // colorSubblockBg
-	color: colorContent
-	padding: 2em 2em 1em
-	margin: 1.5em 0
-	position: relative
-	&.subblock-yesavatar
-		.subblock-avatar
-			width: 128px*.85
-			margin-top: 0.5em
-			position: absolute
-			left: 0
-			text-align: center
-			.subblock-avatar-image
-				max-width: 96px*.7
-		.subblock-main
-			padding-left: 96px*.8
-	header
-		position: relative
-		h1,h2
-			display: inline
-			margin: 0
-			padding: 0
-		h1
-			font-weight: fontMyraidBoldest
-			font-size: 18px
-		h2
-			font-weight: fontMyraidLightest
-			color: colorAccent
-			font-size: 16px
-			float: right
+
 
 // ====================================
 // Styles
 
 body
-	background: colorBackground url(/images/bg.gif) repeat
 	color: colorContent
 	font-smooth: always
 	font-family: fontMyraid
@@ -182,6 +141,7 @@ body
 .mainbar
 	padding-left: 11% // 250px
 	width: 100%
+
 	em
 		color: colorAccent
 		font-style: normal
@@ -191,7 +151,124 @@ body
 		font-weight: fontMyraidBold
 	a:hover
 		text-decoration: underline
+
 	.block
-		mixinBlock()
+		border-radius: 8px
+		color: colorContent
+		padding: 1em 4%
+
+		h1
+			margin-bottom: -1em
+
+		h2
+			font-weight: fontMyraidBoldest
+			color: colorAccent
+			font-size: 18px
+			margin-top: 4em
+
 	.subblock
-		mixinSubblock()
+		border-radius: 8px
+		color: colorContent
+		padding: 2em 2em 1em
+		margin: 1.5em 0
+		position: relative
+
+		&.subblock-yesavatar
+			.subblock-avatar
+				width: 128px*.85
+				margin-top: 0.5em
+				position: absolute
+				left: 0
+				text-align: center
+				.subblock-avatar-image
+					max-width: 96px*.7
+			.subblock-main
+				padding-left: 96px*.8
+
+		header
+			position: relative
+			h1,h2
+				display: inline
+				margin: 0
+				padding: 0
+			h1
+				font-weight: fontMyraidBoldest
+				font-size: 18px
+			h2
+				font-weight: fontMyraidLightest
+				color: colorAccent
+				font-size: 16px
+				position: absolute
+				top: 0
+				right: 0
+
+
+// ====================================
+// Themes
+
+// Light
+if theme is "light"
+	body
+		background: hsl(40, 21%, 99%)
+
+	.topbar
+		.subheading
+			color: hsl(60, 0%, 82%)
+
+	.sidebar
+		li
+			opacity: 0.8
+	.block
+		box-shadow: inset 0 0 9px hsla(0, 0%, 0%, 0.01), 0 0 70px hsla(37, 25%, 25%, 0.09)
+		border: 1px solid hsl(0, 0%, 78%)
+		background: white
+
+	.subblock
+		box-shadow: inset 0 0 9px hsla(0, 0%, 0%, 0.01), 0 0 70px hsla(37, 25%, 25%, 0.09)
+		border: 1px solid hsl(42, 19%, 80%)
+		background: hsl(37, 70%, 94%)
+
+else if theme is "gray"
+	body
+		background: hsl(36, 17%, 97%)
+
+	.block
+		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
+		border: 1px solid hsl(53, 19%, 80%)
+		background: #FCFCFA
+
+	.subblock
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
+		border: 1px solid hsl(42, 19%, 80%)
+		background: hsl(37, 60%, 94%)
+
+else if theme is "cream"
+	body
+		background: #FDFBF1 url(/images/bg.gif) repeat
+
+	.block
+		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
+		border: 1px solid hsl(53, 19%, 80%) // hsl(48, 15%, 87%)
+		background: hsl(60, 25%, 98%)
+
+	.subblock
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
+		border: 1px solid hsl(42, 19%, 80%)
+		background: hsl(42, 37%, 93%)
+
+else if theme is "expiremental"
+	body
+		background: #FDFBF1 url(/images/bg.gif) repeat
+
+	.block
+		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
+		border: 1px solid hsl(53, 19%, 80%) // hsl(48, 15%, 87%)
+		background: hsl(60, 25%, 98%)
+
+	.subblock
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
+		border: 1px solid hsl(42, 19%, 80%)
+		background: hsl(42, 37%, 93%)
+
+
+
