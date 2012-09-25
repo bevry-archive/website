@@ -40,11 +40,28 @@ docpadConfig = {
 		# Text
 
 		text:
-			heading: 'Bevry'
-			subheading: ' &nbsp; doing everything we can to empower developers'
-			myaccount: 'My Account'
+			heading: "Bevry"
+			subheading: " &nbsp; doing everything we can to empower developers"
+			myaccount: "My Account"
+			poweredby: """
+				<span class="hover-link" data-href="http://docpad.org">
+					Created with love and affection using <t>link.docpad</t>
+				</span>
+				"""
+			copyright: """
+				&copy; Bevry Pty Ltd. All rights reserved.
+				"""
 
 		link:
+			historyjs: """
+				<a href="http://historyjs.net">History.js</a>
+				"""
+			docpad: """
+				<a href="http://docpad.org">DocPad</a>
+				"""
+			cclicense: """
+				<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</a>
+				"""
 			salesemail: """
 				<a href="mailto:sales@bevry.me">sales@bevry.me</a>
 				"""

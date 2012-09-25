@@ -91,12 +91,27 @@ mixinMenu()
 // Styles
 
 body
+	cursor: default
 	color: colorContent
 	font-smooth: always
 	font-family: fontMyraid
 	-webkit-font-smoothing: antialiased
 	text-rendering: optimizeLegibility
-	padding-bottom: 2em
+	padding-bottom: 4em
+
+em
+	color: colorAccent
+	font-style: normal
+
+a:not(.hover-link)
+	text-decoration: none
+	color: colorLink
+	font-weight: fontMyraidBold
+a.hover-link
+	text-decoration: none
+a:hover,.hover-link:hover
+	text-decoration: underline
+	cursor: pointer
 
 .container
 	margin: 2em 5%
@@ -142,20 +157,14 @@ body
 	padding-left: 11% // 250px
 	width: 100%
 
-	em
-		color: colorAccent
-		font-style: normal
-	a,a:link
-		text-decoration: none
-		color: colorLink
-		font-weight: fontMyraidBold
-	a:hover
-		text-decoration: underline
-
 	.block
 		border-radius: 8px
 		color: colorContent
-		padding: 1em 4%
+		padding: 1em 4% 2em
+		margin-bottom: 4em
+
+		.block-content
+			margin-top: 3em
 
 		h1
 			margin-bottom: -1em
@@ -202,6 +211,25 @@ body
 				top: 0
 				right: 0
 
+.bottombar
+	padding-left: 11% // 250px
+	width: 100%
+	font-size: 14px
+	color: colorSubheading
+	position: relative
+	margin-top: -4em
+
+	.poweredby
+		float:left
+		opacity: 0.5
+		transition: opacity 1s ease-out
+		&:hover
+			opacity: 1
+
+	.copyright
+		opacity: 0.5
+		float:right
+
 
 // ====================================
 // Themes
@@ -218,6 +246,7 @@ if theme is "light"
 	.sidebar
 		li
 			opacity: 0.8
+
 	.block
 		box-shadow: inset 0 0 9px hsla(0, 0%, 0%, 0.01), 0 0 70px hsla(37, 25%, 25%, 0.09)
 		border: 1px solid hsl(0, 0%, 78%)
@@ -235,7 +264,7 @@ else if theme is "gray"
 	.block
 		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
 		border: 1px solid hsl(53, 19%, 80%)
-		background: #FCFCFA
+		background: white
 
 	.subblock
 		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)

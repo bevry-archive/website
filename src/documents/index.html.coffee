@@ -1,13 +1,7 @@
 ---
-layout: page
+layout: structure
 title: Welcome
 ---
 
-text @partial('list/items.html.coffee',{
-	items: @getCollection('pages').toJSON()
-	partial: @partial
-	moment: @moment
-	showDate: false
-	showDescription: false
-	showContent: true
-})
+@getCollection('pages').toJSON().forEach (item) =>
+	text @partial('content/page.html.coffee',{item,partial:@partial})
