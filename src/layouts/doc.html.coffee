@@ -3,7 +3,7 @@ layout: structure
 ###
 
 text @partial('content/block.html.coffee',{
-	heading: @document.title
+	heading: @getTitle(@documentModel)
 	subheading: @document.subheading
 	content: @content
 })

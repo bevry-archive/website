@@ -1,3 +1,7 @@
+---
+title: "API"
+---
+
 This page will go over using DocPad as a module, and the API available to you.
 
 

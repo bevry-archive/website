@@ -16,7 +16,7 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 	If you installed Xcode over a old non app store version, you'll want to run the follow to ensure everything is pointing to the new xcode location: `sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer`
 
 3. ### Install Node.js
-	
+
 	#### Via the Node.js Official Installer
 
 	1. The simplest and official way to install Node.js
@@ -54,7 +54,7 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 				source ~/.nvm/nvm.sh
 			fi
 			```
-		
+
 		3. Open a new terminal window or run `source ~/.nvm/nvm.sh`
 
 	1. Install Node.js
@@ -67,7 +67,7 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 
 
 	#### Via Direct Install
-	
+
 	1. It's the most robust solution, but also requires the most maintenance
 
 	1. Run the following

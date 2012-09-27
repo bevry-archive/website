@@ -22,7 +22,6 @@ docpadConfig = {
 		underscore: _
 		strUtil: strUtil
 		moment: moment
-		docs: require(__dirname+'/app/docs.coffee')
 		text: textData
 
 		# -----------------------------
@@ -48,6 +47,7 @@ docpadConfig = {
 
 		# -----------------------------
 		# Text
+
 		link:
 			historyjs: """
 				<a href="http://historyjs.net">History.js</a>
@@ -68,6 +68,16 @@ docpadConfig = {
 
 		# -----------------------------
 		# Helper Functions
+
+		# Get a Document Title
+		getTitle: (document) ->
+			document ?= @document
+			title = document.get('title') or docpadConfig.templateData.humanize document.get('name')
+			title
+
+		# Humanize
+		humanize: (text) ->
+			 return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
 
 		# Get the prepared site/document title
 		# Often we would like to specify particular formatting to our page's title
@@ -99,14 +109,18 @@ docpadConfig = {
 
 		# Fetch all documents that exist within the learn directory
 		learn: (database) ->
-			database.findAllLive({relativeOutDirPath:$startsWith:'learn'},[category:1,filename:1]).on('add', (document) ->
+			database.findAllLive({relativeOutDirPath:$startsWith:'learn'},[projectDirectory:1,categoryDirectory:1,filename:1]).on('add', (document) ->
 				a = document.attributes
 
-				project = pathUtil.basename pathUtil.resolve (pathUtil.dirname(a.fullPath) + '/..')
-				category = pathUtil.basename pathUtil.dirname(a.fullPath)
+				projectDirectory = pathUtil.basename pathUtil.resolve (pathUtil.dirname(a.fullPath) + '/..')
+				project = projectDirectory.replace(/^[\-0-9]+/,'')
+				categoryDirectory = pathUtil.basename pathUtil.dirname(a.fullPath)
+				category = categoryDirectory.replace(/^[\-0-9]+/,'')
 
 				a.layout ?= 'doc'
+				a.projectDirectory ?= projectDirectory
 				a.project ?= project
+				a.categoryDirectory ?= categoryDirectory
 				a.category ?= category
 			)
 

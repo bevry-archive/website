@@ -2,7 +2,6 @@
 title: "Beginner Guide"
 ---
 
-# Beginner Guide
 Welcome to the Beginner Guide to DocPad.
 
 
@@ -59,21 +58,21 @@ All _layouts_ are created in the `src/layouts` folder. They follow a simple nami
 ### Creating a default layout
 Create a `default.html.eco` file in the `src/layouts` directory, and paste in this small code:
 
-``` html
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title><%= @document.title or "Joe Doe's Site" %></title>
-  <link rel="stylesheet" href="/styles/style.css">
-</head>
-<body>
-<a href="/" class="logo">John Doe loves animals</a>
-<%- @content %>
-<footer>Copyright 2012 John Doe.</footer>
-</body>
-</html>
-```
+  ``` html
+  <!doctype html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @document.title or "Joe Doe's Site" %></title>
+    <link rel="stylesheet" href="/styles/style.css">
+  </head>
+  <body>
+  <a href="/" class="logo">John Doe loves animals</a>
+  <%- @content %>
+  <footer>Copyright 2012 John Doe.</footer>
+  </body>
+  </html>
+  ```
 
 The eco part, `<%- @content %>` tells DocPad to insert the page's content here, and the `<%= @document.title or "Joe Doe's Site" %>` part outputs our page's title, or if not present outputs `Joe Doe's Site`. All pages that use the `default` layout will be wrapped in this markup. Simple!
 

@@ -7,28 +7,30 @@ layout: page
 _ = @underscore
 docs = @docs
 learnCollection = @getCollection('learn')
+getTitle = @getTitle
 
 
 # Reference
 projects = _.uniq learnCollection.pluck('project')
 for project in  _.uniq learnCollection.pluck('project')
-	projectPagesCollection = learnCollection.findAll('project':project)
-	projectCategories = _.uniq projectPagesCollection.pluck('category')
+	pagesInProject = learnCollection.findAll({'project':project},{categoryDirectory:1})
+	categoriesInProject = _.uniq pagesInProject.pluck('category')
 
 	nav ".project-"+project, ->
 		h2 -> text "<t>text.project#{project}</t>"
 		section '.reference', ->
 			ul ->
 
-				for projectCategory in projectCategories
-					projectCategoryPagesCollection = projectPagesCollection.findAll({'category':projectCategory},[filename:1])
+				for projectCategory in categoriesInProject
+					pagesInProjectCategory = pagesInProject.findAll({'category':projectCategory},[filename:1])
 
 					li ->
 						h3 -> text "<t>text.category#{projectCategory}</t>"
 						ul ->
-							projectCategoryPagesCollection.forEach (page) ->
+							pagesInProjectCategory.forEach (page) ->
 								li ->
-									h4 '.title', page.get('name')
+									h4 '.title', ->
+										a href:page.get('url'), -> getTitle(page)
 
 
 # Reference
@@ -51,55 +53,6 @@ text """
 	[Heroku Cheat Sheet](/) (PDF)
 	</t>
 	"""
-
-
-# Reference
-h2 "Reference"
-section '.reference', ->
-	ul ->
-		for own chapter,contents of docs['Reference']
-			li ->
-				span '.title', chapter
-				if contents
-					ul ->
-						for own _chapter,_contents of contents
-							li ->
-								span '.title', _chapter
-
-# Guides
-h2 "Guides"
-section '.guides', ->
-	ul ->
-		for own chapter,contents of docs['Guides']
-			li ->
-				span '.title', chapter
-				if contents
-					ol ->
-						for own _chapter,_contents of contents
-							li ->
-								span '.title', _chapter
-
-# Book
-h2 "Book"
-section '.book', ->
-
-	bookChapters = """
-		Getting Started
-		Git Basics
-		Git Branching
-		Git on the Server
-		Distributed GitGit Tools
-		Customizing GitGit and Other Systems
-		Git Internals
-		Index of Commands
-		""".split /\s*\n\s*/
-	ol ->
-		li bookChapter  for bookChapter in bookChapters
-
-	footer '.footnote', ->
-		"""
-		Book information and downloads
-		"""
 
 
 # Videos
