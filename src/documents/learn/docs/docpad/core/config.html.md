@@ -1,10 +1,26 @@
-# Prepare
-pathUtil = require('path')
-_ = require('underscore')
-moment = require('moment')
-strUtil = require('underscore.string')
-textData = require(__dirname+'/app/text.coffee')
+---
+title: "Configuration"
+---
 
+## Configuration Files
+
+The DocPad configuration file sits within the root of your DocPad project and be named as one of the following. Each name provides a special meaing. Here are the valid names:
+
+- `docpad.js` a node javascript file, will generally look like: `module.exports = {/*the configuration*/}`
+- `docpad.json` a json file, does not allow functions, will generally look like: `{/*the configuration*/}`
+- `docpad.coffee` a node coffeescript file, will generally look like: `module.exports = /*the configuration*/`
+- `docpad.cson` a [cson](https://github.com/bevry/cson) file, will generally look like: `/*the configuration*/`
+
+The advantage of `docpad.js` and `docpad.coffee` over `docpad.json` and `docpad.cson` is that they allow us to declare functions, as well as call functions. However, for instances where we cannot trust the contents of the configuration files you would want to use the `docpad.json` or `docpad.cson` as they can't do anything naughty.
+
+The advantage of `docpad.coffee` and `docpad.cson` over `docpad.js` and `docpad.json` is that they allow us to use the CoffeeScript syntax which is a lot more leaniant.
+
+Generally, you'll usually always find either a `docpad.coffee` file or a `docpad.cson` file.
+
+
+### Example `docpad.coffee` file
+
+``` coffeescript
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
@@ -16,24 +32,13 @@ docpadConfig = {
 
 	templateData:
 
-		# -----------------------------
-		# Misc
-
-		underscore: _
-		strUtil: strUtil
-		moment: moment
-		docs: require(__dirname+'/app/docs.coffee')
-		text: textData
-
-		# -----------------------------
-		# Site Properties
-
+		# Specify some site properties
 		site:
 			# The production url of our website
-			url: "http://bevry.me"
+			url: "http://website.com"
 
 			# The default title of our website
-			title: "Bevry"
+			title: "Your Website"
 
 			# The website description (for SEO)
 			description: """
@@ -43,26 +48,6 @@ docpadConfig = {
 			# The website keywords (for SEO) separated by commas
 			keywords: """
 				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
-				"""
-
-
-		# -----------------------------
-		# Text
-		link:
-			historyjs: """
-				<a href="http://historyjs.net">History.js</a>
-				"""
-			docpad: """
-				<a href="http://docpad.org">DocPad</a>
-				"""
-			cclicense: """
-				<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</a>
-				"""
-			salesemail: """
-				<a href="mailto:sales@bevry.me">sales@bevry.me</a>
-				"""
-			salesphone:  """
-				<a href="callto:+61280062364">+61 (2) 8006 2364</a>
 				"""
 
 
@@ -91,37 +76,27 @@ docpadConfig = {
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
 
-
 	# =================================
-	# Collections
+	# Plugins
 
-	collections:
+	# Enabled Plugins
+	enabledPlugins:
+		# Disable the Pokemon Plugin
+		pokemon: false
 
-		# Fetch all documents that exist within the learn directory
-		learn: (database) ->
-			database.findAllLive({relativeOutDirPath:$startsWith:'learn'},[category:1,filename:1]).on('add', (document) ->
-				a = document.attributes
+	# Configure Plugins
+	plugins:
 
-				project = pathUtil.basename pathUtil.resolve (pathUtil.dirname(a.fullPath) + '/..')
-				category = pathUtil.basename pathUtil.dirname(a.fullPath)
-
-				a.layout ?= 'doc'
-				a.project ?= project
-				a.category ?= category
-			)
-
-		# Fetch all documents that have pageOrder set within their meta data
-		pages: (database) ->
-			database.findAllLive({relativeOutDirPath:'pages'},[filename:1])
-
-		# Fetch all documents that have the tag "post" specified in their meta data
-		posts: (database) ->
-			database.findAllLive({relativeOutDirPath:'posts'},[date:-1])
+		# Disable NIB in the Stylus Plugin
+		stylus:
+			useNib: false
 
 
 	# =================================
 	# DocPad Events
 
+	# Here we can define handlers for events that DocPad fires
+	# You can find a full listing of events on the DocPad Wiki
 	events:
 
 		# Server Extend
@@ -131,19 +106,16 @@ docpadConfig = {
 			{server} = opts
 			docpad = @docpad
 
-			# Forward to our application routing
-			require(__dirname+'/app/routes.coffee')({docpad,server})
-
-
 	# =================================
-	# Plugin Configuration
+	# Environments
 
-	plugins:
+	environments:
+	
+		development:
 
-		marked:
-			markedOptions:
-				sanitize: false
+			# anything here will be merged with the top-level (production) configuration if we are running inside the development environment
 }
 
 # Export our DocPad Configuration
 module.exports = docpadConfig
+```

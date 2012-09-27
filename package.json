@@ -1,17 +1,9 @@
 {
-  "name": "html5-boilerplate.docpad",
+  "name": "bevry-wesite",
   "version": "0.1.0",
   "private": true,
-  "description": "HTML5 Boilerplate skeleton for DocPad. Bare essentials for building a modern website with best practices.",
-  "homepage": "https://github.com/docpad/html5-boilerplate.docpad",
-  "keywords": [
-    "docpad-skeleton",
-    "docpad",
-    "website",
-    "skeleton",
-    "html5 boilerplate",
-    "h5bp"
-  ],
+  "description": "The Bevry Website",
+  "homepage": "https://github.com/bevry/bevry-website",
   "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
   "maintainers": [
     "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
@@ -20,11 +12,11 @@
     "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
   ],
   "bugs": {
-    "url": "https://github.com/docpad/html5-boilerplate.docpad/issues"
+    "url": "https://github.com/bevry/bevry-website/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/docpad/html5-boilerplate.docpad.git"
+    "url": "http://github.com/bevry/bevry-website.git"
   },
   "engines": {
     "node": "0.8.x",
@@ -38,7 +30,7 @@
     "docpad-plugin-partials": "2.x",
     "docpad-plugin-stylus": "2.x",
     "docpad-plugin-text": "2.x",
-    "moment": "~1.7.0"
+    "moment": "1.7.x"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x"

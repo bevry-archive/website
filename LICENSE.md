@@ -1,1 +1,1 @@
-Your website's license should go here
+© Bevry Pty Ltd. All rights reserved.

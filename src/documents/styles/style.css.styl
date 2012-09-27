@@ -135,6 +135,15 @@ a:hover,.hover-link:hover
 		position: absolute
 		right: 0
 		bottom: 0
+		cursor: pointer
+		.icon
+			display: inline-block
+			transform: rotate(-180deg)
+			transition: all 0.5s
+		&:hover
+			.icon
+				transform: rotate(-90deg)
+
 
 .sidebar
 	position: absolute

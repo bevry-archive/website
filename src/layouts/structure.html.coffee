@@ -7,7 +7,9 @@ div '.container', ->
 		h1 '.heading.hover-link', 'data-href':'/', ->
 			@text['heading']
 		h2 '.subheading', @text['subheading']
-		h3 '.account', @text['myaccount']
+		h3 '.account', ->
+			span '.text', @text['myaccount']
+			span '.icon', -> '▴'
 
 	div '.sidebar', ->
 		nav '.navbar', ->
