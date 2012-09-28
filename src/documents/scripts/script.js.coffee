@@ -15,10 +15,19 @@ $ ->
 		else
 			window.location.href = href
 
+	# Sidebar fadeout
+	$sidebar = $('.sidebar')
+	$sidebar.animate({opacity:0.5},3000).hover(
+		->
+			$sidebar.stop(true,false).animate({opacity:1},500)
+		->
+			$sidebar.stop(true,false).animate({opacity:0.5},2000)
+	)
+
 	# Special handling for long docs
 	$docSectionWrapper = $('<div class="section-wrapper">')
 	$docSectionWrappers = null
-	$('article.block h2').addClass('hover-link').each(->
+	$('article.block.doc h2').addClass('hover-link').each(->
 		$h2 = $(this)
 		$h2.nextUntil('h2').wrapAll($docSectionWrapper)
 	).click(->

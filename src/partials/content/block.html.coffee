@@ -1,8 +1,8 @@
 # Prepare
-{heading,subheading,content} = @
+{heading,subheading,content,className} = @
 
 # Render
-article ".block", ->
+article ".block"+(if className then ".#{className}" else ""), ->
 	header ".block-header", ->
 		h1 heading
 		if subheading
