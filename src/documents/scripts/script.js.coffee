@@ -35,18 +35,23 @@ $ ->
 	# Docnav
 	$docnavUp.addClass('active').click ->
 		$current = $docHeaders.filter('.current')
-		$prev = $current.prevAll('h2:first')
-		if $prev.length
-			$prev.click()
-		else
-			$body.ScrollTo()
+		if $current.length
+			$prev = $current.prevAll('h2:first')
+			if $prev.length
+				$prev.click()
+			else
+				$docHeaders.filter('.current').removeClass('current')
+				$body.ScrollTo()
 	$docnavDown.addClass('active').click ->
 		$current = $docHeaders.filter('.current')
-		$next = $current.nextAll('h2:first')
-		if $next.length
-			$next.click()
+		if $current.length
+			$next = $current.nextAll('h2:first')
+			if $next.length
+				$next.click()
+			else
+				$current.click()
 		else
-			$current.click()
+			$docHeaders.first().click()
 
 	# Listen to history.js page changes
 	$window.on 'statechangecomplete', ->
