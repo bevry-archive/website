@@ -34,30 +34,19 @@ $ ->
 
 	# Docnav
 	$docnavUp.addClass('active').click ->
-		$lastHeader = null
-		$docHeaders.each ->
-			$header = $(this)
-			if $header.offset().top < window.scrollY
-				$lastHeader = $header
-			else
-				return false
-		if $lastHeader
-			$lastHeader.click()
+		$current = $docHeaders.filter('.current')
+		$prev = $current.prevAll('h2:first')
+		if $prev.length
+			$prev.click()
 		else
 			$body.ScrollTo()
-
 	$docnavDown.addClass('active').click ->
-		if $docSections.filter('.active:last').nextAll('h2:first').click().length is 0
-			$lastHeader = null
-			$docHeaders.each ->
-				$header = $(this)
-				if $header.offset().top > (window.scrollY + (window.innerHeight or document.documentElement.clientHeight))
-					$lastHeader = $header
-					return false
-			if $lastHeader
-				$lastHeader.click()
-			else
-				$body.ScrollTo()
+		$current = $docHeaders.filter('.current')
+		$next = $current.nextAll('h2:first')
+		if $next.length
+			$next.click()
+		else
+			$current.click()
 
 	# Listen to history.js page changes
 	$window.on 'statechangecomplete', ->
@@ -71,13 +60,16 @@ $ ->
 					$header = $(this)
 					$header.nextUntil('h2').wrapAll($docSectionWrapper.clone().attr('id','h2-'+index))
 				.click (event,opts) ->
+					$docHeaders.filter('.current').removeClass('current')
 					$header = $(this)
-					$header
+						.addClass('current')
+						.stop(true,false).css({'opacity':0.5}).animate({opacity:1},1000)
 						.prevAll('.section-wrapper')
 							.addClass('active')
 							.end()
 						.next('.section-wrapper')
 							.addClass('active')
+							.end()
 					$header.ScrollTo()  if !opts or opts.scroll isnt false
 			$docSections = $article.find('.section-wrapper')
 			$docHeaders.first().trigger('click',{scroll:false})
