@@ -1,5 +1,5 @@
 # Prepare
-{moment,items,activeItemID,activeClassname,inactiveClassname,type,showDate,showDescription,showContent,emptyText,dateFormat} = @
+{classname,moment,items,activeItemID,activeClassname,inactiveClassname,type,showDate,showDescription,showContent,emptyText,dateFormat} = @
 activeClassname ?= 'active'
 inactiveClassname ?= 'inactive'
 type or= 'items'
@@ -10,7 +10,7 @@ emptyText or= "empty"
 dateFormat or= "YYYY-MM-DD"
 
 # Document List
-nav ".list-#{type}", "typeof":"dc:collection", ->
+nav ".list-#{type}"+(if classname then "."+classname else ''), "typeof":"dc:collection", ->
 	# Empty
 	unless items.length
 		p ".list-#{type}-empty", ->

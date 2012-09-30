@@ -12,17 +12,22 @@ div '.container', ->
 			span '.icon', -> '▴'
 
 	div '.sidebar', ->
-		nav '.navbar', ->
-			text @partial('list/menu.html.coffee',{
-				items: @getCollection('pages').toJSON()
-				activeItemID: @document.id
-				partial: @partial
-				moment: @moment
-			})
+		text @partial('list/menu.html.coffee',{
+			classname: "navbar"
+			items: @getCollection('pages').toJSON()
+			activeItemID: @document.id
+			partial: @partial
+			moment: @moment
+		})
 
-	div '.mainbar', ->
+	div '#content.mainbar', ->
 		@content
 
 	footer ".bottombar", ->
 		p ".copyright", @text['copyright']
 		p ".poweredby", @text['poweredby']
+
+	aside '.specialbar', ->
+		nav ".docnav", ->
+			div ".up", -> '⇧'
+			div ".down", -> '⇧'

@@ -44,6 +44,25 @@ docpadConfig = {
 				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
 				"""
 
+			# Styles
+			styles: [
+				'/vendor/highlight.css'
+				'/vendor/normalize.css'
+				'/vendor/h5bp.css'
+				'/styles/style.css'
+			]
+
+			# Scripts
+			scripts: [
+				"/vendor/log.js"
+				"/vendor/jquery.scrollto.js"
+				"/vendor/modernizr.js"
+				'/vendor/underscore.string.js'
+				'/vendor/bootstrap-scrollspy.js'
+				"http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"
+				"http://gist.github.com/raw/854622/ajaxify-html5.js"
+				"/scripts/script.js"
+			]
 
 		# -----------------------------
 		# Text

@@ -47,7 +47,7 @@ colorMenu = #403931
 colorNav = colorHeading
 colorSubnav = colorMenu
 colorBlockHeading = colorSubheading
-colorAccent = #F44D27
+colorAccent = hsl(11, 90%, 55%)
 colorActive = colorAccent
 colorLink = hsl(195, 85%, 34%) // hsl(195, 100%, 35%)
 colorContent = #4C4439
@@ -194,6 +194,11 @@ a:hover,.hover-link:hover
 					margin-top: 0
 				.subblock
 					padding: 3em 3em 2em
+		.section-wrapper
+			display:none
+			&.active
+				display:block
+
 
 		h1
 			margin-bottom: -1em
@@ -263,6 +268,28 @@ a:hover,.hover-link:hover
 	.copyright
 		opacity: 0.5
 		float:right
+
+.specialbar
+	.docnav
+		position: fixed
+		bottom: 1em
+		right: 1em
+		display: none
+		&.active
+			display: block
+		.up,.down
+			font-size: 30px
+			transition: all 0.2s ease-out
+			color: hsla(0, 0%, 0%, 0.05)
+			&.active
+				cursor: pointer
+				color: hsla(0, 0%, 0%, 0.1)
+				&:hover
+					color: colorAccent
+					opacity: 0.5
+					text-shadow: 0 -2px 3px hsla(0, 0%, 0%, 0.2)
+		.down
+			transform: rotate(-180deg)
 
 .clear
 	clear: both
