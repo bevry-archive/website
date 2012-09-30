@@ -12,10 +12,10 @@ module.exports = (opts) ->
 	# Projects
 	server.get /^\/(?:g|gh|github)(?:\/(.*))?$/, (req, res) ->
 		project = req.params[0] or ''
-		res.redirect("https://github.com/bevry/#{project}", 301)
+		res.redirect(301, "https://github.com/bevry/#{project}")
 
 	# Twitter
-	server.get /^\/(?:t|twitter|tweet)\/?.*$/, redirect("https://twitter.com/bevryme", 301)
+	server.get /^\/(?:t|twitter|tweet)\/?.*$/, redirect("https://twitter.com/bevryme")
 
 	# Facebook
 	server.get /^\/(?:f|facebook)\/?.*$/, redirect("https://www.facebook.com/bevryme")

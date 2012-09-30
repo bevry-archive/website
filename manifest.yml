@@ -5,10 +5,10 @@ applications:
     framework:
       name: node
       info:
-        mem: 64M
+        mem: 128M
         description: Node.js Application
-        exec: 
+        exec:
     infra: ap-aws
     url: ${name}.${target-base}
-    mem: 64M
+    mem: 128M
     instances: 1

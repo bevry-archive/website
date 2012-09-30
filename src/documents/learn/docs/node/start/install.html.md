@@ -17,87 +17,85 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 
 3. ### Install Node.js
 
-	#### Via the Node.js Official Installer
+	- #### Via the Official Node.js Installer
 
-	1. The simplest and official way to install Node.js
+		1. The simplest and official way to install Node.js
 
-	1. Uninstall any previous Node.js versions you may already have
+		1. Uninstall any previous Node.js versions you may already have
 
-	1. [Download & Install Node.js](http://nodejs.org/#download)
+		1. [Download & Install Node.js](http://nodejs.org/#download)
 
+	-  #### Via [Node Version Manager](https://github.com/creationix/nvm)
 
-	#### Via [Node Version Manager](https://github.com/creationix/nvm)
+		1. NVM allows you to run multiple Node.js versions on the same machine
 
-	1. NVM allows you to run multiple Node.js versions on the same machine
+		1. Uninstall any previous Node.js versions may already have
 
-	1. Uninstall any previous Node.js versions may already have
-
-	1. Prepare Permissions
-
-		``` bash
-		sudo chown -R $USER /usr/local
-		```
-
-	1. Install NVM
-
-		1. Clone NVM
+		1. Prepare Permissions
 
 			``` bash
-			git clone git://github.com/creationix/nvm.git ~/.nvm
+			sudo chown -R $USER /usr/local
 			```
 
-		2. Add the following to your `~/.bashrc` file
+		1. Install NVM
+
+			1. Clone NVM
+
+				``` bash
+				git clone git://github.com/creationix/nvm.git ~/.nvm
+				```
+
+			2. Add the following to your `~/.bashrc` file
+
+				``` bash
+				# NVM
+				if [ -s ~/.nvm/nvm.sh ]; then
+					source ~/.nvm/nvm.sh
+				fi
+				```
+
+			3. Open a new terminal window or run `source ~/.nvm/nvm.sh`
+
+		1. Install Node.js
 
 			``` bash
-			# NVM
-			if [ -s ~/.nvm/nvm.sh ]; then
-				source ~/.nvm/nvm.sh
-			fi
+			nvm install v0.8.9
+			nvm alias default 0.8
+			nvm use 0.8
 			```
 
-		3. Open a new terminal window or run `source ~/.nvm/nvm.sh`
+	- #### Via Direct Install
 
-	1. Install Node.js
+		1. It's the most robust solution, but also requires the most maintenance
 
-		``` bash
-		nvm install v0.8.9
-		nvm alias default 0.8
-		nvm use 0.8
-		```
+		1. Run the following
 
-
-	#### Via Direct Install
-
-	1. It's the most robust solution, but also requires the most maintenance
-
-	1. Run the following
-
-		``` bash
-		export node_version_to_install='v0.8.9'
-		curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
-		```
+			``` bash
+			export node_version_to_install='v0.8.9'
+			curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
+			```
 
 
 ## On Apt Linux (e.g. Ubuntu)
 
-1. Run the following
+Run the following
 
-	``` bash
-	sudo apt-get update && sudo apt-get install curl build-essential openssl libssl-dev git python
-	export node_version_to_install='v0.8.9'
-	curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
-	```
+``` bash
+sudo apt-get update && sudo apt-get install curl build-essential openssl libssl-dev git python
+export node_version_to_install='v0.8.9'
+curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
+```
 
 
 ## On Yum Linux (e.g. Fedora)
 
-1. Run the following
+Run the following
 
-	``` bash
-	sudo yum -y install tcsh scons gcc-c++ glibc-devel openssl-devel git python
-	export node_version_to_install='v0.8.9'
-	curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
-	```
+``` bash
+sudo yum -y install tcsh scons gcc-c++ glibc-devel openssl-devel git python
+export node_version_to_install='v0.8.9'
+curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
+```
 
 
 ## On Windows

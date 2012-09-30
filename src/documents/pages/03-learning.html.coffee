@@ -10,29 +10,40 @@ learnCollection = @getCollection('learn')
 getTitle = @getTitle
 
 
-# Reference
-projects = _.uniq learnCollection.pluck('project')
-for project in  _.uniq learnCollection.pluck('project')
-	pagesInProject = learnCollection.findAll({'project':project},{categoryDirectory:1})
-	categoriesInProject = _.uniq pagesInProject.pluck('category')
+# Prepare
+section '.reference', ->
 
-	nav ".project-"+project, ->
-		h2 -> text "<t>text.project#{project}</t>"
-		section '.reference', ->
-			ul ->
+	# Projects
+	nav ".projects", ->
+		projects = _.uniq learnCollection.pluck('project')
+		for project in  _.uniq learnCollection.pluck('project')
+			pagesInProject = learnCollection.findAll({'project':project},{categoryDirectory:1})
+			categoriesInProject = _.uniq pagesInProject.pluck('category')
 
-				for projectCategory in categoriesInProject
-					pagesInProjectCategory = pagesInProject.findAll({'category':projectCategory},[filename:1])
+			# Project
+			li ".project.subblock", ->
+				h2 -> text "<t>text.project#{project}</t>"
 
-					li ->
-						h3 -> text "<t>text.category#{projectCategory}</t>"
-						ul ->
-							pagesInProjectCategory.forEach (page) ->
-								li ->
-									h4 '.title', ->
-										a href:page.get('url'), -> getTitle(page)
+				# Categories
+				nav ".categories", ->
+					for projectCategory in categoriesInProject
+						pagesInProjectCategory = pagesInProject.findAll({'category':projectCategory},[filename:1])
+
+						# Category
+						li ".category", ->
+							h3 -> text "<t>text.category#{projectCategory}</t>"
+
+							# Pages
+							nav ".pages", ->
+								pagesInProjectCategory.forEach (page) ->
+
+									# Page
+									li ".page", ->
+										h4 '.title', ->
+											a href:page.get('url'), -> getTitle(page)
 
 
+###
 # Reference
 h2 "Reference"
 text @partial "content/subblock.html.coffee", {
@@ -57,3 +68,4 @@ text """
 
 # Videos
 h2 "Videos"
+###
