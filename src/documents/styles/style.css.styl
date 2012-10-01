@@ -116,6 +116,24 @@ a:hover,.hover-link:hover
 	text-decoration: underline
 	cursor: pointer
 
+.icon-up
+	padding: 0.2em 0 0 0
+	font-size: 0.8em
+	display: inline-block
+	transform: rotate(90deg)
+	&:before
+		content: '↵'
+
+.icon-prev
+	display: inline-block
+	&:before
+		content: '⟵'
+
+.icon-next
+	display: inline-block
+	&:before
+		content: '⟶'
+
 .container
 	margin: 2em 5%
 	position: relative
@@ -173,8 +191,31 @@ a:hover,.hover-link:hover
 	.block
 		border-radius: 8px
 		color: colorContent
-		padding: 1em 4% 2em
+		padding: 4em 4% 1em
 		margin-bottom: 4em
+
+		.block-header
+			position: relative
+
+			&:hover
+				.up
+					opacity: 1
+
+			.up
+				font-size: 16px
+				opacity: 0.1
+				transition: opacity 0.2s ease-out
+				position: absolute
+				left: -0.8em
+				top: -2em
+				padding: 0.5em 0
+				&:hover
+					text-decoration: none
+					.title
+						text-decoration: underline
+
+			h1
+				margin-top: 0
 
 		.block-content
 			margin-top: 3em
@@ -194,6 +235,46 @@ a:hover,.hover-link:hover
 					margin-top: 0
 				.subblock
 					padding: 3em 3em 2em
+
+		.block-footer
+			.prev-next
+				position: relative
+				height: 80px
+
+				.prev,.next
+					display: block
+					position: absolute
+					bottom: 0
+					height: 50px
+					width: 50%
+					transition: opacity 0.2s ease-out
+					opacity: 0.15
+					&:hover
+						opacity: 1
+						.title
+							text-decoration: underline
+				.prev, .prev .title
+					left: 0
+				.next, .next .title
+					text-align: right
+					right: 0
+
+				.icon-prev, .icon-next
+					display: block
+					position: absolute
+					font-size: 0.7em
+					bottom: 30px
+				.icon-prev
+					left: 0
+				.icon-next
+					right: 0
+
+				.title
+					display: block
+					position: absolute
+					bottom: 10px
+
+
 		.section-wrapper
 			display:none
 			&.active
