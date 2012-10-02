@@ -1,7 +1,3 @@
----
-title: "Troubleshooting"
----
-
 ## Common Problems
 
 ### I'm getting "We couldn't find an existing DocPad project inside your current directory..."

@@ -9,12 +9,12 @@ textData = require(__dirname+'/app/text.coffee')
 # =================================
 # Helpers
 
-# Get a Document Title
+# Titles
 getTitle = (document) ->
 	title = document.get('title') or humanize document.get('name')
 	title
-
-# Humanize
+getProjectTitle = (project) -> textData["project"+project] ? humanize(project)
+getCategoryTitle = (category) -> textData["category"+category] ? humanize(category)
 humanize = (text) ->
 	return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
 
@@ -106,6 +106,13 @@ docpadConfig = {
 		# -----------------------------
 		# Helper Functions
 
+		# Titles
+		getTitle: (document) ->
+			document ?= @document
+			return getTitle(document)
+		getProjectTitle: getProjectTitle
+		getCategoryTitle: getCategoryTitle
+
 		# Get the prepared site/document title
 		# Often we would like to specify particular formatting to our page's title
 		# we can apply that formatting here
@@ -140,11 +147,11 @@ docpadConfig = {
 				a = document.attributes
 
 				projectDirectory = pathUtil.basename pathUtil.resolve (pathUtil.dirname(a.fullPath) + '/..')
-				project = projectDirectory.replace(/^[\-0-9]+/,'')
-				projectTitle = textData["project#{project}"] or project
+				project = projectDirectory.replace(/[\-0-9]+/,'')
+				projectTitle = getProjectTitle(project)
 				categoryDirectory = pathUtil.basename pathUtil.dirname(a.fullPath)
 				category = categoryDirectory.replace(/^[\-0-9]+/,'')
-				categoryTitle = textData["category#{category}"] or category
+				categoryTitle = getCategoryTitle(category)
 				#url = "/learn/#{project}-#{category}-#{a.basename}"
 
 				a.title ?= getTitle(document)

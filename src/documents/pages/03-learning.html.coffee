@@ -7,7 +7,7 @@ layout: page
 _ = @underscore
 docs = @docs
 learnCollection = @getCollection('learn')
-
+{getProjectTitle,getCategoryTitle} = @
 
 # Prepare
 section '.reference', ->
@@ -20,8 +20,8 @@ section '.reference', ->
 			categoriesInProject = _.uniq pagesInProject.pluck('category')
 
 			# Project
-			li ".project.subblock", ->
-				h2 -> text "<t>text.project#{project}</t>"
+			li "#project-#{project}.project.subblock", ->
+				h2 -> getProjectTitle(project)
 
 				# Categories
 				nav ".categories", ->
@@ -29,8 +29,8 @@ section '.reference', ->
 						pagesInProjectCategory = pagesInProject.findAll({'category':projectCategory},[filename:1])
 
 						# Category
-						li ".category", ->
-							h3 -> text "<t>text.category#{projectCategory}</t>"
+						li "#project-#{project}-category-#{projectCategory}-.category", ->
+							h3 -> getCategoryTitle(projectCategory)
 
 							# Pages
 							nav ".pages", ->
