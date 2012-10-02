@@ -4,7 +4,7 @@ module.exports = {
 	myaccount: "My Account"
 	poweredby: """
 		<a class="hover-link" href="http://docpad.org">
-			Created with love and affection using <a>DocPad</a>
+			Created with love and affection using <span class="link">DocPad</span>
 		</a>
 		"""
 	copyright: """
