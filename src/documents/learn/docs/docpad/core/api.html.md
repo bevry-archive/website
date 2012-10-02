@@ -19,7 +19,7 @@ Firstly, you need to create your DocPad instance, you can do this like so:
 ``` javascript
 var docpadInstanceConfiguration = {};
 require('docpad').createInstance(docpadInstanceConfiguration, function(err,docpadInstance){
-	if (err)  return console.log(err.stack);
+	if (err)	return console.log(err.stack);
 	// ...
 });
 ```
@@ -63,7 +63,7 @@ Here is how you would normalise common tasks you would typically achieve with th
 
 ``` javascript
 docpadInstance.action('generate', function(err,result){
-	if (err)  return console.log(err.stack);
+	if (err)	return console.log(err.stack);
 	console.log('OK');
 });
 ```
@@ -73,7 +73,7 @@ docpadInstance.action('generate', function(err,result){
 
 ``` javascript
 docpadInstance.action('server', function(err,result){
-	if (err)  return console.log(err.stack);
+	if (err)	return console.log(err.stack);
 	console.log('OK');
 });
 ```
@@ -84,7 +84,7 @@ You can combine actions by separating them with a space, like so:
 
 ``` javascript
 docpadInstance.action('generate server', function(err,result){
-	if (err)  return console.log(err.stack);
+	if (err)	return console.log(err.stack);
 	console.log('OK');
 });
 ```
@@ -93,7 +93,7 @@ docpadInstance.action('generate server', function(err,result){
 
 ``` javascript
 docpadInstance.action('generate watch', function(err,result){
-	if (err)  return console.log(err.stack);
+	if (err)	return console.log(err.stack);
 	console.log('OK');
 });
 ```
@@ -123,4 +123,53 @@ resultCollection = docpadInstance.getFiles(query,sorting,paging);
 resultModel = docpadInstance.getFile(query,sorting,paging);
 resultCollection = docpadInstance.getFilesAtPath(path,sorting,paging);
 resultModel = docpadInstance.getFileAtPath(path,sorting,paging);
+```
+
+
+
+## Using with Express
+
+If you already have an Express.js application, you can do the following to just stick DocPad straight ontop of it:
+
+``` javascript
+// Create Server and Express Application
+var express = require('express');
+var http = require('http');
+var app = express();
+var server = http.createServer(app).listen(80);
+
+// Add our Application Stuff
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(app.router);
+
+// Add DocPad to our Application
+var docpadInstanceConfiguration = {
+	// Give it our express application and http server
+	serverExpress: app,
+	serverHttp: server,
+	// Tell it not to load the standard middlewares (as we handled that above)
+	middlewareStandard: false
+};
+var docpadInstance = require('docpad').createInstance(docpadInstanceConfiguration, function(err){
+	if (err)	return console.log(err.stack);
+	// Tell DocPad to perform a generation, extend our server with its routes, and watch for changes
+	docpad.action('generate server watch', function(err){
+		if (err)	return console.log(err.stack);
+	});
+});
+
+// Continue with your application
+// ...
+```
+
+Here is some code for manually rendering a document (documents are files inside `src/documents`) with a custom route:
+
+``` javascript
+app.get '/alias-for-home', (req,res,next) ->
+	req.templateData = {
+		weDidSomeCustomRendering: true
+	};
+	var document = docpadInstance.getFile({relativePath:'home.html.md'});
+	docpadInstance.serveDocument({document,req,res,next});
 ```

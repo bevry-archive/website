@@ -4,9 +4,9 @@
 
 	> - myWebsite
 		- src
-		     - documents
-		     - files
-		     - layouts
+			 - documents
+			 - files
+			 - layouts
 
 1. Install a few plugins:
 

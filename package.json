@@ -23,14 +23,17 @@
     "npm": "1.1.x"
   },
   "dependencies": {
-    "docpad": ">=6.6.7 <7",
+    "docpad": ">=6.7.0 <7",
     "docpad-plugin-coffeescript": "2.x",
     "docpad-plugin-eco": "2.x",
     "docpad-plugin-marked": "2.x",
     "docpad-plugin-partials": "2.x",
     "docpad-plugin-stylus": "2.x",
     "docpad-plugin-text": "2.x",
-    "moment": "1.7.x"
+    "moment": "1.7.x",
+    "underscore": "~1.4.1",
+    "underscore.string": "~2.3.0",
+    "docpad-plugin-coffeekup": "~2.1.2"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x"

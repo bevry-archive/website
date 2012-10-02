@@ -33,7 +33,7 @@ Websites built with DocPad. Alphabetically sorted.
 - [Ferrari!=Ferrari](http://ferrari.github.com/) - [source](https://github.com/Ferrari/ferrari.docpad) - Chinese: A development blog
 - [FooUnit](http://foounit.org) - Test your javascript everywhere!
 - [Game-Icons](http://game-icons.net) - Heaps of free SVG icons
-- [GeorgeOsd](http://george-osd-site.cloudfoundry.com/)  - Hi there, my name is Takeharu.Oshida(GeorgeOsd)
+- [GeorgeOsd](http://george-osd-site.cloudfoundry.com/)	- Hi there, my name is Takeharu.Oshida(GeorgeOsd)
 welcome to my online portfolio
 - [HTML UI](http://htmlui.com/index.html) - Website all about frontend development
 - [Imaginatr](http://www.imaginatr.com/) - Imaginatr is a creative independent studio focused on the development of mobile applications and innovative software

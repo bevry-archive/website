@@ -58,21 +58,21 @@ All _layouts_ are created in the `src/layouts` folder. They follow a simple nami
 ### Creating a default layout
 Create a `default.html.eco` file in the `src/layouts` directory, and paste in this small code:
 
-  ``` html
-  <!doctype html>
-  <html>
-  <head>
-    <meta charset="utf-8">
-    <title><%= @document.title or "Joe Doe's Site" %></title>
-    <link rel="stylesheet" href="/styles/style.css">
-  </head>
-  <body>
-  <a href="/" class="logo">John Doe loves animals</a>
-  <%- @content %>
-  <footer>Copyright 2012 John Doe.</footer>
-  </body>
-  </html>
-  ```
+``` html
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><%= @document.title or "Joe Doe's Site" %></title>
+<link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+<a href="/" class="logo">John Doe loves animals</a>
+<%- @content %>
+<footer>Copyright 2012 John Doe.</footer>
+</body>
+</html>
+```
 
 The eco part, `<%- @content %>` tells DocPad to insert the page's content here, and the `<%= @document.title or "Joe Doe's Site" %>` part outputs our page's title, or if not present outputs `Joe Doe's Site`. All pages that use the `default` layout will be wrapped in this markup. Simple!
 
@@ -117,10 +117,10 @@ title: "John Doe loves animals"
 ---
 
 <article>
-  <h2>My favorite animal : the cat !</h2>
+	<h2>My favorite animal : the cat !</h2>
 
-  <div class="date">written on <span class="date">2012-05-19</span></div>
-  <p>Who doesn't love cats ? </p>
+	<div class="date">written on <span class="date">2012-05-19</span></div>
+	<p>Who doesn't love cats ? </p>
 </article>
 ```
 
@@ -132,17 +132,17 @@ Here we're asking DocPad to use the `default` layout we created before for this 
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>John Doe loves animals</title>
-  <link rel="stylesheet" href="/css/styles.css">
+	<meta charset="utf-8">
+	<title>John Doe loves animals</title>
+	<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <a href="/" class="logo">John Doe loves animals</a>
 <article>
-  <h2>My favorite animal : the cat !</h2>
+	<h2>My favorite animal : the cat !</h2>
 
-  <div class="date">written on <span class="date">2012-05-19</span></div>
-  <p>Who doesn't love cats ? </p>
+	<div class="date">written on <span class="date">2012-05-19</span></div>
+	<p>Who doesn't love cats ? </p>
 </article>
 <footer>Copyright 2012 John Doe.</footer>
 </body>
@@ -215,14 +215,14 @@ To use a document's metadata in the document itself, we need to use the Eco temp
 
 ``` html
 <article>
-  <h2><%= @document.title %></h2>
+	<h2><%= @document.title %></h2>
 
-  <div class="date">written on <span class="date"><%= @document.date.toShortDateString() %></span></div>
-  <p>Who doesn't love cats ? </p>
+	<div class="date">written on <span class="date"><%= @document.date.toShortDateString() %></span></div>
+	<p>Who doesn't love cats ? </p>
 </article>
 ```
 
-Notice that we replaced the title wrapped in the `h2` tags by `<%= @document.title %>`, and the date by `<%= @document.date.toShortDateString() %>`. We're basically asking DocPad to use its metadata. Regarding the date, if we had written `<%= @document.date %>` the result would have been _Sat May 19 2012 02:00:00 GMT+0200 (CEST)_. It's because DocPad makes use of dates internally, but it offers a few helper functions to display dates in a fancier manner. Using `<%= @document.date.toShortDateString() %>` will display _May 19 2012_,  which is much nicer, right ?
+Notice that we replaced the title wrapped in the `h2` tags by `<%= @document.title %>`, and the date by `<%= @document.date.toShortDateString() %>`. We're basically asking DocPad to use its metadata. Regarding the date, if we had written `<%= @document.date %>` the result would have been _Sat May 19 2012 02:00:00 GMT+0200 (CEST)_. It's because DocPad makes use of dates internally, but it offers a few helper functions to display dates in a fancier manner. Using `<%= @document.date.toShortDateString() %>` will display _May 19 2012_,	which is much nicer, right ?
 
 
 #### Metadata in the layout
@@ -266,10 +266,10 @@ layout: default
 ---
 
 <article>
-  <h2><%= @document.title %></h2>
+	<h2><%= @document.title %></h2>
 
-  <div class="date">written on <span class="date"><%= @document.date.toShortDateString() %></span></div>
-  <%- @content %>
+	<div class="date">written on <span class="date"><%= @document.date.toShortDateString() %></span></div>
+	<%- @content %>
 </article>
 ```
 
@@ -337,18 +337,18 @@ We're going to show basic usage of the file. A good practice is to store in this
 # It is simply a CoffeeScript Object that is parsed by CSON
 # The lines starting with a '#' are comments
 {
-  # TemplateData data are accessible directly from the 'this/@' keyword in layouts and documents.
-  templateData:
-    # Let's create a place where we gather all data about the site...
-    site:
-      # ... like its author ...
-      author: "John Doe"
-      # ... its name ...
-      name: "John Doe loves animals"
-      # ... and a custom footer message. The """ notation comes from CoffeeScript and is used to embed long strings and can contain HTML tags too.
-      footerMessage: """
-        John Doe loves animals is property of John Doe. Copyright 2012 John Doe. All your animals are belong to us.
-      """
+	# TemplateData data are accessible directly from the 'this/@' keyword in layouts and documents.
+	templateData:
+	# Let's create a place where we gather all data about the site...
+	site:
+		# ... like its author ...
+		author: "John Doe"
+		# ... its name ...
+		name: "John Doe loves animals"
+		# ... and a custom footer message. The """ notation comes from CoffeeScript and is used to embed long strings and can contain HTML tags too.
+		footerMessage: """
+		John Doe loves animals is property of John Doe. Copyright 2012 John Doe. All your animals are belong to us.
+		"""
 }
 ```
 
@@ -360,10 +360,10 @@ Let's add them in `default.html.eco`, like this :
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="author" content="<%= @site.author %>" />
-  <title><%= @document.title %> - <%= @site.name %></title>
-  <link rel="stylesheet" href="/css/styles.css">
+	<meta charset="utf-8">
+	<meta name="author" content="<%= @site.author %>" />
+	<title><%= @document.title %> - <%= @site.name %></title>
+	<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <a href="/" class="logo">John Doe loves animals</a>
@@ -396,11 +396,11 @@ The `docpad.cson` file gives us the possibility to describe custom collections u
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 {
-  # We're extending the core collections object
-  collections:
-    # This collection named 'articles' fetches the documents with the 'layout' property set to 'article'
-    articles: (database) ->
-      database.findAllLive({layout: 'article.html.eco'}, {date:-1})
+	# We're extending the core collections object
+	collections:
+	# This collection named 'articles' fetches the documents with the 'layout' property set to 'article'
+	articles: (database) ->
+		database.findAllLive({layout: 'article.html.eco'}, {date:-1})
 }
 ```
 
@@ -440,11 +440,11 @@ Then change its content to :
 ``` eco
 <ul>
 <% for article in @getCollection('articles').toJSON()[0..4] : %>
-  <li>
-    <h3><%= article.title %></h3>
-    <div class="date">written on <span class="date"><%= article.date.toShortDateString() %></span></div>
-    <a href="<%= article.url %>">Read the full article</a>
-  </li>
+	<li>
+	<h3><%= article.title %></h3>
+	<div class="date">written on <span class="date"><%= article.date.toShortDateString() %></span></div>
+	<a href="<%= article.url %>">Read the full article</a>
+	</li>
 <% end %>
 </ul>
 ```
@@ -455,7 +455,7 @@ Again, let's explain this code step by step :
 
 ```
 <% for article in @getCollection('articles').toJSON()[0..4] : %>
-  ...
+	...
 <% end %>
 ```
 

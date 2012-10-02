@@ -1,3 +1,7 @@
+---
+standalone: true
+---
+
 // Coded in Stylus: http://learnboost.github.com/stylus/
 
 // ====================================
@@ -117,10 +121,12 @@ a:hover,.hover-link:hover
 	cursor: pointer
 
 .icon-up
-	padding: 0.2em 0 0 0
+	margin: 0.2em
 	font-size: 0.8em
 	display: inline-block
 	transform: rotate(90deg)
+	width: 1em
+	height: 1em
 	&:before
 		content: '↵'
 
@@ -206,7 +212,7 @@ a:hover,.hover-link:hover
 				opacity: 0.1
 				transition: opacity 0.2s ease-out
 				position: absolute
-				left: -0.8em
+				left: -1.3em
 				top: -2em
 				padding: 0.5em 0
 				&:hover
@@ -245,7 +251,7 @@ a:hover,.hover-link:hover
 					display: block
 					position: absolute
 					bottom: 0
-					height: 50px
+					height: 65px
 					width: 50%
 					transition: opacity 0.2s ease-out
 					opacity: 0.15
