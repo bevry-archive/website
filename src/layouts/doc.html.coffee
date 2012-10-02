@@ -27,5 +27,5 @@ text @partial('content/block.html.coffee',{
 			title: nextModel.attributes.title
 	up:
 		url: "/learn/"
-		title: @document.projectTitle
+		title: @document.projectName
 })
