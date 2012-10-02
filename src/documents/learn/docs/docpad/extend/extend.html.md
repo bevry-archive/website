@@ -1,3 +1,8 @@
+---
+title: "Extension Options"
+---
+
+
 Here are all the different ways that DocPad can be extended.
 
 ## Module

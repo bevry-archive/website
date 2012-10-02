@@ -8,7 +8,7 @@ url: '/learn/'
 _ = @underscore
 docs = @docs
 learnCollection = @getCollection('learn')
-{getProjectTitle,getCategoryTitle} = @
+{getLabelName,getProjectName,getCategoryName} = @
 
 # Prepare
 section '.reference', ->
@@ -22,7 +22,7 @@ section '.reference', ->
 
 			# Project
 			li "#project-#{project}.project.subblock", ->
-				h2 -> getProjectTitle(project)
+				h2 -> getProjectName(project)
 
 				# Categories
 				nav ".categories", ->
@@ -31,7 +31,7 @@ section '.reference', ->
 
 						# Category
 						li "#project-#{project}-category-#{projectCategory}-.category", ->
-							h3 -> getCategoryTitle(projectCategory)
+							h3 -> getCategoryName(projectCategory)
 
 							# Pages
 							nav ".pages", ->
@@ -41,6 +41,9 @@ section '.reference', ->
 									li ".page", ->
 										h4 '.title', ->
 											a href:page.get('url'), -> page.get('title')
+											label = page.get('label')
+											if label
+												span ".label.label-#{label}", -> getLabelName(label)
 
 
 ###

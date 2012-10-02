@@ -1,3 +1,8 @@
+---
+title: Write a Plugin
+label: pro
+---
+
 ## Getting Started
 
 Inside your docpad website directory, create a directory called `plugins`. Inside the `plugins` directory create the directory for your plugin (e.g. `plugins/yourPlugin`), and inside your plugin's directory create these two files:
@@ -77,7 +82,7 @@ DocPad will perform these conversions from one format to another by triggering t
 module.exports = (BasePlugin) ->
 	# Define Plugin
 	class SomethingPlugin extends BasePlugin
-	
+
 	# ...
 
 	# Render some content
@@ -92,7 +97,7 @@ module.exports = (BasePlugin) ->
 
 			# Render
 			opts.content = something.renderToSomethingElse(opts.content)
-	
+
 		# Done, return back to DocPad
 		return next()
 

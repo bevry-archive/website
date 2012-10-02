@@ -23,6 +23,10 @@ module.exports = {
 		core: "Core"
 		extend: "Extend"
 
+	label:
+		pro: "Pro"
+		training: "Training"
+
 	link:
 		historyjs: """
 			<a href="http://historyjs.net">History.js</a>

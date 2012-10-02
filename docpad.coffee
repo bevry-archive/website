@@ -10,11 +10,9 @@ textData = require(__dirname+'/app/text.coffee')
 # Helpers
 
 # Titles
-getTitle = (document) ->
-	title = document.get('title') or humanize document.get('name')
-	title
-getProjectTitle = (project) -> textData.project[project] ? humanize(project)
-getCategoryTitle = (category) -> textData.category[category] ? humanize(category)
+getProjectName = (project) -> textData.project[project] ? humanize(project)
+getCategoryName = (category) -> textData.category[category] ? humanize(category)
+getLabelName = (label) -> textData.label[label] ? humanize(label)
 humanize = (text) ->
 	text ?= ''
 	return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
@@ -88,11 +86,12 @@ docpadConfig = {
 		# Helper Functions
 
 		# Titles
-		getTitle: (document) ->
+		getName: (document) ->
 			document ?= @document
-			return getTitle(document)
-		getProjectTitle: getProjectTitle
-		getCategoryTitle: getCategoryTitle
+			return getName(document)
+		getProjectName: getProjectName
+		getCategoryName: getCategoryName
+		getLabelName: getLabelName
 
 		# Get the prepared site/document title
 		# Often we would like to specify particular formatting to our page's title
@@ -100,7 +99,7 @@ docpadConfig = {
 		getPreparedTitle: ->
 			# if we have a document title, then we should use that and suffix the site's title onto it
 			if @document.title
-				"#{@document.title} | #{@site.title}"
+				"#{@document.pageTitle or @document.title} | #{@site.title}"
 			# if our document does not have it's own title, then we should just use the site's title
 			else
 				@site.title
@@ -127,26 +126,28 @@ docpadConfig = {
 			database.findAllLive({relativeOutDirPath:$startsWith:'learn'},[projectDirectory:1,categoryDirectory:1,filename:1]).on('add', (document) ->
 				a = document.attributes
 
-				title = getTitle(document)
 				layout = 'doc'
 				projectDirectory = pathUtil.basename pathUtil.resolve (pathUtil.dirname(a.fullPath) + '/..')
 				project = projectDirectory.replace(/[\-0-9]+/,'')
-				projectTitle = getProjectTitle(project)
+				projectName = getProjectName(project)
 				categoryDirectory = pathUtil.basename pathUtil.dirname(a.fullPath)
 				category = categoryDirectory.replace(/^[\-0-9]+/,'')
-				categoryTitle = getCategoryTitle(category)
+				categoryName = getCategoryName(category)
 				name = a.basename.replace(/^[\-0-9]+/,'')
 				url = "/learn/#{project}-#{category}-#{name}"
+				title = "#{a.title or humanize name}"
+				pageTitle = "#{title} | #{projectName}"
 
 				document.set({
 					title
+					pageTitle
 					layout
 					projectDirectory
 					project
-					projectTitle
+					projectName
 					categoryDirectory
 					category
-					categoryTitle
+					categoryName
 				})
 				document.getMeta().set({
 					url
