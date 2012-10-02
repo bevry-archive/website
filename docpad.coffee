@@ -16,6 +16,7 @@ getTitle = (document) ->
 getProjectTitle = (project) -> textData["project"+project] ? humanize(project)
 getCategoryTitle = (category) -> textData["category"+category] ? humanize(category)
 humanize = (text) ->
+	text ?= ''
 	return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
 
 
@@ -146,23 +147,30 @@ docpadConfig = {
 			database.findAllLive({relativeOutDirPath:$startsWith:'learn'},[projectDirectory:1,categoryDirectory:1,filename:1]).on('add', (document) ->
 				a = document.attributes
 
+				title = getTitle(document)
+				layout = 'doc'
 				projectDirectory = pathUtil.basename pathUtil.resolve (pathUtil.dirname(a.fullPath) + '/..')
 				project = projectDirectory.replace(/[\-0-9]+/,'')
 				projectTitle = getProjectTitle(project)
 				categoryDirectory = pathUtil.basename pathUtil.dirname(a.fullPath)
 				category = categoryDirectory.replace(/^[\-0-9]+/,'')
 				categoryTitle = getCategoryTitle(category)
-				#url = "/learn/#{project}-#{category}-#{a.basename}"
+				name = a.basename.replace(/^[\-0-9]+/,'')
+				url = "/learn/#{project}-#{category}-#{name}"
 
-				a.title ?= getTitle(document)
-				a.layout ?= 'doc'
-				a.projectDirectory ?= projectDirectory
-				a.project ?= project
-				a.projectTitle ?= projectTitle
-				a.categoryDirectory ?= categoryDirectory
-				a.category ?= category
-				a.categoryTitle ?= categoryTitle
-				#document.setUrl(url)
+				document.set({
+					title
+					layout
+					projectDirectory
+					project
+					projectTitle
+					categoryDirectory
+					category
+					categoryTitle
+				})
+				document.getMeta().set({
+					url
+				})
 			)
 
 		# Fetch all documents that have pageOrder set within their meta data

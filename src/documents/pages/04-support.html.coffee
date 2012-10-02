@@ -1,6 +1,7 @@
 ###
 title: Support
 layout: page
+url: '/support'
 ###
 
 h2 "Support Channels"

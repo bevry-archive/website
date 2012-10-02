@@ -1,7 +1,8 @@
----
+###
 title: Learning
 layout: page
----
+url: '/learn/'
+###
 
 # Prepare
 _ = @underscore

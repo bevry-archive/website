@@ -1,6 +1,7 @@
 ---
 title: Welcome
 layout: page
+url: '/'
 ---
 
 We’re a Sydney based [Node.js](http://en.wikipedia.org/wiki/Nodejs), [JavaScript](http://en.wikipedia.org/wiki/JavaScript) and [HTML5](http://en.wikipedia.org/wiki/HTML5) company focused on empowering developers. We’re the creators of [History.js](http://historyjs.net) one of the most popular javascript projects in the world, and [DocPad](http://docpad.org) an amazing Node.js [Content Management System](http://en.wikipedia.org/wiki/Content_management_system). We’re also in the process of setting up several [Startup Hostels](http://startuphostel.org) all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.
