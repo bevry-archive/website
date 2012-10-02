@@ -7,7 +7,6 @@ layout: page
 _ = @underscore
 docs = @docs
 learnCollection = @getCollection('learn')
-getTitle = @getTitle
 
 
 # Prepare
@@ -40,7 +39,7 @@ section '.reference', ->
 									# Page
 									li ".page", ->
 										h4 '.title', ->
-											a href:page.get('url'), -> getTitle(page)
+											a href:page.get('url'), -> page.get('title')
 
 
 ###

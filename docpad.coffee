@@ -5,6 +5,24 @@ moment = require('moment')
 strUtil = require('underscore.string')
 textData = require(__dirname+'/app/text.coffee')
 
+
+# =================================
+# Helpers
+
+# Get a Document Title
+getTitle = (document) ->
+	title = document.get('title') or humanize document.get('name')
+	title
+
+# Humanize
+humanize = (text) ->
+	return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
+
+
+# =================================
+# Configuration
+
+
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
@@ -88,16 +106,6 @@ docpadConfig = {
 		# -----------------------------
 		# Helper Functions
 
-		# Get a Document Title
-		getTitle: (document) ->
-			document ?= @document
-			title = document.get('title') or docpadConfig.templateData.humanize document.get('name')
-			title
-
-		# Humanize
-		humanize: (text) ->
-			 return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
-
 		# Get the prepared site/document title
 		# Often we would like to specify particular formatting to our page's title
 		# we can apply that formatting here
@@ -133,14 +141,21 @@ docpadConfig = {
 
 				projectDirectory = pathUtil.basename pathUtil.resolve (pathUtil.dirname(a.fullPath) + '/..')
 				project = projectDirectory.replace(/^[\-0-9]+/,'')
+				projectTitle = textData["project#{project}"] or project
 				categoryDirectory = pathUtil.basename pathUtil.dirname(a.fullPath)
 				category = categoryDirectory.replace(/^[\-0-9]+/,'')
+				categoryTitle = textData["category#{category}"] or category
+				#url = "/learn/#{project}-#{category}-#{a.basename}"
 
+				a.title ?= getTitle(document)
 				a.layout ?= 'doc'
 				a.projectDirectory ?= projectDirectory
 				a.project ?= project
+				a.projectTitle ?= projectTitle
 				a.categoryDirectory ?= categoryDirectory
 				a.category ?= category
+				a.categoryTitle ?= categoryTitle
+				#document.setUrl(url)
 			)
 
 		# Fetch all documents that have pageOrder set within their meta data

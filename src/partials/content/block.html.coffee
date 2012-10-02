@@ -1,12 +1,9 @@
 # Prepare
-{permalink,heading,subheading,content,className,prev,next} = @
+{permalink,heading,subheading,content,className,prev,next,up} = @
 
 # Render
 article ".block"+(if className then ".#{className}" else ""), ->
 	header ".block-header", ->
-		a '.up', href:'../', ->
-			span '.icon-up', ->
-			span '.title', -> 'DocPad'
 		if permalink
 			a '.permalink.hover-link', href:permalink, ->
 				h1 heading
@@ -18,13 +15,17 @@ article ".block"+(if className then ".#{className}" else ""), ->
 	section ".block-content", content
 
 	footer ".block-footer", ->
-		if prev or next
+		if prev or up or next
 			nav ".prev-next", ->
 				if prev
-					a ".prev", href:"/prev", ->
-						span ".icon-prev", ->
-						span ".title", -> prev
+					a ".prev", href:prev.url, ->
+						span ".icon.icon-prev", ->
+						span ".title", -> prev.title
+				if up
+					a '.up', href:up.url, ->
+						span '.icon.icon-up', ->
+						span '.title', -> up.title
 				if next
-					a ".next", href:"/next", ->
-						span ".icon-next", ->
-						span ".title", -> next
+					a ".next", href:next.url, ->
+						span ".icon.icon-next", ->
+						span ".title", -> next.title

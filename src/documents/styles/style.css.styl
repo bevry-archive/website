@@ -120,25 +120,20 @@ a:hover,.hover-link:hover
 	text-decoration: underline
 	cursor: pointer
 
-.icon-up
-	margin: 0.2em
-	font-size: 0.8em
-	display: inline-block
-	transform: rotate(90deg)
+.icon
 	width: 1em
 	height: 1em
-	&:before
-		content: '↵'
-
-.icon-prev
+	font-size: 1em
 	display: inline-block
-	&:before
-		content: '⟵'
 
-.icon-next
-	display: inline-block
-	&:before
-		content: '⟶'
+	&.icon-up:before
+		content: '↑'
+	&.icon-down:before
+		content: '↓'
+	&.icon-prev:before
+		content: '←'
+	&.icon-next:before
+		content: '→'
 
 .container
 	margin: 2em 5%
@@ -197,7 +192,7 @@ a:hover,.hover-link:hover
 	.block
 		border-radius: 8px
 		color: colorContent
-		padding: 4em 4% 1em
+		padding: 2em 4% 1em
 		margin-bottom: 4em
 
 		.block-header
@@ -206,19 +201,6 @@ a:hover,.hover-link:hover
 			&:hover
 				.up
 					opacity: 1
-
-			.up
-				font-size: 16px
-				opacity: 0.1
-				transition: opacity 0.2s ease-out
-				position: absolute
-				left: -1.3em
-				top: -2em
-				padding: 0.5em 0
-				&:hover
-					text-decoration: none
-					.title
-						text-decoration: underline
 
 			h1
 				margin-top: 0
@@ -247,38 +229,37 @@ a:hover,.hover-link:hover
 				position: relative
 				height: 80px
 
-				.prev,.next
+				.prev
+				.next
+				.up
 					display: block
 					position: absolute
 					bottom: 0
 					height: 65px
-					width: 50%
+					padding-top: 1em
+					width: 33%
 					transition: opacity 0.2s ease-out
 					opacity: 0.15
+					text-decoration: none
 					&:hover
 						opacity: 1
 						.title
 							text-decoration: underline
-				.prev, .prev .title
+
+				.prev
 					left: 0
-				.next, .next .title
+					text-align: left
+				.next
+					right: 0
 					text-align: right
-					right: 0
+				.up
+					left: 33%
+					text-align: center
 
-				.icon-prev, .icon-next
+				.icon
 					display: block
-					position: absolute
-					font-size: 0.7em
-					bottom: 30px
-				.icon-prev
-					left: 0
-				.icon-next
-					right: 0
-
-				.title
-					display: block
-					position: absolute
-					bottom: 10px
+					height: auto
+					width: auto
 
 
 		.section-wrapper

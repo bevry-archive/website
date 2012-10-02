@@ -11,12 +11,8 @@ module.exports = {
 		&copy; Bevry Pty Ltd. All rights reserved.
 		"""
 
-	projectdocpad: """
-		<a href="http://docpad.org" class="hover-link">DocPad</a>
-		"""
-	projectnode: """
-		<a href="http://nodejs.org" class="hover-link">Node.js</a>
-		"""
+	projectdocpad: "DocPad"
+	projectnode: "Node.js"
 	categorystart: "Getting Started"
 	categorycommunity: "Community"
 	categorycore: "Core"
