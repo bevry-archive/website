@@ -46,7 +46,7 @@ text @partial "content/subblock.html.coffee", {
 h2 "Premium Support"
 text """
 	<t:premiumsupport render="markdown">
-	Premium support provides you with support response times within one day when going through our supported support channels. Support is capped to two hours over the month, if the two hours are exceeded you will need to purchase additional hours for that month. The hours you are allocated are customisable. Unused hours will not be carried over into the next month. Months are considered to start at the purchase date of the premium support, and finish at the same date the next month. Support is charged per month, per person, and in Australian dollars. You can purchase premium support by either emailing #{@link.salesemail} or calling us during business hours on #{@link.salesphone}.
+	Premium support provides you with support response times within one day when going through our supported support channels. Support is capped to two hours over the month, if the two hours are exceeded you will need to purchase additional hours for that month. The hours you are allocated are customisable. Unused hours will not be carried over into the next month. Months are considered to start at the purchase date of the premium support, and finish at the same date the next month. Support is charged per month, per person, and in Australian dollars. You can purchase premium support by either emailing #{@text.link.salesemail} or calling us during business hours on #{@text.link.salesphone}.
 
 	*Business hours are 9am to 5pm Sydney Time (+10:00) Monday to Friday with limited support on Saturday and no guaranteed support on Sunday.*
 	</t:premiumsupport>

@@ -13,8 +13,8 @@ textData = require(__dirname+'/app/text.coffee')
 getTitle = (document) ->
 	title = document.get('title') or humanize document.get('name')
 	title
-getProjectTitle = (project) -> textData["project"+project] ? humanize(project)
-getCategoryTitle = (category) -> textData["category"+category] ? humanize(category)
+getProjectTitle = (project) -> textData.project[project] ? humanize(project)
+getCategoryTitle = (category) -> textData.category[category] ? humanize(category)
 humanize = (text) ->
 	text ?= ''
 	return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
@@ -82,26 +82,6 @@ docpadConfig = {
 				"http://gist.github.com/raw/854622/ajaxify-html5.js"
 				"/scripts/script.js"
 			]
-
-		# -----------------------------
-		# Text
-
-		link:
-			historyjs: """
-				<a href="http://historyjs.net">History.js</a>
-				"""
-			docpad: """
-				<a href="http://docpad.org">DocPad</a>
-				"""
-			cclicense: """
-				<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</a>
-				"""
-			salesemail: """
-				<a href="mailto:sales@bevry.me">sales@bevry.me</a>
-				"""
-			salesphone:  """
-				<a href="callto:+61280062364">+61 (2) 8006 2364</a>
-				"""
 
 
 		# -----------------------------

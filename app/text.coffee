@@ -3,21 +3,40 @@ module.exports = {
 	subheading: " &nbsp; doing everything we can to empower developers"
 	myaccount: "My Account"
 	poweredby: """
-		<span class="hover-link" data-href="http://docpad.org">
-			Created with love and affection using <t>link.docpad</t>
-		</span>
+		<a class="hover-link" href="http://docpad.org">
+			Created with love and affection using <a>DocPad</a>
+		</a>
 		"""
 	copyright: """
 		&copy; Bevry Pty Ltd. All rights reserved.
 		"""
 
-	projectdocpad: "DocPad"
-	projectnode: "Node.js"
-	projectqueryengine: "Query Engine"
+	project:
+		docpad: "DocPad"
+		node: "Node.js"
+		queryengine: "Query Engine"
 
-	categorydocs: "Documentation"
-	categorystart: "Getting Started"
-	categorycommunity: "Community"
-	categorycore: "Core"
-	categoryextend: "Extend"
+	category:
+		docs: "Documentation"
+		start: "Getting Started"
+		community: "Community"
+		core: "Core"
+		extend: "Extend"
+
+	link:
+		historyjs: """
+			<a href="http://historyjs.net">History.js</a>
+			"""
+		docpad: """
+			<a href="http://docpad.org">DocPad</a>
+			"""
+		cclicense: """
+			<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</a>
+			"""
+		salesemail: """
+			<a href="mailto:sales@bevry.me">sales@bevry.me</a>
+			"""
+		salesphone:  """
+			<a href="callto:+61280062364">+61 (2) 8006 2364</a>
+			"""
 }
