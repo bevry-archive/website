@@ -7,9 +7,16 @@ div '.container', ->
 		h1 '.heading.hover-link', 'data-href':'/', ->
 			@text['heading']
 		h2 '.subheading', @text['subheading']
-		h3 '.account', ->
-			span '.text', @text['myaccount']
+
+	aside '.accountbar', ->
+		div '.heading-background', ->
+		header '.heading', ->
+			span '.title', @text['myaccount']
 			span '.icon', ->
+		div '.content', ->
+			text @partial('content/user.html.coffee',{
+				user: false
+			})
 
 	div '.sidebar', ->
 		pages = @getCollection('pages')

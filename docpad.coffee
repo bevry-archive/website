@@ -63,9 +63,6 @@ docpadConfig = {
 
 			# Styles
 			styles: [
-				'/vendor/highlight.css'
-				'/vendor/normalize.css'
-				'/vendor/h5bp.css'
 				'/styles/style.css'
 			]
 
@@ -74,8 +71,6 @@ docpadConfig = {
 				"/vendor/log.js"
 				"/vendor/jquery.scrollto.js"
 				"/vendor/modernizr.js"
-				'/vendor/underscore.string.js'
-				'/vendor/bootstrap-scrollspy.js'
 				"http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"
 				"/vendor/historyjsit.js"
 				"/scripts/script.js"
@@ -172,11 +167,11 @@ docpadConfig = {
 		# Used to add our own custom routes to the server before the docpad routes are added
 		serverExtend: (opts) ->
 			# Extract the server from the options
-			{server} = opts
+			{server,express} = opts
 			docpad = @docpad
 
 			# Forward to our application routing
-			require(__dirname+'/app/routes.coffee')({docpad,server})
+			require(__dirname+'/app/routes.coffee')({docpad,server,express})
 
 
 	# =================================

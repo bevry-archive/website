@@ -10,6 +10,12 @@ standalone: true
 // nib: http://visionmedia.github.com/nib/
 @import 'nib'
 
+// vendor
+@import '/vendor/highlight.css'
+@import '/vendor/normalize.css'
+@import '/vendor/h5bp.css'
+@import '/vendor/bootstrap/button.css'
+
 
 // ====================================
 // Responsive Layout Awesomeness
@@ -186,20 +192,104 @@ a:hover,.hover-link:hover
 		mixinSubheading()
 		font-size: 24px
 		display: inline
-	.account
-		mixinMenu()
-		font-size: 14px
-		display: inline
-		position: absolute
-		right: 0
-		bottom: 0
-		cursor: pointer
+
+.accountbar
+	mixinMenu()
+	font-size: 14px
+	display: block
+	position: absolute
+	right: 0
+	top: 1em
+	width: 100%
+
+	.heading
 		.icon
 			mixinIconAccountPointer()
-		&:hover
-			.icon
-				transform: rotate(-90deg)
+		.title
+			padding-right: 0.2em
 
+	.heading-background
+	.heading
+	.content
+		display: block
+		position: absolute
+		right: 0
+	.heading-background
+	.heading
+		top: 0
+		height: 3em
+		padding: 1em
+		width: 120px
+		text-align: center
+		z-index: 501
+		cursor: pointer
+	.heading-background
+	.content
+		top: -5000px
+		transition: opacity 0.2s ease-out
+	.content
+		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
+		z-index: 500
+		margin-top: -7px
+		padding: 2.5em 2.5em 1.5em 2.5em
+		width: 45%
+		opacity: 0
+		text-align: center
+		font-weight: fontMyraidNormal
+		font-size: 16px
+		.stuff
+			text-align: left
+			.name
+				text-align: center
+		.avatar
+			position: absolute
+			top: -30px
+			left: 5%
+			width: 82px
+			height: 82px
+			border-radius: 41px
+			box-shadow:
+				0 3px 3px hsla(0, 0%, 0%, .15),
+				0 2px 0 hsla(0, 0%, 0%, .5) inset,
+				0 -2px 0 hsla(0, 0%, 0%, .5) inset,
+				-2px 0 0 hsla(0, 0%, 0%, .5) inset,
+				2px 0 0 hsla(0, 0%, 0%, .5) inset,
+				0 3px 2px hsla(0, 100%, 100%, .6) inset,
+				0 -3px 2px hsla(0, 0%, 0%, .5) inset
+			/* the above is borrowed, will need to change this */
+			.avatar-image
+				width: 80px
+				height: 80px
+				border-radius: 40px
+		.well
+			display: block
+			box-sizing: content-box
+			width: 100%
+			padding: 0.75em 2.5em
+			margin: 1em 0 2em -2.5em
+			border: 1px solid hsl(42, 19%, 80%)
+			border-left: none
+			border-right: none
+			background: hsl(37, 60%, 94%)
+		h2
+			font-size: 18px
+			color: colorAccent
+			font-weight: fontMyraidNormal
+			margin-bottom: -1em
+
+	&:hover
+		.heading-background
+		.content
+			border: 1px solid #BBBBBB
+			background: hsl(36, 17%, 97%)
+			opacity: 1
+		.heading-background
+			top: 0
+			border-bottom: none
+		.content
+			top: 3em
+		.icon
+			transform: rotate(-90deg)
 
 .sidebar
 	position: absolute

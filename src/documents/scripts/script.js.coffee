@@ -6,6 +6,8 @@ $ ->
 	$docnavUp = $docnav.find('.up')
 	$docnavDown = $docnav.find('.down')
 	$docSectionWrapper = $('<div class="section-wrapper">')
+	$account = $('.accountbar')
+	$accountContent = $account.find('.content')
 	$article = null
 	$docHeaders = null
 	$docSections = null
@@ -87,6 +89,9 @@ $ ->
 		else
 			$docnav.removeClass('active')
 
+	# Load the user
+	$.get '/user/', (data) ->
+		$accountContent.html(data)
 
 	# Always trigger initial page change
 	$window.trigger('statechangecomplete')
