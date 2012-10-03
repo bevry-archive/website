@@ -19,13 +19,13 @@ article ".block"+(if className then ".#{className}" else ""), ->
 			nav ".prev-next", ->
 				if prev
 					a ".prev", href:prev.url, ->
-						span ".icon.icon-prev", ->
+						span ".icon", ->
 						span ".title", -> prev.title
 				if up
 					a '.up', href:up.url, ->
-						span '.icon.icon-up', ->
+						span '.icon', ->
 						span '.title', -> up.title
 				if next
 					a ".next", href:next.url, ->
-						span ".icon.icon-next", ->
+						span ".icon", ->
 						span ".title", -> next.title

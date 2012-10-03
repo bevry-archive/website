@@ -25,7 +25,8 @@ section '.reference', ->
 				h2 -> getProjectName(project)
 
 				# Categories
-				nav ".categories", ->
+				columns = if categoriesInProject.length > 4 then 4 else categoriesInProject.length
+				nav ".categories.columns-#{columns}", ->
 					for projectCategory in categoriesInProject
 						pagesInProjectCategory = pagesInProject.findAll({'category':projectCategory},[filename:1])
 

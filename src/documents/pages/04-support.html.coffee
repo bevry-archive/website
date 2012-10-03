@@ -22,6 +22,24 @@ text @partial "content/subblock.html.coffee", {
 }
 
 text @partial "content/subblock.html.coffee", {
+	avatar: '/images/irc.gif'
+	heading: """
+		<a href="irc://chat.freenode.net:6997/bevry">Internet Relay Chat (IRC)</a>
+		"""
+	subheading: "Bevry owns, manages &amp; participates"
+	content: """
+		<t render="markdown">
+		Bevry opperates several IRC chatrooms the freenode chat server that you can find our team hanging out on during business hours. Use [#bevry](irc://chat.freenode.net:6997/bevry) for projects that do not have their own channel.</p>
+
+		Channels we operate:
+		[#bevry](irc://chat.freenode.net:6997/bevry),
+		[#docpad](irc://chat.freenode.net:6997/docpad),
+		[#history.js](irc://chat.freenode.net:6997/history.js)
+		</t>
+		"""
+}
+
+text @partial "content/subblock.html.coffee", {
 	avatar: '/images/book.gif'
 	heading: """
 		<a href="http://support.bevry.me">Helpdesk</a>
@@ -44,6 +62,7 @@ text @partial "content/subblock.html.coffee", {
 
 
 h2 "Premium Support"
+
 text """
 	<t:premiumsupport render="markdown">
 	Premium support provides you with support response times within one day when going through our supported support channels. Support is capped to two hours over the month, if the two hours are exceeded you will need to purchase additional hours for that month. The hours you are allocated are customisable. Unused hours will not be carried over into the next month. Months are considered to start at the purchase date of the premium support, and finish at the same date the next month. Support is charged per month, per person, and in Australian dollars. You can purchase premium support by either emailing #{@text.link.salesemail} or calling us during business hours on #{@text.link.salesphone}.
@@ -65,24 +84,6 @@ text @partial "content/subblock.html.coffee", {
 	content: """
 		<t render="markdown">
 		GitHub is the social programming community and the place to host your open-source projects. Bevry hosts all their projects on github, and uses the built-in Issues functionality for development tasks and the discussions surrounding them. For instance, if you send in an email and that spawns a new development task we may reference you to the github issue behind it so you can track and participate in its progress. You can also use it to submit bugfixes yourself, and provide feature requests. Do not use this channel for questions or support.
-		</t>
-		"""
-}
-
-text @partial "content/subblock.html.coffee", {
-	avatar: '/images/irc.gif'
-	heading: """
-		<a href="irc://chat.freenode.net:6997/bevry">Internet Relay Chat (IRC)</a>
-		"""
-	subheading: "Bevry owns, manages &amp; participates"
-	content: """
-		<t render="markdown">
-		Bevry opperates several IRC chatrooms the freenode chat server that you can find our team hanging out on during business hours. Use [#bevry](irc://chat.freenode.net:6997/bevry) for projects that do not have their own channel.</p>
-
-		Channels we operate:
-		[#bevry](irc://chat.freenode.net:6997/bevry),
-		[#docpad](irc://chat.freenode.net:6997/docpad),
-		[#history.js](irc://chat.freenode.net:6997/history.js)
 		</t>
 		"""
 }

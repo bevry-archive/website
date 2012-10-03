@@ -92,6 +92,35 @@ mixinMenu()
 	font-weight: fontMyraidBoldest
 	color: colorMenu
 
+// Icons
+mixinIconPageUp()
+	&:before
+		content: '↑'
+mixinIconPageDown()
+	&:before
+		content: '↓'
+mixinIconPagePrev()
+	&:before
+		content: '←'
+mixinIconPageNext()
+	&:before
+		content: '→'
+mixinIconSectionUp()
+	&:before
+		content: '⇧'
+mixinIconSectionDown()
+	display: inline-block
+	transform: rotate(-180deg)
+	&:before
+		content: '⇧'
+mixinIconAccountPointer()
+	display: inline-block
+	transform: rotate(-180deg)
+	transition: all 0.5s
+	&:before
+		content: '▴'
+
+
 
 // ====================================
 // Styles
@@ -142,21 +171,6 @@ a.hover-link
 a:hover,.hover-link:hover
 	text-decoration: underline
 
-.icon
-	width: 1em
-	height: 1em
-	font-size: 1em
-	display: inline-block
-
-	&.icon-up:before
-		content: '↑'
-	&.icon-down:before
-		content: '↓'
-	&.icon-prev:before
-		content: '←'
-	&.icon-next:before
-		content: '→'
-
 .container
 	margin: 2em 5%
 	position: relative
@@ -181,9 +195,7 @@ a:hover,.hover-link:hover
 		bottom: 0
 		cursor: pointer
 		.icon
-			display: inline-block
-			transform: rotate(-180deg)
-			transition: all 0.5s
+			mixinIconAccountPointer()
 		&:hover
 			.icon
 				transform: rotate(-90deg)
@@ -241,6 +253,12 @@ a:hover,.hover-link:hover
 					wrapper(100%)
 					.category
 						column(4)
+					&.columns-3 .category
+						column(3)
+					&.columns-2 .category
+						column(2)
+					&.columns-1 .category
+						column(1)
 				h2
 					margin-top: 0
 				.subblock
@@ -267,21 +285,27 @@ a:hover,.hover-link:hover
 						opacity: 1
 						.title
 							text-decoration: underline
+					.icon
+						display: block
+						height: auto
+						width: auto
 
 				.prev
 					left: 0
 					text-align: left
+					.icon
+						mixinIconPagePrev()
 				.next
 					right: 0
 					text-align: right
+					.icon
+						mixinIconPageNext()
 				.up
 					left: 33%
 					text-align: center
+					.icon
+						mixinIconPageUp()
 
-				.icon
-					display: block
-					height: auto
-					width: auto
 
 
 		.section-wrapper
@@ -378,8 +402,12 @@ a:hover,.hover-link:hover
 					color: colorAccent
 					opacity: 0.5
 					text-shadow: 0 -2px 3px hsla(0, 0%, 0%, 0.2)
+		.up
+			.icon
+				mixinIconSectionUp()
 		.down
-			transform: rotate(-180deg)
+			.icon
+				mixinIconSectionDown()
 
 .clear
 	clear: both

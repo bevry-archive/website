@@ -77,7 +77,7 @@ docpadConfig = {
 				'/vendor/underscore.string.js'
 				'/vendor/bootstrap-scrollspy.js'
 				"http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"
-				"http://gist.github.com/raw/854622/ajaxify-html5.js"
+				"/vendor/historyjsit.js"
 				"/scripts/script.js"
 			]
 
@@ -134,7 +134,7 @@ docpadConfig = {
 				category = categoryDirectory.replace(/^[\-0-9]+/,'')
 				categoryName = getCategoryName(category)
 				name = a.basename.replace(/^[\-0-9]+/,'')
-				url = "/learn/#{project}-#{category}-#{name}"
+				url = "/learn/#{project}-#{name}"
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
 
