@@ -71,7 +71,7 @@ docpadConfig = {
 				"/vendor/log.js"
 				"/vendor/jquery.scrollto.js"
 				"/vendor/modernizr.js"
-				"http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"
+				"/vendor/history.js"
 				"/vendor/historyjsit.js"
 				"/scripts/script.js"
 			]
