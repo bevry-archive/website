@@ -10,9 +10,20 @@ textData = require(__dirname+'/app/text.coffee')
 # Helpers
 
 # Titles
-getProjectName = (project) -> textData.project[project] ? humanize(project)
-getCategoryName = (category) -> textData.category[category] ? humanize(category)
-getLabelName = (label) -> textData.label[label] ? humanize(label)
+getName = (a,b) ->
+	if b is null
+		return textData[b] ? humanize(b)
+	else
+		return textData[a][b] ? humanize(b)
+getProjectName = (project) ->
+	getName('project',project)
+getCategoryName = (category) ->
+	getName('category',category)
+getLinkName = (link) ->
+	getName('link',link)
+getLabelName = (label) ->
+	getName('label',label)
+
 humanize = (text) ->
 	text ?= ''
 	return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
@@ -80,12 +91,11 @@ docpadConfig = {
 		# -----------------------------
 		# Helper Functions
 
-		# Titles
-		getName: (document) ->
-			document ?= @document
-			return getName(document)
+		# Names
+		getName: getName
 		getProjectName: getProjectName
 		getCategoryName: getCategoryName
+		getLinkName: getLinkName
 		getLabelName: getLabelName
 
 		# Get the prepared site/document title
@@ -155,7 +165,11 @@ docpadConfig = {
 
 		# Fetch all documents that have the tag "post" specified in their meta data
 		posts: (database) ->
-			database.findAllLive({relativeOutDirPath:'posts'},[date:-1])
+			database.findAllLive({relativeOutDirPath:'posts'},[date:-1]).on('add', (document) ->
+				document.set({
+					author: 'balupton'
+				})
+			)
 
 
 	# =================================

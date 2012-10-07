@@ -28,6 +28,13 @@ module.exports = {
 		training: "Training"
 
 	link:
+		main: "Website"
+		learn: "Learn"
+		email: "Email"
+		twitter: "Twitter"
+		github: "GitHub"
+		support: "Support"
+
 		historyjs: """
 			<a href="http://historyjs.net">History.js</a>
 			"""

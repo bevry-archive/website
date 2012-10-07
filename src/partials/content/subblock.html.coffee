@@ -4,10 +4,10 @@
 # Render
 section ".subblock"+(if avatar then ".subblock-yesavatar" else ".subblock-noavatar"), ->
 	if avatar
-		div ".subblock-avatar", ->
-			img ".subblock-avatar-image", "src": avatar
-	div ".subblock-main", ->
-		header ".subblock-header", ->
+		div ".avatar", ->
+			img ".avatar-image", "src": avatar
+	div '.main', ->
+		header ".heading", ->
 			h1 heading
 			h2 subheading
-		section ".subblock-content", content
+		section ".content", content

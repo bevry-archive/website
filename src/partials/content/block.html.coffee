@@ -1,5 +1,5 @@
 # Prepare
-{permalink,heading,subheading,content,className,prev,next,up} = @
+{permalink,date,heading,subheading,author,content,className,prev,next,up} = @
 
 # Render
 article ".block"+(if className then ".#{className}" else ""), ->
@@ -11,6 +11,10 @@ article ".block"+(if className then ".#{className}" else ""), ->
 			h1 heading
 		if subheading
 			h2 subheading
+		if date
+			span '.date', -> date
+		if author
+			a '.author', href:"/people/#{author}", -> author
 
 	section ".block-content", content
 

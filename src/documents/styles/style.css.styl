@@ -63,7 +63,7 @@ colorLink = hsl(195, 85%, 34%) // hsl(195, 100%, 35%)
 colorContent = #4C4439
 
 // Fonts
-fontMyraid = Myriad Pro
+fontMyraid = "Myriad Pro", "Segoe WP", "Segoe UI", Segoe, Calibri, Helvetica, Arial
 fontMyraidBoldest = 700
 fontMyraidBold = 600
 fontMyraidNormal = 500
@@ -129,9 +129,86 @@ mixinIconAccountPointer()
 
 
 // ====================================
+// Themes
+
+// Light
+if theme is "light"
+	mixinBody()
+		background: hsl(40, 21%, 99%)
+
+	.topbar
+		.subheading
+			color: hsl(60, 0%, 82%)
+
+	.sidebar
+		li
+			opacity: 0.8
+
+	mixinBlock()
+		box-shadow: inset 0 0 9px hsla(0, 0%, 0%, 0.01), 0 0 70px hsla(37, 25%, 25%, 0.09)
+		border: 1px solid hsl(0, 0%, 78%)
+		background: white
+
+	mixinSubblock()
+		box-shadow: inset 0 0 9px hsla(0, 0%, 0%, 0.01), 0 0 70px hsla(37, 25%, 25%, 0.09)
+		border: 1px solid hsl(42, 19%, 80%)
+		background: hsl(37, 70%, 94%)
+
+else if theme is "gray"
+	mixinBody()
+		background: hsl(36, 17%, 97%)
+
+	mixinBlock()
+		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
+		border: 1px solid hsl(53, 19%, 80%)
+		background: white
+
+	mixinSubblock()
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
+		border: 1px solid hsl(42, 19%, 80%)
+		background: hsl(37, 60%, 94%)
+
+	mixinWell()
+		box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3)
+		border: 1px solid hsl(53, 19%, 58%)
+
+else if theme is "cream"
+	mixinBody()
+		background: #FDFBF1 url(/images/bg.gif) repeat
+
+	mixinBlock()
+		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
+		border: 1px solid hsl(53, 19%, 80%) // hsl(48, 15%, 87%)
+		background: hsl(60, 25%, 98%)
+
+	mixinSubblock()
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
+		border: 1px solid hsl(42, 19%, 80%)
+		background: hsl(42, 37%, 93%)
+
+else if theme is "expiremental"
+	mixinBody()
+		background: #FDFBF1 url(/images/bg.gif) repeat
+
+	mixinBlock()
+		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
+		border: 1px solid hsl(53, 19%, 80%) // hsl(48, 15%, 87%)
+		background: hsl(60, 25%, 98%)
+
+	mixinSubblock()
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
+		border: 1px solid hsl(42, 19%, 80%)
+		background: hsl(42, 37%, 93%)
+
+
+
+
+
+// ====================================
 // Styles
 
 body
+	mixinBody()
 	cursor: default
 	color: colorContent
 	font-smooth: always
@@ -143,6 +220,16 @@ body
 em
 	color: colorAccent
 	font-style: normal
+
+nav
+nav li
+	list-style: none
+
+blockquote
+	margin: 3em
+	color: hsl(11, 90%, 55%)
+	em
+		font-style: italic
 
 .label
 	padding: 0.1em 0.4em
@@ -296,8 +383,6 @@ a:hover,.hover-link:hover
 	width: 150px
 	font-size: 18px
 
-	nav,nav li
-		list-style: none
 	li
 		margin: 0 0 0.5em
 	li.active
@@ -314,6 +399,7 @@ a:hover,.hover-link:hover
 	width: 100%
 
 	.block
+		mixinBlock()
 		border-radius: 8px
 		color: colorContent
 		padding: 2em 4% 1em
@@ -419,6 +505,7 @@ a:hover,.hover-link:hover
 
 
 	.subblock
+		mixinSubblock()
 		border-radius: 8px
 		color: colorContent
 		padding: 2em 2em 1em
@@ -426,33 +513,46 @@ a:hover,.hover-link:hover
 		position: relative
 
 		&.subblock-yesavatar
-			.subblock-avatar
+			.avatar
 				width: 128px*.85
 				margin-top: 0.5em
 				position: absolute
 				left: 0
 				text-align: center
-				.subblock-avatar-image
+				.avatar-image
 					max-width: 96px*.7
-			.subblock-main
+			.main
 				padding-left: 96px*.8
 
-		header
+		.heading
 			position: relative
 			h1,h2
 				display: inline
 				margin: 0
 				padding: 0
+				color: colorAccent
 			h1
 				font-weight: fontMyraidBoldest
 				font-size: 18px
 			h2
 				font-weight: fontMyraidLightest
-				color: colorAccent
 				font-size: 16px
 				position: absolute
 				top: 0
 				right: 0
+
+		.content
+			margin: 1em 0
+
+		footer
+			margin-top: 1.5em
+
+			.links li
+				margin: 0
+				margin-right: 1.5em
+				display: inline
+
+
 
 .bottombar
 	padding-left: 11% // 250px
@@ -503,73 +603,27 @@ a:hover,.hover-link:hover
 	clear: both
 
 
+
 // ====================================
-// Themes
+// Layout: Responsive
+// Write your responsive layout styles here
+// Below is merely an example of how this should work
 
-// Light
-if theme is "light"
-	body
-		background: hsl(40, 21%, 99%)
-
-	.topbar
-		.subheading
-			color: hsl(60, 0%, 82%)
+// Small Screen
+@media screen and (max-width: 960px)	
+	.container
+		margin: 0
 
 	.sidebar
+		width: 100%
+		position: relative
 		li
-			opacity: 0.8
+			display: inline
 
-	.block
-		box-shadow: inset 0 0 9px hsla(0, 0%, 0%, 0.01), 0 0 70px hsla(37, 25%, 25%, 0.09)
-		border: 1px solid hsl(0, 0%, 78%)
-		background: white
+	.accountbar
+		display: none
 
-	.subblock
-		box-shadow: inset 0 0 9px hsla(0, 0%, 0%, 0.01), 0 0 70px hsla(37, 25%, 25%, 0.09)
-		border: 1px solid hsl(42, 19%, 80%)
-		background: hsl(37, 70%, 94%)
-
-else if theme is "gray"
-	body
-		background: hsl(36, 17%, 97%)
-
-	.block
-		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
-		border: 1px solid hsl(53, 19%, 80%)
-		background: white
-
-	.subblock
-		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
-		border: 1px solid hsl(42, 19%, 80%)
-		background: hsl(37, 60%, 94%)
-
-else if theme is "cream"
-	body
-		background: #FDFBF1 url(/images/bg.gif) repeat
-
-	.block
-		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
-		border: 1px solid hsl(53, 19%, 80%) // hsl(48, 15%, 87%)
-		background: hsl(60, 25%, 98%)
-
-	.subblock
-		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
-		border: 1px solid hsl(42, 19%, 80%)
-		background: hsl(42, 37%, 93%)
-
-else if theme is "expiremental"
-	body
-		background: #FDFBF1 url(/images/bg.gif) repeat
-
-	.block
-		box-shadow: 0 0 9px hsla(0, 0%, 0%, 0.12)
-		border: 1px solid hsl(53, 19%, 80%) // hsl(48, 15%, 87%)
-		background: hsl(60, 25%, 98%)
-
-	.subblock
-		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
-		border: 1px solid hsl(42, 19%, 80%)
-		background: hsl(42, 37%, 93%)
-
-
-
+	.mainbar
+		width: 100%
+		position: relative
+		padding: 0
