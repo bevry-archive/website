@@ -38,7 +38,7 @@ appConfig =
 # Database
 databaseUserCollection = null
 mongoServer = new mongo.Server(appConfig.db.host, appConfig.db.port, appConfig.db.serverOptions)
-mongoConnector = new mongo.Db(appConfig.db.name, mongoServer)
+mongoConnector = new mongo.Db(appConfig.db.name, mongoServer, {safe:true})
 mongoConnector.open (err,database) ->
 	throw err  if err
 	console.log('connected database')
@@ -114,14 +114,14 @@ module.exports = (opts) ->
 				# We have the user already
 				if item
 					console.log('found user', item)
-					databaseUserCollection.update {username:user.username}, {$set:{githubToken:user.githubToken}}, {safe:true}, (err,item) ->
+					databaseUserCollection.update {username:user.username}, {$set:{githubToken:user.githubToken}}, (err,item) ->
 						return next(err)  if err
 						console.log('updated user', item)
 						next(null,user)
 				# We need to create the user
 				else
 					console.log('inserting user', user)
-					databaseUserCollection.insert user, {safe:true}, (err,item) ->
+					databaseUserCollection.insert user, (err,item) ->
 						return next(err)  if err
 						console.log('inserted user', item)
 						next(null,user)
