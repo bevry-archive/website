@@ -36,7 +36,8 @@
     "docpad-plugin-coffeekup": "~2.1.2",
     "passport": "~0.1.12",
     "passport-github": "~0.1.3",
-    "mongodb": "~1.1.8"
+    "mongodb": "~1.1.8",
+    "bal-util": "~1.13.10"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x"

@@ -10,6 +10,9 @@ standalone: true
 // nib: http://visionmedia.github.com/nib/
 @import 'nib'
 
+// fonts
+@import url("http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,600,700,900")
+
 // vendor
 @import '/vendor/highlight.css'
 @import '/vendor/normalize.css'
@@ -220,6 +223,22 @@ body
 em
 	color: colorAccent
 	font-style: normal
+
+code
+	font-family: Consolas, Monaco, 'Source Code Pro', 'courier new', monospace, serif
+	font-weight: 500
+	font-size: 0.8em
+	background:  hsl(0, 0%, 97%)
+	border: 1px solid hsl(0, 0%, 80%)
+	border-radius: 1em
+	padding: 0.1em 0.5em
+	margin: 0 0.1em
+pre code
+	border-radius: 0
+	margin: 2em 0
+	border: 1px solid hsl(240, 5%, 72%)
+	padding: 1em
+	font-family: Monaco, 'Source Code Pro', 'courier new', monospace, serif
 
 nav
 nav li
@@ -502,6 +521,10 @@ a:hover,.hover-link:hover
 
 		h3
 			font-size: 18px
+			margin-top: 3em
+
+		h4
+			margin-top: 2.5em
 
 
 	.subblock

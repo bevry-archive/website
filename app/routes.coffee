@@ -2,10 +2,23 @@
 passport = require('passport')
 GitHubStrategy = require('passport-github').Strategy
 mongo = require('mongodb')
+balUtil = require('bal-util')
 {queryEngine,Backbone} = require('docpad')
 
-# Configuration
-envConfig = require(__dirname+'/../env.coffee')
+# Environment Configuration
+envConfigLocalPath = __dirname+'/../env.coffee'
+envConfigLocalData = if require('fs').existsSync(envConfigLocalPath) then require(envConfigLocalPath) else null
+envConfig =
+	NODE_ENV: null
+	BEVRY_DB_USERNAME: null
+	BEVRY_DB_PASSWORD: null
+	BEVRY_GITHUB_ID: null
+	BEVRY_GITHUB_SECRET: null
+	BEVRY_SITE_URL: null
+balUtil.each envConfig, (value,key) ->
+	envConfig[key] = value ? envConfigLocalData?[key] ? process.env[key] ? null
+
+# Application Configuration
 appConfig =
 	site:
 		url: envConfig.BEVRY_SITE_URL
@@ -77,6 +90,7 @@ module.exports = (opts) ->
 			clientID: appConfig.auth.github.clientID
 			clientSecret: appConfig.auth.github.clientSecret
 			callbackURL: appConfig.site.url+'/auth/github/callback'
+			scope: ['public_repo', 'repo']
 		},
 		(accessToken,refreshToken,profile,next) ->
 			# Prepare the user
@@ -100,7 +114,10 @@ module.exports = (opts) ->
 				# We have the user already
 				if item
 					console.log('found user', item)
-					next(null,user)
+					databaseUserCollection.update {username:user.username}, {$set:{githubToken:user.githubToken}}, {safe:true}, (err,item) ->
+						return next(err)  if err
+						console.log('updated user', item)
+						next(null,user)
 				# We need to create the user
 				else
 					console.log('inserting user', user)

@@ -85,6 +85,7 @@ docpadConfig = {
 				"/vendor/history.js"
 				"/vendor/historyjsit.js"
 				"/scripts/script.js"
+				"//www.bugherd.com/sidebarv2.js?apikey=be8i9lxwrjh8dwjycxbocq"
 			]
 
 
