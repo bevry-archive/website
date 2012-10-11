@@ -218,7 +218,7 @@ body
 	font-family: fontMyraid
 	-webkit-font-smoothing: antialiased
 	text-rendering: optimizeLegibility
-	padding-bottom: 4em
+	padding-bottom: 7em
 
 em
 	color: colorAccent
@@ -586,15 +586,20 @@ a:hover,.hover-link:hover
 	margin-top: -4em
 
 	.poweredby
-		float:left
+	.copyright
 		opacity: 0.5
 		transition: opacity 1s ease-out
 		&:hover
 			opacity: 1
 
+	.poweredby
+		float:left
+		text-align: left
+
 	.copyright
-		opacity: 0.5
 		float:right
+		text-align: right
+
 
 .specialbar
 	.docnav
@@ -622,6 +627,11 @@ a:hover,.hover-link:hover
 			.icon
 				mixinIconSectionDown()
 
+.btn-im
+.btn-phone
+.btn-email
+	margin: 0em 0.5em 0 0
+
 .clear
 	clear: both
 
@@ -633,7 +643,7 @@ a:hover,.hover-link:hover
 // Below is merely an example of how this should work
 
 // Small Screen
-@media screen and (max-width: 960px)	
+@media screen and (max-width: 960px)
 	.container
 		margin: 0
 

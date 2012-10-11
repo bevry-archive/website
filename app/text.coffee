@@ -8,7 +8,10 @@ module.exports = {
 		</a>
 		"""
 	copyright: """
-		&copy; Bevry Pty Ltd. All rights reserved.
+		&copy; Bevry Pty Ltd. All rights reserved.<br/>
+		<a href="/legal">Legal</a> •
+		<a href="/terms">Terms of Service</a> •
+		<a href="/privacy">Privacy Policy</a>
 		"""
 
 	project:
@@ -28,13 +31,6 @@ module.exports = {
 		training: "Training"
 
 	link:
-		main: "Website"
-		learn: "Learn"
-		email: "Email"
-		twitter: "Twitter"
-		github: "GitHub"
-		support: "Support"
-
 		historyjs: """
 			<a href="http://historyjs.net">History.js</a>
 			"""
@@ -44,10 +40,14 @@ module.exports = {
 		cclicense: """
 			<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</a>
 			"""
-		salesemail: """
-			<a href="mailto:sales@bevry.me">sales@bevry.me</a>
+
+		im: """
+			<a href="javascript: $zopim.livechat.button.setPosition('bl'); $zopim.livechat.window.show(); false" class="btn btn-im">Instant Message</a>
 			"""
-		salesphone:  """
-			<a href="callto:+61280062364">+61 (2) 8006 2364</a>
+		phone:  """
+			<a href="callto:+61280062364" class="btn btn-phone">Call +61 (2) 8006 2364</a>
+			"""
+		email: """
+			<a href="mailto:us@bevry.me" class="btn btn-email">Email us@bevry.me</a>
 			"""
 }
