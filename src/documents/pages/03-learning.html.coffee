@@ -21,7 +21,7 @@ section '.reference', ->
 			categoriesInProject = _.uniq pagesInProject.pluck('category')
 
 			# Project
-			li "#project-#{project}.project.subblock", ->
+			li "##{project}.project.subblock", ->
 				h2 -> getProjectName(project)
 
 				# Categories
@@ -31,7 +31,7 @@ section '.reference', ->
 						pagesInProjectCategory = pagesInProject.findAll({'category':projectCategory},[filename:1])
 
 						# Category
-						li "#project-#{project}-category-#{projectCategory}-.category", ->
+						li "##{project}-#{projectCategory}.category", ->
 							h3 -> getCategoryName(projectCategory)
 
 							# Pages

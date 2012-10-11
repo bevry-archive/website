@@ -9,28 +9,35 @@ module.exports = {
 		"""
 	copyright: """
 		&copy; Bevry Pty Ltd. All rights reserved.<br/>
-		<a href="/legal">Legal</a> •
 		<a href="/terms">Terms of Service</a> •
 		<a href="/privacy">Privacy Policy</a>
 		"""
 
-	project:
+	linkNames:
+		main: "Website"
+		learn: "Learn"
+		email: "Email"
+		twitter: "Twitter"
+		github: "GitHub"
+		support: "Support"
+	
+	projectNames:
 		docpad: "DocPad"
 		node: "Node.js"
 		queryengine: "Query Engine"
 
-	category:
+	categoryNames:
 		docs: "Documentation"
 		start: "Getting Started"
 		community: "Community"
 		core: "Core"
 		extend: "Extend"
 
-	label:
+	labelNames:
 		pro: "Pro"
 		training: "Training"
 
-	link:
+	links:
 		historyjs: """
 			<a href="http://historyjs.net">History.js</a>
 			"""

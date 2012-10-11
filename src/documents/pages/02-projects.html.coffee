@@ -2,6 +2,7 @@
 title: Projects
 layout: page
 url: '/projects/'
+standalone: true
 ---
 
 {getLinkName} = @
@@ -14,7 +15,7 @@ projects = {
 			"""
 		links:
 			main: "http://startuphostel.org"
-			email: "us@startuphostel.org"
+			email: "mailto:us@startuphostel.org"
 			twitter: "https://twitter.com/startuphostel"
 
 	docpad:
@@ -99,7 +100,7 @@ projects = {
 section '.projects', ->
 	nav '.projects', ->
 		for own key,project of projects
-			li '.project.subblock', ->
+			li "##{key}.project.subblock", ->
 				div '.main', ->
 					header '.heading', ->
 						h1 -> a '.hover-link', href:project.links.main, -> project.title
@@ -107,4 +108,4 @@ section '.projects', ->
 					footer ->
 						nav '.links', ->
 							for own linkName,linkUrl of project.links
-								li -> a href:linkUrl, -> getLinkName(linkName)
+								li -> a '.btn', href:linkUrl, -> getLinkName(linkName)

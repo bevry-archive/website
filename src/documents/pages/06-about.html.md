@@ -4,6 +4,15 @@ layout: page
 url: '/about'
 ---
 
+
+## Introduction
+We’re a Sydney based [Node.js](http://en.wikipedia.org/wiki/Nodejs), [JavaScript](http://en.wikipedia.org/wiki/JavaScript) and [HTML5](http://en.wikipedia.org/wiki/HTML5) company focused on empowering developers. We’re the creators of [plenty of node and javascript projects](/projects/) used today, including [History.js](http://historyjs.net) one of the most popular javascript projects in the world, and [DocPad](http://docpad.org) an amazing Node.js [Content Management System](http://en.wikipedia.org/wiki/Content_management_system). We’re also in the process of setting up several [Startup Hostels](http://startuphostel.org) all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.
+
+We offer [free and premium support](/support) for all our projects, [consulting and training services](/services) for companies, and [online courses and resources](/learn/) to teach yourself the latest on web development.
+
+Find us on [twitter](/twitter), [facebook](/facebook), and [github](/github) or email [us@bevry.me](mailto:us@bevry.me) - you can usually find our founder [Benjamin Lupton](http://balupton.com) on [Skype](skype:balupton?add) and IRC with the username balupton - all the best, Bevry.
+
+
 ## Purpose
 Empower developers everywhere
 
@@ -30,10 +39,10 @@ Being an open-source company, our team is comprised of people all over the world
 Despite the organic nature of our team, we have several key players that help formulate our company, they include:
 
 #### Benjamin Lupton / Founder
-Bevry is the result of Benjamin's best self, a tool for him and others to create and collaborate on a shared vision of a better world. His works are at the foundations of Bevry and are some of the most popular node and javascript projects ever, even used by the likes of Microsoft and 37Signals. Besides work, he pursues the timeless quest of understanding the world, and spends time with his family.
+Bevry is the result of Benjamin's best self, a tool for him and others to create and collaborate on a shared vision of a better world. His works are at the foundations of Bevry and are some of the most popular node and javascript projects, even used by the likes of Microsoft and 37Signals. Besides work, he pursues the timeless quest of understanding the world and spends time with his family.
 
 #### Helen Lupton / Secretary
-Helen is Benjamin's partner in world liberation and in life. She handles most of the logistics, paperwork and contingencies of the company - ensuring the vision of the world is brought down into practical means of attaining it. Besides work, she cooks yummy things munched up by the family and goes for rides on her motorbike.
+Helen is Benjamin's partner in world liberation and in life. She handles most of the logistics, paperwork and contingencies of the company - ensuring our vision of the world is brought down into practical means of attaining it. Besides work, she cooks yummy things munched up by the family and goes for rides on her motorbike.
 
 #### Kasper Tidemann / Advisor
 Kasper is the founder of Meeho! as well as a developer, investor and business angel. He's a genuine and nice guy, who's been there and done that. T

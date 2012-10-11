@@ -426,6 +426,7 @@ a:hover,.hover-link:hover
 
 		.block-header
 			position: relative
+			margin-bottom: -2em
 
 			&:hover
 				.up
@@ -435,7 +436,7 @@ a:hover,.hover-link:hover
 				margin-top: 0
 
 		.block-content
-			margin-top: 3em
+			margin-top: 4em
 
 			nav,nav li
 				list-style: none
@@ -510,7 +511,7 @@ a:hover,.hover-link:hover
 
 
 		h1
-			margin-bottom: -1em
+			margin-bottom: 0
 			font-size: 32px
 
 		h2
@@ -568,7 +569,7 @@ a:hover,.hover-link:hover
 			margin: 1em 0
 
 		footer
-			margin-top: 1.5em
+			margin: 1.5em 0 0.5em
 
 			.links li
 				margin: 0
@@ -644,19 +645,82 @@ a:hover,.hover-link:hover
 
 // Small Screen
 @media screen and (max-width: 960px)
+	*
+		opacity: 1 !important
+
+	body
+		padding-bottom: 4em
+
 	.container
 		margin: 0
+
+	.topbar
+		margin-bottom: 1em
+		text-align: center
+		.heading
+		.subheading
+			display: block
+			margin: 0
+			padding: 0
+
+	.accountbar
+		display: none
 
 	.sidebar
 		width: 100%
 		position: relative
+		text-align: center
+		line-height: 2em
 		li
 			display: inline
-
-	.accountbar
-		display: none
+			margin: 0 0.5em
 
 	.mainbar
 		width: 100%
 		position: relative
 		padding: 0
+		margin-top: 1em
+
+		.contact-links
+			line-height: 3em
+
+		.block
+			border-radius: 0
+			.block-content
+				.reference
+					.categories
+						.category
+							column(2)
+
+		.subblock
+			.main
+				.heading
+					h2
+						position: static
+						display: block
+
+	.bottombar
+		padding-left: 0
+		padding: 0 1em
+
+
+// Small Screen
+@media screen and (max-width: 480px)
+	.mainbar
+		.contact-links
+			a
+				display: block
+				margin: 2em 0
+
+		.block 	
+			.block-content
+				.reference
+					.categories
+						.category
+							column(1)
+
+		.subblock
+			.avatar
+				display: none
+			.main
+				padding-left: 0 !important

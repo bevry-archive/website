@@ -16,13 +16,13 @@ getName = (a,b) ->
 	else
 		return textData[a][b] ? humanize(b)
 getProjectName = (project) ->
-	getName('project',project)
+	getName('projectNames',project)
 getCategoryName = (category) ->
-	getName('category',category)
+	getName('categoryNames',category)
 getLinkName = (link) ->
-	getName('link',link)
+	getName('linkNames',link)
 getLabelName = (label) ->
-	getName('label',label)
+	getName('labelNames',label)
 
 humanize = (text) ->
 	text ?= ''

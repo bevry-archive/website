@@ -66,7 +66,7 @@ h2 "Premium Support"
 
 text """
 	<t:premiumsupport render="markdown">
-	[Discover our Premium Support and other offerings via our Services Page](/services)
+	[Premium Support and other services available via our Services Page](/services)
 	</t:premiumsupport>
 	"""
 
