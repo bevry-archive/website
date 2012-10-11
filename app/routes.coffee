@@ -7,7 +7,11 @@ balUtil = require('bal-util')
 
 # Environment Configuration
 envConfigLocalPath = __dirname+'/../env.coffee'
-envConfigLocalData = if require('fs').existsSync(envConfigLocalPath) then require(envConfigLocalPath) else null
+envConfigLocalData =
+	try
+		require(envConfigLocalPath)
+	catch err
+		null
 envConfig =
 	NODE_ENV: null
 	BEVRY_DB_USERNAME: null
