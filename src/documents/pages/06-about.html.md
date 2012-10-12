@@ -2,6 +2,7 @@
 title: About
 layout: page
 url: '/about'
+standalone: true
 ---
 
 
@@ -43,9 +44,6 @@ Bevry is the result of Benjamin's best self, a tool for him and others to create
 
 #### Helen Lupton / Secretary
 Helen is Benjamin's partner in world liberation and in life. She handles most of the logistics, paperwork and contingencies of the company - ensuring our vision of the world is brought down into practical means of attaining it. Besides work, she cooks yummy things munched up by the family and goes for rides on her motorbike.
-
-#### Kasper Tidemann / Advisor
-Kasper is the founder of Meeho! as well as a developer, investor and business angel. He's a genuine and nice guy, who's been there and done that. T
 
 
 ### Contributors
