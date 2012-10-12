@@ -181,6 +181,11 @@
 						window._gaq.push(['_trackPageview', relativeUrl]);
 					}
 
+					// Inform Gauges
+					if ( typeof window._gauges !== 'undefined' ) {
+						window._gauges.push(['track']);
+					}
+
 					// Inform ReInvigorate of a state change
 					if ( typeof window.reinvigorate !== 'undefined' && typeof window.reinvigorate.ajax_track !== 'undefined' ) {
 						reinvigorate.ajax_track(url);
