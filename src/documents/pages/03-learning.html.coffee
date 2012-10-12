@@ -2,6 +2,7 @@
 title: Learning
 layout: page
 url: '/learn/'
+standalone: true
 ###
 
 # Prepare

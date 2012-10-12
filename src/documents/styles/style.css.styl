@@ -217,28 +217,42 @@ body
 	font-smooth: always
 	font-family: fontMyraid
 	-webkit-font-smoothing: antialiased
+    color-profile: sRGB
+    rendering-intent: auto
 	text-rendering: optimizeLegibility
-	padding-bottom: 7em
+	padding-bottom: 4em
 
 em
 	color: colorAccent
 	font-style: normal
 
 code
-	font-family: Consolas, Monaco, 'Source Code Pro', 'courier new', monospace, serif
-	font-weight: 500
-	font-size: 0.8em
-	background:  hsl(0, 0%, 97%)
-	border: 1px solid hsl(0, 0%, 80%)
-	border-radius: 1em
-	padding: 0.1em 0.5em
-	margin: 0 0.1em
 pre code
-	border-radius: 0
-	margin: 2em 0
-	border: 1px solid hsl(240, 5%, 72%)
-	padding: 1em
-	font-family: Monaco, 'Source Code Pro', 'courier new', monospace, serif
+	font-family: Consolas, Monaco, 'Source Code Pro', 'courier new', monospace, serif
+	border-radius: 0.5em
+	background: hsl(0, 0%, 99%)
+	border: 1px solid hsl(186, 8%, 88%)
+	color: hsl(186, 8%, 15%)
+
+code
+	font-size: 0.75em
+	font-weight: 500
+	padding: 0.05em 0.5em 0em
+	white-space: pre
+	display: inline-block
+	margin: 0.4em 0.2em 0.2em 0
+
+pre code
+	font-size: 0.7em
+	font-family: Monaco, Consolas, 'Source Code Pro', 'courier new', monospace, serif
+	display: block
+	margin: 2.5em 0
+	padding: 1em 1.5em
+	line-height: 1.5em
+	// border: 1px solid hsl(186, 8%, 80%)
+	border: 1px solid hsl(192, 8%, 84%)
+	// border: 1px solid hsl(192, 8%, 80%)
+	// box-shadow: 0 0 2px hsl(192, 8%, 97%)
 
 nav
 nav li
@@ -283,7 +297,7 @@ a.hover-link
 a:hover,.hover-link:hover
 	text-decoration: underline
 
-.container
+div.container
 	margin: 2em 5%
 	position: relative
 
@@ -442,6 +456,10 @@ a:hover,.hover-link:hover
 				list-style: none
 
 			.reference
+				h3
+					margin: 1em 0
+				h4
+					margin: 1.5em 0
 				.project
 					clear: both
 					margin-bottom: 4em
@@ -608,8 +626,10 @@ a:hover,.hover-link:hover
 		bottom: 1em
 		right: 1em
 		display: none
+
 		&.active
 			display: block
+
 		.up,.down
 			font-size: 30px
 			transition: all 0.2s ease-out
@@ -651,7 +671,7 @@ a:hover,.hover-link:hover
 	body
 		padding-bottom: 4em
 
-	.container
+	div.container
 		margin: 0
 
 	.topbar
@@ -712,7 +732,7 @@ a:hover,.hover-link:hover
 				display: block
 				margin: 2em 0
 
-		.block 	
+		.block
 			.block-content
 				.reference
 					.categories
