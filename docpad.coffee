@@ -66,12 +66,12 @@ docpadConfig = {
 
 			# The website description (for SEO)
 			description: """
-				When your website appears in search results in say Google, the text here will be shown underneath your website's title.
+				We’re a Sydney based Node.js, JavaScript and HTML5 company focused on empowering developers. We’re the creators of plenty of node and javascript projects used today, including History.js one of the most popular javascript projects in the world, and DocPad an amazing Node.js Content Management System. We’re also in the process of setting up several Startup Hostels all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.
 				"""
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
+				bevry, bevryme, balupton, benjamin lupton, docpad, history.js, node, node.js, javascript, coffeescript, startup hostel, query engine
 				"""
 
 			# Styles

@@ -9,4 +9,4 @@ We’re a Sydney based [Node.js](http://en.wikipedia.org/wiki/Nodejs), [JavaScri
 
 We offer [free and premium support](/support) for all our projects, [consulting and training services](/services) for companies, and [online courses and resources](/learn/) to teach yourself the latest on web development.
 
-Discover what drives us on the [about page](/about), read our thoughts on the [blog](/blog]), and find us on [twitter](/twitter), [facebook](/facebook), and [github](/github) or email [us@bevry.me](mailto:us@bevry.me) - you can usually find our founder [Benjamin Lupton](http://balupton.com) on [Skype](skype:balupton?add) and IRC with the username balupton - all the best, Bevry.
+Discover what drives us on the [about page](/about) and find us on [twitter](/twitter), [facebook](/facebook), and [github](/github) or email [us@bevry.me](mailto:us@bevry.me) - you can usually find our founder [Benjamin Lupton](http://balupton.com) on [Skype](skype:balupton?add) and IRC with the username balupton - all the best, Bevry.
