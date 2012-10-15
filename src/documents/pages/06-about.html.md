@@ -11,7 +11,7 @@ We’re a Sydney based [Node.js](http://en.wikipedia.org/wiki/Nodejs), [JavaScri
 
 We offer [free and premium support](/support) for all our projects, [consulting and training services](/services) for companies, and [online courses and resources](/learn/) to teach yourself the latest on web development.
 
-Find us on [twitter](/twitter), [facebook](/facebook), and [github](/github) or email [us@bevry.me](mailto:us@bevry.me) - you can usually find our founder [Benjamin Lupton](http://balupton.com) on [Skype](skype:balupton?add) and IRC with the username balupton - all the best, Bevry.
+Find us on [twitter](/twitter), [facebook](/facebook), and [github](/github) or email [us@bevry.me](mailto:us@bevry.me) - you can usually find our founder [Benjamin Lupton](http://balupton.com) on [Skype](skype:balupton?add) and IRC with the username balupton
 
 
 ## Purpose
@@ -51,4 +51,8 @@ Helen is Benjamin's partner in world liberation and in life. She handles most of
 We'd also like to thank all the countless contributors who have worked with us to help accomplish our shared ambitions, including:
 
 
+
+## Inspiration
+
+You can watch videos that inspire us on our [Bevry Essentials Chill.com Collection](http://chill.com/balupton/collection/bevry-essentials)
 

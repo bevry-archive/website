@@ -31,9 +31,10 @@ div '.container', ->
 		})
 
 		nav ".promos", ->
-			a ".promo.hover-link", "href":"http://node.eventbrite.com/", ->
-				span ".title", -> "Hands on With Node.js"
-				span ".date", -> "Sydney, October 31st 2012"
+			for own key,training of @trainings
+				a ".promo.hover-link", "href":training.url, ->
+					span ".title", -> training.title
+					span ".wherewhen", -> training.wherewhen
 
 	div '.mainbar', ->
 		div "#content", -> @content

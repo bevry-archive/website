@@ -39,4 +39,8 @@ We'll hook you up with meeting at a requested time by you, where you can let us 
 
 ## Trainings
 
-Need your team trained with unfamiliar technologies?
+Are you wanting to learn a new technology, way of doing things, for yourself or for your team? Then our training services are for you.
+
+For individuals, we provide workshop trainings (these are listed with the navigation on the left), online trainings (under development), and mentorship programs (upon request).
+
+For companies, we can come in and train your people in a pre-defined format or in a custom format specified by you.

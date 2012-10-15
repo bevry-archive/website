@@ -51,6 +51,8 @@ docpadConfig = {
 		strUtil: strUtil
 		moment: moment
 		text: textData
+		projects: require(__dirname+'/app/projects.coffee')
+		trainings: require(__dirname+'/app/trainings.coffee')
 
 		# -----------------------------
 		# Site Properties

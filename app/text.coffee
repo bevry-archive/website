@@ -20,6 +20,7 @@ module.exports = {
 		twitter: "Twitter"
 		github: "GitHub"
 		support: "Support"
+		showcase: "Showcase"
 	
 	projectNames:
 		docpad: "DocPad"
