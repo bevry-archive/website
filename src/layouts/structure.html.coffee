@@ -30,12 +30,16 @@ div '.container', ->
 			moment: @moment
 		})
 
-	div '#content.mainbar', ->
-		@content
+		nav ".promos", ->
+			div ".node", "data-href":"http://node.eventbrite.com/", ->
+				span ".title", -> "Hands on With Node.js"
+				span ".date", -> "Sydney, October 31st 2012"
 
-	footer ".bottombar", ->
-		p ".copyright", @text['copyright']
-		p ".poweredby", @text['poweredby']
+	div '.mainbar', ->
+		div "#content", -> @content
+		footer ".bottombar", ->
+			p ".copyright", @text['copyright']
+			p ".poweredby", @text['poweredby']
 
 	aside '.specialbar', ->
 		nav ".docnav", ->

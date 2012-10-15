@@ -220,7 +220,6 @@ body
     color-profile: sRGB
     rendering-intent: auto
 	text-rendering: optimizeLegibility
-	padding-bottom: 4em
 
 em
 	color: colorAccent
@@ -298,7 +297,7 @@ a:hover,.hover-link:hover
 	text-decoration: underline
 
 div.container
-	margin: 2em 5%
+	margin: 2em 4%
 	position: relative
 
 .topbar
@@ -413,8 +412,10 @@ div.container
 
 .sidebar
 	position: absolute
-	width: 150px
+	width: 10%
+	left: 0
 	font-size: 18px
+	z-index: 200
 
 	li
 		margin: 0 0 0.5em
@@ -427,16 +428,56 @@ div.container
 		&:hover
 			text-decoration: underline
 
+	&:hover .promos div
+		opacity: 1
+
+	.promos
+		margin-top: 1.5em
+
+		div
+			padding: 1.3em 1em 1.1em 1em
+			margin-left: -1em
+			width: 100%
+			font-size: 12px
+			transition: opacity 1s ease-out
+			opacity: 0.5
+			background: hsl(40, 20%, 94%)
+			border: 1px solid hsl(40, 20%, 94%)
+
+			&:hover
+				border: 1px solid hsla(53, 19%, 58%, 0.2)
+
+			cursor: pointer
+			line-height: 1.2em
+
+			span
+				display: block
+
+			.title
+				font-weight: bold
+			.date
+				font-style: italic
+				font-size: 10px
+			.type
+				font-weight: bold
+
+			&:hover
+				span
+					text-decoration: underline
+
+
 .mainbar
-	padding-left: 11% // 250px
-	width: 100%
+	width: 90%
+	right: 0
+	position: absolute
+	z-index: 201
+	padding-bottom: 1em
 
 	.block
 		mixinBlock()
 		border-radius: 8px
 		color: colorContent
 		padding: 2em 4% 1em
-		margin-bottom: 4em
 
 		.block-header
 			position: relative
@@ -597,12 +638,9 @@ div.container
 
 
 .bottombar
-	padding-left: 11% // 250px
-	width: 100%
 	font-size: 14px
 	color: colorSubheading
-	position: relative
-	margin-top: -4em
+	padding-top: 0.5em
 
 	.poweredby
 	.copyright
@@ -694,6 +732,8 @@ div.container
 		li
 			display: inline
 			margin: 0 0.5em
+		.promos
+			display: none
 
 	.mainbar
 		width: 100%
