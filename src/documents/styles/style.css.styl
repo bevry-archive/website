@@ -428,14 +428,15 @@ div.container
 		&:hover
 			text-decoration: underline
 
-	&:hover .promos div
+	&:hover .promos .promo
 		opacity: 1
 		border: 1px solid hsla(53, 19%, 58%, 0.2)
 
 	.promos
 		margin-top: 1.5em
 
-		div
+		.promo
+			display: block
 			padding: 1.3em 1em 1.1em 1em
 			margin-left: -1em
 			width: 100%
@@ -448,7 +449,7 @@ div.container
 			cursor: pointer
 			line-height: 1.2em
 
-			span
+			span,a
 				display: block
 
 			.title
@@ -456,8 +457,7 @@ div.container
 			.date
 				font-style: italic
 				font-size: 10px
-			.type
-				font-weight: bold
+				font-weight: normal
 
 			&:hover
 				span

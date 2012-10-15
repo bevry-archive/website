@@ -31,7 +31,7 @@ div '.container', ->
 		})
 
 		nav ".promos", ->
-			div ".node", "data-href":"http://node.eventbrite.com/", ->
+			a ".promo.hover-link", "href":"http://node.eventbrite.com/", ->
 				span ".title", -> "Hands on With Node.js"
 				span ".date", -> "Sydney, October 31st 2012"
 
