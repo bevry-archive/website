@@ -3,6 +3,7 @@ passport = require('passport')
 GitHubStrategy = require('passport-github').Strategy
 mongo = require('mongodb')
 balUtil = require('bal-util')
+request = require('request')
 {queryEngine,Backbone} = require('docpad')
 
 # Environment Configuration
@@ -19,6 +20,8 @@ envConfig =
 	BEVRY_GITHUB_ID: null
 	BEVRY_GITHUB_SECRET: null
 	BEVRY_SITE_URL: null
+	BEVRY_PUSHOVER_TOKEN: null
+	BEVRY_PUSHOVER_USER_KEY: null
 balUtil.each envConfig, (value,key) ->
 	envConfig[key] = value ? envConfigLocalData?[key] ? process.env[key] ? null
 
@@ -170,6 +173,25 @@ module.exports = (opts) ->
 
 	# Growl
 	server.get "/docpad/growl", redirect("http://growl.info/downloads")
+
+	# Pushover
+	server.all '/pushover', (req,res) ->
+		request(
+			{
+				url: "https://api.pushover.net/1/messages.json"
+				method: "POST"
+				form: balUtil.extend(
+					{
+						token: envConfig.BEVRY_PUSHOVER_TOKEN
+						user: envConfig.BEVRY_PUSHOVER_USER_KEY
+						message: req.query
+					}
+					req.query
+				)
+			}
+			(_req,_res,body) ->
+				res.send(body)
+		)
 
 	# Done
 	return true

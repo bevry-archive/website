@@ -153,5 +153,16 @@
             </script>
             <script src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
         </div>
+        <script>
+            var request = new XMLHttpRequest();
+            request.open(
+                'POST'
+                ,document.location.protocol+'//'+document.location.host+'/pushover'+
+                    '?title='+escape("Bevry 404")+
+                    '&message='+escape(document.location.href)
+                ,true
+            );
+            request.send();
+        </script>
     </body>
 </html>
