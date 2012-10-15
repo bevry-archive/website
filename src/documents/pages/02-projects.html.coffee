@@ -25,7 +25,7 @@ projects = {
 			"""
 		links:
 			main: "http://docpad.org"
-			learn: "/learn#docpad"
+			learn: "/learn"
 			github: "https://github.com/bevry/docpad"
 			support: "/support"
 			twitter: "https://twitter.com/docpad"
@@ -48,7 +48,7 @@ projects = {
 			"""
 		links:
 			main: "https://github.com/bevry/query-engine"
-			learn: "/learn#queryengine"
+			learn: "/learn"
 			github: "https://github.com/bevry/query-engine"
 			support: "/support"
 			twitter: "https://twitter.com/queryengine"
@@ -60,7 +60,7 @@ projects = {
 			"""
 		links:
 			main: "https://github.com/bevry/joe"
-			learn: "/learn#docpad"
+			learn: "/learn"
 			github: "https://github.com/bevry/joe"
 			support: "/support"
 
@@ -71,7 +71,7 @@ projects = {
 			"""
 		links:
 			main: "https://github.com/bevry/caterpillar"
-			learn: "/learn#queryengine"
+			learn: "/learn"
 			github: "https://github.com/bevry/caterpillar"
 			support: "/support"
 

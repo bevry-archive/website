@@ -1,6 +1,5 @@
 ---
 title: Write a Plugin
-label: pro
 ---
 
 ## Getting Started

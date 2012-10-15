@@ -2,6 +2,7 @@
 title: Blog
 layout: page
 url: '/blog/'
+ignore: true
 ---
 
 posts = @getCollection('posts')

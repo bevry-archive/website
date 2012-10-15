@@ -168,7 +168,13 @@ docpadConfig = {
 
 		# Fetch all documents that exist within the learn directory
 		learn: (database) ->
-			database.findAllLive({relativeOutDirPath:$startsWith:'learn'},[projectDirectory:1,categoryDirectory:1,filename:1]).on('add', (document) ->
+			database.findAllLive(
+				{
+					relativeOutDirPath: $startsWith: 'learn'
+					body: $ne: ""
+				},
+				[projectDirectory:1,categoryDirectory:1,filename:1]
+			).on('add', (document) ->
 				a = document.attributes
 
 				layout = 'doc'

@@ -60,7 +60,7 @@ $ ->
 		# Special handling for long docs
 		$article = $('article:first')
 
-		if $article.is('.block.doc')
+		if $article.is('.block.doc:not(.no-compact)')
 			$docHeaders = $article.find('h2')
 				.addClass('hover-link')
 				.each (index) ->

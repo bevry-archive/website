@@ -1,5 +1,5 @@
 ---
-title: "Extension Options"
+title: "Extending"
 ---
 
 

@@ -12,7 +12,7 @@ prevModel = null  if prevModel and prevModel.attributes.project isnt @document.p
 nextModel = null  if nextModel and nextModel.attributes.project isnt @document.project
 
 text @partial('content/block.html.coffee',{
-	className: ".doc"
+	cssClasses: ["doc"].concat(@document.cssClasses or [])
 	permalink: @document.url
 	heading: @document.title
 	subheading: @document.subheading

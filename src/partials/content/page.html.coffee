@@ -1,5 +1,5 @@
 text @partial('content/block.html.coffee',{
-	className: ".page"
+	cssClasses: ['page'].concat(@item.cssClasses or []).concat(@cssClasses or [])
 	permalink: @item.url
 	heading: @item.title
 	subheading: @item.subheading

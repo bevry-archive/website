@@ -1,8 +1,8 @@
 # Prepare
-{permalink,date,heading,subheading,author,content,className,prev,next,up} = @
+{permalink,date,heading,subheading,author,content,cssClasses,prev,next,up} = @
 
 # Render
-article ".block"+(if className then ".#{className}" else ""), ->
+article ".block"+(if cssClasses then '.'+cssClasses.join('.') else ""), ->
 	header ".block-header", ->
 		if permalink
 			a '.permalink.hover-link', href:permalink, ->

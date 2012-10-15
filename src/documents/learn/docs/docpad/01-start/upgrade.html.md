@@ -9,7 +9,7 @@ To upgrade your DocPad installation from an older version to the latest, run the
 
 ``` bash
 [sudo] npm cache clean
-[sudo] npm install -fg docpad@6.6
+[sudo] npm install -fg docpad@6.7
 ```
 
 Be sure to read any specific upgrade notes for the versions you are installing from and to below.
