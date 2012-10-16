@@ -46,7 +46,7 @@
 			// Prepare
 			var
 				$this = $(obj),
-				url = $this.attr('href')||'',
+				url = $this.attr('href')||$this.data('href')||'',
 				isInternalLink;
 
 			// Check link
@@ -54,6 +54,11 @@
 
 			// Ignore or Keep
 			return isInternalLink;
+		};
+
+		// External Helper
+		$.expr[':'].external = function(obj, index, meta, stack){
+			return $.expr[':'].internal(obj,index,meta,stack) === false;
 		};
 
 		// HTML Helper

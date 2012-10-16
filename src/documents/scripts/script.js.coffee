@@ -11,19 +11,59 @@ $ ->
 	$article = null
 	$docHeaders = null
 	$docSections = null
+	wait = (delay,callback) -> setTimeout(callback,delay)
 
-	# Link handling
-	$body.on 'click', '[data-href],[href]:not(a)', ->
+	# Links
+	openLink = ({url,action}) ->
+		if action is 'new'
+			window.open(url,'_blank')
+		else if action is 'same'
+			wait(100, -> document.location.href = url)
+		return
+	openOutboundLink = ({url,action}) ->
+		myTracker = _gat._getTrackerByName()
+		_gaq.push(['myTracker._trackEvent', "Outbound Links", url])
+		openLink({url,action})
+		return
+	$body.on 'click', 'a[href]:external', (event) ->
 		# Prepare
-		href = $(this).data('href')
+		$this = $(this)
+		url = $this.attr('href')
+		return  unless url
 
-		# Open link in new tab
+		# Discover how we should handle the link
 		if event.which is 2 or event.metaKey
-			window.open(href,'_blank');
-
-		# Open link in the same tab
+			action = 'default'
 		else
-			window.location.href = href
+			action = 'same'
+			event.preventDefault()
+
+		# Open the link
+		openOutboundLink({url,action})
+
+		# Done
+		return
+	$body.on 'click', '[data-href]', ->
+		# Prepare
+		$this = $(this)
+		url = $this.data('href')
+		return  unless url
+
+		# Discover how we should handle the link
+		if event.which is 2 or event.metaKey
+			action = 'new'
+		else
+			action = 'same'
+			event.preventDefault()
+
+		# Open the link
+		if $this.is(':internal')
+			openLink({url,action})
+		else
+			openOutboundLink({url,action})
+
+		# Done
+		return
 
 	# Sidebar fadeout
 	$sidebar = $('.sidebar')
