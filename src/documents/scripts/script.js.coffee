@@ -21,7 +21,9 @@ $ ->
 			wait(100, -> document.location.href = url)
 		return
 	openOutboundLink = ({url,action}) ->
-		_gaq.push(['_trackEvent', "Outbound Links", url])
+		# https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
+		hostname = url.replace(/^.+\/|\/.*/g,'')
+		_gaq.push(['_trackEvent', "Outbound Links", hostname, url, 0, true])
 		openLink({url,action})
 		return
 	$body.on 'click', 'a[href]:external', (event) ->
