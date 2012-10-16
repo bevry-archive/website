@@ -179,6 +179,8 @@ docpadConfig = {
 		posts: (database) ->
 			database.findAllLive({relativeOutDirPath:'posts'},[date:-1]).on('add', (document) ->
 				document.set({
+					ignored: true
+					write: false
 					author: 'balupton'
 				})
 			)
@@ -188,6 +190,23 @@ docpadConfig = {
 	# DocPad Events
 
 	events:
+
+		# Write
+		writeAfter: (opts,next) ->
+			# Prepare
+			balUtil = require('bal-util')
+			docpad = @docpad
+			config = docpad.getConfig()
+			sitemap = []
+			sitemapPath = config.outPath+'/sitemap.txt'
+
+			# Get all the html files
+			docpad.getCollection('html').forEach (document) ->
+				if document.get('sitemap') isnt false and document.get('write') isnt false and document.get('ignored') isnt true and document.get('body')
+					sitemap.push document.get('url')
+
+			# Write the sitemap file
+			balUtil.writeFile(sitemapPath, sitemap.sort().join('\n'), next)
 
 		# Server Extend
 		# Used to add our own custom routes to the server before the docpad routes are added
