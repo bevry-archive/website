@@ -199,11 +199,12 @@ docpadConfig = {
 			config = docpad.getConfig()
 			sitemap = []
 			sitemapPath = config.outPath+'/sitemap.txt'
+			siteUrl = config.templateData.site.url
 
 			# Get all the html files
 			docpad.getCollection('html').forEach (document) ->
 				if document.get('sitemap') isnt false and document.get('write') isnt false and document.get('ignored') isnt true and document.get('body')
-					sitemap.push document.get('url')
+					sitemap.push siteUrl+document.get('url')
 
 			# Write the sitemap file
 			balUtil.writeFile(sitemapPath, sitemap.sort().join('\n'), next)
@@ -223,7 +224,6 @@ docpadConfig = {
 	# Plugin Configuration
 
 	plugins:
-
 		marked:
 			markedOptions:
 				sanitize: false
