@@ -21,8 +21,7 @@ $ ->
 			wait(100, -> document.location.href = url)
 		return
 	openOutboundLink = ({url,action}) ->
-		myTracker = _gat._getTrackerByName()
-		_gaq.push(['myTracker._trackEvent', "Outbound Links", url])
+		_gaq.push(['_trackEvent', "Outbound Links", url])
 		openLink({url,action})
 		return
 	$body.on 'click', 'a[href]:external', (event) ->
