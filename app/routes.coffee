@@ -22,7 +22,7 @@ envConfig =
 	BEVRY_SITE_URL: null
 	BEVRY_PUSHOVER_TOKEN: null
 	BEVRY_PUSHOVER_USER_KEY: null
-balUtil.each envConfig, (value,key) ->
+for own key,value of envConfig
 	envConfig[key] = value ? envConfigLocalData?[key] ? process.env[key] ? null
 
 # Application Configuration
