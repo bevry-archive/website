@@ -97,7 +97,7 @@ module.exports = (opts) ->
 			clientID: appConfig.auth.github.clientID
 			clientSecret: appConfig.auth.github.clientSecret
 			callbackURL: appConfig.site.url+'/auth/github/callback'
-			scope: ['public_repo', 'repo']
+			scope: ['public_repo', 'repo', 'delete_repo']
 		},
 		(accessToken,refreshToken,profile,next) ->
 			# Prepare the user
