@@ -6,26 +6,8 @@ balUtil = require('bal-util')
 request = require('request')
 {queryEngine,Backbone} = require('docpad')
 
-# Environment Configuration
-envConfigLocalPath = __dirname+'/../env.coffee'
-envConfigLocalData =
-	try
-		require(envConfigLocalPath)
-	catch err
-		null
-envConfig =
-	NODE_ENV: null
-	BEVRY_DB_USERNAME: null
-	BEVRY_DB_PASSWORD: null
-	BEVRY_GITHUB_ID: null
-	BEVRY_GITHUB_SECRET: null
-	BEVRY_SITE_URL: null
-	BEVRY_PUSHOVER_TOKEN: null
-	BEVRY_PUSHOVER_USER_KEY: null
-for own key,value of envConfig
-	envConfig[key] = value ? envConfigLocalData?[key] ? process.env[key] ? null
-
 # Application Configuration
+envConfig = process.env
 appConfig =
 	site:
 		url: envConfig.BEVRY_SITE_URL
