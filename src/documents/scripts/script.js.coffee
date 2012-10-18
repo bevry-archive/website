@@ -1,5 +1,6 @@
 $ ->
 	# Prepare
+	$document = $(document)
 	$body = $(document.body)
 	$window = $(window)
 	$docnav = $('.docnav')
@@ -23,7 +24,7 @@ $ ->
 	openOutboundLink = ({url,action}) ->
 		# https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
 		hostname = url.replace(/^.+?\/+([^\/]+).*$/,'$1')
-		_gaq.push(['_trackEvent', "Outbound Links", hostname, url, 0, true])
+		_gaq?.push(['_trackEvent', "Outbound Links", hostname, url, 0, true])
 		openLink({url,action})
 		return
 	$body.on 'click', 'a[href]:external', (event) ->
@@ -76,7 +77,7 @@ $ ->
 	)
 
 	# Docnav
-	$docnavUp.addClass('active').click ->
+	upSection = ->
 		$current = $docHeaders.filter('.current')
 		if $current.length
 			$prev = $current.prevAll('h2:first')
@@ -84,17 +85,26 @@ $ ->
 				$prev.click()
 			else
 				$docHeaders.filter('.current').removeClass('current')
-				$body.ScrollTo()
-	$docnavDown.addClass('active').click ->
+				$docHeaders.last().click()
+				#$body.ScrollTo()
+	downSection = ->
 		$current = $docHeaders.filter('.current')
 		if $current.length
 			$next = $current.nextAll('h2:first')
 			if $next.length
 				$next.click()
 			else
-				$current.click()
+				#$current.click()
+				$docHeaders.first().click()
 		else
 			$docHeaders.first().click()
+	$document.on 'keyup', (event) ->
+		if event.shiftKey
+			if event.keyCode is 38
+				upSection()
+			else if event.keyCode is 40
+				downSection()
+
 
 	# Listen to history.js page changes
 	$window.on 'statechangecomplete', ->
@@ -124,11 +134,6 @@ $ ->
 		else
 			$docHeaders = null
 			$docSections = null
-
-		if $docHeaders and $docHeaders.length isnt 0
-			$docnav.addClass('active')
-		else
-			$docnav.removeClass('active')
 
 	# Load the user
 	$.get '/user/', (data) ->

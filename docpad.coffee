@@ -53,6 +53,7 @@ docpadConfig = {
 		text: textData
 		projects: require(__dirname+'/app/projects.coffee')
 		trainings: require(__dirname+'/app/trainings.coffee')
+		env: process.env.NODE_ENV or 'development'
 
 		# -----------------------------
 		# Site Properties
@@ -66,12 +67,12 @@ docpadConfig = {
 
 			# The website description (for SEO)
 			description: """
-				We’re a Sydney based Node.js, JavaScript and HTML5 company focused on empowering developers. We’re the creators of plenty of node and javascript projects used today, including History.js one of the most popular javascript projects in the world, and DocPad an amazing Node.js Content Management System. We’re also in the process of setting up several Startup Hostels all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.
+				Bevry is a Sydney based Node.js, JavaScript and HTML5 company focused on empowering developers. We've created a series of node and javascript projects used today, including History.js one of the most popular javascript projects in the world, and DocPad an amazing Node.js Content Management System. We’re also in the process of setting up several Startup Hostels all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.
 				"""
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				bevry, bevryme, balupton, benjamin lupton, docpad, history.js, node, node.js, javascript, coffeescript, startup hostel, query engine
+				bevry, bevryme, balupton, benjamin lupton, docpad, history.js, node, node.js, javascript, coffeescript, startup hostel, query engine, queryengine, backbone.js, cson
 				"""
 
 			# Styles

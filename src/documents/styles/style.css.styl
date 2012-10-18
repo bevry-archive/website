@@ -289,7 +289,7 @@ a:not(.hover-link),.link
 	text-decoration: none
 	color: colorLink
 	font-weight: fontMyraidBold
-a.hover-link
+.hover-link
 	cursor: pointer
 	text-decoration: none
 	color: inherit
@@ -299,6 +299,18 @@ a:hover,.hover-link:hover
 div.container
 	margin: 2em 4%
 	position: relative
+
+.sidebar
+	position: absolute
+	width: 10%
+	max-width: 135px
+	left: 0
+
+.mainbar
+	width: 90%
+	max-width: 1100px
+	left: 135px
+	position: absolute
 
 .topbar
 	position: relative
@@ -412,9 +424,6 @@ div.container
 			transform: rotate(-90deg)
 
 .sidebar
-	position: absolute
-	width: 10%
-	left: 0
 	font-size: 18px
 	z-index: 200
 
@@ -467,9 +476,6 @@ div.container
 
 
 .mainbar
-	width: 90%
-	right: 0
-	position: absolute
 	z-index: 201
 	padding-bottom: 1em
 
@@ -657,35 +663,6 @@ div.container
 		float:right
 		text-align: right
 
-
-.specialbar
-	.docnav
-		position: fixed
-		bottom: 1em
-		right: 1em
-		display: none
-
-		&.active
-			display: block
-
-		.up,.down
-			font-size: 30px
-			transition: all 0.2s ease-out
-			color: hsla(0, 0%, 0%, 0.05)
-			&.active
-				cursor: pointer
-				color: hsla(0, 0%, 0%, 0.1)
-				&:hover
-					color: colorAccent
-					opacity: 0.5
-					text-shadow: 0 -2px 3px hsla(0, 0%, 0%, 0.2)
-		.up
-			.icon
-				mixinIconSectionUp()
-		.down
-			.icon
-				mixinIconSectionDown()
-
 .btn-im
 .btn-phone
 .btn-email
@@ -726,6 +703,7 @@ div.container
 
 	.sidebar
 		width: 100%
+		max-width: none
 		position: relative
 		text-align: center
 		line-height: 2em
@@ -739,6 +717,8 @@ div.container
 		width: 100%
 		position: relative
 		padding: 0
+		left: 0
+		right: 0
 		margin-top: 1em
 
 		.contact-links
@@ -760,12 +740,14 @@ div.container
 						display: block
 
 	.bottombar
-		padding-left: 0
-		padding: 0 1em
+		padding: 1em 1% 0
 
 
 // Small Screen
 @media screen and (max-width: 480px)
+	body
+		padding-bottom: 1em
+
 	.mainbar
 		.contact-links
 			a
@@ -773,6 +755,8 @@ div.container
 				margin: 2em 0
 
 		.block
+			text-align: justify
+			text-justify: newspaper
 			.block-content
 				.reference
 					.categories
@@ -784,3 +768,10 @@ div.container
 				display: none
 			.main
 				padding-left: 0 !important
+
+	.bottombar
+		.poweredby
+		.copyright
+			display: block
+			float: none
+			text-align: center

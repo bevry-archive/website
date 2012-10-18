@@ -39,12 +39,5 @@ div '.container', ->
 	div '.mainbar', ->
 		div "#content", -> @content
 		footer ".bottombar", ->
-			p ".copyright", @text['copyright']
 			p ".poweredby", @text['poweredby']
-
-	aside '.specialbar', ->
-		nav ".docnav", ->
-			div ".up", ->
-				span '.icon', ->
-			div ".down", ->
-				span '.icon', ->
+			p ".copyright", @text['copyright']
