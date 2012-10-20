@@ -1,5 +1,6 @@
 ---
 title: Welcome
+pageTitle: false
 layout: page
 url: '/'
 standalone: true

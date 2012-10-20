@@ -63,11 +63,11 @@ docpadConfig = {
 			url: "http://bevry.me"
 
 			# The default title of our website
-			title: "Bevry"
+			title: "Bevry - Node.js, Backbone.js & JavaScript Consultancy in Sydney, Australia"
 
 			# The website description (for SEO)
 			description: """
-				Bevry is a Sydney based Node.js, JavaScript and HTML5 company focused on empowering developers. We've created a series of node and javascript projects used today, including History.js one of the most popular javascript projects in the world, and DocPad an amazing Node.js Content Management System. We’re also in the process of setting up several Startup Hostels all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.
+				We're a Node.js, Backbone.js and JavaScript consultancy in Sydney Australia with a focus on empowering developers. We've created History.js one of the most popular javascript projects in the world, and DocPad an amazing Node.js Content Management System. We’re also working on setting up several Startup Hostels all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.
 				"""
 
 			# The website keywords (for SEO) separated by commas
@@ -109,11 +109,11 @@ docpadConfig = {
 		# Often we would like to specify particular formatting to our page's title
 		# we can apply that formatting here
 		getPreparedTitle: ->
-			# if we have a document title, then we should use that and suffix the site's title onto it
-			if @document.title
+			# if we have a title, we should use it suffixed by the site's title
+			if @document.pageTitle isnt false and @document.title
 				"#{@document.pageTitle or @document.title} | #{@site.title}"
-			# if our document does not have it's own title, then we should just use the site's title
-			else
+			# if we don't have a title, then we should just use the site's title
+			else if @document.pageTitle is false or @document.title? is false
 				@site.title
 
 		# Get the prepared site/document description
