@@ -207,7 +207,7 @@ docpadConfig = {
 			repos =
 				'docpad-documentation':
 					path: pathUtil.join(config.documentsPaths[0],'learn','docs','docpad')
-					url:'git@github.com:bevry/docpad-documentation.git'
+					url:'git://github.com/bevry/docpad-documentation.git'
 
 			# Clone them out
 			tasks = new balUtil.Group(next)
