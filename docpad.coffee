@@ -153,9 +153,10 @@ docpadConfig = {
 				categoryName = getCategoryName(category)
 				name = a.basename.replace(/^[\-0-9]+/,'')
 				url = "/learn/#{project}-#{name}"
+				urls = ["/#{project}/#{name}"]
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
-
+				
 				document.set({
 					title
 					pageTitle
@@ -166,9 +167,12 @@ docpadConfig = {
 					categoryDirectory
 					category
 					categoryName
+					url
+					urls
 				})
 				document.getMeta().set({
 					url
+					urls
 				})
 			)
 
@@ -192,8 +196,8 @@ docpadConfig = {
 
 	events:
 
-		# Generate
-		generateBefore: (opts,next) ->
+		# Ready
+		docpadReady: (opts,next) ->
 			# Prepare
 			balUtil = require('bal-util')
 			docpad = @docpad
