@@ -17,3 +17,5 @@ npm-debug.log
 out
 env.coffee
 .env
+
+src/documents/learn/docs/docpad
