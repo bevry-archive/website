@@ -192,6 +192,34 @@ docpadConfig = {
 
 	events:
 
+		# Generate
+		generateBefore: (opts,next) ->
+			# Prepare
+			balUtil = require('bal-util')
+			docpad = @docpad
+			config = docpad.getConfig()
+
+			# Specify the repos
+			repos =
+				'docpad-documentation':
+					path: pathUtil.join(config.documentsPaths[0],'learn','docs','docpad')
+					url:'git@github.com:bevry/docpad-documentation.git'
+
+			# Clone them out
+			tasks = new balUtil.Group(next)
+			for own repoKey,repoValue of repos
+				tasks.push repoValue, (complete) ->
+					balUtil.initOrPullGitRepo(balUtil.extend({
+						remote: 'origin'
+						branch: 'master'
+						output: true
+						next: complete
+					},@))
+			tasks.async()
+
+			# Done
+			return
+
 		# Write
 		writeAfter: (opts,next) ->
 			# Prepare
