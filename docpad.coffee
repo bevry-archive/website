@@ -38,6 +38,13 @@ humanize = (text) ->
 docpadConfig = {
 
 	# =================================
+	# DocPad Configuration
+
+	# Regenerate every hour
+	regenerateEvery: 1000*60*60
+
+
+	# =================================
 	# Template Data
 	# These are variables that will be accessible via our templates
 	# To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
@@ -145,6 +152,7 @@ docpadConfig = {
 				a = document.attributes
 
 				layout = 'doc'
+				standalone = true
 				projectDirectory = pathUtil.basename pathUtil.resolve (pathUtil.dirname(a.fullPath) + '/..')
 				project = projectDirectory.replace(/[\-0-9]+/,'')
 				projectName = getProjectName(project)
@@ -156,7 +164,7 @@ docpadConfig = {
 				urls = ["/#{project}/#{name}"]
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
-				
+
 				document.set({
 					title
 					pageTitle
@@ -169,6 +177,7 @@ docpadConfig = {
 					categoryName
 					url
 					urls
+					standalone
 				})
 				document.getMeta().set({
 					url
@@ -196,8 +205,12 @@ docpadConfig = {
 
 	events:
 
-		# Ready
-		docpadReady: (opts,next) ->
+		# Clone/Update our DocPad Documentation Repository
+		# before each generation, this will keep the documenation up to date on the live site
+		generateBefore: (opts,next) ->
+			# Check
+			return next()  if opts.reset is false  # do not clone on partial generations
+
 			# Prepare
 			balUtil = require('bal-util')
 			docpad = @docpad
