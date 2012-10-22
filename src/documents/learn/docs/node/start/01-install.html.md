@@ -17,7 +17,7 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 
 3. ### Install Node.js
 
-	- #### Via the Official Node.js Installer
+	1. #### Via the Official Node.js Installer
 
 		1. The simplest and official way to install Node.js
 
@@ -25,7 +25,7 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 
 		1. [Download & Install Node.js](http://nodejs.org/#download)
 
-	-	#### Via [Node Version Manager](https://github.com/creationix/nvm)
+	1. #### Via [Node Version Manager](https://github.com/creationix/nvm)
 
 		1. NVM allows you to run multiple Node.js versions on the same machine
 
@@ -65,7 +65,7 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 			nvm use 0.8
 			```
 
-	- #### Via Direct Install
+	1. #### Via Direct Install
 
 		1. It's the most robust solution, but also requires the most maintenance
 
