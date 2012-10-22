@@ -35,7 +35,7 @@ humanize = (text) ->
 
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
-docpadConfig = {
+docpadConfig =
 
 	# =================================
 	# DocPad Configuration
@@ -265,15 +265,6 @@ docpadConfig = {
 			# Forward to our application routing
 			require(__dirname+'/app/routes.coffee')({docpad,server,express})
 
-
-	# =================================
-	# Plugin Configuration
-
-	plugins:
-		marked:
-			markedOptions:
-				sanitize: false
-}
 
 # Export our DocPad Configuration
 module.exports = docpadConfig
