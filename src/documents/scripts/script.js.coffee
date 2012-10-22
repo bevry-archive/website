@@ -15,7 +15,6 @@ $ ->
 	$accountContent = $account.find('.content')
 	$article = null
 	$docHeaders = null
-	$docSections = null
 	wait = (delay,callback) -> setTimeout(callback,delay)
 
 	# Links
@@ -82,6 +81,7 @@ $ ->
 
 	# Docnav
 	upSection = ->
+		return  unless $docHeaders?
 		$current = $docHeaders.filter('.current')
 		if $current.length
 			$prev = $current.prevAll('h2:first')
@@ -92,6 +92,7 @@ $ ->
 				$docHeaders.last().click()
 				#$body.ScrollTo()
 	downSection = ->
+		return  unless $docHeaders?
 		$current = $docHeaders.filter('.current')
 		if $current.length
 			$next = $current.nextAll('h2:first')
@@ -103,10 +104,18 @@ $ ->
 		else
 			$docHeaders.first().click()
 	$document.on 'keyup', (event) ->
-		if event.shiftKey
-			if event.keyCode is 38
+		console.log(event.metaKey, event.shiftKey, event.keyCode, event)
+		if event.altKey
+			if event.keyCode is 38  # up
+				$('.block-footer a.up').click()
+			else if event.keyCode is 37  # left
+				$('.block-footer a.prev').click()
+			else if event.keyCode is 39  # right
+				$('.block-footer a.next').click()
+		else if event.shiftKey
+			if event.keyCode is 38  # up
 				upSection()
-			else if event.keyCode is 40
+			else if event.keyCode is 40  # down
 				downSection()
 
 
@@ -115,30 +124,45 @@ $ ->
 		# Special handling for long docs
 		$article = $('article:first')
 
-		# Compact blocks
-		if $article.is('.block.doc.compact')
+		# Documentation
+		if $article.is('.block.doc')
 			$docHeaders = $article.find('h2')
-				.addClass('hover-link')
-				.each (index) ->
-					$header = $(this)
-					$header.nextUntil('h2').wrapAll($docSectionWrapper.clone().attr('id','h2-'+index))
-				.click (event,opts) ->
-					$docHeaders.filter('.current').removeClass('current')
-					$header = $(this)
-						.addClass('current')
-						.stop(true,false).css({'opacity':0.5}).animate({opacity:1},1000)
-						.prevAll('.section-wrapper')
-							.addClass('active')
-							.end()
-						.next('.section-wrapper')
-							.addClass('active')
-							.end()
-					$header.ScrollTo()  if !opts or opts.scroll isnt false
-			$docSections = $article.find('.section-wrapper')
-			$docHeaders.first().trigger('click',{scroll:false})
+
+			# Compact
+			if $article.is('.compact')
+				$docHeaders
+					.addClass('hover-link')
+					.each (index) ->
+						$header = $(this)
+						$header.nextUntil('h2').wrapAll($docSectionWrapper.clone().attr('id','h2-'+index))
+					.click (event,opts) ->
+						$docHeaders.filter('.current').removeClass('current')
+						$header = $(this)
+							.addClass('current')
+							.stop(true,false).css({'opacity':0.5}).animate({opacity:1},1000)
+							.prevAll('.section-wrapper')
+								.addClass('active')
+								.end()
+							.next('.section-wrapper')
+								.addClass('active')
+								.end()
+						$header.ScrollTo()  if !opts or opts.scroll isnt false
+					.first()
+						.trigger('click',{scroll:false})
+
+			# Non-Compact
+			else
+				$docHeaders
+					.addClass('hover-link')
+					.click (event,opts) ->
+						$docHeaders.filter('.current').removeClass('current')
+						$header = $(this)
+							.addClass('current')
+							.stop(true,false).css({'opacity':0.5}).animate({opacity:1},1000)
+						$header.ScrollTo()  if !opts or opts.scroll isnt false
+
 		else
 			$docHeaders = null
-			$docSections = null
 
 	# Load the user
 	$.get '/user/', (data) ->
