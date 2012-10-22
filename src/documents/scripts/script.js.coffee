@@ -1,3 +1,7 @@
+###
+standalone: true
+###
+
 $ ->
 	# Prepare
 	$document = $(document)
@@ -111,7 +115,8 @@ $ ->
 		# Special handling for long docs
 		$article = $('article:first')
 
-		if $article.is('.block.doc:not(.no-compact)')
+		# Compact blocks
+		if $article.is('.block.doc.compact')
 			$docHeaders = $article.find('h2')
 				.addClass('hover-link')
 				.each (index) ->

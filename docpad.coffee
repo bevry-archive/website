@@ -161,7 +161,8 @@ docpadConfig =
 				categoryName = getCategoryName(category)
 				name = a.basename.replace(/^[\-0-9]+/,'')
 				url = "/learn/#{project}-#{name}"
-				urls = ["/#{project}/#{name}"]
+				slug = "/#{project}/#{name}"
+				urls = [slug]
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
 
@@ -175,11 +176,13 @@ docpadConfig =
 					categoryDirectory
 					category
 					categoryName
+					slug
 					url
 					urls
 					standalone
 				})
 				document.getMeta().set({
+					slug
 					url
 					urls
 				})

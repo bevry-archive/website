@@ -1,5 +1,5 @@
 # Prepare
-{permalink,date,heading,subheading,author,content,cssClasses,prev,next,up} = @
+{permalink,comments,date,heading,subheading,author,content,cssClasses,prev,next,up,document,partial} = @
 
 # Render
 article ".block"+(if cssClasses then '.'+cssClasses.join('.') else ""), ->
@@ -19,6 +19,11 @@ article ".block"+(if cssClasses then '.'+cssClasses.join('.') else ""), ->
 	section ".block-content", content
 
 	footer ".block-footer", ->
+
+		if comments
+			aside '.comments', ->
+				text partial('services/disqus.html.eco', {document})
+
 		if prev or up or next
 			nav ".prev-next", ->
 				if prev

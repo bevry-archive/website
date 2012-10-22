@@ -17,6 +17,8 @@ text @partial('content/block.html.coffee',{
 	heading: @document.title
 	subheading: @document.subheading
 	content: @content
+	document: @document
+	partial: @partial
 	prev:
 		if prevModel
 			url: prevModel.attributes.url
