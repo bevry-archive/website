@@ -3,7 +3,6 @@ passport = require('passport')
 GitHubStrategy = require('passport-github').Strategy
 mongo = require('mongodb')
 urlUtil = require('url')
-RedisSessionStore = null
 balUtil = require('bal-util')
 request = require('request')
 {queryEngine,Backbone} = require('docpad')
@@ -13,6 +12,7 @@ envConfig = process.env
 appConfig =
 	site:
 		url: envConfig.BEVRY_SITE_URL
+		salt: envConfig.BEVRY_SALT
 	auth:
 		github:
 			clientID: envConfig.BEVRY_GITHUB_ID
@@ -41,7 +41,7 @@ appConfig =
 		return data
 	)()
 
-# Database
+# Mongo
 databaseUserCollection = null
 mongoServer = new mongo.Server(appConfig.databaseMongo.host, appConfig.databaseMongo.port, appConfig.databaseMongo.serverOptions)
 mongoConnector = new mongo.Db(appConfig.databaseMongo.name, mongoServer, {safe:true})
@@ -55,14 +55,18 @@ mongoConnector.open (err,database) ->
 			console.log('connected collection')
 			databaseUserCollection = collection
 
-# Configure Passport
+# Redis
+RedisSessionStore = null
+redisSessionStore = null
+
+# Passport
 passport.serializeUser (user,next) ->
 	next(null,user.username)
 passport.deserializeUser (username,next) ->
 	databaseUserCollection.findOne {username}, (err,item) ->
 		next(err,item)
 
-# Ensure Authenticated
+# Authenticated
 ensureAuthenticated = (req,res,next) ->
 	return next()  if req.isAuthenticated()
 	res.redirect('/')
@@ -82,27 +86,40 @@ module.exports = (opts) ->
 	redirect = (url,code=301) -> (req,res) ->
 		res.redirect(url,code)
 
-	# -------------------------
-	# Authentiction
 
-	# Require
+	# -------------------------
+	# Databases
+
+	###
+	# Redis
 	RedisSessionStore ?= require('connect-redis')(express)
-	redisSessionStoreOptions =
+	redisSessionStore ?= new RedisSessionStore(
 		host: appConfig.databaseRedis.host
 		port: appConfig.databaseRedis.port
 		db: appConfig.databaseRedis.username
 		pass: appConfig.databaseRedis.password
 		no_ready_check: true
 		ttl: 60*60  # hour
+	)
+	###
+
+
+	# -------------------------
+	# Authentiction
 
 	# Setup
 	server.use express.cookieParser()
-	server.use express.session({
-		secret: 'secret'
-		cookie:
-			maxAge: 100*60*60
-		store: new RedisSessionStore(redisSessionStoreOptions)
+	server.use express.cookieSession({
+		secret: appConfig.site.salt
+		cookie: maxAge: 1000*60*60
 	})
+	###
+	server.use express.session({
+		secret: appConfig.site.salt
+		cookie: maxAge: 1000*60*60
+		store: redisSessionStore
+	})
+	###
 	server.use passport.initialize()
 	server.use passport.session()
 
