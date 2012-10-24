@@ -2,6 +2,7 @@
 passport = require('passport')
 GitHubStrategy = require('passport-github').Strategy
 mongo = require('mongodb')
+MongoSessionStore = null
 balUtil = require('bal-util')
 request = require('request')
 {queryEngine,Backbone} = require('docpad')
@@ -15,23 +16,23 @@ appConfig =
 		github:
 			clientID: envConfig.BEVRY_GITHUB_ID
 			clientSecret: envConfig.BEVRY_GITHUB_SECRET
-	db:
+	database:
+		name: 'bevry'
 		host: 'alex.mongohq.com'
 		port: 10027
-		name: 'bevry'
-		serverOptions:
-			auto_reconnect: true
 		username: envConfig.BEVRY_DB_USERNAME
 		password: envConfig.BEVRY_DB_PASSWORD
+		serverOptions:
+			auto_reconnect: true
 
 # Database
 databaseUserCollection = null
-mongoServer = new mongo.Server(appConfig.db.host, appConfig.db.port, appConfig.db.serverOptions)
-mongoConnector = new mongo.Db(appConfig.db.name, mongoServer, {safe:true})
+mongoServer = new mongo.Server(appConfig.database.host, appConfig.database.port, appConfig.database.serverOptions)
+mongoConnector = new mongo.Db(appConfig.database.name, mongoServer, {safe:true})
 mongoConnector.open (err,database) ->
 	throw err  if err
 	console.log('connected database')
-	database.authenticate appConfig.db.username, appConfig.db.password, (err,result) ->
+	database.authenticate appConfig.database.username, appConfig.database.password, (err,result) ->
 		throw err  if err
 		console.log('authenticated database')
 		database.collection 'users', (err,collection) ->
@@ -68,9 +69,25 @@ module.exports = (opts) ->
 	# -------------------------
 	# Authentiction
 
+	# Require
+	MongoSessionStore ?= require('connect-mongo')(express)
+
 	# Setup
 	server.use express.cookieParser()
-	server.use express.session({secret: 'secret'})
+	server.use express.session({
+		secret: 'secret'
+		cookie:
+			maxAge: 100*60*60
+		store: new MongoSessionStore({
+			db: appConfig.database.name
+			host: appConfig.database.host
+			port: appConfig.database.port
+			username: appConfig.database.username
+			password: appConfig.database.password
+			auto_reconnect: appConfig.database.serverOptions.auto_reconnect
+			clear_interval: 60*60  # hour
+		})
+	})
 	server.use passport.initialize()
 	server.use passport.session()
 

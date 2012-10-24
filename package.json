@@ -39,7 +39,8 @@
     "passport-github": "0.1.x",
     "mongodb": "1.1.x",
     "bal-util": "1.13.x",
-    "request": "2.11.x"
+    "request": "2.11.x",
+    "connect-mongo": "0.2.x"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x"
