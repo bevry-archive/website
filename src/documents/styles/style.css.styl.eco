@@ -327,12 +327,11 @@ div.container
 .accountbar
 	mixinMenu()
 	font-size: 14px
-	display: block
 	position: absolute
 	right: 0
 	top: 1em
 	width: 100%
-	display: none
+	<%- if 'development' in @getEnvironments() then 'display: block' else 'display: none' %>
 
 	.heading
 		.icon

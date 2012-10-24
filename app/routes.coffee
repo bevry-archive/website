@@ -2,7 +2,8 @@
 passport = require('passport')
 GitHubStrategy = require('passport-github').Strategy
 mongo = require('mongodb')
-MongoSessionStore = null
+urlUtil = require('url')
+RedisSessionStore = null
 balUtil = require('bal-util')
 request = require('request')
 {queryEngine,Backbone} = require('docpad')
@@ -16,23 +17,38 @@ appConfig =
 		github:
 			clientID: envConfig.BEVRY_GITHUB_ID
 			clientSecret: envConfig.BEVRY_GITHUB_SECRET
-	database:
-		name: 'bevry'
-		host: 'alex.mongohq.com'
-		port: 10027
-		username: envConfig.BEVRY_DB_USERNAME
-		password: envConfig.BEVRY_DB_PASSWORD
-		serverOptions:
-			auto_reconnect: true
+	databaseMongo: (->
+		url = urlUtil.parse(envConfig.BEVRY_MONGODB_URL)
+		auth = url.auth?.split(':')
+		data =
+			name: url.path.substr(1)
+			host: url.hostname
+			port: parseInt(url.port,10)
+			username: auth[0]
+			password: auth[1]
+			serverOptions:
+				auto_reconnect: true
+		return data
+	)()
+	databaseRedis: (->
+		url = urlUtil.parse(envConfig.BEVRY_REDIS_URL)
+		auth = url.auth.split(':')
+		data =
+			host: url.hostname
+			port: parseInt(url.port,10)
+			username: auth[0]
+			password: auth[1]
+		return data
+	)()
 
 # Database
 databaseUserCollection = null
-mongoServer = new mongo.Server(appConfig.database.host, appConfig.database.port, appConfig.database.serverOptions)
-mongoConnector = new mongo.Db(appConfig.database.name, mongoServer, {safe:true})
+mongoServer = new mongo.Server(appConfig.databaseMongo.host, appConfig.databaseMongo.port, appConfig.databaseMongo.serverOptions)
+mongoConnector = new mongo.Db(appConfig.databaseMongo.name, mongoServer, {safe:true})
 mongoConnector.open (err,database) ->
 	throw err  if err
 	console.log('connected database')
-	database.authenticate appConfig.database.username, appConfig.database.password, (err,result) ->
+	database.authenticate appConfig.databaseMongo.username, appConfig.databaseMongo.password, (err,result) ->
 		throw err  if err
 		console.log('authenticated database')
 		database.collection 'users', (err,collection) ->
@@ -70,7 +86,14 @@ module.exports = (opts) ->
 	# Authentiction
 
 	# Require
-	MongoSessionStore ?= require('connect-mongo')(express)
+	RedisSessionStore ?= require('connect-redis')(express)
+	redisSessionStoreOptions =
+		host: appConfig.databaseRedis.host
+		port: appConfig.databaseRedis.port
+		db: appConfig.databaseRedis.username
+		pass: appConfig.databaseRedis.password
+		no_ready_check: true
+		ttl: 60*60  # hour
 
 	# Setup
 	server.use express.cookieParser()
@@ -78,15 +101,7 @@ module.exports = (opts) ->
 		secret: 'secret'
 		cookie:
 			maxAge: 100*60*60
-		store: new MongoSessionStore({
-			db: appConfig.database.name
-			host: appConfig.database.host
-			port: appConfig.database.port
-			username: appConfig.database.username
-			password: appConfig.database.password
-			auto_reconnect: appConfig.database.serverOptions.auto_reconnect
-			clear_interval: 60*60  # hour
-		})
+		store: new RedisSessionStore(redisSessionStoreOptions)
 	})
 	server.use passport.initialize()
 	server.use passport.session()

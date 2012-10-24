@@ -1,4 +1,4 @@
-<% if @env is 'production': %>
+<% if 'production' in @getEnvironments(): %>
 	<!-- ReInvigorate -->
 	<script src="//include.reinvigorate.net/re_.js"></script>
 	<script>

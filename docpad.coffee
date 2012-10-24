@@ -60,7 +60,6 @@ docpadConfig =
 		text: textData
 		projects: require(__dirname+'/app/projects.coffee')
 		trainings: require(__dirname+'/app/trainings.coffee')
-		env: process.env.NODE_ENV or 'development'
 
 		# -----------------------------
 		# Site Properties

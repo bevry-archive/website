@@ -1,4 +1,4 @@
-<% if @env is 'production': %>
+<% if 'production' in @getEnvironments(): %>
 	<!-- Gauges -->
 	<script>
 	var _gauges = _gauges || [];
