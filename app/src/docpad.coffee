@@ -1,9 +1,14 @@
-# Prepare
+# Require
 pathUtil = require('path')
 _ = require('underscore')
 moment = require('moment')
 strUtil = require('underscore.string')
-textData = require(__dirname+'/app/text.coffee')
+
+# Prepare
+rootPath = __dirname+'/../..'
+appPath = __dirname
+sitePath = rootPath+'/site'
+textData = require(appPath+'/text')
 
 
 # =================================
@@ -40,6 +45,11 @@ docpadConfig =
 	# =================================
 	# DocPad Configuration
 
+	# Paths
+	rootPath: rootPath
+	outPath: rootPath+'/site/out'
+	srcPath: rootPath+'/site/src'
+
 	# Regenerate every hour
 	regenerateEvery: 1000*60*60
 
@@ -58,8 +68,8 @@ docpadConfig =
 		strUtil: strUtil
 		moment: moment
 		text: textData
-		projects: require(__dirname+'/app/projects.coffee')
-		trainings: require(__dirname+'/app/trainings.coffee')
+		projects: require(appPath+'/projects')
+		trainings: require(appPath+'/trainings')
 
 		# -----------------------------
 		# Site Properties
@@ -265,7 +275,7 @@ docpadConfig =
 			docpad = @docpad
 
 			# Forward to our application routing
-			require(__dirname+'/app/routes.coffee')({docpad,server,express})
+			require(appPath+'/routes')({docpad,server,express})
 
 
 # Export our DocPad Configuration

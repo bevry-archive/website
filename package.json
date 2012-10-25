@@ -43,6 +43,7 @@
     "connect-mongo": "0.2.x"
   },
   "devDependencies": {
+    "coffee-script": "1.4.x",
     "docpad-plugin-livereload": "2.x"
   },
   "main": "node_modules/docpad/bin/docpad-server"

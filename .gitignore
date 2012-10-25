@@ -18,4 +18,4 @@ out
 env.coffee
 .env
 
-src/documents/learn/docs/docpad
+site/src/documents/learn/docs/docpad
