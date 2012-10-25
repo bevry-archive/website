@@ -12,10 +12,9 @@ logs
 results
 
 node_modules
-npm-debug.log
 
-out
 env.coffee
 .env
 
+site/out
 site/src/documents/learn/docs/docpad
