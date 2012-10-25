@@ -1,0 +1,4 @@
+- [Introduction to Node.js with Ryan Dahl](http://www.youtube.com/watch?v=jo_B4LTHi3I) - a bit aged, but still good
+- [Evented Ruby vs Node.js by Jerry Cheung](http://www.youtube.com/watch?v=jo_B4LTHi3I) - good comparison about how node and ruby's approach to asynchrony differs
+- [Programming Style and Your Brain](http://www.youtube.com/watch?v=prAwkQt3ARg) - on how error prevention is better than cleverness (the reason why I love CoffeeScript for the most part but hate CoffeeScript's implicit returns)
+- [Nodecopter Cellular](http://www.youtube.com/watch?v=tJ3OY7UKPR8) - flying AR Drones powered by Node

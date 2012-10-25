@@ -21,7 +21,7 @@ module.exports = {
 		github: "GitHub"
 		support: "Support"
 		showcase: "Showcase"
-	
+
 	projectNames:
 		docpad: "DocPad"
 		node: "Node.js"
@@ -33,6 +33,7 @@ module.exports = {
 		community: "Community"
 		core: "Core"
 		extend: "Extend"
+		handsonnode: "Hands on with Node"
 
 	labelNames:
 		pro: "Pro"

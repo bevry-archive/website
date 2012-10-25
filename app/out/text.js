@@ -25,7 +25,8 @@ module.exports = {
     start: "Getting Started",
     community: "Community",
     core: "Core",
-    extend: "Extend"
+    extend: "Extend",
+    handsonnode: "Hands on with Node"
   },
   labelNames: {
     pro: "Pro",

@@ -1,0 +1,89 @@
+```
+title: The Node Ecosystem
+```
+
+## Core
+Node was created by [Ryan Dahl](https://github.com/ry). It is now owned and operated by [Joyent](http://joyent.com/) and [lead by](https://groups.google.com/forum/#!msg/nodejs/hfajgpvGTLY/DioyFo3t3A4J) [Isaac Schlueter](https://github.com/isaacs). Node is open-source and [located on github](http://github.com/joyent/node) - anyone can play a part in shaping its future.
+
+The mission of the core is to be as lightweight as possible. If a module can do something, then it won't make it into the core.
+
+
+## Programs
+Executing node code is as easy as running `node your-node-file`. To make use of other modules, you will want to write a `package.json` file in the root directory of your program. This file is used to define your application, including information such as its name, description, environments it can run under, and any modules it is dependent on. If you decide to publish your program to the world (making it a module others can use) then you will require a `package.json` file.
+
+A typical `package.json` will look like this:
+
+``` javascript
+{
+	"name": "my-program",
+	"version": "1.0.0",
+	"description": "program description",
+	"homepage": "http://programs-website.com",
+	"keywords": [
+		"one",
+		"two",
+		"three"
+	],
+	"author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
+	"maintainers": [
+		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+	],
+	"contributors": [
+		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+	],
+	"bugs": {
+		"url": "http://programs-issue-tracker.com"
+	},
+	"repository" : {
+		"type": "git",
+		"url": "http://programs-repository.git"
+	},
+	"engines" : {
+		"node": ">=0.6.0",
+		"npm": ">=1.1.0"
+	},
+	"dependencies": {
+		"some-dependency": "1.0.x"
+	},
+	"devDependencies": {
+		"some-dependency-only-used-for-dev": "1.0.x"
+	},
+	"directories": {
+		"lib": "./lib"
+	},
+	"bin": {
+		"docpad": "./bin/program",
+	},
+	"scripts": {
+		"test": "node ./test/everything.test.js"
+	},
+	"main": "./main.js"
+}
+```
+
+A lot is defined here; [the best way to discover their meanings is by referring to specification on the npmjs website.](https://npmjs.org/doc/json.html)
+ 
+> If you are writing a program that you never want to be released to the outside world, you will want to add `"private": true` as well. This will tell npm to never publish your program even if someone accidentally runs `npm publish`.
+
+
+## Modules
+Modules are just like programs, except the author has decided to publish them to the world using [npm](https://npmjs.org/) - which website includes a directory of all the published modules for you surf and discover.
+
+- To publish your program as a module, run `npm publish` in your program's directory
+- To use a module in your program, you first install it to your program using `npm install <module-name>`, then you can use it in your code by doing `var theModule = require('module-name');`
+- To install a module globally (so you can utilise its executables if it has any) you will use `npm install -g <module-name>`
+
+Modules will generally abide by [semantic versioning rules](http://semver.org/) so if you want to ensure your program will continue to get bug fixes but not anything that could be a breaking change, then you'll want to define the dependency like so: `"some-dependency": "1.0.x"` where the `x` indicates we are willing to accept versions where the `x` has changed, but nothing else must change.
+
+
+## Discovering Modules
+
+You can find an unreliable listing of a bunch of categorised modules on [Node's Modules Wiki Page](https://github.com/joyent/node/wiki/modules) which is cool for discovering what is around and possible. However if you know what you're after, you're better off doing a search on the [npm website](https://npmjs.org/). Be aware that node changes quickly, so make sure that the module you ware using has tests, and supports your node version - otherwise things get risky.
+
+
+## Caution
+
+If you ever specify a dependency version without any upper limit (e.g. `>= 1.0.0` or `*`) then it's only a matter of time until that dependency gets a backwards incompatible update and your entire program breaks. Never do this, always follow the earlier advice or specify exact versions.
+
+If you bundle a dependency using `bundledDependencies` and it includes native code (c code that is compiled) then your program will break on different operating system architectures. Be aware.
+

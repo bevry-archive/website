@@ -1,0 +1,14 @@
+- Front-end - browser based environment (think HTML, CSS, jQuery)
+- Back-end - desktop and server based environment (Ruby, Rails)
+- Scripting language - language which default implementations run then die (Perl, Python, PHP, Ruby)
+- Compilation language - language which default implementation stays alive (Java, C)
+- Blocking - waiting for something to complete and not being able to do other things (waiting in line)
+- Non-Blocking - waiting for something to complete and being able to do other things while you wait (waiting via callout system)
+- Asynchronous - able to break off from the main flow of doing something (fork in a river)
+- Synchronous - stays with the main flow (curve in a river)
+- Parallel - multiple things happening at the same time (multi-tasking)
+- Serial - things happen in order, one after the other (single-tasking)
+- AltJS - languages that aren't javascript but become javascript through a compilation/transformation process (CoffeeScript)
+- High-level - abstractions have obscured away the difficulties and challenges into a nice interface
+- Low-level - you're provided with the bare minimum, difficulties and challenges are solved by you
+- API (Application Programming Interface) - the things you call to do something with something
