@@ -207,6 +207,7 @@ module.exports = (opts) ->
 
 	# Pushover
 	server.all '/pushover', (req,res) ->
+		return res.send(200)  if 'development' in docpad.getEnvironments()
 		request(
 			{
 				url: "https://api.pushover.net/1/messages.json"

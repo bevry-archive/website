@@ -49,6 +49,9 @@ docpadConfig =
 	rootPath: rootPath
 	outPath: rootPath+'/site/out'
 	srcPath: rootPath+'/site/src'
+	reloadPaths: [
+		appPath
+	]
 
 	# Regenerate every hour
 	regenerateEvery: 1000*60*60
@@ -242,7 +245,10 @@ docpadConfig =
 						remote: 'origin'
 						branch: 'master'
 						output: true
-						next: complete
+						next: (err) ->
+							# warn about errors, but don't let them kill execution
+							docpad.warn(err)
+							complete()
 					},@))
 			tasks.async()
 

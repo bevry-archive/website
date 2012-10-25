@@ -170,3 +170,15 @@ $ ->
 
 	# Always trigger initial page change
 	$window.trigger('statechangecomplete')
+
+	# Scroll Spy
+	setInterval(
+		->
+			pageLeftToRead = document.height - (window.scrollY + window.innerHeight)
+			$articleNav = $article.find('.prev-next a.next')
+			if pageLeftToRead <= 50
+				$articleNav.css('opacity',1)
+			else
+				$articleNav.removeAttr('style')
+		500
+	)
