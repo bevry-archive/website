@@ -1,0 +1,78 @@
+```
+title: Advanced Servers
+```
+
+
+## Static File Server
+
+<%- @codeFile('./~examples/server-static.js', 'javascript') %>
+
+Test it: `curl http://localhost:8000/404; curl http://localhost:8000/static-server.js`
+
+
+## Applying Abstractions
+
+Considering the static file server example is incredibly common. Lets think of ways we can abstract out the serving of static files so we can re-use that functionality easily.
+
+One could come up with the following:
+
+<%- @codeFile('./~examples/server-static2.js', 'javascript') %>
+
+However that doesn't really help us, as it just moved the corresponding logic elsewhere - ideally we would like to have the ability to re-use the static file server part, but be able to still customise the file not found part.
+
+Given this description we could come up with the following:
+
+<%- @codeFile('./~examples/server-static3.js', 'javascript') %>
+
+The changes here are as follows:
+
+1. We passed over a callback function called `next` to `handleFiles` that includes our custom functionality.
+2. `next` receives a possible error as the first argument, this allows the caller to handle errors safely - [read more about this convention here](http://stackoverflow.com/questions/7310521/node-js-best-practice-exception-handling/7313005#7313005)
+
+Doing this it achieves our goals. But given a year or so development, that would lead to a very very big javascript file. Naturally, we'd like to abstract out common pieces of functionality into their own files. We would do this by:
+
+1. Creating a new file called `handle-files.js`
+2. Put our `handleFiles` function inside it
+3. End the file with `module.exports = handleFiles;`
+4. Require the function in our server file by doing `var handleFilers = require('handle-files.js');`
+
+[You can read more about modules via node's documentation on it.](http://nodejs.org/docs/latest/api/modules.html)
+
+You now have the ability to write abstract code in node. Be proud. Woohoo!
+
+For more advanced abstractions in regards to flow, check out [async](https://github.com/caolan/async) and [bal-util](https://github.com/balupton/bal-util).
+
+
+## Introduction to Middlewares
+
+In our previous example of writing the `handleFiles` handler what we effectively did was create a middleware, albiet a very rough middleware but a middleware nonetheless. Naturally, there are already [plenty of other middlewares](https://npmjs.org/browse/keyword/middleware) published as modules by other people. This is helped by the middleware framework [Connect](http://senchalabs.org/connect/) by [Sencha](http://www.sencha.com/) and [TJ Holowaychuck](https://github.com/visionmedia).
+
+Using connect, our static file server example would become:
+
+<%- @codeFile('./~examples/connect-static.js', 'javascript') %>
+
+Much simpler. Notice how the middlewares are like a waterfall, it hits the first, then if the first doesn't know what to do, the logic will flow through to the next middleware (accomplished by the previous middleware calling the `next` callback inside it).
+
+> Connect has plenty of other middlewares available for it. [Official middlewares for connect are listed on its website](http://www.senchalabs.org/connect/) with [3rd party middleware listed on github](https://github.com/senchalabs/connect/wiki). You'll want to check them out.
+
+
+## Introduction to Web Frameworks
+
+There are a [few web frameworks for node](http://stackoverflow.com/questions/3809539/choosing-a-web-application-framework-using-node-js). The most used is [Express](http://expressjs.com/) by [TJ Holowaychuck](https://github.com/visionmedia). There are a few names you will see appear again and again in the open-source node world, including [Joyent](https://github.com/joyent), [LearnBoost](https://github.com/LearnBoost), [Cloud9](https://github.com/c9), [Nodejitsu](https://github.com/nodejitsu) and [Bevry](https://github.com/bevry).
+
+Express can be thought of as a layer that sits ontop of connect and node's http module. It provides its own middleware and uses its own request and response objects that inherit from those of node's http module. The benefit over just using connect are:
+
+- Addition of routing
+- Common functionality provided through a friendly syntax
+
+The following is what a simple hello world server would look like with express:
+
+<%- @codeFile('./~examples/express-basic.js', 'javascript') %>
+
+> It is important to note that the line `var server = app.listen(3000);` is the same as doing `var server = require('http').createServer(app).listen(80);`. You will need to remember this when interfacing with other modules - some modules like to interface with the express instance `app` while others like to interface with the node http server instance `server` instead.
+
+And this is what our static file server will look like with express:
+
+<%- @codeFile('./~examples/express-static.js', 'javascript') %>
+
+Notice the nicer syntax for setting the status code of the response. Before it was `res.statusCode = 404;` now it is the first argument of `res.send` - this is what we meant by express providing a nicer syntax :)

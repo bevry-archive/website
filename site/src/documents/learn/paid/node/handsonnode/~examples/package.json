@@ -1,0 +1,45 @@
+{
+	"name": "my-program",
+	"version": "1.0.0",
+	"description": "program description",
+	"homepage": "http://programs-website.com",
+	"keywords": [
+		"one",
+		"two",
+		"three"
+	],
+	"author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
+	"maintainers": [
+		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+	],
+	"contributors": [
+		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+	],
+	"bugs": {
+		"url": "http://programs-issue-tracker.com"
+	},
+	"repository" : {
+		"type": "git",
+		"url": "http://programs-repository.git"
+	},
+	"engines" : {
+		"node": ">=0.6.0",
+		"npm": ">=1.1.0"
+	},
+	"dependencies": {
+		"some-dependency": "1.0.x"
+	},
+	"devDependencies": {
+		"some-dependency-only-used-for-dev": "1.0.x"
+	},
+	"directories": {
+		"lib": "./lib"
+	},
+	"bin": {
+		"docpad": "./bin/program",
+	},
+	"scripts": {
+		"test": "node ./test/everything.test.js"
+	},
+	"main": "./main.js"
+}

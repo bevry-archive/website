@@ -1,4 +1,5 @@
 # Require
+fsUtil = require('fs')
 pathUtil = require('path')
 _ = require('underscore')
 moment = require('moment')
@@ -145,6 +146,19 @@ docpadConfig =
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
+		# Read File
+		readFile: (relativePath) ->
+			path = @document.fullDirPath+'/'+relativePath
+			result = fsUtil.readFileSync(path)
+			if result instanceof Error
+				throw result
+			else
+				return result.toString()
+
+		# Code File
+		codeFile: (relativePath,language) ->
+			contents = @readFile(relativePath)
+			return """<pre><code class="#{language}">#{contents}</code></pre>"""
 
 
 	# =================================
@@ -247,7 +261,7 @@ docpadConfig =
 						output: true
 						next: (err) ->
 							# warn about errors, but don't let them kill execution
-							docpad.warn(err)
+							docpad.warn(err)  if err
 							complete()
 					},@))
 			tasks.async()

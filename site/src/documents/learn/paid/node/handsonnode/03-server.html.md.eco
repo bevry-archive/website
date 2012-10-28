@@ -1,0 +1,32 @@
+```
+title: Simple Servers
+```
+
+
+## Basic Server
+
+<%- @codeFile('./~examples/server-basic.js', 'javascript') %>
+
+Test it: `curl http://localhost:8000`
+
+
+## Server with Pause
+
+<%- @codeFile('./~examples/server-pause.js', 'javascript') %>
+
+Bench it: `ab -n 100 -c 100 http://localhost:8000/`
+
+
+## Echo Server
+
+<%- @codeFile('./~examples/server-echo.js', 'javascript') %>
+
+Talk with it: `nc localhost 8000`
+
+
+## Chat Server
+
+<%- @codeFile('./~examples/server-chat.js', 'javascript') %>
+
+Talk with it: `nc localhost 8000`
+
