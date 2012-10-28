@@ -287,6 +287,9 @@ docpadConfig =
 			# Write the sitemap file
 			balUtil.writeFile(sitemapPath, sitemap.sort().join('\n'), next)
 
+			# Done
+			return
+
 		# Server Extend
 		# Used to add our own custom routes to the server before the docpad routes are added
 		serverExtend: (opts) ->
@@ -294,8 +297,43 @@ docpadConfig =
 			{server,express} = opts
 			docpad = @docpad
 
+			# Pushover
+			server.all '/pushover', (req,res) ->
+				return res.send(200)  if 'development' in docpad.getEnvironments()
+				request(
+					{
+						url: "https://api.pushover.net/1/messages.json"
+						method: "POST"
+						form: balUtil.extend(
+							{
+								token: envConfig.BEVRY_PUSHOVER_TOKEN
+								user: envConfig.BEVRY_PUSHOVER_USER_KEY
+								message: req.query
+							}
+							req.query
+						)
+					}
+					(_req,_res,body) ->
+						res.send(body)
+				)
+
+			# Projects
+			server.get /^\/(?:g|gh|github)(?:\/(.*))?$/, (req,res) ->
+				project = req.params[0] or ''
+				res.redirect(301, "https://github.com/bevry/#{project}")
+
+			# Twitter
+			server.get /^\/(?:t|twitter|tweet)\/?.*$/, (req,res) -> res.redirect(301, "https://twitter.com/bevryme")
+
+			# Facebook
+			server.get /^\/(?:f|facebook)\/?.*$/, (req,res) -> res.redirect(301, "https://www.facebook.com/bevryme")
+
 			# Forward to our application routing
-			require(appPath+'/routes')({docpad,server,express})
+			if 'development' in docpad.getEnvironments()
+				require(appPath+'/routes')({docpad,server,express})
+
+			# Done
+			return
 
 
 # Export our DocPad Configuration

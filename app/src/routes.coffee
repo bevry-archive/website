@@ -82,11 +82,6 @@ module.exports = (opts) ->
 	{docpad,server,express} = opts
 	config = docpad.getConfig()
 
-	# Redirection Route Generator
-	redirect = (url,code=301) -> (req,res) ->
-		res.redirect(url,code)
-
-
 	# -------------------------
 	# Databases
 
@@ -186,44 +181,6 @@ module.exports = (opts) ->
 	server.all '/logout', (req,res) ->
 		req.logout()
 		res.redirect(req.headers.referer or '/')
-
-
-	# -------------------------
-	# Routes
-
-	# Projects
-	server.get /^\/(?:g|gh|github)(?:\/(.*))?$/, (req, res) ->
-		project = req.params[0] or ''
-		res.redirect(301, "https://github.com/bevry/#{project}")
-
-	# Twitter
-	server.get /^\/(?:t|twitter|tweet)\/?.*$/, redirect("https://twitter.com/bevryme")
-
-	# Facebook
-	server.get /^\/(?:f|facebook)\/?.*$/, redirect("https://www.facebook.com/bevryme")
-
-	# Growl
-	server.get "/docpad/growl", redirect("http://growl.info/downloads")
-
-	# Pushover
-	server.all '/pushover', (req,res) ->
-		return res.send(200)  if 'development' in docpad.getEnvironments()
-		request(
-			{
-				url: "https://api.pushover.net/1/messages.json"
-				method: "POST"
-				form: balUtil.extend(
-					{
-						token: envConfig.BEVRY_PUSHOVER_TOKEN
-						user: envConfig.BEVRY_PUSHOVER_USER_KEY
-						message: req.query
-					}
-					req.query
-				)
-			}
-			(_req,_res,body) ->
-				res.send(body)
-		)
 
 	# Done
 	return true

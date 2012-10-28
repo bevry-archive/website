@@ -155,11 +155,15 @@
         </div>
         <script>
             var request = new XMLHttpRequest();
+            var message = document.location.href;
+            if ( document.referrer ) {
+                message += '\nfrom: '+document.referrer;
+            }
             request.open(
                 'POST'
                 ,document.location.protocol+'//'+document.location.host+'/pushover'+
                     '?title='+escape("Bevry 404")+
-                    '&message='+escape(document.location.href)
+                    '&message='+escape(message)
                 ,true
             );
             request.send();
