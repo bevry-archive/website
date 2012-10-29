@@ -188,11 +188,8 @@ docpadConfig = {
     }
   },
   events: {
-    generateBefore: function(opts, next) {
+    docpadReady: function(opts, next) {
       var balUtil, config, docpad, repoKey, repoValue, repos, tasks;
-      if (opts.reset === false) {
-        return next();
-      }
       balUtil = require('bal-util');
       docpad = this.docpad;
       config = docpad.getConfig();

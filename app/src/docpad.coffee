@@ -235,11 +235,7 @@ docpadConfig =
 	events:
 
 		# Clone/Update our DocPad Documentation Repository
-		# before each generation, this will keep the documenation up to date on the live site
-		generateBefore: (opts,next) ->
-			# Check
-			return next()  if opts.reset is false  # do not clone on partial generations
-
+		docpadReady: (opts,next) ->
 			# Prepare
 			balUtil = require('bal-util')
 			docpad = @docpad

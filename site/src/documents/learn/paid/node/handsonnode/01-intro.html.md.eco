@@ -4,17 +4,17 @@ title: What is Node.js?
 
 ## What is Node?
 
-Node breaks JavaScript out of the box of the browser, and brings it to the desktop to create remarkable new opportunities.
+Node breaks JavaScript out of the box of the browser and brings it to the desktop to create remarkable new opportunities.
 
 
 ## Why should I care?
 
-Before node, apps were generally like this on one or more points:
+Before node, apps were generally like this:
 - Naturally slow - operations happened in a blocking fashion
 - No environment re-use - different people and code needed for back-end and front-end environments
 - Limited - great for a particular subset of tasks (e.g. shell scripting or web pages) but require complex approaches for tasks outside that subset (e.g. RubyMotion and HipHop)
 
-Node apps are like this:
+Node apps are more like this:
 - Naturally fast - operations occur in an asynchronous and non-blocking fashion
 - Environment re-use - people and code can be shared between back-end and front-end environments
 - Powerful - great for a wide range of tasks out of the box (similar to Java and .NET)
