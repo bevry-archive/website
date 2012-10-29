@@ -56,7 +56,6 @@ docpadConfig = {
   outPath: rootPath + '/site/out',
   srcPath: rootPath + '/site/src',
   reloadPaths: [appPath],
-  regenerateEvery: 1000 * 60 * 60,
   templateData: {
     underscore: _,
     strUtil: strUtil,
