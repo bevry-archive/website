@@ -3,6 +3,7 @@ pathUtil = require('path')
 _ = require('underscore')
 moment = require('moment')
 strUtil = require('underscore.string')
+balUtil = require('bal-util')
 
 # Prepare
 rootPath = __dirname+'/../..'
@@ -218,13 +219,11 @@ docpadConfig =
 	events:
 
 		# Clone/Update our DocPad Documentation Repository
-		# before each generation, this will keep the documenation up to date on the live site
-		generateBefore: (opts,next) ->
+		docpadReady: (opts,next) ->
 			# Check
 			return next()  if opts.reset is false  # do not clone on partial generations
 
 			# Prepare
-			balUtil = require('bal-util')
 			docpad = @docpad
 			config = docpad.getConfig()
 
@@ -255,7 +254,6 @@ docpadConfig =
 		# Write
 		writeAfter: (opts,next) ->
 			# Prepare
-			balUtil = require('bal-util')
 			docpad = @docpad
 			config = docpad.getConfig()
 			sitemap = []
