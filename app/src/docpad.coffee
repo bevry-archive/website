@@ -54,9 +54,6 @@ docpadConfig =
 		appPath
 	]
 
-	# Regenerate every hour
-	regenerateEvery: 1000*60*60
-
 
 	# =================================
 	# Template Data
