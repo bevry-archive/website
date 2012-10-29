@@ -4,6 +4,7 @@ pathUtil = require('path')
 _ = require('underscore')
 moment = require('moment')
 strUtil = require('underscore.string')
+balUtil = require('bal-util')
 
 # Prepare
 rootPath = __dirname+'/../..'
@@ -234,7 +235,6 @@ docpadConfig =
 		# Clone/Update our DocPad Documentation Repository
 		docpadReady: (opts,next) ->
 			# Prepare
-			balUtil = require('bal-util')
 			docpad = @docpad
 			config = docpad.getConfig()
 
@@ -265,7 +265,6 @@ docpadConfig =
 		# Write
 		writeAfter: (opts,next) ->
 			# Prepare
-			balUtil = require('bal-util')
 			docpad = @docpad
 			config = docpad.getConfig()
 			sitemap = []
