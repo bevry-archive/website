@@ -37,11 +37,11 @@ The following examples showcase the fundamental differences between node and oth
 
 ### Node
 
-<%- @codeFile('./~examples/difference-node.js', 'javascript') %>
+<%- @codeFile('./~examples/difference-node.js') %>
 
 ### PHP
 
-<%- @codeFile('./~examples/difference-php.php', 'php') %>
+<%- @codeFile('./~examples/difference-php.php') %>
 
 
 

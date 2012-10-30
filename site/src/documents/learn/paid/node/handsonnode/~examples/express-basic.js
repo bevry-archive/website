@@ -1,5 +1,7 @@
 // Requires
 var express = require('express');
+
+// Application
 var app = express();
 
 // Routes

@@ -105,6 +105,9 @@ docpadConfig = {
     },
     codeFile: function(relativePath, language) {
       var contents;
+      if (language == null) {
+        language = pathUtil.extname(relativePath).substr(1);
+      }
       contents = this.readFile(relativePath);
       return "<pre><code class=\"" + language + "\">" + contents + "</code></pre>";
     }

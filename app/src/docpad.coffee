@@ -155,6 +155,7 @@ docpadConfig =
 
 		# Code File
 		codeFile: (relativePath,language) ->
+			language ?= pathUtil.extname(relativePath).substr(1)
 			contents = @readFile(relativePath)
 			return """<pre><code class="#{language}">#{contents}</code></pre>"""
 

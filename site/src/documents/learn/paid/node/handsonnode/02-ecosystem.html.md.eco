@@ -13,7 +13,7 @@ Executing node code is as easy as running `node your-node-file`. To make use of 
 
 A typical `package.json` will look like this:
 
-<%- @codeFile('./~examples/package.json', 'javascript') %>
+<%- @codeFile('./~examples/package.json') %>
 
 A lot is defined here; [the best way to discover their meanings is by referring to specification on the npmjs website.](https://npmjs.org/doc/json.html)
 

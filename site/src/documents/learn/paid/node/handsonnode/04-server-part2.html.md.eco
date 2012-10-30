@@ -5,7 +5,7 @@ title: Advanced Servers
 
 ## Static File Server
 
-<%- @codeFile('./~examples/server-static.js', 'javascript') %>
+<%- @codeFile('./~examples/server-static.js') %>
 
 Test it: `curl http://localhost:8000/404; curl http://localhost:8000/static-server.js`
 
@@ -16,13 +16,13 @@ Considering the static file server example is incredibly common. Lets think of w
 
 One could come up with the following:
 
-<%- @codeFile('./~examples/server-static2.js', 'javascript') %>
+<%- @codeFile('./~examples/server-static2.js') %>
 
 However that doesn't really help us, as it just moved the corresponding logic elsewhere - ideally we would like to have the ability to re-use the static file server part, but be able to still customise the file not found part.
 
 Given this description we could come up with the following:
 
-<%- @codeFile('./~examples/server-static3.js', 'javascript') %>
+<%- @codeFile('./~examples/server-static3.js') %>
 
 The changes here are as follows:
 
@@ -49,7 +49,7 @@ In our previous example of writing the `handleFiles` handler what we effectively
 
 Using connect, our static file server example would become:
 
-<%- @codeFile('./~examples/connect-static.js', 'javascript') %>
+<%- @codeFile('./~examples/connect-static.js') %>
 
 Much simpler. Notice how the middlewares are like a waterfall, it hits the first, then if the first doesn't know what to do, the logic will flow through to the next middleware (accomplished by the previous middleware calling the `next` callback inside it).
 
@@ -67,12 +67,12 @@ Express can be thought of as a layer that sits ontop of connect and node's http 
 
 The following is what a simple hello world server would look like with express:
 
-<%- @codeFile('./~examples/express-basic.js', 'javascript') %>
+<%- @codeFile('./~examples/express-basic.js') %>
 
 > It is important to note that the line `var server = app.listen(3000);` is the same as doing `var server = require('http').createServer(app).listen(80);`. You will need to remember this when interfacing with other modules - some modules like to interface with the express instance `app` while others like to interface with the node http server instance `server` instead.
 
 And this is what our static file server will look like with express:
 
-<%- @codeFile('./~examples/express-static.js', 'javascript') %>
+<%- @codeFile('./~examples/express-static.js') %>
 
 Notice the nicer syntax for setting the status code of the response. Before it was `res.statusCode = 404;` now it is the first argument of `res.send` - this is what we meant by express providing a nicer syntax :)

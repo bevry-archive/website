@@ -7,3 +7,9 @@ title: Web Applications
 It's now time to move onto building a proper web application. Rather than the simple todo application you would build in other systems, for node the standard is a chat application (which is a lot more exciting!).
 
 To do this, we will use the module [Socket.io](http://socket.io/) by [Learnboost](https://github.com/learnboost/) and [Guillermo Rauch](https://github.com/guille).
+
+Adding Socket.io to our previous Express Static File Server will look like this:
+
+<%- @codeFile('./~examples/socket-server.js') %>
+
+<%- @codeFile('./~examples/socket-client.html') %>
