@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Web App</title>
+	<style>
+		.messages {
+			max-height: 500px;
+			border: 1px solid gray;
+			overflow: auto;
+		}
+		.messageInput {
+			width: 100%;
+			padding: 1em;
+		}
+	</style>
+</head>
+<body>
+	<!-- App -->
+	<div class="app">
+		<ul class="messages"></ul>
+		<input type="text" disabled class="messageInput" placeholder="Enter your message here" />
+	</div>
+
+	<!-- Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		// IO
+		var socket = io.connect(document.location.protocol+'//'+document.location.host);
+
+		// Ready
+		$(function(){
+			// Fetch
+			var $app = $('.app');
+			var $messages = $app.find('.messages');
+			var $messageInput = $app.find('.messageInput').removeAttr('disabled').focus();
+
+			// Receive Message
+			socket.on('message', function(message){
+				console.log('received message:', message);
+				$message = $('<li>',{
+					'class': 'message',
+					text: message.text
+				});
+				$messages.append($message);
+			});
+
+			// Send Message
+			$messageInput.on('keypress', function(event){
+				if ( event.keyCode === 13 ) { // enter
+					var message = {
+						text: $messageInput.val().trim()
+					};
+					console.log('send message:', message);
+					socket.emit('message',message);
+					$messageInput.val(''); // clear input
+				}
+			});
+		});
+	</script>
+</body>
+</html>

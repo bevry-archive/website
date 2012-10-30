@@ -19,10 +19,10 @@ app.use(function(req,res,next){
 });
 
 // Socket
-io.sockets.on('connection', function (socket) {
-	socket.emit('news', { hello: 'world' });
-	socket.on('my other event', function (data) {
-		console.log(data);
+io.sockets.on('connection', function(socket){
+	socket.on('message', function(message){
+		console.log('received message:', message);
+		io.sockets.emit('message', message);
 	});
 });
 
