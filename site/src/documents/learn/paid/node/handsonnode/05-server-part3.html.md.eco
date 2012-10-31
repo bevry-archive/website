@@ -17,9 +17,9 @@ Adding Socket.io to our previous Express Static File Server will look like this:
 
 And turning it into a basic chat server will look like this:
 
-<%- @codeFile('./~examples/socket-server.js') %>
+<%- @codeFile('./~examples/chat-server.js') %>
 
-<%- @codeFile('./~examples/socket-client.html') %>
+<%- @codeFile('./~examples/chat-client.html') %>
 
 
 ## Your Turn

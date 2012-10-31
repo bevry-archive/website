@@ -38,7 +38,7 @@
 		"lib": "./lib"
 	},
 	"bin": {
-		"docpad": "./bin/program"
+		"program": "./bin/program"
 	},
 	"scripts": {
 		"test": "node ./test/everything.test.js"
