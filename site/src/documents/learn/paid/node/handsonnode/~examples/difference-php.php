@@ -5,7 +5,7 @@ sleep(2);
 echo "world\n";
 
 # Example 2
-$contents = file_get_contents('some-text-file.txt');
+$contents = file_get_contents('difference-node.js');
 if ( $contents === false ) {
 	echo "error occured\n";
 	exit(-1);
@@ -14,8 +14,8 @@ if ( $contents === false ) {
 }
 
 # Example 3
-$one = file_get_contents('one.txt');
-$two = file_get_contents('two.txt');
+$one = file_get_contents('difference-node.js');
+$two = file_get_contents('difference-php.php');
 if ( $one === false || $two === false ) {
 	echo "error occured\n";
 	exit(-1);
