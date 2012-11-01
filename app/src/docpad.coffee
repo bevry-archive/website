@@ -135,7 +135,7 @@ docpadConfig =
 				authorLink: "http://au.linkedin.com/pub/ciaran-hale/3a/9a2/867"
 				job: "Development Programmer"
 				company: "AcidGreen"
-				companyTitle: "http://www.acidgreen.com.au/"
+				companyLink: "http://www.acidgreen.com.au/"
 			,
 				text: """
 					Ben has been such an asset to our team. He works well with others, produces fantastic work, thinks outside the box and is just a generally all-round good guy to work with.
@@ -166,7 +166,7 @@ docpadConfig =
 				authorLink: "http://be.linkedin.com/in/thomaslete"
 				job: "Core Team"
 				company: "Aloha Editor"
-				companyUrl: "http://aloha-editor.org/"
+				companyLink: "http://aloha-editor.org/"
 			,
 				text: """
 					Benjamin is a highly skilled and knowledgeable developer with utilizing Web 2.0 solutions and such technologies as jQuery and AJAX. I had the opportunity to work along side him on the Webb & Brown Neaves redesign, it was a large project which required his expertise with these technologies. Ben played a lead role from the start with the creation and development of the AJAX framework and jQuery effects used. I was new to this sort of technology and I have learned a lot from him. He was always precise to details and his jQuery skills were very impressive.
@@ -186,7 +186,7 @@ docpadConfig =
 				authorLink: "http://www.linkedin.com/in/deanusher"
 				job: "Founder"
 				company: "Dean Usher Web Design"
-				companyTitle: "http://www.deanusher.com/"
+				companyLink: "http://www.deanusher.com/"
 		]
 
 
