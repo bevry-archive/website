@@ -5,6 +5,7 @@ url: '/services'
 standalone: true
 ---
 
+<t:page render="markdown">
 
 *Business hours are between 9am and 5pm Sydney Time (+10:00) Monday to Friday with limited availability on Saturday and no guaranteed availability on Sunday. All prices are in Australian Dollars (AUD). [Time-Zone Converter.](http://everytimezone.com/) [Currency Converter.](http://www.xe.com/ucc/)*
 
@@ -44,3 +45,11 @@ Are you wanting to learn a new technology, way of doing things, for yourself or 
 For individuals, we provide workshop trainings (these are listed with the navigation on the left), online trainings (under development), and mentorship programs (upon request).
 
 For companies, we can come in and train your people in a pre-defined format or in a custom format specified by you.
+
+
+## Testimonials
+
+</t:page>
+
+<%- @partial('content/testimonials.html.coffee', {testimonials:@testimonials}) %>
+

@@ -259,7 +259,7 @@ nav li
 
 blockquote
 	margin: 3em
-	color: hsl(11, 90%, 55%)
+	// color: hsl(11, 90%, 55%)
 	em
 		font-style: italic
 
