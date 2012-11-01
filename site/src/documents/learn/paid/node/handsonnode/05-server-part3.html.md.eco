@@ -8,11 +8,14 @@ It's now time to move onto building a proper web application. Rather than the si
 
 To do this, we will use the module [Socket.io](http://socket.io/) by [Learnboost](https://github.com/learnboost/) and [Guillermo Rauch](https://github.com/guille).
 
+
 Adding Socket.io to our previous Express Static File Server will look like this:
 
 <%- @codeFile('./~examples/socket-server.js') %>
 
 <%- @codeFile('./~examples/socket-client.html') %>
+
+Test it: http://localhost:8000/socket-client.html
 
 
 And turning it into a basic chat server will look like this:
@@ -20,6 +23,8 @@ And turning it into a basic chat server will look like this:
 <%- @codeFile('./~examples/chat-server.js') %>
 
 <%- @codeFile('./~examples/chat-client.html') %>
+
+Test it: http://localhost:8000/socket-client.html
 
 
 ## Your Turn

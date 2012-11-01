@@ -7,7 +7,7 @@ title: Advanced Servers
 
 <%- @codeFile('./~examples/server-static.js') %>
 
-Test it: `curl http://localhost:8000/404; curl http://localhost:8000/static-server.js`
+Test it: `curl http://localhost:8000/404; curl http://localhost:8000/server-static.js`
 
 
 ## Applying Abstractions
