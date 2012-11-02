@@ -5,6 +5,7 @@ _ = require('underscore')
 moment = require('moment')
 strUtil = require('underscore.string')
 balUtil = require('bal-util')
+feedr = new (require('feedr').Feedr)
 
 # Prepare
 rootPath = __dirname+'/../..'
@@ -346,6 +347,12 @@ docpadConfig =
 				})
 			)
 
+	# =================================
+	# DocPad Plugins
+
+	plugins:
+		coffeekup:
+			format: false
 
 	# =================================
 	# DocPad Events
@@ -357,15 +364,13 @@ docpadConfig =
 			# Prepare
 			docpad = @docpad
 			config = docpad.getConfig()
+			tasks = new balUtil.Group(next)
 
-			# Specify the repos
+			# Repos
 			repos =
 				'docpad-documentation':
 					path: pathUtil.join(config.documentsPaths[0],'learn','docs','docpad')
 					url:'git://github.com/bevry/docpad-documentation.git'
-
-			# Clone them out
-			tasks = new balUtil.Group(next)
 			for own repoKey,repoValue of repos
 				tasks.push repoValue, (complete) ->
 					balUtil.initOrPullGitRepo(balUtil.extend({
@@ -377,7 +382,49 @@ docpadConfig =
 							docpad.warn(err)  if err
 							complete()
 					},@))
+
+			# Fire
 			tasks.async()
+			return
+
+		# Add Contributors to the Template Data
+		extendTemplateData: (opts,next) ->
+			# Prepare
+			contributors = {}
+			opts.templateData.contributors = {}
+			tasks = new balUtil.Group (err) ->
+				return next(err)  if err
+				delete contributors['benjamin lupton']
+				contributorsNames = _.keys(contributors).sort()
+				for contributorName in contributorsNames
+					opts.templateData.contributors[contributorName] = contributors[contributorName]
+				next()
+
+			# Contributors
+			contributorFeeds = [
+				"https://api.github.com/users/docpad/repos?client_id=#{process.env.BEVRY_GITHUB_CLIENT_ID}&client_secret=#{process.env.BEVRY_GITHUB_CLIENT_SECRET}"
+				"https://api.github.com/users/bevry/repos?client_id=#{process.env.BEVRY_GITHUB_CLIENT_ID}&client_secret=#{process.env.BEVRY_GITHUB_CLIENT_SECRET}"
+			]
+			feedr.readFeeds contributorFeeds, (err,feedRepos) ->
+				for repos in feedRepos
+					for repo in repos
+						packageUrl = repo.html_url.replace('//github.com','//raw.github.com')+'/master/package.json'
+						tasks.push {repo,packageUrl}, (complete) ->
+							feedr.readFeed @packageUrl, (err,packageData) ->
+								return complete()  if err  # ignore
+								for contributor in packageData.contributors or []
+									contributorMatch = /^([^<(]+)\s*(?:<(.+?)>)?\s*(?:\((.+?)\))?$/.exec(contributor)
+									continue  unless contributorMatch
+									contributorData =
+										name: (contributorMatch[1] or '').trim()
+										email: (contributorMatch[2] or '').trim()
+										url: (contributorMatch[3] or '').trim()
+									contributorId = contributorData.name.toLowerCase()
+									contributors[contributorId] = contributorData
+								complete()
+
+				# Fire
+				tasks.async()
 
 			# Done
 			return

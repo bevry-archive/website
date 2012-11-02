@@ -54,16 +54,6 @@ module.exports = {
       support: "/support"
     }
   },
-  caterpillar: {
-    title: "Caterpillar",
-    content: "Caterpillar is a logging system for Node.js. It's easy to use, and supports grouping of messages, filtering log levels, colors, times, modules, custom formatters and custom transports.",
-    links: {
-      main: "https://github.com/bevry/caterpillar",
-      learn: "/learn",
-      github: "https://github.com/bevry/caterpillar",
-      support: "/support"
-    }
-  },
   cson: {
     title: "CSON",
     content: "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
@@ -79,6 +69,24 @@ module.exports = {
     links: {
       main: "https://github.com/bevry/watchr",
       github: "https://github.com/bevry/watchr",
+      support: "/support"
+    }
+  },
+  caterpillar: {
+    title: "Caterpillar",
+    content: "Caterpillar is a logging system for Node.js. It's easy to use, and supports grouping of messages, filtering log levels, colors, times, modules, custom formatters and custom transports.",
+    links: {
+      main: "https://github.com/bevry/caterpillar",
+      github: "https://github.com/bevry/caterpillar",
+      support: "/support"
+    }
+  },
+  caterpillar: {
+    title: "Feedr",
+    content: "Node utility that takes in remote feeds (xml, atom, json, jsonp, whatever) and converts them to JSON data.",
+    links: {
+      main: "https://github.com/bevry/feedr",
+      github: "https://github.com/bevry/feedr",
       support: "/support"
     }
   }

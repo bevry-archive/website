@@ -5,8 +5,6 @@ url: '/services'
 standalone: true
 ---
 
-<t:page render="markdown">
-
 *Business hours are between 9am and 5pm Sydney Time (+10:00) Monday to Friday with limited availability on Saturday and no guaranteed availability on Sunday. All prices are in Australian Dollars (AUD). [Time-Zone Converter.](http://everytimezone.com/) [Currency Converter.](http://www.xe.com/ucc/)*
 
 <div class="contact-links">
@@ -48,8 +46,6 @@ For companies, we can come in and train your people in a pre-defined format or i
 
 
 ## Testimonials
-
-</t:page>
 
 <%- @partial('content/testimonials.html.coffee', {testimonials:@testimonials}) %>
 

@@ -24,8 +24,8 @@ appConfig = {
   },
   auth: {
     github: {
-      clientID: envConfig.BEVRY_GITHUB_ID,
-      clientSecret: envConfig.BEVRY_GITHUB_SECRET
+      clientID: envConfig.BEVRY_GITHUB_CLIENT_ID,
+      clientSecret: envConfig.BEVRY_GITHUB_CLIENT_SECRET
     }
   },
   databaseMongo: (function() {

@@ -9,6 +9,7 @@ standalone: true
 _ = @underscore
 docs = @docs
 learnCollection = @getCollection('learn')
+return  unless learnCollection
 {getLabelName,getProjectName,getCategoryName} = @
 
 # Prepare
