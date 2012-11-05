@@ -350,9 +350,11 @@ docpadConfig =
 	# =================================
 	# DocPad Plugins
 
-	plugins:
-		coffeekup:
-			format: false
+	environments:
+		development:
+			plugins:
+				coffeekup:
+					format: false
 
 	# =================================
 	# DocPad Events
