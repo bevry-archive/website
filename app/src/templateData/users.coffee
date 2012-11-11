@@ -1,7 +1,15 @@
 module.exports = [
+		title: "Microsoft"
+		url: "http://microsoft.com/"
+		imageUrl: "/images/brands/microsoft.jpg"
+	,
 		title: "37Signals"
 		url: "http://37signals.com/"
 		imageUrl: "/images/brands/37signals.png"
+	,
+		title: "Meltmedia"
+		url: "http://meltmedia.com/"
+		imageUrl: "/images/brands/meltmedia.png"
 	,
 		title: "Almero"
 		url: "http://almero.bg/"

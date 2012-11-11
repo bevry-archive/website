@@ -597,9 +597,9 @@ div.container
 			li
 				img
 					max-width: 20%
-					max-height: 50px
-					margin-right: 3em
-					margin-bottom: 2em
+					max-height: 65px
+					margin-right: 6%
+					margin-bottom: 3em
 
 		/*
 		.contributors
