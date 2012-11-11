@@ -6,8 +6,21 @@ url: '/'
 standalone: true
 ---
 
+## Introduction
+
 We’re a Sydney based [Node.js](http://en.wikipedia.org/wiki/Nodejs), [JavaScript](http://en.wikipedia.org/wiki/JavaScript) and [HTML5](http://en.wikipedia.org/wiki/HTML5) company focused on empowering developers. We’re the creators of [plenty of node and javascript projects](/projects/) used today, including [History.js](http://historyjs.net) one of the most popular javascript projects in the world, and [DocPad](http://docpad.org) an amazing Node.js [Content Management System](http://en.wikipedia.org/wiki/Content_management_system). We’re also in the process of setting up several [Startup Hostels](http://startuphostel.org) all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.
 
 We offer [free and premium support](/support) for all our projects, [consulting and training services](/services) for companies, and [online courses and resources](/learn/) to teach yourself the latest on web development.
 
 Discover what drives us on the [about page](/about) and find us on [twitter](/twitter), [facebook](/facebook), and [github](/github) or email [us@bevry.me](mailto:us@bevry.me) - you can usually find our founder [Benjamin Lupton](http://balupton.com) on [Skype](skype:balupton?add) and IRC with the username balupton - all the best, Bevry.
+
+
+
+## Sponsors
+
+<%- @partial('list/images.html.coffee', {items:@sponsors,type:'sponsors'}) %>
+
+
+## Users
+
+<%- @partial('list/images.html.coffee', {items:@users,type:'users'}) %>

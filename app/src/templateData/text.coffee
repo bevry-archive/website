@@ -59,4 +59,10 @@ module.exports = {
 		email: """
 			<a href="mailto:us@bevry.me" class="btn btn-email">Email us@bevry.me</a>
 			"""
+		booking: """
+			<a href="/services" class="btn btn-email show-booking">Make a Booking</a>
+			"""
+		premiumsupport: """
+			<a href="/services" class="btn btn-email show-booking">Purchase Premium Support</a>
+			"""
 }

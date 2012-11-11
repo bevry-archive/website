@@ -10,5 +10,5 @@ text @partial 'list/items.html.coffee', {
 	items: posts
 	showContent: true
 	showDescription: true
-	itemClassname: 'subblock'
+	itemCssClasses: ['subblock']
 }

@@ -1,7 +1,7 @@
 # Prepare
-{classname,moment,items,itemClassname,activeItem,activeClassname,inactiveClassname,type,showDate,showDescription,showContent,emptyText,dateFormat} = @
-activeClassname ?= 'active'
-inactiveClassname ?= 'inactive'
+{cssClasses,moment,items,itemCssClasses,activeItem,activeCssClasses,inactiveCssClasses,type,showDate,showDescription,showContent,emptyText,dateFormat} = @
+activeCssClasses ?= ['active']
+inactiveCssClasses ?= ['inactive']
 type or= 'items'
 showDate ?= true
 showDescription ?= true
@@ -10,7 +10,7 @@ emptyText or= "empty"
 dateFormat or= "YYYY-MM-DD"
 
 # Document List
-nav ".list-#{type}"+(if classname then "."+classname else ''), "typeof":"dc:collection", ->
+nav ".list-#{type}"+(if cssClasses then "."+cssClasses.join('.') else ''), "typeof":"dc:collection", ->
 	# Empty
 	unless items.length
 		div ".list-#{type}-empty", ->
@@ -22,14 +22,13 @@ nav ".list-#{type}"+(if classname then "."+classname else ''), "typeof":"dc:coll
 		# Item
 		{url,title,date,description,contentRenderedWithoutLayouts} = item.attributes
 
-		# Classname
-		itemClassnames = ["list-#{type}-item"]
-		itemClassnames.push(itemClassname)  if itemClassname
-		itemStatusClassname = if item.id is activeItem?.id then activeClassname else inactiveClassname
-		itemClassnames.push(itemStatusClassname)  if itemStatusClassname
+		# CssClasses
+		_itemCssClasses = ["list-#{type}-item"]
+		_itemCssClasses.push(if item.id is activeItem?.id then activeCssClasses else inactiveCssClasses)
+		_itemCssClasses.concat(itemCssClasses)
 
 		# Display
-		li "."+itemClassnames.join('.'), "typeof":"soic:page", about:url, ->
+		li "."+_itemCssClasses.join('.'), "typeof":"soic:page", about:url, ->
 			# Link
 			a ".list-#{type}-link", href:url, ->
 				# Title

@@ -31,10 +31,10 @@ div '.container', ->
 		})
 
 		nav ".promos", ->
-			for own key,training of @trainings
-				a ".promo.hover-link", "href":training.url, ->
-					span ".title", -> training.title
-					span ".wherewhen", -> training.wherewhen
+			for own key,promo of @promos
+				a ".promo.hover-link", "href":promo.url, ->
+					span ".title", -> promo.title
+					span ".description", -> promo.description
 
 	div '.mainbar', ->
 		div "#content", -> @content

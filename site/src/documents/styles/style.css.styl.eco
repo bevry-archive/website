@@ -446,7 +446,8 @@ div.container
 
 		.promo
 			display: block
-			padding: 1.3em 1em 1.1em 1em
+			padding: 1.3em 1em 1em 1em
+			margin-bottom: 1em
 			margin-left: -1em
 			width: 100%
 			max-width: 150px
@@ -464,7 +465,7 @@ div.container
 
 			.title
 				font-weight: bold
-			.wherewhen
+			.description
 				font-style: italic
 				font-size: 10px
 				font-weight: normal
@@ -577,6 +578,28 @@ div.container
 			display:none
 			&.active
 				display:block
+
+		.list-sponsors
+		.list-users
+			list-style: none
+			li
+				display: inline
+				a:hover
+					text-decoration: none
+		.list-sponsors
+			li
+				img
+					max-width: 28%
+					max-height: 100px
+					margin-right: 8%
+					margin-bottom: 2em
+		.list-users
+			li
+				img
+					max-width: 20%
+					max-height: 50px
+					margin-right: 3em
+					margin-bottom: 2em
 
 		/*
 		.contributors

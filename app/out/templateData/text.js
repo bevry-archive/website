@@ -38,6 +38,8 @@ module.exports = {
     cclicense: "<a href=\"http://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution License</a>",
     im: "<a href=\"javascript: $zopim.livechat.button.setPosition('bl'); $zopim.livechat.window.show(); false\" class=\"btn btn-im\">Instant Message</a>",
     phone: "<a href=\"callto:+61280062364\" class=\"btn btn-phone\">Call +61 (2) 8006 2364</a>",
-    email: "<a href=\"mailto:us@bevry.me\" class=\"btn btn-email\">Email us@bevry.me</a>"
+    email: "<a href=\"mailto:us@bevry.me\" class=\"btn btn-email\">Email us@bevry.me</a>",
+    booking: "<a href=\"/services\" class=\"btn btn-email show-booking\">Make a Booking</a>",
+    premiumsupport: "<a href=\"/services\" class=\"btn btn-email show-booking\">Purchase Premium Support</a>"
   }
 };

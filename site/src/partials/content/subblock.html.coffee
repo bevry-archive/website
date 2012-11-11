@@ -1,8 +1,8 @@
 # Prepare
-{avatar,heading,subheading,content} = @
+{avatar,heading,subheading,cssClasses,content} = @
 
 # Render
-section ".subblock"+(if avatar then ".subblock-yesavatar" else ".subblock-noavatar"), ->
+section ".subblock"+(if cssClasses then '.'+cssClasses.join('.') else "")+(if avatar then ".subblock-yesavatar" else ".subblock-noavatar"), ->
 	if avatar
 		div ".avatar", ->
 			img ".avatar-image", "src": avatar

@@ -123,6 +123,11 @@ $ ->
 	$window.on 'statechangecomplete', ->
 		# Special handling for long docs
 		$article = $('article:first')
+		$('.purchase-booking').hide()
+
+		# Booking
+		$('.show-booking').click ->
+			$('.purchase-booking').slideToggle()
 
 		# Documentation
 		if $article.is('.block.doc')
