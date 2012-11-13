@@ -1,6 +1,6 @@
 module.exports = [
-		title: "Intuitive Web Development with DocPad"
-		description: "Happening on November 13th, 2012"
+		title: "Rapid Web Development with DocPad"
+		description: "Happening on November 14th, 2012"
 		url: "http://www.meetup.com/sydney-node-ninjas/"
 	,
 		title: "Hands on with Node.js"
