@@ -253,11 +253,17 @@ docpadConfig =
 	events:
 
 		# Clone/Update our DocPad Documentation Repository
-		docpadReady: (opts,next) ->
+		generateBefore: (opts,next) ->
 			# Prepare
 			docpad = @docpad
 			config = docpad.getConfig()
 			tasks = new balUtil.Group(next)
+
+			# Skip if we are doing a differential generate
+			return next()  if opts.reset is false
+
+			# Log
+			docpad.log('info', "Updating Documentation...")
 
 			# Repos
 			repos =
@@ -273,6 +279,7 @@ docpadConfig =
 						next: (err) ->
 							# warn about errors, but don't let them kill execution
 							docpad.warn(err)  if err
+							docpad.log('info', "Updated Documentation")
 							complete()
 					},@))
 
@@ -284,17 +291,28 @@ docpadConfig =
 		extendTemplateData: (opts,next) ->
 			# Prepare
 			docpad = @docpad
-			docpad.log 'info', "Fetching Contributors..."
 			contributors = {}
 			opts.templateData.contributors = {}
+
+			# Log
+			docpad.log('info', "Fetching Contributors...")
+
+			# Tasks
 			tasks = new balUtil.Group (err) ->
+				# Check
 				return next(err)  if err
+
+				# Handle
 				delete contributors['benjamin lupton']
 				contributorsNames = _.keys(contributors).sort()
 				for contributorName in contributorsNames
 					opts.templateData.contributors[contributorName] = contributors[contributorName]
-				docpad.log 'info', "Fetched Contributors"
-				next()
+
+				# Log
+				docpad.log('info', "Fetched Contributors")
+
+				# Done
+				return next()
 
 			# Contributors
 			contributorFeeds = [

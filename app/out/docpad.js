@@ -210,11 +210,15 @@ docpadConfig = {
     }
   },
   events: {
-    docpadReady: function(opts, next) {
+    generateBefore: function(opts, next) {
       var config, docpad, repoKey, repoValue, repos, tasks;
       docpad = this.docpad;
       config = docpad.getConfig();
       tasks = new balUtil.Group(next);
+      if (opts.reset === false) {
+        return next();
+      }
+      docpad.log('info', "Updating Documentation...");
       repos = {
         'docpad-documentation': {
           path: pathUtil.join(config.documentsPaths[0], 'learn', 'docs', 'docpad'),
@@ -233,6 +237,7 @@ docpadConfig = {
               if (err) {
                 docpad.warn(err);
               }
+              docpad.log('info', "Updated Documentation");
               return complete();
             }
           }, this));
@@ -243,9 +248,9 @@ docpadConfig = {
     extendTemplateData: function(opts, next) {
       var contributorFeeds, contributors, docpad, tasks;
       docpad = this.docpad;
-      docpad.log('info', "Fetching Contributors...");
       contributors = {};
       opts.templateData.contributors = {};
+      docpad.log('info', "Fetching Contributors...");
       tasks = new balUtil.Group(function(err) {
         var contributorName, contributorsNames, _i, _len;
         if (err) {
