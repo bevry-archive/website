@@ -8,7 +8,7 @@ module.exports = [
   }, {
     title: "Rapid Web Development with DocPad",
     description: "Happened on November 14th, 2012",
-    url: "http://speakerrate.com/talks/18381-rapid-web-development-with-docpad"
+    url: "https://vimeo.com/53755097"
   }, {
     title: "Hands on with Node.js",
     description: "Happened on October 31st, 2012",
