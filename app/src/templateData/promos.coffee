@@ -5,11 +5,11 @@ module.exports = [
 	,
 		title: "Rapid Web Development with DocPad"
 		description: "Happened on November 14th, 2012"
-		url: "https://vimeo.com/53755097"
+		url: "/docpad/intro"
 	,
 		title: "Hands on with Node.js"
 		description: "Happened on October 31st, 2012"
-		url: "http://speakerrate.com/talks/18041-hands-on-node-js"
+		url: "/node/preface"
 	,
 		title: "History.js Podcast - JavaScript Jabber Episode #31"
 		description: "Happened on October 15th, 2012"
