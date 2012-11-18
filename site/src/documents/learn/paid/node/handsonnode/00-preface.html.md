@@ -1,3 +1,6 @@
+<iframe src="http://player.vimeo.com/video/53778088" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
 ## Introduction
 
 [Node.js](http://nodejs.org/) is an exciting new platform for building web applications in JavaScript. With its unique I/O model, it excels at the sort of scalable and real-time situations we are increasingly demanding of our servers. The ability to use JavaScript for both the client and server opens up many possibilities for code sharing, expertise reuse, and rapid development. The class is intended for anyone looking to explore the capabilities of the Node.js development platform.
