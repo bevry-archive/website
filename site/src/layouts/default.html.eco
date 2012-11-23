@@ -44,6 +44,6 @@
 	<%- @getBlock('scripts').add(@site.scripts or []).toHTML() %>
 
 	<!-- Services -->
-	<%- @partial("services/#{service}.html.eco", @)  for service in ['zopim','analytics','gauges','reinvigorate'] %>
+	<%- @partial("services/#{service}.html", @)  for service in ['zopim','analytics','gauges','reinvigorate'] %>
 </body>
 </html>

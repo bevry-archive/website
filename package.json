@@ -23,14 +23,14 @@
     "npm": "1.1.x"
   },
   "dependencies": {
-    "docpad": "6.11.x",
+    "docpad": "6.12.x",
     "docpad-plugin-coffeekup": "2.x",
     "docpad-plugin-coffeescript": "2.x",
     "docpad-plugin-eco": "2.x",
     "docpad-plugin-highlightjs": "2.x",
     "docpad-plugin-robotskirt": "2.x",
     "docpad-plugin-partials": "2.x",
-    "docpad-plugin-stylus": "2.1.0",
+    "docpad-plugin-stylus": "2.1.x",
     "docpad-plugin-text": "2.x",
     "moment": "1.7.x",
     "underscore": "1.4.x",
