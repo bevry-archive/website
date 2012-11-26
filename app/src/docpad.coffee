@@ -224,11 +224,9 @@ docpadConfig =
 					urls
 				})
 
-		# Fetch all documents that have pageOrder set within their meta data
 		pages: (database) ->
 			database.findAllLive({relativeOutDirPath:'pages'},[filename:1])
 
-		# Fetch all documents that have the tag "post" specified in their meta data
 		posts: (database) ->
 			database.findAllLive({relativeOutDirPath:'posts'},[date:-1]).on('add', (document) ->
 				document.set({
@@ -396,10 +394,10 @@ docpadConfig =
 				res.redirect(301, "https://github.com/bevry/#{project}")
 
 			# Twitter
-			server.get /^\/(?:t|twitter|tweet)\/?.*$/, (req,res) -> res.redirect(301, "https://twitter.com/bevryme")
+			server.get /^\/(?:t|twitter|tweet)(?:\/(.*))?$/, (req,res) -> res.redirect(301, "https://twitter.com/bevryme")
 
 			# Facebook
-			server.get /^\/(?:f|facebook)\/?.*$/, (req,res) -> res.redirect(301, "https://www.facebook.com/bevryme")
+			server.get /^\/(?:f|facebook)(?:\/(.*))?$/, (req,res) -> res.redirect(301, "https://www.facebook.com/bevryme")
 
 			# Forward to our application routing
 			if 'development' in docpad.getEnvironments()

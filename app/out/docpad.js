@@ -344,10 +344,10 @@ docpadConfig = {
         project = req.params[0] || '';
         return res.redirect(301, "https://github.com/bevry/" + project);
       });
-      server.get(/^\/(?:t|twitter|tweet)\/?.*$/, function(req, res) {
+      server.get(/^\/(?:t|twitter|tweet)(?:\/(.*))?$/, function(req, res) {
         return res.redirect(301, "https://twitter.com/bevryme");
       });
-      server.get(/^\/(?:f|facebook)\/?.*$/, function(req, res) {
+      server.get(/^\/(?:f|facebook)(?:\/(.*))?$/, function(req, res) {
         return res.redirect(301, "https://www.facebook.com/bevryme");
       });
       if (__indexOf.call(docpad.getEnvironments(), 'development') >= 0) {
