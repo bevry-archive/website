@@ -3,10 +3,10 @@ module.exports = {
 	subheading: " &nbsp; doing everything we can to empower developers"
 	myaccount: "My Account"
 	poweredby: """
-		<a class="hover-link" href="http://docpad.org">
+		<a class="hover-link" href="http://docpad.org" title="We use DocPad as our Content Management System">
 			Created with love and affection using <span class="link">DocPad</span>
 		</a>
-		<div class="mixpanel-badge">
+		<div class="mixpanel-badge" title="We use MixPanel for analytics within DocPad">
 			and <a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
 		</div>
 		"""
