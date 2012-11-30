@@ -6,6 +6,9 @@ module.exports = {
 		<a class="hover-link" href="http://docpad.org">
 			Created with love and affection using <span class="link">DocPad</span>
 		</a>
+		<div class="mixpanel-badge">
+			and <a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
+		</div>
 		"""
 	copyright: """
 		&copy; Bevry Pty Ltd. All rights reserved.<br/>

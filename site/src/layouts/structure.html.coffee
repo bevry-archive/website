@@ -39,5 +39,5 @@ div '.container', ->
 	div '.mainbar', ->
 		div "#content", -> @content
 		footer ".bottombar", ->
-			p ".poweredby", @text['poweredby']
-			p ".copyright", @text['copyright']
+			div ".poweredby", @text['poweredby']
+			div ".copyright", @text['copyright']

@@ -682,21 +682,31 @@ div.container
 .bottombar
 	font-size: 14px
 	color: colorSubheading
-	padding-top: 0.5em
+	position: relative
+	margin-top: 2em
+	height: 3em
+	margin-bottom: 2em
 
 	.poweredby
 	.copyright
+		position: absolute
+		width: 50%
 		opacity: 0.5
 		transition: opacity 1s ease-out
 		&:hover
 			opacity: 1
 
 	.poweredby
-		float:left
+		top: 0
+		left: 0
 		text-align: left
 
+	.mixpanel-badge
+		display: inline
+
 	.copyright
-		float:right
+		top: 0
+		right: 0
 		text-align: right
 
 .btn-im

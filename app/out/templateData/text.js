@@ -4,7 +4,7 @@ module.exports = {
   heading: "Bevry",
   subheading: " &nbsp; doing everything we can to empower developers",
   myaccount: "My Account",
-  poweredby: "<a class=\"hover-link\" href=\"http://docpad.org\">\n	Created with love and affection using <span class=\"link\">DocPad</span>\n</a>",
+  poweredby: "<a class=\"hover-link\" href=\"http://docpad.org\">\n	Created with love and affection using <span class=\"link\">DocPad</span>\n</a>\n<div class=\"mixpanel-badge\">\n	and <a href=\"https://mixpanel.com/f/partner\"><img src=\"//cdn.mxpnl.com/site_media/images/partner/badge_light.png\" alt=\"Mobile Analytics\" /></a>\n</div>",
   copyright: "&copy; Bevry Pty Ltd. All rights reserved.<br/>\n<a href=\"/terms\">Terms of Service</a> •\n<a href=\"/privacy\">Privacy Policy</a>",
   linkNames: {
     main: "Website",
