@@ -242,6 +242,9 @@ docpadConfig =
 	environments:
 		development:
 			plugins:
+				highlightjs:
+					aliases:
+						stylus: 'sass'
 				coffeekup:
 					format: false
 
@@ -367,6 +370,7 @@ docpadConfig =
 			# Extract the server from the options
 			{server,express} = opts
 			docpad = @docpad
+			request = require('request')
 
 			# Pushover
 			server.all '/pushover', (req,res) ->
@@ -400,8 +404,8 @@ docpadConfig =
 			server.get /^\/(?:f|facebook)(?:\/(.*))?$/, (req,res) -> res.redirect(301, "https://www.facebook.com/bevryme")
 
 			# Forward to our application routing
-			if 'development' in docpad.getEnvironments()
-				require(appPath+'/routes')({docpad,server,express})
+			# if 'development' in docpad.getEnvironments()
+			#	require(appPath+'/routes')({docpad,server,express})
 
 			# Done
 			return

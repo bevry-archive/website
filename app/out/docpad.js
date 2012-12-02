@@ -203,6 +203,11 @@ docpadConfig = {
   environments: {
     development: {
       plugins: {
+        highlightjs: {
+          aliases: {
+            stylus: 'sass'
+          }
+        },
         coffeekup: {
           format: false
         }
@@ -320,9 +325,10 @@ docpadConfig = {
       balUtil.writeFile(sitemapPath, sitemap.sort().join('\n'), next);
     },
     serverExtend: function(opts) {
-      var docpad, express, server;
+      var docpad, express, request, server;
       server = opts.server, express = opts.express;
       docpad = this.docpad;
+      request = require('request');
       server.all('/pushover', function(req, res) {
         if (__indexOf.call(docpad.getEnvironments(), 'development') >= 0) {
           return res.send(200);
@@ -350,13 +356,6 @@ docpadConfig = {
       server.get(/^\/(?:f|facebook)(?:\/(.*))?$/, function(req, res) {
         return res.redirect(301, "https://www.facebook.com/bevryme");
       });
-      if (__indexOf.call(docpad.getEnvironments(), 'development') >= 0) {
-        require(appPath + '/routes')({
-          docpad: docpad,
-          server: server,
-          express: express
-        });
-      }
     }
   }
 };
