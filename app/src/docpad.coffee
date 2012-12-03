@@ -244,7 +244,7 @@ docpadConfig =
 			plugins:
 				highlightjs:
 					aliases:
-						stylus: 'sass'
+						stylus: 'css'
 				coffeekup:
 					format: false
 
