@@ -153,7 +153,7 @@ docpadConfig = {
         urls = [slug];
         title = "" + (a.title || humanize(name));
         pageTitle = "" + title + " | " + projectName;
-        document.set({
+        return document.setMetaDefaults({
           title: title,
           pageTitle: pageTitle,
           layout: layout,
@@ -167,11 +167,6 @@ docpadConfig = {
           url: url,
           urls: urls,
           standalone: standalone
-        });
-        return document.getMeta().set({
-          slug: slug,
-          url: url,
-          urls: urls
         });
       });
     },
@@ -192,7 +187,7 @@ docpadConfig = {
           date: -1
         }
       ]).on('add', function(document) {
-        return document.set({
+        return document.setMetaDefaults({
           ignored: true,
           write: false,
           author: 'balupton'

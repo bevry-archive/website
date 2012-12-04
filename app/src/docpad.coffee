@@ -203,7 +203,7 @@ docpadConfig =
 				pageTitle = "#{title} | #{projectName}"
 
 				# Apply
-				document.set({
+				document.setMetaDefaults({
 					title
 					pageTitle
 					layout
@@ -218,23 +218,17 @@ docpadConfig =
 					urls
 					standalone
 				})
-				document.getMeta().set({
-					slug
-					url
-					urls
-				})
 
 		pages: (database) ->
 			database.findAllLive({relativeOutDirPath:'pages'},[filename:1])
 
 		posts: (database) ->
-			database.findAllLive({relativeOutDirPath:'posts'},[date:-1]).on('add', (document) ->
-				document.set({
+			database.findAllLive({relativeOutDirPath:'posts'},[date:-1]).on 'add', (document) ->
+				document.setMetaDefaults({
 					ignored: true
 					write: false
 					author: 'balupton'
 				})
-			)
 
 	# =================================
 	# DocPad Plugins
