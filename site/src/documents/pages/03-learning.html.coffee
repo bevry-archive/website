@@ -47,31 +47,3 @@ section '.reference', ->
 											label = page.get('label')
 											if label
 												span ".label.label-#{label}", -> getLabelName(label)
-
-
-###
-# Reference
-h2 "Reference"
-text @partial "content/subblock.html.coffee", {
-	avatar: '/images/book.gif'
-	heading: """
-		<a href="/reference">Reference Manual</a>
-		"""
-	#subheading: "Stackoverflow owns &amp; manages, Bevry participates"
-	content: """
-		<t render="markdown">
-		The official and comprehensive **man pages** that are included in the Git package itself.
-		</t>
-		"""
-}
-text """
-	<t render="markdown">
-	Quick Reference guides:
-	[Heroku Cheat Sheet](/) (PDF)
-	</t>
-	"""
-
-
-# Videos
-h2 "Videos"
-###
