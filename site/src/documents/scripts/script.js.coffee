@@ -103,8 +103,10 @@ $ ->
 				$docHeaders.first().click()
 		else
 			$docHeaders.first().click()
+
+	###
+	# Docnav Key Handlers
 	$document.on 'keyup', (event) ->
-		console.log(event.metaKey, event.shiftKey, event.keyCode, event)
 		if event.altKey
 			if event.keyCode is 38  # up
 				$('.block-footer a.up').click()
@@ -117,7 +119,7 @@ $ ->
 				upSection()
 			else if event.keyCode is 40  # down
 				downSection()
-
+	###
 
 	# Listen to history.js page changes
 	$window.on 'statechangecomplete', ->
