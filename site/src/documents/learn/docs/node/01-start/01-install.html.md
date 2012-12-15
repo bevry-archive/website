@@ -60,7 +60,7 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 		1. Install Node.js
 
 			``` bash
-			nvm install v0.8.14
+			nvm install v0.8.16
 			nvm alias default 0.8
 			nvm use 0.8
 			```
@@ -72,7 +72,7 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 		1. Run the following
 
 			``` bash
-			export node_version_to_install='v0.8.14'
+			export node_version_to_install='v0.8.16'
 			curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
 			```
 
@@ -83,7 +83,7 @@ Run the following
 
 ``` bash
 sudo apt-get update && sudo apt-get install curl build-essential openssl libssl-dev git python
-export node_version_to_install='v0.8.14'
+export node_version_to_install='v0.8.16'
 curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
 ```
 
@@ -94,7 +94,7 @@ Run the following
 
 ``` bash
 sudo yum -y install tcsh scons gcc-c++ glibc-devel openssl-devel git python
-export node_version_to_install='v0.8.14'
+export node_version_to_install='v0.8.16'
 curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
 ```
 
