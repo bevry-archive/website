@@ -59,7 +59,7 @@ text @partial "content/subblock.html.coffee", {
 	subheading: "Stackoverflow owns &amp; manages, Bevry participates"
 	content: """
 		<t render="markdown">
-		StackOverflow is a community of passionaite programmers dedicated to solving problems for each other for any type of programming questions. As you post questions and answers you’ll earn reputation which gives you more abilities on the site. *Be aware that this is a community for anything programming, not just Bevry related projects. So you must state the project that you’re using in your question.* Some of our projects already have tags that you can use too. For premium support, you must use the appropriate tag.
+		StackOverflow is a community of passionaite programmers dedicated to solving problems for each other for any type of programming questions. As you post questions and answers you’ll earn reputation which gives you more abilities on the site. *Be aware that this is a community for anything programming, not just Bevry related projects. So you must state the project that you’re using in your question.* Some of our projects already have tags that you can use too.
 
 		Use the tags [#docpad](http://stackoverflow.com/questions/tagged/docpad) for DocPad, [#history.js](http://stackoverflow.com/questions/tagged/history.js) for History.js, and [#bevry](http://stackoverflow.com/questions/tagged/bevry) for everything else. *If you’re new to Stack Overflow, read their [FAQ](http://stackoverflow.com/faq) before posting.*
 		</t>
@@ -88,6 +88,12 @@ text @partial "content/subblock.html.coffee", {
 
 h2 "Other Channels"
 
+text """
+	<t:premiumsupport render="markdown">
+	Do not use these channels for questions or support.
+	</t:premiumsupport>
+	"""
+
 text @partial "content/subblock.html.coffee", {
 	avatar: '/images/octocat.gif'
 	heading: """
@@ -96,7 +102,7 @@ text @partial "content/subblock.html.coffee", {
 	subheading: "GitHub owns, Bevry manages &amp; participates"
 	content: """
 		<t render="markdown">
-		GitHub is the social programming community and the place to host your open-source projects. Bevry hosts all their projects on github, and uses the built-in Issues functionality for development tasks and the discussions surrounding them. For instance, if you send in an email and that spawns a new development task we may reference you to the github issue behind it so you can track and participate in its progress. You can also use it to submit bugfixes yourself, and provide feature requests. Do not use this channel for questions or support.
+		GitHub is the social programming community and the place to host your open-source projects. Bevry hosts all their projects on github, and uses the built-in Issues functionality for development tasks and the discussions surrounding them. For instance, if you send in an email and that spawns a new development task we may reference you to the github issue behind it so you can track and participate in its progress.
 		</t>
 		"""
 }
