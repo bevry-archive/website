@@ -35,6 +35,9 @@ class BevryApp
 		# Always trigger initial page change
 		@$window.trigger('statechangecomplete')
 
+		# ScrollSpy
+		setInterval(@scrollSpy, 500)
+
 		# Chain
 		@
 
