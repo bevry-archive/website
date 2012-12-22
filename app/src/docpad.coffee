@@ -32,6 +32,7 @@ getLinkName = (link) ->
 getLabelName = (label) ->
 	getName('labelNames',label)
 
+# Humanize
 humanize = (text) ->
 	text ?= ''
 	return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
@@ -73,8 +74,8 @@ docpadConfig =
 		underscore: _
 		strUtil: strUtil
 		moment: moment
-		text: textData
 
+		text: textData
 		projects: require(__dirname+'/templateData/projects')
 		promos: require(__dirname+'/templateData/promos')
 		sponsors: require(__dirname+'/templateData/sponsors')
@@ -118,6 +119,7 @@ docpadConfig =
 				"/vendor/historyjsit.js"
 
 				# Scripts
+				"/scripts/bevry.js"
 				"/scripts/script.js"
 			]
 
@@ -233,12 +235,13 @@ docpadConfig =
 	# =================================
 	# DocPad Plugins
 
+	plugins:
+		highlightjs:
+			aliases:
+				stylus: 'css'
+
 	environments:
 		development:
-			plugins:
-				highlightjs:
-					aliases:
-						stylus: 'css'
 				coffeekup:
 					format: false
 
