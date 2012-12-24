@@ -5,13 +5,14 @@ _ = require('underscore')
 moment = require('moment')
 strUtil = require('underscore.string')
 balUtil = require('bal-util')
+{requireFresh} = balUtil
 feedr = new (require('feedr').Feedr)
 
 # Prepare
 rootPath = __dirname+'/../..'
 appPath = __dirname
 sitePath = rootPath+'/site'
-textData = require(appPath+'/templateData/text')
+textData = requireFresh(appPath+'/templateData/text')
 
 
 # =================================
@@ -76,11 +77,11 @@ docpadConfig =
 		moment: moment
 
 		text: textData
-		projects: require(__dirname+'/templateData/projects')
-		promos: require(__dirname+'/templateData/promos')
-		sponsors: require(__dirname+'/templateData/sponsors')
-		testimonials: require(__dirname+'/templateData/testimonials')
-		users: require(__dirname+'/templateData/users')
+		projects: requireFresh(__dirname+'/templateData/projects')
+		promos: requireFresh(__dirname+'/templateData/promos')
+		sponsors: requireFresh(__dirname+'/templateData/sponsors')
+		testimonials: requireFresh(__dirname+'/templateData/testimonials')
+		users: requireFresh(__dirname+'/templateData/users')
 
 
 		# -----------------------------
