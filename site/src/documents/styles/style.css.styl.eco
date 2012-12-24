@@ -214,8 +214,9 @@ body
 	mixinBody()
 	cursor: default
 	color: colorContent
-	font-smooth: always
 	font-family: fontMyraid
+
+	font-smooth: always
 	-webkit-font-smoothing: antialiased
     color-profile: sRGB
     rendering-intent: auto
