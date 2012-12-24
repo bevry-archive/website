@@ -2,6 +2,10 @@
 
 module.exports = [
   {
+    title: "Choosing the Right Tech for your Product",
+    description: "Happening on January 15th, 2013",
+    url: "http://choosingtech.eventbrite.com/"
+  }, {
     title: "Founder Benjamin Lupton nominated in the Australia Tech Awards 2012",
     description: "Vote now & win great prizes",
     url: "http://gaaus.tumblr.com/vote"
