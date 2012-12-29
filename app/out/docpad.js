@@ -80,6 +80,13 @@ docpadConfig = {
       title: "Bevry - Node.js, Backbone.js & JavaScript Consultancy in Sydney, Australia",
       description: "We're a Node.js, Backbone.js and JavaScript consultancy in Sydney Australia with a focus on empowering developers. We've created History.js one of the most popular javascript projects in the world, and DocPad an amazing Node.js Content Management System. We’re also working on setting up several Startup Hostels all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.",
       keywords: "bevry, bevryme, balupton, benjamin lupton, docpad, history.js, node, node.js, javascript, coffeescript, startup hostel, query engine, queryengine, backbone.js, cson",
+      services: {
+        disqus: 'bevry',
+        gauges: '5077ae93f5a1f5067b000028',
+        googleAnalytics: 'UA-4446117-1',
+        reinvigorate: '52uel-236r9p108l',
+        zopim: '0tni8T2G7P86SxDwmxCa4HCySsGPRESg'
+      },
       styles: ['/styles/style.css'],
       scripts: ["/vendor/jquery.js", "/vendor/log.js", "/vendor/jquery.scrollto.js", "/vendor/modernizr.js", "/vendor/history.js", "/vendor/historyjsit.js", "/scripts/bevry.js", "/scripts/script.js"]
     },
@@ -223,7 +230,7 @@ docpadConfig = {
       docpad.log('info', "Updating Documentation...");
       repos = {
         'docpad-documentation': {
-          path: pathUtil.join(config.documentsPaths[0], 'learn', 'docs', 'docpad'),
+          path: pathUtil.join(config.documentsPaths[0], 'learn', 'free', 'docpad'),
           url: 'git://github.com/bevry/docpad-documentation.git'
         }
       };
@@ -342,10 +349,11 @@ docpadConfig = {
           return res.send(body);
         });
       });
+      server.get(/^\/(?:learn\/docpad-)(.*)$/, function(req, res) {
+        return res.redirect(301, "http://docpad.org/docs/" + (req.params[0] || ''));
+      });
       server.get(/^\/(?:g|gh|github)(?:\/(.*))?$/, function(req, res) {
-        var project;
-        project = req.params[0] || '';
-        return res.redirect(301, "https://github.com/bevry/" + project);
+        return res.redirect(301, "https://github.com/bevry/" + (req.params[0] || ''));
       });
       server.get(/^\/(?:t|twitter|tweet)(?:\/(.*))?$/, function(req, res) {
         return res.redirect(301, "https://twitter.com/bevryme");
