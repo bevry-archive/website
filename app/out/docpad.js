@@ -274,7 +274,7 @@ docpadConfig = {
         docpad.log('info', "Fetched Contributors");
         return next();
       });
-      contributorFeeds = ["https://api.github.com/users/docpad/repos?client_id=" + process.env.BEVRY_GITHUB_CLIENT_ID + "&client_secret=" + process.env.BEVRY_GITHUB_CLIENT_SECRET, "https://api.github.com/users/bevry/repos?client_id=" + process.env.BEVRY_GITHUB_CLIENT_ID + "&client_secret=" + process.env.BEVRY_GITHUB_CLIENT_SECRET];
+      contributorFeeds = ["https://api.github.com/users/docpad/repos?per_page=100&client_id=" + process.env.BEVRY_GITHUB_CLIENT_ID + "&client_secret=" + process.env.BEVRY_GITHUB_CLIENT_SECRET, "https://api.github.com/users/bevry/repos?per_page=100&client_id=" + process.env.BEVRY_GITHUB_CLIENT_ID + "&client_secret=" + process.env.BEVRY_GITHUB_CLIENT_SECRET];
       feedr.readFeeds(contributorFeeds, function(err, feedRepos) {
         var packageUrl, repo, repos, _i, _j, _len, _len1;
         for (_i = 0, _len = feedRepos.length; _i < _len; _i++) {
