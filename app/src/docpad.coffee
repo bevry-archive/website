@@ -231,10 +231,10 @@ docpadConfig =
 				})
 
 		pages: (database) ->
-			database.findAllLive({relativeOutDirPath:'pages'},[filename:1])
+			database.findAllLive({relativeOutDirPath:$startsWith:'pages'},[filename:1])
 
 		posts: (database) ->
-			database.findAllLive({relativeOutDirPath:'posts'},[date:-1]).on 'add', (document) ->
+			database.findAllLive({relativeOutDirPath:$startsWith:'posts'},[date:-1]).on 'add', (document) ->
 				document.setMetaDefaults({
 					ignored: true
 					write: false

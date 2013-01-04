@@ -17,4 +17,4 @@ env.coffee
 .env
 
 site/out
-site/src/documents/learn/docs/docpad
+site/src/documents/learn/free/docpad

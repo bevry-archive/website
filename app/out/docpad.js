@@ -181,7 +181,9 @@ docpadConfig = {
     },
     pages: function(database) {
       return database.findAllLive({
-        relativeOutDirPath: 'pages'
+        relativeOutDirPath: {
+          $startsWith: 'pages'
+        }
       }, [
         {
           filename: 1
@@ -190,7 +192,9 @@ docpadConfig = {
     },
     posts: function(database) {
       return database.findAllLive({
-        relativeOutDirPath: 'posts'
+        relativeOutDirPath: {
+          $startsWith: 'posts'
+        }
       }, [
         {
           date: -1
