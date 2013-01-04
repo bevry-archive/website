@@ -23,7 +23,7 @@
 		"npm": "1.1.x"
 	},
 	"dependencies": {
-		"docpad": "6.20.x",
+		"docpad": "6.21.x",
 		"docpad-plugin-coffeekup": "2.x",
 		"docpad-plugin-coffeescript": "2.x",
 		"docpad-plugin-eco": "2.x",
@@ -38,7 +38,7 @@
 		"moment": "1.7.x",
 		"underscore": "1.4.x",
 		"underscore.string": "2.3.x",
-		"request": "2.11.x"
+		"request": "2.12.x"
 	},
 	"devDependencies": {
 		"passport": "0.1.x",
