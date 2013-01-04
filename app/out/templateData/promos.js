@@ -2,7 +2,7 @@
 
 module.exports = [
   {
-    title: "Meta Refresh: Why the Big Thing Sucks",
+    title: "Meta Refresh: Why the Next Big Thing Sucks",
     description: "Happening on February 22-23, 2013 in Bangalore, India",
     url: "http://funnel.hasgeek.com/metarefresh2013/600-why-the-next-big-thing-sucks"
   }, {
