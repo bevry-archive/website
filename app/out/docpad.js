@@ -298,15 +298,25 @@ docpadConfig = {
                 _ref = packageData.contributors || [];
                 for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
                   contributor = _ref[_k];
-                  contributorMatch = /^([^<(]+)\s*(?:<(.+?)>)?\s*(?:\((.+?)\))?$/.exec(contributor);
-                  if (!contributorMatch) {
+                  if (balUtil.isString(contributor)) {
+                    contributorMatch = /^([^<(]+)\s*(?:<(.+?)>)?\s*(?:\((.+?)\))?$/.exec(contributor);
+                    if (!contributorMatch) {
+                      continue;
+                    }
+                    contributorData = {
+                      name: (contributorMatch[1] || '').trim(),
+                      email: (contributorMatch[2] || '').trim(),
+                      url: (contributorMatch[3] || '').trim()
+                    };
+                  } else if (balUtil.isPlainObject(contributor)) {
+                    contributorData = {
+                      name: contributor.name,
+                      email: contributor.email,
+                      url: contributor.web
+                    };
+                  } else {
                     continue;
                   }
-                  contributorData = {
-                    name: (contributorMatch[1] || '').trim(),
-                    email: (contributorMatch[2] || '').trim(),
-                    url: (contributorMatch[3] || '').trim()
-                  };
                   contributorId = contributorData.name.toLowerCase();
                   contributors[contributorId] = contributorData;
                 }

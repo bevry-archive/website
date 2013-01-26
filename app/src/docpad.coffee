@@ -334,12 +334,23 @@ docpadConfig =
 							feedr.readFeed @packageUrl, (err,packageData) ->
 								return complete()  if err or !packageData  # ignore
 								for contributor in packageData.contributors or []
-									contributorMatch = /^([^<(]+)\s*(?:<(.+?)>)?\s*(?:\((.+?)\))?$/.exec(contributor)
-									continue  unless contributorMatch
-									contributorData =
-										name: (contributorMatch[1] or '').trim()
-										email: (contributorMatch[2] or '').trim()
-										url: (contributorMatch[3] or '').trim()
+									# Extract
+									if balUtil.isString(contributor)
+										contributorMatch = /^([^<(]+)\s*(?:<(.+?)>)?\s*(?:\((.+?)\))?$/.exec(contributor)
+										continue  unless contributorMatch
+										contributorData =
+											name: (contributorMatch[1] or '').trim()
+											email: (contributorMatch[2] or '').trim()
+											url: (contributorMatch[3] or '').trim()
+									else if balUtil.isPlainObject(contributor)
+										contributorData =
+											name: contributor.name
+											email: contributor.email
+											url: contributor.web
+									else
+										continue
+
+									# Apply
 									contributorId = contributorData.name.toLowerCase()
 									contributors[contributorId] = contributorData
 								complete()
