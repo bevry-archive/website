@@ -327,33 +327,47 @@ docpadConfig =
 				"https://api.github.com/users/bevry/repos?per_page=100&client_id=#{process.env.BEVRY_GITHUB_CLIENT_ID}&client_secret=#{process.env.BEVRY_GITHUB_CLIENT_SECRET}"
 			]
 			feedr.readFeeds contributorFeeds, (err,feedRepos) ->
-				for repos in feedRepos
-					for repo in repos
-						packageUrl = repo.html_url.replace('//github.com','//raw.github.com')+'/master/package.json'
-						tasks.push {repo,packageUrl}, (complete) ->
-							feedr.readFeed @packageUrl, (err,packageData) ->
-								return complete()  if err or !packageData  # ignore
-								for contributor in packageData.contributors or []
-									# Extract
-									if balUtil.isString(contributor)
-										contributorMatch = /^([^<(]+)\s*(?:<(.+?)>)?\s*(?:\((.+?)\))?$/.exec(contributor)
-										continue  unless contributorMatch
-										contributorData =
-											name: (contributorMatch[1] or '').trim()
-											email: (contributorMatch[2] or '').trim()
-											url: (contributorMatch[3] or '').trim()
-									else if balUtil.isPlainObject(contributor)
-										contributorData =
-											name: contributor.name
-											email: contributor.email
-											url: contributor.web
-									else
-										continue
+				balUtil.each feedRepos, (repos) ->  balUtil.each repos, (repo) ->
+					packageUrl = repo.html_url.replace('//github.com','//raw.github.com')+'/master/package.json'
+					tasks.push (complete) ->
+						feedr.readFeed packageUrl, (err,packageData) ->
+							return complete()  if err or !packageData  # ignore
+							for contributor in packageData.contributors or []
+								# Extract
+								if balUtil.isString(contributor)
+									contributorMatch = /^([^<(]+)\s*(?:<(.+?)>)?\s*(?:\((.+?)\))?$/.exec(contributor)
+									continue  unless contributorMatch
+									contributorData =
+										name: (contributorMatch[1] or '').trim() or null
+										email: (contributorMatch[2] or '').trim() or null
+										url: (contributorMatch[3] or '').trim() or null
+								else if balUtil.isPlainObject(contributor)
+									contributorData =
+										name: contributor.name or null
+										email: contributor.email or null
+										url: contributor.web or null
+										username: contributor.username or null
+								else
+									continue
 
-									# Apply
-									contributorId = contributorData.name.toLowerCase()
-									contributors[contributorId] = contributorData
-								complete()
+								# Skip if no name... this should never happen
+								continue  unless contributorData.name
+
+								# Extract username
+								if contributorData.url
+									usernameMatch = /^.+?github.com\/([^\/]+).*$/.exec(contributorData.url)
+									if usernameMatch
+										contributorData.username = (usernameMatch[1] or '').trim() or null
+
+								# Create
+								contributorId = contributorData.name.toLowerCase()
+								contributors[contributorId] ?= {}
+								contributors[contributorId].repos ?= {}
+
+								# Extend
+								balUtil.safeShallowExtendPlainObjects(contributors[contributorId],contributorData)
+								contributors[contributorId].repos[repo.name] = repo.html_url
+							complete()
 
 				# Fire
 				tasks.async()

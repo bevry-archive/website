@@ -602,16 +602,18 @@ div.container
 					margin-right: 6%
 					margin-bottom: 3em
 
-		/*
 		.contributors
-			list-style: none
 			.contributor
-				display: inline
-				&:after
-					content: ', '
-				&:last:after
-					content: ''
-		*/
+				.contributor-repos
+					display: none
+				&:hover
+					.contributor-repos
+						display: inline
+				.contributor-repo
+					&:after
+						content: ', '
+					&:last-child:after
+						content: ''
 
 		h1
 			margin-bottom: 0

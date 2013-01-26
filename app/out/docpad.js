@@ -280,51 +280,63 @@ docpadConfig = {
       });
       contributorFeeds = ["https://api.github.com/users/docpad/repos?per_page=100&client_id=" + process.env.BEVRY_GITHUB_CLIENT_ID + "&client_secret=" + process.env.BEVRY_GITHUB_CLIENT_SECRET, "https://api.github.com/users/bevry/repos?per_page=100&client_id=" + process.env.BEVRY_GITHUB_CLIENT_ID + "&client_secret=" + process.env.BEVRY_GITHUB_CLIENT_SECRET];
       feedr.readFeeds(contributorFeeds, function(err, feedRepos) {
-        var packageUrl, repo, repos, _i, _j, _len, _len1;
-        for (_i = 0, _len = feedRepos.length; _i < _len; _i++) {
-          repos = feedRepos[_i];
-          for (_j = 0, _len1 = repos.length; _j < _len1; _j++) {
-            repo = repos[_j];
+        balUtil.each(feedRepos, function(repos) {
+          return balUtil.each(repos, function(repo) {
+            var packageUrl;
             packageUrl = repo.html_url.replace('//github.com', '//raw.github.com') + '/master/package.json';
-            tasks.push({
-              repo: repo,
-              packageUrl: packageUrl
-            }, function(complete) {
-              return feedr.readFeed(this.packageUrl, function(err, packageData) {
-                var contributor, contributorData, contributorId, contributorMatch, _k, _len2, _ref;
+            return tasks.push(function(complete) {
+              return feedr.readFeed(packageUrl, function(err, packageData) {
+                var contributor, contributorData, contributorId, contributorMatch, usernameMatch, _base, _i, _len, _ref, _ref1, _ref2;
                 if (err || !packageData) {
                   return complete();
                 }
                 _ref = packageData.contributors || [];
-                for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
-                  contributor = _ref[_k];
+                for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                  contributor = _ref[_i];
                   if (balUtil.isString(contributor)) {
                     contributorMatch = /^([^<(]+)\s*(?:<(.+?)>)?\s*(?:\((.+?)\))?$/.exec(contributor);
                     if (!contributorMatch) {
                       continue;
                     }
                     contributorData = {
-                      name: (contributorMatch[1] || '').trim(),
-                      email: (contributorMatch[2] || '').trim(),
-                      url: (contributorMatch[3] || '').trim()
+                      name: (contributorMatch[1] || '').trim() || null,
+                      email: (contributorMatch[2] || '').trim() || null,
+                      url: (contributorMatch[3] || '').trim() || null
                     };
                   } else if (balUtil.isPlainObject(contributor)) {
                     contributorData = {
-                      name: contributor.name,
-                      email: contributor.email,
-                      url: contributor.web
+                      name: contributor.name || null,
+                      email: contributor.email || null,
+                      url: contributor.web || null,
+                      username: contributor.username || null
                     };
                   } else {
                     continue;
                   }
+                  if (!contributorData.name) {
+                    continue;
+                  }
+                  if (contributorData.url) {
+                    usernameMatch = /^.+?github.com\/([^\/]+).*$/.exec(contributorData.url);
+                    if (usernameMatch) {
+                      contributorData.username = (usernameMatch[1] || '').trim() || null;
+                    }
+                  }
                   contributorId = contributorData.name.toLowerCase();
-                  contributors[contributorId] = contributorData;
+                  if ((_ref1 = contributors[contributorId]) == null) {
+                    contributors[contributorId] = {};
+                  }
+                  if ((_ref2 = (_base = contributors[contributorId]).repos) == null) {
+                    _base.repos = {};
+                  }
+                  balUtil.safeShallowExtendPlainObjects(contributors[contributorId], contributorData);
+                  contributors[contributorId].repos[repo.name] = repo.html_url;
                 }
                 return complete();
               });
             });
-          }
-        }
+          });
+        });
         return tasks.async();
       });
     },
