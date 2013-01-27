@@ -159,7 +159,7 @@ docpadConfig = {
         name = a.basename.replace(/^[\-0-9]+/, '');
         url = "/learn/" + project + "-" + name;
         slug = "/" + project + "/" + name;
-        urls = [slug];
+        urls = [slug, url];
         title = "" + (a.title || humanize(name));
         pageTitle = "" + title + " | " + projectName;
         return document.setMetaDefaults({
@@ -174,9 +174,8 @@ docpadConfig = {
           categoryName: categoryName,
           slug: slug,
           url: url,
-          urls: urls,
           standalone: standalone
-        });
+        }).addUrl(urls);
       });
     },
     pages: function(database) {

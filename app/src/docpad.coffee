@@ -209,7 +209,7 @@ docpadConfig =
 				name = a.basename.replace(/^[\-0-9]+/,'')
 				url = "/learn/#{project}-#{name}"
 				slug = "/#{project}/#{name}"
-				urls = [slug]
+				urls = [slug,url]
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
 
@@ -226,9 +226,8 @@ docpadConfig =
 					categoryName
 					slug
 					url
-					urls
 					standalone
-				})
+				}).addUrl(urls)
 
 		pages: (database) ->
 			database.findAllLive({relativeOutDirPath:$startsWith:'pages'},[filename:1])
