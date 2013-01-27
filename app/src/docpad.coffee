@@ -207,9 +207,7 @@ docpadConfig =
 				category = categoryDirectory.replace(/^[\-0-9]+/,'')
 				categoryName = getCategoryName(category)
 				name = a.basename.replace(/^[\-0-9]+/,'')
-				url = "/learn/#{project}-#{name}"
-				slug = "/#{project}/#{name}"
-				urls = [slug,url]
+				urls = ["/learn/#{project}-#{name}", "/#{project}/#{name}"]
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
 
@@ -224,8 +222,7 @@ docpadConfig =
 					categoryDirectory
 					category
 					categoryName
-					slug
-					url
+					urls[0]
 					standalone
 				}).addUrl(urls)
 
