@@ -108,7 +108,7 @@ docpadConfig =
 			services:
 				disqus: 'bevry'
 				gauges: '5077ad8cf5a1f5067b000027'
-				googleAnalytics: 'UA-4446117-1'
+				googleAnalytics: 'UA-35505181-1'
 				reinvigorate: '52uel-236r9p108l'
 				zopim: '0tni8T2G7P86SxDwmxCa4HCySsGPRESg'
 
