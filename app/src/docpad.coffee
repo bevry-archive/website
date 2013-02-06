@@ -75,6 +75,7 @@ docpadConfig =
 		underscore: _
 		strUtil: strUtil
 		moment: moment
+		nodeVersion: process.version
 
 		text: textData
 		projects: requireFresh(__dirname+'/templateData/projects')
@@ -222,7 +223,7 @@ docpadConfig =
 					categoryDirectory
 					category
 					categoryName
-					urls[0]
+					url: urls[0]
 					standalone
 				}).addUrl(urls)
 

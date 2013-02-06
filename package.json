@@ -6,10 +6,10 @@
 	"homepage": "https://github.com/bevry/bevry-website",
 	"author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
 	"maintainers": [
-		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+		"Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
 	],
 	"contributors": [
-		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+		"Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
 	],
 	"bugs": {
 		"url": "https://github.com/bevry/bevry-website/issues"
@@ -23,7 +23,7 @@
 		"npm": "1.1.x"
 	},
 	"dependencies": {
-		"docpad": "~6.21.7",
+		"docpad": "~6.21.10",
 		"docpad-plugin-coffeekup": "2.x",
 		"docpad-plugin-coffeescript": "2.x",
 		"docpad-plugin-eco": "2.x",
@@ -34,9 +34,9 @@
 		"docpad-plugin-services": "2.x",
 		"docpad-plugin-text": "2.x",
 		"feedr": "~2.4.0",
-		"bal-util": "~1.16.1",
+		"bal-util": "~1.16.3",
 		"moment": "~1.7.2",
-		"underscore": "~1.4.3",
+		"underscore": "~1.4.4",
 		"underscore.string": "~2.3.1",
 		"request": "~2.12.0"
 	},

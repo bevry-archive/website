@@ -69,6 +69,7 @@ docpadConfig = {
     underscore: _,
     strUtil: strUtil,
     moment: moment,
+    nodeVersion: process.version,
     text: textData,
     projects: requireFresh(__dirname + '/templateData/projects'),
     promos: requireFresh(__dirname + '/templateData/promos'),
@@ -146,7 +147,7 @@ docpadConfig = {
         }
       ];
       return database.findAllLive(query, sorting).on('add', function(document) {
-        var a, category, categoryDirectory, categoryName, layout, name, pageTitle, project, projectDirectory, projectName, slug, standalone, title, url, urls;
+        var a, category, categoryDirectory, categoryName, layout, name, pageTitle, project, projectDirectory, projectName, standalone, title, urls;
         a = document.attributes;
         layout = 'doc';
         standalone = true;
@@ -157,9 +158,7 @@ docpadConfig = {
         category = categoryDirectory.replace(/^[\-0-9]+/, '');
         categoryName = getCategoryName(category);
         name = a.basename.replace(/^[\-0-9]+/, '');
-        url = "/learn/" + project + "-" + name;
-        slug = "/" + project + "/" + name;
-        urls = [slug, url];
+        urls = ["/learn/" + project + "-" + name, "/" + project + "/" + name];
         title = "" + (a.title || humanize(name));
         pageTitle = "" + title + " | " + projectName;
         return document.setMetaDefaults({
@@ -172,8 +171,7 @@ docpadConfig = {
           categoryDirectory: categoryDirectory,
           category: category,
           categoryName: categoryName,
-          slug: slug,
-          url: url,
+          url: urls[0],
           standalone: standalone
         }).addUrl(urls);
       });
