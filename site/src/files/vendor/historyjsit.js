@@ -177,9 +177,8 @@
 					});
 
 					// Complete the change
-					if ( $body.ScrollTo||false ) { $body.ScrollTo(scrollOptions); } /* http://balupton.com/projects/jquery-scrollto */
 					$body.removeClass('loading');
-					$window.trigger(completedEventName);
+					$window.trigger(completedEventName, {$dataBody:$dataBody});
 
 					// Inform Google Analytics of the change
 					if ( typeof window._gaq !== 'undefined' ) {
