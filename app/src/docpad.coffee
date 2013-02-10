@@ -13,6 +13,7 @@ rootPath = __dirname+'/../..'
 appPath = __dirname
 sitePath = rootPath+'/site'
 textData = requireFresh(appPath+'/templateData/text')
+websiteVersion = require(rootPath+'/package.json').version
 
 
 # =================================
@@ -116,7 +117,7 @@ docpadConfig =
 			# Styles
 			styles: [
 				'/styles/style.css'
-			]
+			].map (url) -> "#{url}?websiteVersion=#{websiteVersion}"
 
 			# Scripts
 			scripts: [
@@ -131,7 +132,7 @@ docpadConfig =
 				# Scripts
 				"/scripts/bevry.js"
 				"/scripts/script.js"
-			]
+			].map (url) -> "#{url}?websiteVersion=#{websiteVersion}"
 
 
 		# -----------------------------
