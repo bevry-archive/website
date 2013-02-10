@@ -5,12 +5,13 @@ url: '/services'
 standalone: true
 ---
 
-*Business hours are between 9am and 5pm Sydney Time (+10:00) Monday to Friday with limited availability on Saturday and no guaranteed availability on Sunday. All prices are in Australian Dollars (AUD). [Time-Zone Converter.](http://everytimezone.com/) [Currency Converter.](http://www.xe.com/ucc/)*
+*Business hours are between 9am and 5pm Sydney Time (+10:00) Monday to Friday with limited availability on Saturday and no guaranteed availability on Sunday. Contact us for a quote. [Time-Zone Converter.](http://everytimezone.com/) [Currency Converter.](http://www.xe.com/ucc/)*
+
+*Contact us via:*
 
 <div class="contact-links">
-	<t>text.links.im</t>
-	<t>text.links.phone</t>
 	<t>text.links.email</t>
+	<t>text.links.phone</t>
 </div>
 
 
