@@ -314,6 +314,16 @@ docpadConfig = {
                   } else {
                     continue;
                   }
+                  contributorData.name || (contributorData.name = contributorData.username || contributorData.email || null);
+                  contributorData.text = [];
+                  contributorData.text.push(contributorData.name);
+                  if (contributorData.email) {
+                    contributorData.text.push("<" + contributorData.email + ">");
+                  }
+                  if (contributorData.url) {
+                    contributorData.text.push("(" + contributorData.url + ")");
+                  }
+                  contributorData.text = contributorData.text.join(' ');
                   if (!contributorData.name) {
                     continue;
                   }

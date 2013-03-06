@@ -348,6 +348,16 @@ docpadConfig =
 								else
 									continue
 
+								# Fallback
+								contributorData.name or= contributorData.username or contributorData.email or null
+
+								# Merge
+								contributorData.text = []
+								contributorData.text.push contributorData.name
+								contributorData.text.push "<#{contributorData.email}>"  if contributorData.email
+								contributorData.text.push "(#{contributorData.url})"    if contributorData.url
+								contributorData.text = contributorData.text.join(' ')
+
 								# Skip if no name... this should never happen
 								continue  unless contributorData.name
 

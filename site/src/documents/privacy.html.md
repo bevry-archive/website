@@ -21,6 +21,11 @@ We collect the email addresses of those who communicate with us via email, aggre
 - We use cookies to record current session information, but do not use permanent cookies. You are required to re-login to your Bevry account after a certain period of time has elapsed to protect you against others accidentally accessing your account contents.
 
 
+## Desktop
+
+For some of our desktop software, in the case that the user has not identified themselves we will use a [hashed](http://en.wikipedia.org/wiki/Hash_function) and [salted](http://en.wikipedia.org/wiki/Salt_\(cryptography\)) copy of the first [MAC address](http://en.wikipedia.org/wiki/MAC_address) of the machine the software is run on, this way we can uniquely (yet still anonymously) identify the user of the software for the purpose of understanding how many users are using the software.
+
+
 ## Data Storage
 
 Bevry uses third party vendors and hosting partners to provide the necessary hardware, software, networking, storage, and related technology required to run Bevry. Although Bevry owns the code, databases, and all rights to the Bevry application, you retain all rights to your data.

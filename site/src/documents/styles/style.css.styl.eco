@@ -444,12 +444,14 @@ div.container
 
 	.promos
 		margin-top: 1.5em
+		overflow-y: auto
+		margin-left: -1em
+		padding-right: 0.5em
 
 		.promo
 			display: block
 			padding: 1.3em 1em 1em 1em
-			margin-bottom: 1em
-			margin-left: -1em
+			margin-bottom: 1.5em
 			width: 100%
 			max-width: 150px
 			font-size: 12px

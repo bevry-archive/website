@@ -22,7 +22,11 @@ class BevryApp
 		@$document = $(document)
 		@$body = $(document.body)
 		@$window = $(window)
+		@$promos = $('.promos')
 		@$docnav = $('.docnav')
+		@$mainbar = $('.mainbar')
+		@$sidebarmenu = $('.sidebar .list-menu')
+		@$content = $('#content')
 		@$docnavUp = @$docnav.find('.up')
 		@$docnavDown = @$docnav.find('.down')
 		@$docSectionWrapper = $('<div class="section-wrapper">')
@@ -170,7 +174,7 @@ class BevryApp
 		{$docHeaders,$docSectionWrapper,config} = @
 
 		# Special handling for long docs
-		@$article = $article = $('#content article:first')
+		@$article = $article = @$content.find('article:first')
 
 		# Documentation
 		if $article.is('.block.doc')
@@ -214,6 +218,12 @@ class BevryApp
 
 		# Scroll to the article
 		$article.ScrollTo(config.articleScrollOpts)
+
+		# Promo Height
+		setTimeout(
+			=> @$promos.height @$content.height() - @$sidebarmenu.height()
+			1100
+		)
 
 		# Chain
 		@

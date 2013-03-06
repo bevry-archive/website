@@ -34,7 +34,17 @@ div '.container', ->
 			for own key,promo of @promos
 				a ".promo.hover-link", "href":promo.url, ->
 					span ".title", -> promo.title
-					span ".description", -> promo.description
+					span ".description", ->
+						if promo.description
+							text promo.description
+						else
+							if promo.date
+								if new Date(promo.date) < new Date()
+									text "Happened on #{promo.date} "
+								else
+									text "Happening on #{promo.date} "
+							if promo.location
+								text "in #{promo.location}"
 
 	div '.mainbar', ->
 		div "#content", -> @content
