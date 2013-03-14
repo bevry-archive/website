@@ -1,14 +1,14 @@
 # humanstxt.org/
 # The humans responsible & technology colophon
 
-# DOCPAD CORE TEAM
+# BEVRY TEAM
 
-    Benjamin Lupton <b@lupton.cc> (http://balupton.com)
-    Chase Colman <chase@infinityatlas.com> (https://github.com/chase)
+    Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)
+    Helen Lupton <h@lupton.cc> (https://github.com/hele)
 
-# DOCPAD CONTRIBUTORS
+# BEVRY CONTRIBUTORS
 
-<%- ("    #{contributorData.text}"  for own contributorId,contributorData of @contributors or {}).join('\n') %>
+<%- ("    #{contributor.text}"  for contributor in @contributors or []).join('\n') %>
 
 # WEBSITE TECHNOLOGY
 

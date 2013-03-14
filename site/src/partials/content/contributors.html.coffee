@@ -1,18 +1,18 @@
 ul '.contributors', ->
-	for own contributorId,contributorData of @contributors or {}
+	for contributor in @contributors or []
 		li '.contributor', ->
 			span '.contributor-name', ->
-				if contributorData.url
-					a href:contributorData.url, title:'visit their github', ->
-						contributorData.name
+				if contributor.url
+					a href:contributor.url, title:'visit their github', ->
+						contributor.name
 				else
-					text contributorData.name
+					text contributor.name
 			span '.contributor-repos', ->
 				text " contributed to: "
-				for own key,value of contributorData.repos
+				for own key,value of contributor.repos
 					repoUrl = value
-					if contributorData.username
-						contributionUrl = "#{repoUrl}/commits?author=#{contributorData.username}"
+					if contributor.username
+						contributionUrl = "#{repoUrl}/commits?author=#{contributor.username}"
 						a '.contributor-repo', title:'view their contributions', href:contributionUrl, key
 					else
 						a '.contributor-repo', title:'visit the project', href:repoUrl, key

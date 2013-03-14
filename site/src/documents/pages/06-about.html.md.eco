@@ -47,7 +47,7 @@ Helen is Benjamin's partner in world liberation and in life. She handles most of
 
 ### Contributors
 
-We'd also like to thank all the countless contributors who have worked with us to help accomplish our shared ambitions, including: <%- @partial('content/contributors.html.coffee', {contributors:@contributors}) %>
+We'd also like to thank all the countless contributors who have worked with us to help accomplish our shared ambitions, including these <%- @contributors.length %> people: <%- @partial('content/contributors.html.coffee', {contributors:@contributors}) %>
 
 ## Inspiration
 
