@@ -60,9 +60,9 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 		1. Install Node.js
 
 			``` bash
-			nvm install <%- @nodeVersion %>
-			nvm alias default 0.8
-			nvm use 0.8
+			nvm install <%= @nodeVersion %>
+			nvm alias default <%= @nodeMajorMinorVersion %>
+			nvm use <%= @nodeMajorMinorVersion %>
 			```
 
 	1. #### Via Direct Install
@@ -72,7 +72,7 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 		1. Run the following
 
 			``` bash
-			export node_version_to_install='<%- @nodeVersion %>'
+			export node_version_to_install='<%= @nodeVersion %>'
 			curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
 			```
 

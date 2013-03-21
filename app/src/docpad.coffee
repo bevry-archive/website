@@ -77,6 +77,7 @@ docpadConfig =
 		strUtil: strUtil
 		moment: moment
 		nodeVersion: process.version
+		nodeMajorMinorVersion: process.version.replace(/^v/,'').split('.')[0...2].join('.')
 
 		text: textData
 		projects: requireFresh(__dirname+'/templateData/projects')
