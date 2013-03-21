@@ -19,8 +19,8 @@
 		"url": "http://github.com/bevry/bevry-website.git"
 	},
 	"engines": {
-		"node": "0.10.x",
-		"npm": "1.2.x"
+		"node": "0.8",
+		"npm": "1.2"
 	},
 	"dependencies": {
 		"docpad": "~6.26.0",
