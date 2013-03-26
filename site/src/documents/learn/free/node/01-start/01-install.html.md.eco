@@ -46,17 +46,6 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 			sudo chown -R $USER /usr/local
 			```
 
-	1. #### Via Direct Install
-
-		1. Uninstall any previous Node.js versions you may already have
-
-		1. Install Node.js by running the following in Terminal:
-
-			``` bash
-			export node_version_to_install='<%- @nodeVersion %>'
-			curl https://raw.github.com/bevry/community/master/install-node/install-node.sh | sh
-			```
-
 	1. #### Via [Node Version Manager](https://github.com/creationix/nvm)
 
 		1. Uninstall any previous Node.js versions you may already have
