@@ -61,25 +61,14 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 
 		1. Uninstall any previous Node.js versions you may already have
 
-		1. Install NVM
+		1. Install NVM by running the following in Terminal:
 
-			1. Clone NVM by running the following in Terminal:
-
-				``` bash
-				git clone git://github.com/creationix/nvm.git ~/.nvm
-				```
-
-			2. Add the following to your `~/.bashrc` file
-
-				``` bash
-				# NVM
-				if [ -s ~/.nvm/nvm.sh ]; then
-					NVM_DIR=~/.nvm
-					source ~/.nvm/nvm.sh
-				fi
-				```
-
-			3. Open a new terminal window or run `source ~/.nvm/nvm.sh`
+			``` bash
+			git clone git://github.com/creationix/nvm.git ~/.nvm
+			printf "\n\n# NVM\nif [ -s ~/.nvm/nvm.sh ]; then\n\tNVM_DIR=~/.nvm\n\tsource ~/.nvm/nvm.sh\nfi" >> ~/.bashrc
+			NVM_DIR=~/.nvm
+			source ~/.nvm/nvm.sh
+			```
 
 		1. Install Node.js by running the following in Terminal:
 
