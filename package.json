@@ -28,17 +28,20 @@
 		"docpad-plugin-coffeescript": "2.x",
 		"docpad-plugin-eco": "2.x",
 		"docpad-plugin-highlightjs": "2.x",
+		"docpad-plugin-repocloner": "2.x",
 		"docpad-plugin-robotskirt": "2.x",
 		"docpad-plugin-partials": "2.x",
-		"docpad-plugin-stylus": "2.1.x",
 		"docpad-plugin-services": "2.x",
+		"docpad-plugin-sitemap": "0.2.x",
+		"docpad-plugin-stylus": "2.1.x",
 		"docpad-plugin-text": "2.x",
 		"getcontributors": "~1.0.0",
-		"bal-util": "~1.18.0",
+		"bal-util": "~2.0.5",
+		"extendr": "~2.0.1",
 		"moment": "~2.0.0",
 		"underscore": "~1.4.4",
 		"underscore.string": "~2.3.1",
-		"request": "~2.16.6"
+		"request": "~2.20.0"
 	},
 	"devDependencies": {
 		"passport": "~0.1.16",

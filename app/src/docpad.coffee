@@ -6,14 +6,13 @@ moment = require('moment')
 strUtil = require('underscore.string')
 getContributors = require('getcontributors')
 balUtil = require('bal-util')
-{requireFresh} = balUtil
 
 # Prepare
 rootPath = __dirname+'/../..'
 appPath = __dirname
 sitePath = rootPath+'/site'
-textData = requireFresh(appPath+'/templateData/text')
-websiteVersion = require(rootPath+'/package.json').version
+textData = balUtil.requireFresh(appPath+'/templateData/text')
+websiteVersion = balUtil.requireFresh(rootPath+'/package.json').version
 
 
 # =================================
@@ -80,11 +79,11 @@ docpadConfig =
 		nodeMajorMinorVersion: process.version.replace(/^v/,'').split('.')[0...2].join('.')
 
 		text: textData
-		projects: requireFresh(__dirname+'/templateData/projects')
-		promos: requireFresh(__dirname+'/templateData/promos')
-		sponsors: requireFresh(__dirname+'/templateData/sponsors')
-		testimonials: requireFresh(__dirname+'/templateData/testimonials')
-		users: requireFresh(__dirname+'/templateData/users')
+		projects: balUtil.requireFresh(__dirname+'/templateData/projects')
+		promos: balUtil.requireFresh(__dirname+'/templateData/promos')
+		sponsors: balUtil.requireFresh(__dirname+'/templateData/sponsors')
+		testimonials: balUtil.requireFresh(__dirname+'/templateData/testimonials')
+		users: balUtil.requireFresh(__dirname+'/templateData/users')
 
 
 		# -----------------------------
@@ -240,58 +239,42 @@ docpadConfig =
 					author: 'balupton'
 				})
 
+
 	# =================================
-	# DocPad Plugins
+	# Plugins
 
 	plugins:
 		highlightjs:
 			aliases:
 				stylus: 'css'
 
-	environments:
-		development:
-				coffeekup:
-					format: false
+		repocloner:
+			repos: [
+				name: 'DocPad Documentation'
+				path: 'src/documents/learn/free/docpad'
+				url: 'https://github.com/bevry/docpad-documentation.git'
+			]
+
 
 	# =================================
-	# DocPad Events
+	# Environments
+
+	# Disable analytic services on the development environment
+	environments:
+		development:
+			templateData:
+				site:
+					services:
+						gauges: false
+						googleAnalytics: false
+						mixpanel: false
+						reinvigorate: false
+
+
+	# =================================
+	# Events
 
 	events:
-
-		# Clone/Update our DocPad Documentation Repository
-		generateBefore: (opts,next) ->
-			# Prepare
-			docpad = @docpad
-			config = docpad.getConfig()
-			tasks = new balUtil.Group(next)
-
-			# Skip if we are doing a differential generate
-			return next()  if opts.reset is false or 'development' in docpad.getEnvironments()
-
-			# Log
-			docpad.log('info', "Updating Documentation...")
-
-			# Repos
-			repos =
-				'docpad-documentation':
-					path: pathUtil.join(config.documentsPaths[0],'learn','free','docpad')
-					url:'git://github.com/bevry/docpad-documentation.git'
-			for own repoKey,repoValue of repos
-				tasks.push repoValue, (complete) ->
-					balUtil.initOrPullGitRepo(balUtil.extend({
-						remote: 'origin'
-						branch: 'master'
-						output: true
-						next: (err) ->
-							# warn about errors, but don't let them kill execution
-							docpad.warn(err)  if err
-							docpad.log('info', "Updated Documentation")
-							complete()
-					},@))
-
-			# Fire
-			tasks.async()
-			return
 
 		# Add Contributors to the Template Data
 		extendTemplateData: (opts,next) ->
@@ -315,26 +298,6 @@ docpadConfig =
 			# Done
 			return
 
-		# Write
-		writeAfter: (opts,next) ->
-			# Prepare
-			docpad = @docpad
-			config = docpad.getConfig()
-			sitemap = []
-			sitemapPath = config.outPath+'/sitemap.txt'
-			siteUrl = config.templateData.site.url
-
-			# Get all the html files
-			docpad.getCollection('html').forEach (document) ->
-				if document.get('sitemap') isnt false and document.get('write') isnt false and document.get('ignored') isnt true and document.get('body')
-					sitemap.push siteUrl+document.get('url')
-
-			# Write the sitemap file
-			balUtil.writeFile(sitemapPath, sitemap.sort().join('\n'), next)
-
-			# Done
-			return
-
 		# Server Extend
 		# Used to add our own custom routes to the server before the docpad routes are added
 		serverExtend: (opts) ->
@@ -350,7 +313,7 @@ docpadConfig =
 					{
 						url: "https://api.pushover.net/1/messages.json"
 						method: "POST"
-						form: balUtil.extend(
+						form: extendr.extend(
 							{
 								token: process.env.BEVRY_PUSHOVER_TOKEN
 								user: process.env.BEVRY_PUSHOVER_USER_KEY
