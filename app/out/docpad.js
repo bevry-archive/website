@@ -183,6 +183,18 @@ docpadConfig = {
         }).addUrl(urls);
       });
     },
+    docpad: function(database) {
+      return database.findAllLive({
+        relativeOutDirPath: {
+          $startsWith: 'learn/free/docpad'
+        }
+      }).on('add', function(document) {
+        return document.setMetaDefaults({
+          render: false,
+          write: false
+        });
+      });
+    },
     pages: function(database) {
       return database.findAllLive({
         relativeOutDirPath: {

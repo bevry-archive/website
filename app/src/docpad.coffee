@@ -228,6 +228,13 @@ docpadConfig =
 					standalone
 				}).addUrl(urls)
 
+		docpad: (database) ->
+			database.findAllLive({relativeOutDirPath:$startsWith:'learn/free/docpad'}).on 'add', (document) ->
+				document.setMetaDefaults({
+					render: false
+					write: false
+				})
+
 		pages: (database) ->
 			database.findAllLive({relativeOutDirPath:$startsWith:'pages'},[filename:1])
 
