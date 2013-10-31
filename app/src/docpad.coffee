@@ -14,6 +14,8 @@ textData = requireFresh(appPath+'/templateData/text')
 websiteVersion = requireFresh(rootPath+'/package.json').version
 contributorsGetter = null
 contributors = null
+pin = null
+isProduction = process.env.NODE_ENV is 'production'
 
 
 # =================================
@@ -109,6 +111,8 @@ docpadConfig =
 
 			# Services
 			services:
+				pin: process.env.BEVRY_PIN_API_KEY_PUBLIC
+
 				gittipButton: 'bevry'
 				flattrButton: '344188/balupton-on-Flattr'
 				paypalButton: 'QB8GQPZAH84N6'
@@ -126,6 +130,9 @@ docpadConfig =
 
 			# Scripts
 			scripts: [
+				# External
+				(if isProduction then "https://api.pin.net.au/pin.js" else "https://test-api.pin.net.au/pin.js")
+
 				# Vendor
 				"/vendor/jquery.js"
 				"/vendor/log.js"
@@ -135,6 +142,7 @@ docpadConfig =
 				"/vendor/historyjsit.js"
 
 				# Scripts
+				"/scripts/payment.js"
 				"/scripts/bevry.js"
 				"/scripts/script.js"
 			].map (url) -> "#{url}?websiteVersion=#{websiteVersion}"
@@ -374,6 +382,20 @@ docpadConfig =
 
 			# Facebook
 			server.get /^\/(?:f|facebook)(?:\/(.*))?$/, (req,res) -> res.redirect(301, "https://www.facebook.com/bevryme")
+
+			# Payment
+			server.all '/payment', (req,res) ->
+				pin ?= require('pinjs').setup({
+					key: process.env.BEVRY_PIN_API_KEY_PRIVATE,
+					production: isProduction
+				})
+				req.body.amount *= 100   # convert cents to dollars
+				req.body.amount += 30    # add 30c transaction fee
+				req.body.amount *= 1.04  # add 3% transaction fee with 1% leeway
+				pin.createCharge req.body, (pinResponse) ->
+					console.log(pinResponse.body)
+					res.send(pinResponse.statusCode, pinResponse.body)
+					#res.redirect(req.headers.referer)
 
 			# Forward to our application routing
 			# if 'development' in docpad.getEnvironments()

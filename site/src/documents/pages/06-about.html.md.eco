@@ -39,12 +39,6 @@ In conclusion, if you believe in NDAs and patents, then we are not the right com
 
 
 
-## Donations
-
-<%- @getServiceButtons() %>
-
-
-
 ## Team
 
 Being an open-source company, our team is comprised of people all over the world whom come together (regardless of company or location) to collaborate and work together on the same ideas and principles that Bevry stands for and helps facilitate.
@@ -70,3 +64,12 @@ We'd also like to thank all the countless contributors who have worked with us t
 ## Inspiration
 
 You can watch videos that inspire us on our [founder's YouTube Page](http://www.youtube.com/user/balupton)
+
+
+
+## Donations
+
+<%- @getServiceBadges() %>
+
+<%- @partial('content/payment', false) %>
+

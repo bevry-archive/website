@@ -1,0 +1,53 @@
+<form action='/payment' class='pin' method='post'>
+  <div class='errors' style='display:none'>
+    <h3></h3>
+    <ul></ul>
+  </div>
+  <fieldset>
+    <legend>Transaction</legend>
+    <label for='transaction-amount'>Amount ($AUD)</label>
+    <input id='transaction-amount' name="amount" />
+    <p>Note: A 4% and 30c transaction fee will be added.</p>
+    <label for='transaction-description'>Description</label>
+    <input id='transaction-description' name="description" />
+  </fieldset>
+  <fieldset>
+    <legend>Billing</legend>
+    <!--
+      The lack of 'name' attributes on these inputs prevents
+      the browser from submitting them to your server
+    -->
+    <label for='billing-email'>Email</label>
+    <input id='billing-email' name="email" />
+    <label for='address-line1'>Address 1</label>
+    <input id='address-line1' />
+    <label for='address-line2'>Address 2</label>
+    <input id='address-line2' />
+    <label for='address-city'>City</label>
+    <input id='address-city' />
+    <label for='address-state'>State</label>
+    <input id='address-state' />
+    <label for='address-postcode'>Postcode</label>
+    <input id='address-postcode' />
+    <label for='address-country'>Country</label>
+    <input id='address-country' />
+  </fieldset>
+  <fieldset>
+    <legend>Payment</legend>
+    <!--
+      The lack of 'name' attributes on these inputs prevents
+      the browser from submitting them to your server
+    -->
+    <label for='cc-number'>Credit Card Number</label>
+    <input id='cc-number' type='text' />
+    <label for='cc-name'>Name on Card</label>
+    <input id='cc-name' type='text' />
+    <label for='cc-expiry-month'>Expiry Month</label>
+    <input id='cc-expiry-month' />
+    <label for='cc-expiry-year'>Expiry Year</label>
+    <input id='cc-expiry-year' />
+    <label for='cc-cvc'>CVC</label>
+    <input id='cc-cvc' />
+  </fieldset>
+  <input type='submit' value='Send Payment' class="btn" />
+</form>
