@@ -4,15 +4,16 @@ pathUtil = require('path')
 _ = require('underscore')
 moment = require('moment')
 strUtil = require('underscore.string')
-getContributors = require('getcontributors')
-balUtil = require('bal-util')
+{requireFresh} = require('requirefresh')
 
 # Prepare
 rootPath = __dirname+'/../..'
 appPath = __dirname
 sitePath = rootPath+'/site'
-textData = balUtil.requireFresh(appPath+'/templateData/text')
-websiteVersion = balUtil.requireFresh(rootPath+'/package.json').version
+textData = requireFresh(appPath+'/templateData/text')
+websiteVersion = requireFresh(rootPath+'/package.json').version
+contributorsGetter = null
+contributors = null
 
 
 # =================================
@@ -79,11 +80,11 @@ docpadConfig =
 		nodeMajorMinorVersion: process.version.replace(/^v/,'').split('.')[0...2].join('.')
 
 		text: textData
-		projects: balUtil.requireFresh(__dirname+'/templateData/projects')
-		promos: balUtil.requireFresh(__dirname+'/templateData/promos')
-		sponsors: balUtil.requireFresh(__dirname+'/templateData/sponsors')
-		testimonials: balUtil.requireFresh(__dirname+'/templateData/testimonials')
-		users: balUtil.requireFresh(__dirname+'/templateData/users')
+		projects: requireFresh(__dirname+'/templateData/projects')
+		promos: requireFresh(__dirname+'/templateData/promos')
+		sponsors: requireFresh(__dirname+'/templateData/sponsors')
+		testimonials: requireFresh(__dirname+'/templateData/testimonials')
+		users: requireFresh(__dirname+'/templateData/users')
 
 
 		# -----------------------------
@@ -180,6 +181,9 @@ docpadConfig =
 			language ?= pathUtil.extname(relativePath).substr(1)
 			contents = @readFile(relativePath)
 			return """<pre><code class="#{language}">#{contents}</code></pre>"""
+
+		# Get Contributors
+		getContributors: -> contributors or []
 
 
 	# =================================
@@ -283,27 +287,47 @@ docpadConfig =
 
 	events:
 
-		# Add Contributors to the Template Data
-		extendTemplateData: (opts,next) ->
+		# Generate Before
+		generateBefore: (opts) ->
+			# Reset contributors if we are a complete generation (not a partial one)
+			contributors = null
+
+			# Return
+			return true
+
+		# Fetch Contributors
+		renderBefore: (opts,next) ->
 			# Prepare
 			docpad = @docpad
-			contributors = {}
-			opts.templateData.contributors = []
 
-			# Fetch Contributors
-			getContributors(
-				users: ['bevry','docpad','browserstate']
+			# Check
+			return next()  if contributors
+
+			# Log
+			docpad.log('info', 'Fetching your latest contributors for display within the website')
+
+			# Prepare contributors getter
+			contributorsGetter ?= require('getcontributors').create(
+				#log: docpad.log
 				github_client_id: process.env.BEVRY_GITHUB_CLIENT_ID
-				github_client_secret: process.env.BEVRY_GITHUB_CLIENT_ID
-				log: docpad.log
-				next: (err,contributors) ->
-					return next(err)  if err
-					opts.templateData.contributors = contributors.filter (item) -> item.username isnt 'balupton'
-					return next()
+				github_client_secret: process.env.BEVRY_GITHUB_CLIENT_SECRET
 			)
 
-			# Done
-			return
+			# Fetch contributors
+			users = ['bevry', 'docpad', 'webwrite', 'browserstate']
+			contributorsGetter.fetchContributorsFromUsers users, (err,_contributors=[]) ->
+				# Check
+				return next(err)  if err
+
+				# Apply
+				contributors = _contributors
+				docpad.log('info', "Fetched your latest contributors for display within the website, all #{_contributors.length} of them")
+
+				# Complete
+				return next()
+
+			# Return
+			return true
 
 		# Server Extend
 		# Used to add our own custom routes to the server before the docpad routes are added

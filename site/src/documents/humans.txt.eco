@@ -8,7 +8,7 @@
 
 # BEVRY CONTRIBUTORS, ALL <%- (@contributors or []).length %> OF THEM
 
-<%- ("    #{contributor.text}"  for contributor in @contributors or []).join('\n') %>
+<%- ("    #{contributor.text}"  for contributor in @getContributors()).join('\n') %>
 
 # WEBSITE TECHNOLOGY
 
