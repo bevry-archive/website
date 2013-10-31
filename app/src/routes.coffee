@@ -3,7 +3,6 @@ passport = require('passport')
 GitHubStrategy = require('passport-github').Strategy
 mongo = require('mongodb')
 urlUtil = require('url')
-balUtil = require('bal-util')
 {queryEngine,Backbone} = require('docpad')
 
 # Application Configuration

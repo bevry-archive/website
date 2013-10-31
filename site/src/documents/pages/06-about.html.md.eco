@@ -67,9 +67,28 @@ You can watch videos that inspire us on our [founder's YouTube Page](http://www.
 
 
 
+
 ## Donations
 
+### Payment Services
+
 <%- @getServiceBadges() %>
+
+
+### Bank Transfer
+
+<table>
+	<tbody>
+		<% for own key,value of @bankDetails: %>
+			<tr>
+				<th width="30%"><%= key %></th>
+				<td width="70%"><%= value %></th>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+### Payment Form
 
 <%- @partial('content/payment', false) %>
 

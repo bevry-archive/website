@@ -849,6 +849,9 @@ div.container
 		iframe
 			padding-top: 3px
 
+table tbody th
+	text-align: left
+
 .pin
 	fieldset, .errors
 		margin-bottom: 2em

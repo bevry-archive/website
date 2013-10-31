@@ -7,10 +7,11 @@ strUtil = require('underscore.string')
 {requireFresh} = require('requirefresh')
 
 # Prepare
-rootPath = __dirname+'/../..'
+rootPath = pathUtil.resolve(__dirname+'/../..')
 appPath = __dirname
 sitePath = rootPath+'/site'
-textData = requireFresh(appPath+'/templateData/text')
+templateData = requireFresh(appPath+'/templateData')
+textData = templateData.text
 websiteVersion = requireFresh(rootPath+'/package.json').version
 contributorsGetter = null
 contributors = null
@@ -70,7 +71,7 @@ docpadConfig =
 	# These are variables that will be accessible via our templates
 	# To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
 
-	templateData:
+	templateData: require('extendr').extend templateData,
 
 		# -----------------------------
 		# Misc
@@ -80,13 +81,6 @@ docpadConfig =
 		moment: moment
 		nodeVersion: process.version
 		nodeMajorMinorVersion: process.version.replace(/^v/,'').split('.')[0...2].join('.')
-
-		text: textData
-		projects: requireFresh(__dirname+'/templateData/projects')
-		promos: requireFresh(__dirname+'/templateData/promos')
-		sponsors: requireFresh(__dirname+'/templateData/sponsors')
-		testimonials: requireFresh(__dirname+'/templateData/testimonials')
-		users: requireFresh(__dirname+'/templateData/users')
 
 
 		# -----------------------------
