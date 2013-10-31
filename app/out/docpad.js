@@ -84,6 +84,9 @@ docpadConfig = {
       description: "We're a Node.js, Backbone.js and JavaScript consultancy in Sydney Australia with a focus on empowering developers. We've created History.js one of the most popular javascript projects in the world, and DocPad an amazing Node.js Content Management System. We’re also working on setting up several Startup Hostels all over the world, enabling entreprenuers to travel, collaborate, and live their dream lifestyles cheaper than back home.",
       keywords: "bevry, bevryme, balupton, benjamin lupton, docpad, history.js, node, node.js, javascript, coffeescript, startup hostel, query engine, queryengine, backbone.js, cson",
       services: {
+        gittipButton: 'bevry',
+        flattrButton: '344188/balupton-on-Flattr',
+        paypalButton: 'QB8GQPZAH84N6',
         gauges: '5077ad8cf5a1f5067b000027',
         googleAnalytics: 'UA-35505181-1',
         reinvigorate: '52uel-236r9p108l'

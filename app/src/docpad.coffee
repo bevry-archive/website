@@ -109,6 +109,10 @@ docpadConfig =
 
 			# Services
 			services:
+				gittipButton: 'bevry'
+				flattrButton: '344188/balupton-on-Flattr'
+				paypalButton: 'QB8GQPZAH84N6'
+
 				#disqus: 'bevry'
 				gauges: '5077ad8cf5a1f5067b000027'
 				googleAnalytics: 'UA-35505181-1'
