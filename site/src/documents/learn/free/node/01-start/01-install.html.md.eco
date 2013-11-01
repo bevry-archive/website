@@ -13,9 +13,11 @@ This is Bevry's supported guide for installing [Node.js](http://nodejs.org/) on 
 
 	2. [Download & Install Xcode](http://developer.apple.com/xcode/)
 
-		Once installed, you'll have to install the command line tools. To do this, open Xcode and go to `Preferences -> Downloads -> Command Line Tools -> Install`
+	3. Install Xcode Command Line Tools:
 
-		If you installed Xcode over a old non app store version, you'll want to run the follow to ensure everything is pointing to the new xcode location: `sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer`
+		``` bash
+		xcode-select --install
+		```
 
 
 1. ### APT Linux Preperation (Ubuntu)
