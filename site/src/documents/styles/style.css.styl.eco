@@ -482,6 +482,17 @@ div.container
 	z-index: 201
 	padding-bottom: 1em
 
+	.block-edit
+		display: block
+		text-align: right
+		padding: 1.5em 0 1em /* top right bottom left */
+		a
+			transition: all 0.2s ease-out
+			color: colorAccent
+			opacity: 0.3
+			&:hover
+				opacity: 1
+
 	.block
 		mixinBlock()
 		border-radius: 8px

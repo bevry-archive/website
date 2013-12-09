@@ -212,18 +212,30 @@ docpadConfig =
 				# Properties
 				layout = 'doc'
 				standalone = true
-				projectDirectory = pathUtil.basename pathUtil.resolve (pathUtil.dirname(a.fullPath) + '/..')
-				project = projectDirectory.replace(/[\-0-9]+/,'')
-				projectName = getProjectName(project)
-				categoryDirectory = pathUtil.basename pathUtil.dirname(a.fullPath)
-				category = categoryDirectory.replace(/^[\-0-9]+/,'')
+
+				categoryPath = pathUtil.dirname(a.fullPath)
+				categoryDirectory = pathUtil.basename(categoryDirectory)
+				category = categoryDirectory.replace(/^[\-0-9]+/, '')
 				categoryName = getCategoryName(category)
+
+				projectPath = pathUtil.resolve pathUtil.join(categoryPath, '..')
+				projectDirectory = pathUtil.basename(projectPath)
+				project = projectDirectory.replace(/[\-0-9]+/, '')
+				projectName = getProjectName(project)
+
+				organisationPath = pathUtil.resolve pathUtil.join(projectPath, '..')
+				organisationDirectory = pathUtil.basename(organisationPath)
+
 				name = a.basename.replace(/^[\-0-9]+/,'')
+
 				longLink = "/learn/#{project}-#{name}"
 				shortLink = "/#{project}/#{name}"
 				urls = [longLink, shortLink]
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
+				githubEditUrl = "https://github.com/#{organisationDirectory}/documentation/edit/master/"
+				proseEditUrl = "http://prose.io/##{organisationDirectory}/documentation/edit/master/"
+				editUrl = githubEditUrl + a.relativePath.replace('learn/bevry/', '')
 
 				# Apply
 				document.setMetaDefaults({
@@ -240,6 +252,7 @@ docpadConfig =
 					standalone
 					shortLink
 					longLink
+					editUrl
 				}).addUrl(urls)
 
 		docpad: (database) ->
@@ -272,7 +285,7 @@ docpadConfig =
 		repocloner:
 			repos: [
 				{
-					name: 'DocPad Documentation'
+					name: 'Bevry Documentation'
 					path: 'src/documents/learn/bevry'
 					url: 'https://github.com/bevry/documentation.git'
 				}

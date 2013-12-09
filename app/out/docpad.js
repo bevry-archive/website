@@ -158,22 +158,29 @@ docpadConfig = {
         }
       ];
       return database.findAllLive(query, sorting).on('add', function(document) {
-        var a, category, categoryDirectory, categoryName, layout, longLink, name, pageTitle, project, projectDirectory, projectName, shortLink, standalone, title, urls;
+        var a, category, categoryDirectory, categoryName, categoryPath, editUrl, githubEditUrl, layout, longLink, name, organisationDirectory, organisationPath, pageTitle, project, projectDirectory, projectName, projectPath, proseEditUrl, shortLink, standalone, title, urls;
         a = document.attributes;
         layout = 'doc';
         standalone = true;
-        projectDirectory = pathUtil.basename(pathUtil.resolve(pathUtil.dirname(a.fullPath) + '/..'));
-        project = projectDirectory.replace(/[\-0-9]+/, '');
-        projectName = getProjectName(project);
-        categoryDirectory = pathUtil.basename(pathUtil.dirname(a.fullPath));
+        categoryPath = pathUtil.dirname(a.fullPath);
+        categoryDirectory = pathUtil.basename(categoryDirectory);
         category = categoryDirectory.replace(/^[\-0-9]+/, '');
         categoryName = getCategoryName(category);
+        projectPath = pathUtil.resolve(pathUtil.join(categoryPath, '..'));
+        projectDirectory = pathUtil.basename(projectPath);
+        project = projectDirectory.replace(/[\-0-9]+/, '');
+        projectName = getProjectName(project);
+        organisationPath = pathUtil.resolve(pathUtil.join(projectPath, '..'));
+        organisationDirectory = pathUtil.basename(organisationPath);
         name = a.basename.replace(/^[\-0-9]+/, '');
         longLink = "/learn/" + project + "-" + name;
         shortLink = "/" + project + "/" + name;
         urls = [longLink, shortLink];
         title = "" + (a.title || humanize(name));
         pageTitle = "" + title + " | " + projectName;
+        githubEditUrl = "https://github.com/" + organisationDirectory + "/documentation/edit/master/";
+        proseEditUrl = "http://prose.io/#" + organisationDirectory + "/documentation/edit/master/";
+        editUrl = githubEditUrl + a.relativePath.replace('learn/bevry/', '');
         return document.setMetaDefaults({
           title: title,
           pageTitle: pageTitle,
@@ -187,7 +194,8 @@ docpadConfig = {
           url: urls[0],
           standalone: standalone,
           shortLink: shortLink,
-          longLink: longLink
+          longLink: longLink,
+          editUrl: editUrl
         }).addUrl(urls);
       });
     },
@@ -241,7 +249,7 @@ docpadConfig = {
     repocloner: {
       repos: [
         {
-          name: 'DocPad Documentation',
+          name: 'Bevry Documentation',
           path: 'src/documents/learn/bevry',
           url: 'https://github.com/bevry/documentation.git'
         }, {
