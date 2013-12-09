@@ -8,16 +8,6 @@ div '.container', ->
 			@text['heading']
 		h2 '.subheading', @text['subheading']
 
-	aside '.accountbar', ->
-		div '.heading-background', ->
-		header '.heading', ->
-			span '.title', @text['myaccount']
-			span '.icon', ->
-		div '.content', ->
-			text @partial('content/user.html.coffee',{
-				user: false
-			})
-
 	div '.sidebar', ->
 		pages = @getCollection('pages')
 		activeItemURL = '/'+@document.url.split('/')[1]
