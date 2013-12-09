@@ -319,6 +319,16 @@ docpadConfig = {
           return res.send(body);
         });
       });
+      server.all('/regenerate', function(req, res) {
+        var _ref;
+        if (((_ref = req.query) != null ? _ref.key : void 0) === process.env.WEBHOOK_KEY) {
+          docpad.log('info', 'Regenerating for documentation change');
+          docpad.action('generate');
+          return res.send(codeSuccess, 'regenerated');
+        } else {
+          return res.send(codeBadRequest, 'key is incorrect');
+        }
+      });
       server.get(/^\/(?:learn\/docpad-)(.*)$/, function(req, res) {
         return res.redirect(301, "http://docpad.org/docs/" + (req.params[0] || ''));
       });

@@ -374,6 +374,16 @@ docpadConfig =
 						res.send(body)
 				)
 
+			# Documentation Regenerate Hook
+			# Automatically regenerate when new changes are pushed to our documentation
+			server.all '/regenerate', (req,res) ->
+				if req.query?.key is process.env.WEBHOOK_KEY
+					docpad.log('info', 'Regenerating for documentation change')
+					docpad.action('generate')
+					res.send(codeSuccess, 'regenerated')
+				else
+					res.send(codeBadRequest, 'key is incorrect')
+
 			# DocPad Documentation
 			server.get /^\/(?:learn\/docpad-)(.*)$/, (req,res) ->
 				res.redirect(301, "http://docpad.org/docs/#{req.params[0] or ''}")
