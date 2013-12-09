@@ -214,7 +214,7 @@ docpadConfig =
 				standalone = true
 
 				categoryPath = pathUtil.dirname(a.fullPath)
-				categoryDirectory = pathUtil.basename(categoryDirectory)
+				categoryDirectory = pathUtil.basename(categoryPath)
 				category = categoryDirectory.replace(/^[\-0-9]+/, '')
 				categoryName = getCategoryName(category)
 
