@@ -299,10 +299,14 @@ docpadConfig = {
       return true;
     },
     serverExtend: function(opts) {
-      var docpad, express, request, server;
+      var codeBadRequest, codeRedirectPermanent, codeRedirectTemporary, codeSuccess, docpad, express, request, server;
       server = opts.server, express = opts.express;
       docpad = this.docpad;
       request = require('request');
+      codeSuccess = 200;
+      codeBadRequest = 400;
+      codeRedirectPermanent = 301;
+      codeRedirectTemporary = 302;
       server.all('/pushover', function(req, res) {
         if (__indexOf.call(docpad.getEnvironments(), 'development') >= 0) {
           return res.send(200);
@@ -330,10 +334,10 @@ docpadConfig = {
         }
       });
       server.get(/^\/(?:learn\/docpad-)(.*)$/, function(req, res) {
-        return res.redirect(301, "http://docpad.org/docs/" + (req.params[0] || ''));
+        return res.redirect(codeRedirectPermanent, "http://docpad.org/docs/" + (req.params[0] || ''));
       });
       server.get(/^\/(?:g|gh|github)(?:\/(.*))?$/, function(req, res) {
-        return res.redirect(301, "https://github.com/bevry/" + (req.params[0] || ''));
+        return res.redirect(codeRedirectPermanent, "https://github.com/bevry/" + (req.params[0] || ''));
       });
       server.get(/^\/(?:t|twitter|tweet)(?:\/(.*))?$/, function(req, res) {
         return res.redirect(301, "https://twitter.com/bevryme");

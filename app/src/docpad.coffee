@@ -353,6 +353,10 @@ docpadConfig =
 			{server,express} = opts
 			docpad = @docpad
 			request = require('request')
+			codeSuccess = 200
+			codeBadRequest = 400
+			codeRedirectPermanent = 301
+			codeRedirectTemporary = 302
 
 			# Pushover
 			server.all '/pushover', (req,res) ->
@@ -386,11 +390,11 @@ docpadConfig =
 
 			# DocPad Documentation
 			server.get /^\/(?:learn\/docpad-)(.*)$/, (req,res) ->
-				res.redirect(301, "http://docpad.org/docs/#{req.params[0] or ''}")
+				res.redirect(codeRedirectPermanent, "http://docpad.org/docs/#{req.params[0] or ''}")
 
 			# Projects
 			server.get /^\/(?:g|gh|github)(?:\/(.*))?$/, (req,res) ->
-				res.redirect(301, "https://github.com/bevry/#{req.params[0] or ''}")
+				res.redirect(codeRedirectPermanent, "https://github.com/bevry/#{req.params[0] or ''}")
 
 			# Twitter
 			server.get /^\/(?:t|twitter|tweet)(?:\/(.*))?$/, (req,res) -> res.redirect(301, "https://twitter.com/bevryme")
