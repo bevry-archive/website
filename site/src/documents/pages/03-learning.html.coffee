@@ -6,7 +6,7 @@ standalone: true
 ###
 
 # Prepare
-_ = @underscore
+uniq = @uniq
 docs = @docs
 learnCollection = @getCollection('learn')
 return  unless learnCollection
@@ -17,10 +17,10 @@ section '.reference', ->
 
 	# Projects
 	nav ".projects", ->
-		projects = _.uniq learnCollection.pluck('project')
-		for project in  _.uniq learnCollection.pluck('project')
+		projects = uniq learnCollection.pluck('project')
+		for project in  uniq learnCollection.pluck('project')
 			pagesInProject = learnCollection.findAll({'project':project},{categoryDirectory:1})
-			categoriesInProject = _.uniq pagesInProject.pluck('category')
+			categoriesInProject = uniq pagesInProject.pluck('category')
 
 			# Project
 			li "##{project}.project.subblock", ->

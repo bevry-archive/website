@@ -1,9 +1,7 @@
 # Require
 fsUtil = require('fs')
 pathUtil = require('path')
-_ = require('underscore')
 moment = require('moment')
-strUtil = require('underscore.string')
 {requireFresh} = require('requirefresh')
 
 # Prepare
@@ -40,7 +38,12 @@ getLabelName = (label) ->
 # Humanize
 humanize = (text) ->
 	text ?= ''
-	return strUtil.humanize text.replace(/^[\-0-9]+/,'').replace(/\..+/,'')
+	text = text.replace(/[-_]/g, ' ').replace(/\s+/g, ' ')
+	text =
+		(for piece in text.split(' ')
+			piece.substr(0,1).toUpperCase()+piece.substr(1)
+		).join(' ')
+	return text
 
 
 # =================================
@@ -76,8 +79,7 @@ docpadConfig =
 		# -----------------------------
 		# Misc
 
-		underscore: _
-		strUtil: strUtil
+		uniq: require('uniq')
 		moment: moment
 		nodeVersion: process.version
 		nodeMajorMinorVersion: process.version.replace(/^v/,'').split('.')[0...2].join('.')
@@ -316,13 +318,6 @@ docpadConfig =
 		pages: (database) ->
 			database.findAllLive({relativeOutDirPath:$startsWith:'pages'},[filename:1])
 
-		posts: (database) ->
-			database.findAllLive({relativeOutDirPath:$startsWith:'posts'},[date:-1]).on 'add', (document) ->
-				document.setMetaDefaults({
-					ignored: true
-					write: false
-					author: 'balupton'
-				})
 
 
 	# =================================
@@ -479,10 +474,6 @@ docpadConfig =
 					console.log(pinResponse.body)
 					res.send(pinResponse.statusCode, pinResponse.body)
 					#res.redirect(req.headers.referer)
-
-			# Forward to our application routing
-			# if 'development' in docpad.getEnvironments()
-			#	require(appPath+'/routes')({docpad,server,express})
 
 			# Done
 			return

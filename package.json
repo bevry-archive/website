@@ -37,11 +37,10 @@
     "getcontributors": "~1.3.1",
     "extendr": "~2.1.0",
     "moment": "~2.4.0",
-    "underscore": "~1.5.1",
-    "underscore.string": "~2.3.1",
     "request": "~2.27.0",
     "requirefresh": "~1.1.2",
-    "pinjs": "~1.0.0"
+    "pinjs": "~1.0.0",
+    "uniq": "0.0.2"
   },
   "devDependencies": {
     "passport": "~0.1.16",
