@@ -199,75 +199,119 @@ docpadConfig =
 
 		# Fetch all documents that exist within the learn directory
 		# And give them the following meta data based on their file structure
-		# #{project}/#{category}/[\-0-9]+#{name}/document.extension
 		learn: (database) ->
 			query =
-				relativeOutDirPath: $startsWith: 'learn'
+				relativePath: $startsWith: 'learn'
 				body: $ne: ""
+				ignored: false
 			sorting = [projectDirectory:1, categoryDirectory:1, filename:1]
 			database.findAllLive(query, sorting).on 'add', (document) ->
 				# Prepare
 				a = document.attributes
 
+				###
+				learn/#{organisation}/#{project}/#{category}/#{filename}
+				###
+				pathDetailsExtractor = ///
+					^
+					.*?learn/
+					(.+?)/        # organisation
+					(.+?)/        # project
+					(.+?)/        # category
+					(.+?)\.       # basename
+					(.+?)         # extension
+					$
+				///
+
+				pathDetails = pathDetailsExtractor.exec(a.relativePath)
+
 				# Properties
 				layout = 'doc'
 				standalone = true
+				organisationDirectory = organisation = organisationName =
+					projectDirectory = project = projectName =
+					categoryDirectory = category = categoryName =
+					title = pageTitle = null
 
-				categoryPath = pathUtil.dirname(a.fullPath)
-				categoryDirectory = pathUtil.basename(categoryPath)
-				category = categoryDirectory.replace(/^[\-0-9]+/, '')
-				categoryName = getCategoryName(category)
+				# Check if we are correctly structured
+				if pathDetails?
+					organisationDirectory = pathDetails[1]
+					projectDirectory = pathDetails[2]
+					categoryDirectory = pathDetails[3]
+					basename = pathDetails[4]
 
-				projectPath = pathUtil.resolve pathUtil.join(categoryPath, '..')
-				projectDirectory = pathUtil.basename(projectPath)
-				project = projectDirectory.replace(/[\-0-9]+/, '')
-				projectName = getProjectName(project)
+					organisation = organisationDirectory.replace(/[\-0-9]+/, '')
+					organisationName = humanize(project)
 
-				organisationPath = pathUtil.resolve pathUtil.join(projectPath, '..')
-				organisationDirectory = pathUtil.basename(organisationPath)
+					project = projectDirectory.replace(/[\-0-9]+/, '')
+					projectName = getProjectName(project)
 
-				name = a.basename.replace(/^[\-0-9]+/,'')
+					category = categoryDirectory.replace(/^[\-0-9]+/, '')
+					categoryName = getCategoryName(category)
 
-				absoluteLink = longLink = "/learn/#{project}-#{name}"
-				shortLink = "/#{project}/#{name}"
-				urls = [longLink, shortLink]
+					name = basename.replace(/^[\-0-9]+/,'')
 
-				if organisationDirectory is 'docpad'
-					absoluteLink = "http://docpad.org/docs/#{name}"
+					title = "#{a.title or humanize name}"
+					pageTitle = "#{title} | #{projectName}"
 
-				title = "#{a.title or humanize name}"
-				pageTitle = "#{title} | #{projectName}"
-				githubEditUrl = "https://github.com/#{organisationDirectory}/documentation/edit/master/"
-				proseEditUrl = "http://prose.io/##{organisationDirectory}/documentation/edit/master/"
-				editUrl = githubEditUrl + a.relativePath.replace('learn/bevry/', '')
+					absoluteLink = longLink = "/learn/#{project}-#{name}"
+					shortLink = "/#{project}/#{name}"
+					urls = [longLink, shortLink]
 
-				# Apply
-				document
-					.setMetaDefaults({
-						url: urls[0]
-						title
-						pageTitle
-						layout
-						projectDirectory
-						project
-						projectName
-						categoryDirectory
-						category
-						categoryName
-						standalone
-						shortLink
-						longLink
-						absoluteLink
-						editUrl
+					githubEditUrl = "https://github.com/#{organisationDirectory}/documentation/edit/master/"
+					proseEditUrl = "http://prose.io/##{organisationDirectory}/documentation/edit/master/"
+					editUrl = githubEditUrl + a.relativePath.replace('learn/bevry/', '')
+
+					if organisation is 'docpad'
+						absoluteLink = "http://docpad.org/docs/#{name}"
+						document.set(
+							render: false
+							write: false
+						)
+						if category is 'partners'
+							document.set(
+								ignored: true
+							)
+
+					# Apply
+					document
+						.setMetaDefaults({
+							layout
+							standalone
+
+							name
+							title
+							pageTitle
+
+							absoluteLink
+							longLink
+							shortLink
+							url: urls[0]
+
+							editUrl
+
+							organisationDirectory
+							organisation
+							organisationName
+
+							projectDirectory
+							project
+							projectName
+
+							categoryDirectory
+							category
+							categoryName
+						})
+						.addUrl(urls)
+
+				# Otherwise ignore this document
+				else
+					console.log "The document #{a.relativePath} was at an invalid path, so has been ignored"
+					document.setMetaDefaults({
+						ignore: true
+						render: false
+						write: false
 					})
-					.addUrl(urls)
-
-		docpad: (database) ->
-			database.findAllLive({relativeOutDirPath:$startsWith:'learn/docpad'}).on 'add', (document) ->
-				document.setMetaDefaults({
-					render: false
-					write: false
-				})
 
 		pages: (database) ->
 			database.findAllLive({relativeOutDirPath:$startsWith:'pages'},[filename:1])

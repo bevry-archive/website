@@ -143,12 +143,13 @@ docpadConfig = {
     learn: function(database) {
       var query, sorting;
       query = {
-        relativeOutDirPath: {
+        relativePath: {
           $startsWith: 'learn'
         },
         body: {
           $ne: ""
-        }
+        },
+        ignored: false
       };
       sorting = [
         {
@@ -158,61 +159,78 @@ docpadConfig = {
         }
       ];
       return database.findAllLive(query, sorting).on('add', function(document) {
-        var a, absoluteLink, category, categoryDirectory, categoryName, categoryPath, editUrl, githubEditUrl, layout, longLink, name, organisationDirectory, organisationPath, pageTitle, project, projectDirectory, projectName, projectPath, proseEditUrl, shortLink, standalone, title, urls;
+        var a, absoluteLink, basename, category, categoryDirectory, categoryName, editUrl, githubEditUrl, layout, longLink, name, organisation, organisationDirectory, organisationName, pageTitle, pathDetails, pathDetailsExtractor, project, projectDirectory, projectName, proseEditUrl, shortLink, standalone, title, urls;
         a = document.attributes;
+        /*
+        				learn/#{organisation}/#{project}/#{category}/#{filename}
+        */
+
+        pathDetailsExtractor = /^.*?learn\/(.+?)\/(.+?)\/(.+?)\/(.+?)\.(.+?)$/;
+        pathDetails = pathDetailsExtractor.exec(a.relativePath);
         layout = 'doc';
         standalone = true;
-        categoryPath = pathUtil.dirname(a.fullPath);
-        categoryDirectory = pathUtil.basename(categoryPath);
-        category = categoryDirectory.replace(/^[\-0-9]+/, '');
-        categoryName = getCategoryName(category);
-        projectPath = pathUtil.resolve(pathUtil.join(categoryPath, '..'));
-        projectDirectory = pathUtil.basename(projectPath);
-        project = projectDirectory.replace(/[\-0-9]+/, '');
-        projectName = getProjectName(project);
-        organisationPath = pathUtil.resolve(pathUtil.join(projectPath, '..'));
-        organisationDirectory = pathUtil.basename(organisationPath);
-        name = a.basename.replace(/^[\-0-9]+/, '');
-        absoluteLink = longLink = "/learn/" + project + "-" + name;
-        shortLink = "/" + project + "/" + name;
-        urls = [longLink, shortLink];
-        if (organisationDirectory === 'docpad') {
-          absoluteLink = "http://docpad.org/docs/" + name;
+        organisationDirectory = organisation = organisationName = projectDirectory = project = projectName = categoryDirectory = category = categoryName = title = pageTitle = null;
+        if (pathDetails != null) {
+          organisationDirectory = pathDetails[1];
+          projectDirectory = pathDetails[2];
+          categoryDirectory = pathDetails[3];
+          basename = pathDetails[4];
+          organisation = organisationDirectory.replace(/[\-0-9]+/, '');
+          organisationName = humanize(project);
+          project = projectDirectory.replace(/[\-0-9]+/, '');
+          projectName = getProjectName(project);
+          category = categoryDirectory.replace(/^[\-0-9]+/, '');
+          categoryName = getCategoryName(category);
+          name = basename.replace(/^[\-0-9]+/, '');
+          title = "" + (a.title || humanize(name));
+          pageTitle = "" + title + " | " + projectName;
+          absoluteLink = longLink = "/learn/" + project + "-" + name;
+          shortLink = "/" + project + "/" + name;
+          urls = [longLink, shortLink];
+          githubEditUrl = "https://github.com/" + organisationDirectory + "/documentation/edit/master/";
+          proseEditUrl = "http://prose.io/#" + organisationDirectory + "/documentation/edit/master/";
+          editUrl = githubEditUrl + a.relativePath.replace('learn/bevry/', '');
+          if (organisation === 'docpad') {
+            absoluteLink = "http://docpad.org/docs/" + name;
+            document.set({
+              render: false,
+              write: false
+            });
+            if (category === 'partners') {
+              document.set({
+                ignored: true
+              });
+            }
+          }
+          return document.setMetaDefaults({
+            layout: layout,
+            standalone: standalone,
+            name: name,
+            title: title,
+            pageTitle: pageTitle,
+            absoluteLink: absoluteLink,
+            longLink: longLink,
+            shortLink: shortLink,
+            url: urls[0],
+            editUrl: editUrl,
+            organisationDirectory: organisationDirectory,
+            organisation: organisation,
+            organisationName: organisationName,
+            projectDirectory: projectDirectory,
+            project: project,
+            projectName: projectName,
+            categoryDirectory: categoryDirectory,
+            category: category,
+            categoryName: categoryName
+          }).addUrl(urls);
+        } else {
+          console.log("The document " + a.relativePath + " was at an invalid path, so has been ignored");
+          return document.setMetaDefaults({
+            ignore: true,
+            render: false,
+            write: false
+          });
         }
-        title = "" + (a.title || humanize(name));
-        pageTitle = "" + title + " | " + projectName;
-        githubEditUrl = "https://github.com/" + organisationDirectory + "/documentation/edit/master/";
-        proseEditUrl = "http://prose.io/#" + organisationDirectory + "/documentation/edit/master/";
-        editUrl = githubEditUrl + a.relativePath.replace('learn/bevry/', '');
-        return document.setMetaDefaults({
-          url: urls[0],
-          title: title,
-          pageTitle: pageTitle,
-          layout: layout,
-          projectDirectory: projectDirectory,
-          project: project,
-          projectName: projectName,
-          categoryDirectory: categoryDirectory,
-          category: category,
-          categoryName: categoryName,
-          standalone: standalone,
-          shortLink: shortLink,
-          longLink: longLink,
-          absoluteLink: absoluteLink,
-          editUrl: editUrl
-        }).addUrl(urls);
-      });
-    },
-    docpad: function(database) {
-      return database.findAllLive({
-        relativeOutDirPath: {
-          $startsWith: 'learn/docpad'
-        }
-      }).on('add', function(document) {
-        return document.setMetaDefaults({
-          render: false,
-          write: false
-        });
       });
     },
     pages: function(database) {
