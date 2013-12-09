@@ -219,6 +219,7 @@ docpadConfig =
 				category = categoryDirectory.replace(/^[\-0-9]+/,'')
 				categoryName = getCategoryName(category)
 				name = a.basename.replace(/^[\-0-9]+/,'')
+				console.log {projectName, categoryName, name}
 				urls = ["/learn/#{project}-#{name}", "/#{project}/#{name}"]
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
@@ -239,7 +240,7 @@ docpadConfig =
 				}).addUrl(urls)
 
 		docpad: (database) ->
-			database.findAllLive({relativeOutDirPath:$startsWith:'learn/free/docpad'}).on 'add', (document) ->
+			database.findAllLive({relativeOutDirPath:$startsWith:'learn/docpad'}).on 'add', (document) ->
 				document.setMetaDefaults({
 					render: false
 					write: false
@@ -267,9 +268,16 @@ docpadConfig =
 
 		repocloner:
 			repos: [
-				name: 'DocPad Documentation'
-				path: 'src/documents/learn/free/docpad'
-				url: 'https://github.com/bevry/docpad-documentation.git'
+				{
+					name: 'DocPad Documentation'
+					path: 'src/documents/learn/bevry'
+					url: 'https://github.com/bevry/documentation.git'
+				}
+				{
+					name: 'DocPad Documentation'
+					path: 'src/documents/learn/docpad/docpad'
+					url: 'https://github.com/docpad/documentation.git'
+				}
 			]
 
 
