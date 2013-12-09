@@ -43,7 +43,7 @@ section '.reference', ->
 									# Page
 									li ".page", ->
 										h4 '.title', ->
-											a href:page.get('url'), -> page.get('title')
+											a href:(page.get('absoluteLink') or page.get('url')), -> page.get('title')
 											label = page.get('label')
 											if label
 												span ".label.label-#{label}", -> getLabelName(label)

@@ -158,7 +158,7 @@ docpadConfig = {
         }
       ];
       return database.findAllLive(query, sorting).on('add', function(document) {
-        var a, category, categoryDirectory, categoryName, categoryPath, editUrl, githubEditUrl, layout, longLink, name, organisationDirectory, organisationPath, pageTitle, project, projectDirectory, projectName, projectPath, proseEditUrl, shortLink, standalone, title, urls;
+        var a, absoluteLink, category, categoryDirectory, categoryName, categoryPath, editUrl, githubEditUrl, layout, longLink, name, organisationDirectory, organisationPath, pageTitle, project, projectDirectory, projectName, projectPath, proseEditUrl, shortLink, standalone, title, urls;
         a = document.attributes;
         layout = 'doc';
         standalone = true;
@@ -173,15 +173,19 @@ docpadConfig = {
         organisationPath = pathUtil.resolve(pathUtil.join(projectPath, '..'));
         organisationDirectory = pathUtil.basename(organisationPath);
         name = a.basename.replace(/^[\-0-9]+/, '');
-        longLink = "/learn/" + project + "-" + name;
+        absoluteLink = longLink = "/learn/" + project + "-" + name;
         shortLink = "/" + project + "/" + name;
         urls = [longLink, shortLink];
+        if (organisationDirectory === 'docpad') {
+          absoluteLink = "http://docpad.org/docs/" + name;
+        }
         title = "" + (a.title || humanize(name));
         pageTitle = "" + title + " | " + projectName;
         githubEditUrl = "https://github.com/" + organisationDirectory + "/documentation/edit/master/";
         proseEditUrl = "http://prose.io/#" + organisationDirectory + "/documentation/edit/master/";
         editUrl = githubEditUrl + a.relativePath.replace('learn/bevry/', '');
         return document.setMetaDefaults({
+          url: urls[0],
           title: title,
           pageTitle: pageTitle,
           layout: layout,
@@ -191,10 +195,10 @@ docpadConfig = {
           categoryDirectory: categoryDirectory,
           category: category,
           categoryName: categoryName,
-          url: urls[0],
           standalone: standalone,
           shortLink: shortLink,
           longLink: longLink,
+          absoluteLink: absoluteLink,
           editUrl: editUrl
         }).addUrl(urls);
       });

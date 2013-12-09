@@ -228,9 +228,13 @@ docpadConfig =
 
 				name = a.basename.replace(/^[\-0-9]+/,'')
 
-				longLink = "/learn/#{project}-#{name}"
+				absoluteLink = longLink = "/learn/#{project}-#{name}"
 				shortLink = "/#{project}/#{name}"
 				urls = [longLink, shortLink]
+
+				if organisationDirectory is 'docpad'
+					absoluteLink = "http://docpad.org/docs/#{name}"
+
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
 				githubEditUrl = "https://github.com/#{organisationDirectory}/documentation/edit/master/"
@@ -238,22 +242,25 @@ docpadConfig =
 				editUrl = githubEditUrl + a.relativePath.replace('learn/bevry/', '')
 
 				# Apply
-				document.setMetaDefaults({
-					title
-					pageTitle
-					layout
-					projectDirectory
-					project
-					projectName
-					categoryDirectory
-					category
-					categoryName
-					url: urls[0]
-					standalone
-					shortLink
-					longLink
-					editUrl
-				}).addUrl(urls)
+				document
+					.setMetaDefaults({
+						url: urls[0]
+						title
+						pageTitle
+						layout
+						projectDirectory
+						project
+						projectName
+						categoryDirectory
+						category
+						categoryName
+						standalone
+						shortLink
+						longLink
+						absoluteLink
+						editUrl
+					})
+					.addUrl(urls)
 
 		docpad: (database) ->
 			database.findAllLive({relativeOutDirPath:$startsWith:'learn/docpad'}).on 'add', (document) ->
