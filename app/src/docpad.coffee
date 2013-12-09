@@ -219,7 +219,9 @@ docpadConfig =
 				category = categoryDirectory.replace(/^[\-0-9]+/,'')
 				categoryName = getCategoryName(category)
 				name = a.basename.replace(/^[\-0-9]+/,'')
-				urls = ["/learn/#{project}-#{name}", "/#{project}/#{name}"]
+				longLink = "/learn/#{project}-#{name}"
+				shortLink = "/#{project}/#{name}"
+				urls = [longLink, shortLink]
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
 
@@ -236,6 +238,8 @@ docpadConfig =
 					categoryName
 					url: urls[0]
 					standalone
+					shortLink
+					longLink
 				}).addUrl(urls)
 
 		docpad: (database) ->

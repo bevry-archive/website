@@ -158,7 +158,7 @@ docpadConfig = {
         }
       ];
       return database.findAllLive(query, sorting).on('add', function(document) {
-        var a, category, categoryDirectory, categoryName, layout, name, pageTitle, project, projectDirectory, projectName, standalone, title, urls;
+        var a, category, categoryDirectory, categoryName, layout, longLink, name, pageTitle, project, projectDirectory, projectName, shortLink, standalone, title, urls;
         a = document.attributes;
         layout = 'doc';
         standalone = true;
@@ -169,7 +169,9 @@ docpadConfig = {
         category = categoryDirectory.replace(/^[\-0-9]+/, '');
         categoryName = getCategoryName(category);
         name = a.basename.replace(/^[\-0-9]+/, '');
-        urls = ["/learn/" + project + "-" + name, "/" + project + "/" + name];
+        longLink = "/learn/" + project + "-" + name;
+        shortLink = "/" + project + "/" + name;
+        urls = [longLink, shortLink];
         title = "" + (a.title || humanize(name));
         pageTitle = "" + title + " | " + projectName;
         return document.setMetaDefaults({
@@ -183,7 +185,9 @@ docpadConfig = {
           category: category,
           categoryName: categoryName,
           url: urls[0],
-          standalone: standalone
+          standalone: standalone,
+          shortLink: shortLink,
+          longLink: longLink
         }).addUrl(urls);
       });
     },
