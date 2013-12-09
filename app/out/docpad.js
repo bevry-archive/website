@@ -190,7 +190,7 @@ docpadConfig = {
     docpad: function(database) {
       return database.findAllLive({
         relativeOutDirPath: {
-          $startsWith: 'learn/free/docpad'
+          $startsWith: 'learn/docpad'
         }
       }).on('add', function(document) {
         return document.setMetaDefaults({
@@ -238,8 +238,12 @@ docpadConfig = {
       repos: [
         {
           name: 'DocPad Documentation',
-          path: 'src/documents/learn/free/docpad',
-          url: 'https://github.com/bevry/docpad-documentation.git'
+          path: 'src/documents/learn/bevry',
+          url: 'https://github.com/bevry/documentation.git'
+        }, {
+          name: 'DocPad Documentation',
+          path: 'src/documents/learn/docpad/docpad',
+          url: 'https://github.com/docpad/documentation.git'
         }
       ]
     }

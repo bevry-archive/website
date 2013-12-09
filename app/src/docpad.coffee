@@ -205,7 +205,7 @@ docpadConfig =
 				relativeOutDirPath: $startsWith: 'learn'
 				body: $ne: ""
 			sorting = [projectDirectory:1, categoryDirectory:1, filename:1]
-			database.findAllLive(query,sorting).on 'add', (document) ->
+			database.findAllLive(query, sorting).on 'add', (document) ->
 				# Prepare
 				a = document.attributes
 
@@ -219,7 +219,6 @@ docpadConfig =
 				category = categoryDirectory.replace(/^[\-0-9]+/,'')
 				categoryName = getCategoryName(category)
 				name = a.basename.replace(/^[\-0-9]+/,'')
-				console.log {projectName, categoryName, name}
 				urls = ["/learn/#{project}-#{name}", "/#{project}/#{name}"]
 				title = "#{a.title or humanize name}"
 				pageTitle = "#{title} | #{projectName}"
