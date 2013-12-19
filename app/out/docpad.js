@@ -348,7 +348,10 @@
           var _ref;
           if (((_ref = req.query) != null ? _ref.key : void 0) === process.env.WEBHOOK_KEY) {
             docpad.log('info', 'Regenerating for documentation change');
-            docpad.action('generate');
+            docpad.action('generate', {
+              populate: true,
+              reload: true
+            });
             return res.send(codeSuccess, 'regenerated');
           } else {
             return res.send(codeBadRequest, 'key is incorrect');
