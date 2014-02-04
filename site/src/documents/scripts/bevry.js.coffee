@@ -185,7 +185,7 @@ class BevryApp
 		return  unless hash
 		el = document.getElementById(hash)
 		return  unless el
-		if el.tagName.toLowerCase() is 'h2'
+		if el.className.indexOf('anchor-link') isnt -1
 			$(el).trigger('select')
 		else
 			$(el).ScrollTo(@config.sectionScrollOpts)
@@ -215,7 +215,7 @@ class BevryApp
 			# Compact
 			if $article.is('.compact')
 				$docHeaders
-					.addClass('hover-link')
+					.addClass('hover-link anchor-link')
 					.each (index) ->
 						$header = $(this)
 						$header.nextUntil('h2').wrapAll($docSectionWrapper.clone().attr('id','h2-'+index))
@@ -232,12 +232,12 @@ class BevryApp
 								.end()
 						$header.ScrollTo(config.sectionScrollOpts)  if !opts or opts.scroll isnt false
 					.first()
-						.trigger('select',{scroll:false})
+						.trigger('select', {scroll:false})
 
 			# Non-Compact
 			else
 				$docHeaders
-					.addClass('hover-link')
+					.addClass('hover-link anchor-link')
 					.on 'select', (event,opts) ->
 						$docHeaders.filter('.current').removeClass('current')
 						$header = $(this)
