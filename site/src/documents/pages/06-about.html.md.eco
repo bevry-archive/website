@@ -68,9 +68,9 @@ You can view videos of our creations via this [YouTube Playlist](http://www.yout
 
 
 
-## Donations
+## Payments
 
-### Payment Services
+### Donations
 
 <%- @getServiceBadges() %>
 
@@ -93,7 +93,8 @@ You can view videos of our creations via this [YouTube Playlist](http://www.yout
 	</tbody>
 </table>
 
-### Payment Form
+
+### Online Payment Form
 
 <%- @partial('content/payment', false) %>
 
