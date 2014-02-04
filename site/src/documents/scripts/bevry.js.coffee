@@ -198,8 +198,8 @@ class BevryApp
 		# Special handling for long docs
 		@$article = $article = $('#content article:first')
 
-		# Documentation
-		if $article.is('.block.doc')
+		# Anchors
+		if $article.is('.block.doc, .block.page')
 			$article.find('h1,h2,h3,h4,h5,h6').each ->
 				return  if @id
 				id = (@textContent or @innerText or '').toLowerCase().replace(/\s+/g,' ').replace(/[^a-zA-Z0-9]+/g,'-').replace(/--+/g,'-').replace(/^-|-$/g,'')
@@ -208,6 +208,8 @@ class BevryApp
 				@setAttribute('data-href', '#'+@id)  unless @getAttribute('data-href')
 				@className += 'hover-link'  unless @className.indexOf('hover-link') isnt -1
 
+		# Documentation
+		if $article.is('.block.doc')
 			@$docHeaders = $docHeaders = $article.find('h2')
 
 			# Compact
