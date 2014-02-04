@@ -11,10 +11,15 @@ class BevryApp
 	config: null
 
 	constructor: ->
+		# Prepare
 		@config ?= {}
 		@config.articleScrollOpts ?= {}
 		@config.sectionScrollOpts ?= {}
+
+		# On dom ready
 		$(@onDomReady)
+
+		# Chain
 		@
 
 	onDomReady: =>
@@ -22,11 +27,7 @@ class BevryApp
 		@$document = $(document)
 		@$body = $(document.body)
 		@$window = $(window)
-		@$promos = $('.promos')
 		@$docnav = $('.docnav')
-		@$mainbar = $('.mainbar')
-		@$sidebarmenu = $('.sidebar .list-menu')
-		@$content = $('#content')
 		@$docnavUp = @$docnav.find('.up')
 		@$docnavDown = @$docnav.find('.down')
 		@$docSectionWrapper = $('<div class="section-wrapper">')
@@ -38,14 +39,24 @@ class BevryApp
 			.on('click', 'a[href]:external', @externalLinkClick)
 			.on('click', '[data-href]', @linkClick)
 
+		# Anchor Change Event
+		@$window.on('anchorchange', @anchorChange)
+
 		# State Change Event
 		@$window.on('statechangecomplete', @stateChange)
 
 		# Always trigger initial page change
+		@$window.trigger('anchorchange')
 		@$window.trigger('statechangecomplete')
 
 		# ScrollSpy
-		setInterval(@scrollSpy, 500)
+		if @scrollSpy?
+			setInterval(@scrollSpy, 500)
+
+		# Resize
+		if @resize?
+			$(window).on('resize', @resize)
+			@resize()
 
 		# Chain
 		@
@@ -168,16 +179,35 @@ class BevryApp
 		# Chain
 		@
 
+	# Anchor Change
+	anchorChange: =>
+		hash = History.getHash()
+		return  unless hash
+		el = document.getElementById(hash)
+		return  unless el
+		if el.tagName.toLowerCase() is 'h2'
+			$(el).trigger('select')
+		else
+			$(el).ScrollTo(@config.sectionScrollOpts)
+
 	# State Change
 	stateChange: =>
 		# Prepare
 		{$docHeaders,$docSectionWrapper,config} = @
 
 		# Special handling for long docs
-		@$article = $article = @$content.find('article:first')
+		@$article = $article = $('#content article:first')
 
 		# Documentation
 		if $article.is('.block.doc')
+			$article.find('h1,h2,h3,h4,h5,h6').each ->
+				return  if @id
+				id = (@textContent or @innerText or '').toLowerCase().replace(/\s+/g,' ').replace(/[^a-zA-Z0-9]+/g,'-').replace(/--+/g,'-').replace(/^-|-$/g,'')
+				return  if !id or document.getElementById(id)
+				@id = id
+				@setAttribute('data-href', '#'+@id)  unless @getAttribute('data-href')
+				@className += 'hover-link'  unless @className.indexOf('hover-link') isnt -1
+
 			@$docHeaders = $docHeaders = $article.find('h2')
 
 			# Compact
@@ -187,7 +217,7 @@ class BevryApp
 					.each (index) ->
 						$header = $(this)
 						$header.nextUntil('h2').wrapAll($docSectionWrapper.clone().attr('id','h2-'+index))
-					.click (event,opts) ->
+					.on 'select', (event,opts) ->
 						$docHeaders.filter('.current').removeClass('current')
 						$header = $(this)
 							.addClass('current')
@@ -200,13 +230,13 @@ class BevryApp
 								.end()
 						$header.ScrollTo(config.sectionScrollOpts)  if !opts or opts.scroll isnt false
 					.first()
-						.trigger('click',{scroll:false})
+						.trigger('select',{scroll:false})
 
 			# Non-Compact
 			else
 				$docHeaders
 					.addClass('hover-link')
-					.click (event,opts) ->
+					.on 'select', (event,opts) ->
 						$docHeaders.filter('.current').removeClass('current')
 						$header = $(this)
 							.addClass('current')
@@ -218,12 +248,6 @@ class BevryApp
 
 		# Scroll to the article
 		$article.ScrollTo(config.articleScrollOpts)
-
-		# Promo Height
-		setTimeout(
-			=> @$promos.height @$content.height() - @$sidebarmenu.height()
-			1100
-		)
 
 		# Chain
 		@
