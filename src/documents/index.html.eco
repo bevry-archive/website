@@ -7,10 +7,10 @@ title: 'What now?'
 
 <div class="wrapper">
 	<header class="header">
-		<img class="logo" src="/images/bevry.svg" />
+		<a href="/"><img class="logo" src="/images/bevry.svg" /></a>
 		<nav class="years">
 			<a href="/past">2010</a>
-			<a href="/today" class="active">Today</a>
+			<a href="/" class="active">Today</a>
 			<a href="/future">2020</a>
 		</nav>
 	</header>
