@@ -7,7 +7,7 @@ title: 'What now?'
 
 <div class="wrapper">
 	<header class="header">
-		<img class="avatar" src="/images/bevry.svg" />
+		<img class="logo" src="/images/bevry.svg" />
 		<nav class="years">
 			<a href="/past">2010</a>
 			<a href="/today" class="active">Today</a>
@@ -58,5 +58,14 @@ title: 'What now?'
 				<p><%- item.description %></p>
 			</div>
 		<% end %>
+
+		<h2>Members</h2>
+		<div class="facewall">
+		<% for avatar in @members: %>
+			<a href="http://github.com">
+				<img class="avatar" src="<%= avatar %>" />
+			</a>
+		<% end %>
+		</div>
 	</article>
 </div>

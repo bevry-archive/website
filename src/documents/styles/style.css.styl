@@ -52,7 +52,7 @@ a.documentation
 	text-align: center
 	position: relative
 
-	.avatar
+	.logo
 		display: inline-block
 		width: 200px
 		margin-bottom: 20px
@@ -103,6 +103,13 @@ h3
 	margin: 2em 0 0 0
 	transition: color 1s ease-out
 
+.avatar
+	display: inline-block
+	width: 80px
+	border-radius: 50%
+	margin-bottom: 0.5em
+	border: 1px solid white
+
 .item
 	display: block
 	margin: 2em 0 0 0
@@ -116,12 +123,15 @@ h3
 		&:hover
 			text-decoration: underline
 
+.facewall
+	a, a:hover
+		text-decoration: none
 	.avatar
-		display: inline-block
-		width: 80px
-		height: 80px
-		border-radius: 50%
-		margin-bottom: 0.5em
+		width: 60px
+	.avatar, .avatar:hover
+		transition: box-shadow 0.2s ease-out
+	.avatar:hover
+		box-shadow: 0 0 3px rgba(0,0,0,1)
 
 h3 + p
 	margin: 0
