@@ -23,7 +23,7 @@ docpadConfig = {
 			name: 'DocPad'
 			url: "http://docpad.org"
 			description: """
-				Decoupled Content management System<br/>
+				Decoupled Content Management System<br/>
 				500 daily users
 				"""
 		,
