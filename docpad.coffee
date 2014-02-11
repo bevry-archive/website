@@ -50,6 +50,7 @@ docpadConfig = {
 
 				'/vendor/log.js'
 				'/vendor/modernizr.js'
+				'/vendor/retina.js'
 				'/scripts/script.js'
 			]
 
