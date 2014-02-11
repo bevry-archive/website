@@ -9,15 +9,18 @@ title: 'What now?'
 	<header class="header">
 		<a href="/"><img class="logo" src="/images/bevry.svg" /></a>
 		<nav class="years">
-			<a href="/past">2010</a>
-			<a href="/" class="active">Today</a>
-			<a href="/future">2020</a>
+			<a class="past-link" href="/past">2010</a>
+			<a class="today-link" href="/">Today</a>
+			<a class="future-link" href="/future">2020</a>
 		</nav>
 	</header>
 
 	<article class="content">
 		<h2>Are</h2>
-		<p>
+		<p class="past">
+			We’re a Sydney based Node.js, JavaScript and HTML5 <a href="http://www.opencompany.org/">open-company</a> focused on empowering developers.
+		</p>
+		<p class="today future">
 			We're an <a href="http://www.opencompany.org/">open-company</a> and community.<br/>
 			United by our shared value of open-collaboration.<br/>
 			Empowering everyone in this world to create the change they wish to see.<br/>
@@ -36,38 +39,10 @@ title: 'What now?'
 		</p>
 
 		<h2>Did</h2>
-		<% for item in @projects: %>
-			<div class="item">
-				<% if item.avatar: %>
-					<img class="avatar" src="<%= item.avatar %>" />
-				<% end %>
-				<h3>
-					<a class="hover-link" href="<%= item.url %>"  title="Visit <%=item.name%>'s Website">
-						<%= item.title or item.name %>
-					</a>
-				</h3>
-				<% if item.description: %>
-					<p><%- item.description %></p>
-				<% end %>
-			</div>
-		<% end %>
+		<%- @partial('list', {items: @projects}) %>
 
 		<h2>Leadership</h2>
-		<% for item in @people: %>
-			<div class="item">
-				<% if item.avatar: %>
-					<img class="avatar" src="<%= item.avatar %>" />
-				<% end %>
-				<h3>
-					<a class="hover-link" href="<%= item.url %>"  title="Visit <%=item.name%>'s Website">
-						<%= item.title or item.name %>
-					</a>
-				</h3>
-				<% if item.description: %>
-					<p><%- item.description %></p>
-				<% end %>
-			</div>
-		<% end %>
+		<%- @partial('list', {items: @people}) %>
 
 		<h2>Contributors</h2>
 		<div class="facewall">
@@ -79,21 +54,7 @@ title: 'What now?'
 		</div>
 
 		<h2>Partners</h2>
-		<% for item in @partners: %>
-			<div class="item">
-				<% if item.avatar: %>
-					<img class="avatar" src="<%= item.avatar %>" />
-				<% end %>
-				<h3>
-					<a class="hover-link" href="<%= item.url %>"  title="Visit <%=item.name%>'s Website">
-						<%= item.title or item.name %>
-					</a>
-				</h3>
-				<% if item.description: %>
-					<p><%- item.description %></p>
-				<% end %>
-			</div>
-		<% end %>
+		<%- @partial('list', {items: @partners}) %>
 
 		<h2>Community</h2>
 		<p>
@@ -103,30 +64,36 @@ title: 'What now?'
 		</p>
 
 		<h2>Services</h2>
-		<p>
+		<p class="today future">
 			Prioritized development for our works available via <a href="https://docs.google.com/document/d/1Tsnx5aU0e4GZqPvkl-S2rucFYYbhZsVRNX9Zbwkfnzo/edit?usp=sharing">sponsorship</a>.<br/>
 			Training, speaking and interviews for free if permissively licensed.<br/>
-			<a href="http://bevry.me/support">Support</a><br/>
+			<a href="http://bevry.me/support">Support.</a><br/>
+		</p>
+		<p class="past">
+			Consulting, support, advisory and training contracts available.<br/>
+			<a href="http://bevry.me/support">Support.</a><br/>
 		</p>
 
-		<h2>Donations</h2>
-		<p>
-			We're an <a href="http://www.opencompany.org/">open-company</a> and community which gives away our intellectual property for free.<br/>
-			We rely on your donations and sponsorship contracts to support our families.<br/>
-			If you have found benefit in our work, please consider donating.
-		</p>
-		<p>
-			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
-				Donate once via Paypal</a><br/>
-			<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a">
-				Donate once via Bitcoin</a></br>
-			<a href="https://www.gittip.com/bevry/">
-				Donate weekly via Gittip</a><br/>
-			<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
-				Donate monthly via Flattr</a><br/>
-			<a href="http://amzn.com/w/2F8TXKSNAFG4V">
-				Buy items on our Amazon Wishlist</a>
-		</p>
+		<div class="today future">
+			<h2>Donations</h2>
+			<p>
+				We're an <a href="http://www.opencompany.org/">open-company</a> and community which gives away our intellectual property for free.<br/>
+				We rely on your donations and sponsorship contracts to support our families.<br/>
+				If you have found benefit in our work, please consider donating.
+			</p>
+			<p>
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
+					Donate once via Paypal</a><br/>
+				<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a">
+					Donate once via Bitcoin</a></br>
+				<a href="https://www.gittip.com/bevry/">
+					Donate weekly via Gittip</a><br/>
+				<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
+					Donate monthly via Flattr</a><br/>
+				<a href="http://amzn.com/w/2F8TXKSNAFG4V">
+					Buy items on our Amazon Wishlist</a>
+			</p>
+		</div>
 
 		<h2>Contact</h2>
 		<p>

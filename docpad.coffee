@@ -15,13 +15,19 @@ docpadConfig = {
 			url: "http://balupton.com"
 			avatar: '/images/ben-black.jpg'
 			description: """
-				Open-Collaboration Entrepreneur. International Speaker & Trainer.<br/>
-				Signer of the <a href="https://gist.github.com/balupton/6937426">Open Information Pledge</a>.
+				<span class="today future">
+					Open-Collaboration Entrepreneur. International Speaker & Trainer.<br/>
+					Signer of the <a href="https://gist.github.com/balupton/6937426">Open Information Pledge</a>.
+				</span>
+				<span class="past">
+					Bevry is the result of Benjamin's best self, a tool for him and others to create and collaborate on a shared vision of a better world. His works are at the foundations of Bevry and are some of the most popular node and javascript projects, even used by the likes of Microsoft and 37Signals. Besides work, he pursues the timeless quest of understanding the world and spends time with his family.
+				</span>
 				"""
 		]
 
 		partners: [
 			name: 'Myplanet Digital'
+			className: 'today future'
 			url: "http://myplanet.io"
 		,
 			name: 'Meeho!'
@@ -77,6 +83,7 @@ docpadConfig = {
 				"""
 		,
 			name: 'Static Site Generators'
+			className: 'today future'
 			url: 'http://staticsitegenerators.net'
 			description: """
 				Discover the right Static Site Generator for you<br/>
@@ -84,12 +91,14 @@ docpadConfig = {
 				"""
 		,
 			name: 'InterConnect'
+			className: 'today future'
 			url: 'http://bevry.github.io/interconnect/'
 			description: """
 				Connect with anyone in the world
 				"""
 		,
 			name: 'Web Write'
+			className: 'today future'
 			url: 'http://github.com/webwrite'
 			description: """
 				Admin Interfaces for any backend

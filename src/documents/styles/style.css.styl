@@ -66,10 +66,9 @@ a.documentation
 		color: colorTextSubheading
 		padding: 5px 20px
 		margin: 0 10%
-		&.active
-			color: colorTextHeading
 		&:hover
-			color: colorTextBlue
+			color: colorTextBlue !important
+
 
 /*=========================================
 Typography
@@ -141,3 +140,18 @@ h3 + p
 p
 	line-height: 1.8em
 	font-size: 1em
+
+body
+	.past, .today, .future
+		display: none
+
+	&.today .today
+	&.past .past
+	&.future .future
+		display: block
+
+	&.today .years a.today-link
+	&.past .years a.past-link
+	&.future .years a.future-link
+		color: colorTextHeading
+
