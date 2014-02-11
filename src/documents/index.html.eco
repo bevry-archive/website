@@ -80,7 +80,7 @@ title: 'What now?'
 			</div>
 		<% end %>
 
-		<h2>Members</h2>
+		<h2>Team</h2>
 		<div class="facewall">
 		<% for avatar in @members: %>
 			<a href="http://github.com">
