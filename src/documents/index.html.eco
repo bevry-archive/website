@@ -20,12 +20,12 @@ title: 'What now?'
 		<p>
 			We're an <a href="http://www.opencompany.org/">open-company</a> and community.<br/>
 			United by our shared value of open-collaboration.<br/>
-			Empowering everyone in this world to implement the change they wish to see.<br/>
+			Empowering everyone in this world to create the change they wish to see.<br/>
 		</p>
 
-		<h2>Process</h2>
+		<h2>Do</h2>
 		<p>
-			Share our innovations abundantly, making them accessible by all.<br/>
+			We share our innovations abundantly, making them accessible by all.<br/>
 			Remixed and reused, they reach their potential together at an exponential rate.<br/>
 			Birthing experiences of progress and joy wherever they may grow.<br/>
 		</p>
@@ -35,7 +35,7 @@ title: 'What now?'
 			Embrace open-collaboration and end intellectual property.<br/>
 		</p>
 
-		<h2>Projects</h2>
+		<h2>Did</h2>
 		<% for item in @projects: %>
 			<div class="item">
 				<% if item.avatar: %>
