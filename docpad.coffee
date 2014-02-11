@@ -19,6 +19,14 @@ docpadConfig = {
 				"""
 		]
 
+		partners: [
+			name: 'Myplanet Digital'
+			url: "http://myplanet.io"
+		,
+			name: 'Meeho!'
+			url: "http://meeho.net/"
+		]
+
 		members: [
 			"https://0.gravatar.com/avatar/1254365f8c7b7af893a73fb937799afe?d=https%3A%2F%2Fidenticons.github.com%2F12e326f34aed0974724d3652b11620aa.png&r=x&s=140",
 			"https://1.gravatar.com/avatar/195e7bb9c2826a301f259dc82ca57af2?d=https%3A%2F%2Fidenticons.github.com%2Facb3e29171829ebd25544aa20017060c.png&r=x&s=140",

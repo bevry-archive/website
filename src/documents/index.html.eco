@@ -40,7 +40,9 @@ title: 'What now?'
 						<%= item.title or item.name %>
 					</a>
 				</h3>
-				<p><%- item.description %></p>
+				<% if item.description: %>
+					<p><%- item.description %></p>
+				<% end %>
 			</div>
 		<% end %>
 
@@ -55,7 +57,26 @@ title: 'What now?'
 						<%= item.title or item.name %>
 					</a>
 				</h3>
-				<p><%- item.description %></p>
+				<% if item.description: %>
+					<p><%- item.description %></p>
+				<% end %>
+			</div>
+		<% end %>
+
+		<h2>Partners</h2>
+		<% for item in @partners: %>
+			<div class="item">
+				<% if item.avatar: %>
+					<img class="avatar" src="<%= item.avatar %>" />
+				<% end %>
+				<h3>
+					<a class="hover-link" href="<%= item.url %>"  title="Visit <%=item.name%>'s Website">
+						<%= item.title or item.name %>
+					</a>
+				</h3>
+				<% if item.description: %>
+					<p><%- item.description %></p>
+				<% end %>
 			</div>
 		<% end %>
 
