@@ -9,6 +9,58 @@ docpadConfig = {
 
 	templateData:
 
+		people: [
+			name: 'Benjamin Lupton'
+			title: 'Benjamin Lupton, Founder'
+			url: "http://balupton.com"
+			avatar: '/images/ben-black.jpg'
+			description: """
+				Open-Collaboration Entrepreneur. International Speaker & Trainer.
+				"""
+		]
+
+		projects: [
+			name: 'DocPad'
+			url: "http://docpad.org"
+			description: """
+				Decoupled Content management System<br/>
+				500 daily users
+				"""
+		,
+			name: 'History.js'
+			url: 'http://historyjs.net'
+			description: """
+				Create Stateful Web-Applications<br/>
+				Used in <a href="http://basecamp.com" title="Visit Basecamp's Website">Basecamp</a>
+				"""
+		,
+			name: 'Startup Hostel Network'
+			url: 'http://startuphostel.net'
+			description: """
+				Co-work and co-live while you travel the world<br/>
+				200 travellers
+				"""
+		,
+			name: 'Static Site Generators'
+			url: 'http://staticsitegenerators.net'
+			description: """
+				Discover the right Static Site Generator for you<br/>
+				208 static site generators
+				"""
+		,
+			name: 'InterConnect'
+			url: 'http://bevry.github.io/interconnect/'
+			description: """
+				Connect with anyone in the world
+				"""
+		,
+			name: 'Web Write'
+			url: 'http://github.com/webwrite'
+			description: """
+				Admin Interfaces for any backend
+				"""
+		]
+
 		# Specify some site properties
 		site:
 			# The production url of our website

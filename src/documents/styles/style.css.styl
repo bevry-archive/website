@@ -19,7 +19,7 @@ body
 	cursor: default
 
 /* Link to Documentation */
-a#documentation
+a.documentation
 	position: fixed
 	z-index: 100
 	top: 11px
@@ -35,28 +35,29 @@ a#documentation
 
 	border-radius: 3px
 
-#wrapper
+.wrapper
 	padding: 60px 40px 100px 40px
 	margin: 0 auto
 	max-width: 80%
 
-#content
+.content
 	margin: auto
 	text-align: center
 
-#header
+.header
 	border-bottom: 1px solid colorBorder
 	margin-bottom: 40px
 	padding-bottom: 40px
 	text-align: center
 	position: relative
 
-#avatar
-	display: inline-block
-	width: 300px
-	margin-bottom: 20px
+	.avatar
+		display: inline-block
+		width: 200px
+		margin-bottom: 20px
 
-#years
+
+.years
 	margin: 2em 0 1em
 	a
 		// border: 1px solid colorBorder
@@ -85,13 +86,6 @@ a:not(.hover-link)
 		color: colorTextBlue
 		text-decoration: underline
 
-a.hover-link:hover
-	h3
-		color: colorTextBlue
-		text-decoration: underline
-	p
-		cursor: default
-
 h1, h2, h3, h4, h5, h6, h7
 	font-weight: 400
 	font-size: 20px
@@ -105,6 +99,26 @@ h3
 	color: colorTextSubheading
 	margin: 2em 0 0 0
 	transition: color 1s ease-out
+
+.item
+	display: block
+	margin: 2em 0 0 0
+
+	&:hover
+		h3
+			color: colorTextBlue
+
+	h3
+		margin: 0
+		&:hover
+			text-decoration: underline
+
+	.avatar
+		display: inline-block
+		width: 80px
+		height: 80px
+		border-radius: 50%
+		margin-bottom: 0.5em
 
 h3 + p
 	margin: 0
