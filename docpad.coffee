@@ -76,6 +76,7 @@ docpadConfig = {
 				"""
 		,
 			name: 'Startup Hostel Network'
+			className: 'today future'
 			url: 'http://startuphostel.net'
 			description: """
 				Co-work and co-live while you travel the world<br/>
