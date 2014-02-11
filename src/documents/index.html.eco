@@ -3,7 +3,9 @@ layout: 'default'
 title: 'What now?'
 ###
 
-<section class="wrapper">
+<a class="documentation" href="http://learn.bevry.me">Learning Centre</a>
+
+<div class="wrapper">
 	<header class="header">
 		<img class="avatar" src="/images/bevry.svg" />
 		<nav class="years">
@@ -13,16 +15,16 @@ title: 'What now?'
 		</nav>
 	</header>
 
-	<div class="content">
+	<article class="content">
 		<h2>Are</h2>
 		<p>
-			An <a href="http://www.opencompany.org/">open-company</a>/community of individuals sharing the value of open-collaboartion.<br/>
+			We're an <a href="http://www.opencompany.org/">open-company</a>/community of individuals sharing the value of open-collaboartion.<br/>
 			We empower individuals creating change.
 		</p>
 
 		<h2>Do</h2>
 		<p>
-			Share our innovations abundantly, letting them become accessible to all.<br/>
+			We share our innovations abundantly, letting them be accessible to all.<br/>
 			Remixed and reused by other collaborative minds, they cumulate their potential at an extraordinary rate.<br/>
 			Birthing experiences of progress and joy, wherever they may grow.
 		</p>
@@ -56,5 +58,5 @@ title: 'What now?'
 				<p><%- item.description %></p>
 			</div>
 		<% end %>
-	</div>
-</section>
+	</article>
+</div>
