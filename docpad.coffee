@@ -15,7 +15,8 @@ docpadConfig = {
 			url: "http://balupton.com"
 			avatar: '/images/ben-black.jpg'
 			description: """
-				Open-Collaboration Entrepreneur. International Speaker & Trainer.
+				Open-Collaboration Entrepreneur. International Speaker & Trainer.<br/>
+				Signer of the <a href="https://gist.github.com/balupton/6937426">Open Information Pledge</a>.
 				"""
 		]
 

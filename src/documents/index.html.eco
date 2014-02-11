@@ -88,5 +88,37 @@ title: 'What now?'
 			</a>
 		<% end %>
 		</div>
+
+		<h2>Services</h2>
+		<p>
+			We offer prioritized development for our works via <a href="https://docs.google.com/document/d/1Tsnx5aU0e4GZqPvkl-S2rucFYYbhZsVRNX9Zbwkfnzo/edit?usp=sharing">sponsorship contracts</a>.<br/>
+			Training, speaking and interviews for free if permissively licensed.<br/>
+			Support via our <a href="http://bevry.me/support">support guidelines</a>.
+		</p>
+
+		<h2>Donations</h2>
+		<p>
+			We are an open-company/community which gives away our intellectual property for free.<br/>
+			We rely on your donations and sponsorship contracts to support our families.<br/>
+			If you have found benefit in our work, please consider donating.
+		</p>
+		<p>You may:<br/>
+			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
+				Donate once via Paypal</a><br/>
+			<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a">
+				Donate once via Bitcoin</a></br>
+			<a href="https://www.gittip.com/bevry/">
+				Donate weekly via Gittip</a><br/>
+			<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
+				Donate monthly via Flattr</a><br/>
+			<a href="http://amzn.com/w/2F8TXKSNAFG4V">
+				Buy items on our Amazon Wishlist</a>
+		</p>
+
+		<h2>Contact</h2>
+		<p>
+			You can reach us via email at <a href="mailto:us@bevry.me">us@bevry.me</a>
+		</p>
+
 	</article>
 </div>
