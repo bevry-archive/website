@@ -60,27 +60,32 @@ layout: 'default'
 		</p>
 		</div>
 
-		<h2>Leadership</h2>
+		<h2 class="today future">Leadership</h2>
+		<h2 class="past">Who</h2>
 		<%- @partial('list', {items: @people}) %>
 
-		<h2>Contributors</h2>
-		<div class="facewall">
-		<% for avatar in @members: %>
-			<a href="http://github.com">
-				<img class="avatar" src="<%= avatar %>" />
-			</a>
-		<% end %>
+		<div class="today future">
+			<h2>Contributors</h2>
+			<div class="facewall">
+			<% for avatar in @members: %>
+				<a href="http://github.com">
+					<img class="avatar" src="<%= avatar %>" />
+				</a>
+			<% end %>
+			</div>
 		</div>
 
 		<h2>Partners</h2>
 		<%- @partial('list', {items: @partners}) %>
 
-		<h2>Community</h2>
-		<p>
-			To accomplish our grand goals and vision of the world, we can't do it alone!<br/>
-			There's plenty to start on and we welcome all contributions regardless of skill or size!<br/>
-			To get started say hello on the <code>#bevry</code> or <code>#docpad</code> freenode IRC channels.
-		</p>
+		<div class="today future">
+			<h2>Community</h2>
+			<p>
+				To accomplish our grand goals and vision of the world, we can't do it alone!<br/>
+				There's plenty to start on and we welcome all contributions regardless of skill or size!<br/>
+				To get started say hello on the <code>#bevry</code> or <code>#docpad</code> freenode IRC channels.
+			</p>
+		</div>
 
 		<h2>Services</h2>
 		<p class="today future">
@@ -96,7 +101,7 @@ layout: 'default'
 		<div>
 			<h2>Donations</h2>
 			<p>
-				We're an <a href="http://www.opencompany.org/">open-company</a> and community which gives away our intellectual property for free.<br/>
+				We're an <a href="http://www.opencompany.org/">open-company</a> <span class="today future inline">and community</span> which gives away <span class="past inline">it's</span><span class="today future inline">our</span> intellectual property for free.<br/>
 				<span class="today future">
 					We rely on your donations and sponsorship contracts to support our families.<br/>
 				</span>
