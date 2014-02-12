@@ -41,6 +41,25 @@ layout: 'default'
 		<h2>Did</h2>
 		<%- @partial('list', {items: @projects}) %>
 
+		<div class="future">
+		<h2>Office</h2>
+		<div class="gallery">
+			<a href="http://www.fotopedia.com/items/flickr-5173590042"><img src="/images/office/flickr-5173590042-original.jpg" title="Chimney Beach Cove, East Shore, Lake Tahoe, NV by SteveD" /></a>
+			<a href="http://www.fotopedia.com/items/flickr-3247795658"><img src="/images/office/flickr-3247795658-original.jpg" title="Photo by André Solnik" /></a>
+			<a href="http://www.fotopedia.com/items/flickr-7448089582"><img src="/images/office/flickr-7448089582-original.jpg" title="Phra Nang Beach by Mark Fischer" /></a>
+			<a href="http://www.fotopedia.com/items/flickr-7448028946"><img src="/images/office/flickr-7448028946-original.jpg" title="Railay Beach at Sunrise by Mark Fischer"/></a>
+			<a href="http://www.fotopedia.com/items/flickr-3836586727"><img src="/images/office/flickr-3836586727-original.jpg" title="Palolem Beach, Goa, India by dms_303" /></a>
+			<a href="http://www.fotopedia.com/items/flickr-4197635593"><img src="/images/office/flickr-4197635593-original.jpg" title="El Portil. Beach. Sunset. Huelva. Andalusia. Spain by Tomás Fano"/></a>
+			<a href="http://www.fotopedia.com/items/flickr-7166443977"><img src="/images/office/flickr-7166443977-original.jpg" title="Phranang beach by WomEOS" /></a>
+			<!--<img src="/images/office/people.jpg" />-->
+		</div>
+		<p>
+			This is our office. It's a resort in the tropics. You're welcome anytime.<br/>
+			Join our morning standup to share and collaborate with each other.<br/>
+			Staying longer? Rent options are available.<br/>
+		</p>
+		</div>
+
 		<h2>Leadership</h2>
 		<%- @partial('list', {items: @people}) %>
 
@@ -74,13 +93,20 @@ layout: 'default'
 			<a href="http://bevry.me/support">Support.</a><br/>
 		</p>
 
-		<div class="today future">
+		<div>
 			<h2>Donations</h2>
 			<p>
 				We're an <a href="http://www.opencompany.org/">open-company</a> and community which gives away our intellectual property for free.<br/>
-				We rely on your donations and sponsorship contracts to support our families.<br/>
+				<span class="today future">
+					We rely on your donations and sponsorship contracts to support our families.<br/>
+				</span>
 				If you have found benefit in our work, please consider donating.<br/>
-				Earning $6000USD donations a month of our $8000USD/month target.<br/>
+				<span class="today">
+					Earning $6000USD donations a month of our $8000USD/month target.<br/>
+				</span>
+				<span class="future">
+					Earning $24000USD donations a month of our $16000USD/month target.<br/>
+				</span>
 			</p>
 			<p>
 				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
