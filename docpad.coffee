@@ -80,7 +80,7 @@ docpadConfig = {
 			url: 'http://startuphostel.net'
 			description: """
 				Co-work and co-live while you travel the world<br/>
-				200 travellers
+				176 travellers
 				"""
 		,
 			name: 'Static Site Generators'
@@ -88,7 +88,7 @@ docpadConfig = {
 			url: 'http://staticsitegenerators.net'
 			description: """
 				Discover the right Static Site Generator for you<br/>
-				208 static site generators
+				224 static site generators
 				"""
 		,
 			name: 'InterConnect'
