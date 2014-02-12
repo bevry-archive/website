@@ -118,10 +118,13 @@ a:not(.hover-link)
 		color: colorTextBlue
 		text-decoration: underline
 
+section
+	margin: 5em 0em 1em 0em
+
 h1, h2, h3, h4, h5, h6, h7
 	font-weight: 400
 	font-size: 1.25em
-	margin: 4em 0em 1em 0em
+	margin: 1em 0
 	color: colorTextHeading
 
 h2, h3, h4, h5, h6, h7
@@ -183,14 +186,23 @@ body
 	&.past .past
 	&.future .future
 		display: block
+		transition: background 5s
+		background: white
 		&.inline
 			display: inline-block
+
+	/*&.today .today:not(.past):not(.future)*/
+	&.past .past:not(.today):not(.future)
+	&.future .future:not(.past):not(.today)
+		background: rgba(0, 0, 0, 0.005)
+		border: 2px yellow dashed
 
 	&.today .years a.today-link
 	&.past .years a.past-link
 	&.future .years a.future-link
 		color: colorTextHeading
 
+	/*
 	&.scrolled
 		.wrapper
 			padding-top: 250px
@@ -206,3 +218,4 @@ body
 				margin: 0
 			.logo
 				display: none
+	*/

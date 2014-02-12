@@ -16,7 +16,14 @@
 				$body.removeClass('past today').addClass('future');
 				break;
 		}
+		/*
+		$body.addClass('diff');
+		setTimeout(function(){
+			$body.removeClass('diff');
+		},1000);
+		*/
 	});
+	/*
 	$(window).scroll(function(){
 		if ( window.scrollY > 209 ) {
 			$body.addClass('scrolled');
@@ -25,4 +32,5 @@
 			$body.removeClass('scrolled');
 		}
 	});
+	*/
 })();
