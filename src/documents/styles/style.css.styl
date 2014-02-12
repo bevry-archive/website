@@ -37,16 +37,11 @@ a.documentation
 	border-radius: 3px
 
 .wrapper
-	padding: 60px 0 100px
+	padding-top: 60px
 	margin: 0 auto
 	text-align: center
 	width: 100%
 	overflow: hidden
-
-.header
-.facewall
-	max-width: 80%
-	margin: 0 auto
 
 .content
 	margin: auto
@@ -54,8 +49,7 @@ a.documentation
 
 .header
 	border-bottom: 1px solid colorBorder
-	margin-bottom: 40px
-	padding-bottom: 40px
+	padding-bottom: 2.5em
 	text-align: center
 	position: relative
 
@@ -99,6 +93,11 @@ a.documentation
 	.years
 		a
 			margin: 0 7%
+
+.header
+.facewall
+	width: 80%
+	margin: 0 auto
 
 
 /*=========================================
@@ -173,6 +172,9 @@ p
 	font-size: 1em
 	width: 95%
 
+.header
+	top: -2em
+
 body
 	.past, .today, .future
 		display: none
@@ -189,3 +191,18 @@ body
 	&.future .years a.future-link
 		color: colorTextHeading
 
+	&.scrolled
+		.wrapper
+			padding-top: 250px
+		.header
+			transition: top 1s ease-out
+			background: rgba(255, 255, 255, 0.95)
+			position: fixed
+			top: 0
+			left: 0
+			width: 100%
+			padding: 0.5em 0
+			.years
+				margin: 0
+			.logo
+				display: none
