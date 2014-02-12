@@ -26,7 +26,7 @@ docpadConfig = {
 		]
 
 		partners: [
-			name: 'Myplanet Digital'
+			name: 'Myplanet'
 			className: 'today future'
 			url: "http://myplanet.io"
 		,
