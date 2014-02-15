@@ -448,21 +448,27 @@ docpadConfig =
 					res.send(codeBadRequest, 'key is incorrect')
 
 			# DocPad Documentation
-			server.get /^\/(?:learn\/docpad-)(.*)$/, (req,res) ->
+			server.get /^\/learn\/docpad\-(.*)$/, (req,res) ->
 				res.redirect(codeRedirectPermanent, "http://docpad.org/docs/#{req.params[0] or ''}")
 
+			# DocPad General
+			server.get /^\/docpad(?:\/(.*))?$/, (req,res) ->
+				res.redirect(codeRedirectPermanent, "http://docpad.org/#{req.params[0] or ''}")
+
 			# Projects
-			server.get /^\/(?:g|gh|github)(?:\/(.*))?$/, (req,res) ->
+			server.get /^\/(?:g|gh|github|project)(?:\/(.*))?$/, (req,res) ->
 				res.redirect(codeRedirectPermanent, "https://github.com/bevry/#{req.params[0] or ''}")
 
 			# Twitter
-			server.get /^\/(?:t|twitter|tweet)(?:\/(.*))?$/, (req,res) -> res.redirect(301, "https://twitter.com/bevryme")
+			server.get /^\/(?:t|twitter|tweet)(?:\/(.*))?$/, (req,res) ->
+				res.redirect(301, "https://twitter.com/bevryme")
 
 			# Facebook
-			server.get /^\/(?:f|facebook)(?:\/(.*))?$/, (req,res) -> res.redirect(301, "https://www.facebook.com/bevryme")
+			server.get /^\/(?:f|facebook)(?:\/(.*))?$/, (req,res) ->
+				res.redirect(301, "https://www.facebook.com/bevryme")
 
 			# Payment
-			server.all '/payment', (req,res) ->
+			server.all '/payment-form', (req,res) ->
 				pin ?= require('pinjs').setup({
 					key: process.env.BEVRY_PIN_API_KEY_PRIVATE,
 					production: isProduction
@@ -474,6 +480,23 @@ docpadConfig =
 					console.log(pinResponse.body)
 					res.send(pinResponse.statusCode, pinResponse.body)
 					#res.redirect(req.headers.referer)
+
+			# Common Redirects
+			redirects =
+					'/interconnect': '/project/interconnect'
+					'/payment': '/about#payments'
+					'/goopen': 'https://github.com/bevry/goopen'
+					'/gittip': 'https://www.gittip.com/bevry/'
+					'/fattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
+					'/premium-support': '/support'
+					'/docs/installnode': '/learn/node-install'
+					'/node/install': '/learn/node-install'
+					'/docpad/growl': 'http://growl.info/downloads'
+					'/talks/handsonnode': 'http://node.eventbrite.com/'
+					'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
+			for own src,target of redirects
+				server.get src, (req,res) ->
+					res.redirect(301, target)
 
 			# Done
 			return
