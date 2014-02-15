@@ -491,8 +491,6 @@ docpadConfig =
 					'/premium-support': '/support'
 					'/docs/installnode': '/learn/node-install'
 					'/node/install': '/learn/node-install'
-					'/growl': '/docpad/growl'
-					'/docpad/growl': 'http://growl.info/downloads'
 					'/talks/handsonnode': 'http://node.eventbrite.com/'
 					'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
 			server.use (req,res,next) ->
