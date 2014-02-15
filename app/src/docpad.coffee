@@ -419,7 +419,7 @@ docpadConfig =
 
 			# Pushover
 			server.all '/pushover', (req,res) ->
-				return res.send(200)  if 'development' in docpad.getEnvironments()
+				return res.send(codeSuccess)  if 'development' in docpad.getEnvironments()
 				request(
 					{
 						url: "https://api.pushover.net/1/messages.json"
@@ -461,11 +461,11 @@ docpadConfig =
 
 			# Twitter
 			server.get /^\/(?:t|twitter|tweet)(?:\/(.*))?$/, (req,res) ->
-				res.redirect(301, "https://twitter.com/bevryme")
+				res.redirect(codeRedirectPermanent, "https://twitter.com/bevryme")
 
 			# Facebook
 			server.get /^\/(?:f|facebook)(?:\/(.*))?$/, (req,res) ->
-				res.redirect(301, "https://www.facebook.com/bevryme")
+				res.redirect(codeRedirectPermanent, "https://www.facebook.com/bevryme")
 
 			# Payment
 			server.all '/payment-form', (req,res) ->
@@ -487,16 +487,19 @@ docpadConfig =
 					'/payment': '/about#payments'
 					'/goopen': 'https://github.com/bevry/goopen'
 					'/gittip': 'https://www.gittip.com/bevry/'
-					'/fattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
+					'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
 					'/premium-support': '/support'
 					'/docs/installnode': '/learn/node-install'
 					'/node/install': '/learn/node-install'
 					'/docpad/growl': 'http://growl.info/downloads'
 					'/talks/handsonnode': 'http://node.eventbrite.com/'
 					'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
-			for own src,target of redirects
-				server.get src, (req,res) ->
-					res.redirect(301, target)
+			server.use (req,res,next) ->
+				target = redirects[req.url]
+				if target
+					res.redirect(codeRedirectPermanent, target)
+				else
+					next()
 
 			# Done
 			return
