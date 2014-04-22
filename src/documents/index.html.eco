@@ -75,7 +75,7 @@ layout: 'default'
 		</section>
 
 		<section class="today future">
-			<h2>Contributors</h2>
+			<h2>Members</h2>
 			<div class="facewall">
 				<% for member in @getGithubMembers(): %>
 					<a href="<%= member.url %>" title="<%= member.name %>">
