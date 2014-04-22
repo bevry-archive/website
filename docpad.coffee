@@ -4,6 +4,9 @@ gittipNames = 'balupton bevry docpad interconnect startuphostel history.js'.spli
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
 
+	# Regenerate each day
+	regenerateEvery: 1000*60*60*24
+
 	# =================================
 	# Template Data
 	# These are variables that will be accessible via our templates
