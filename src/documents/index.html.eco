@@ -86,7 +86,7 @@ layout: 'default'
 		</section>
 
 		<section>
-		<h2>Partners</h2>
+		<h2>Friends</h2>
 		<%- @partial('list', {items: @partners}) %>
 		</section>
 
