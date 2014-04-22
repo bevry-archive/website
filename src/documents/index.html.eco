@@ -15,7 +15,7 @@ layout: 'default'
 	</header>
 
 	<article class="content">
-		<section>
+		<section id="about">
 			<h2>Are</h2>
 			<p class="past">
 				We’re a Sydney based Node.js, JavaScript and HTML5 <a href="http://www.opencompany.org/">open-company</a> focused on empowering developers.
@@ -27,7 +27,7 @@ layout: 'default'
 			</p>
 		</section>
 
-		<section>
+		<section id="culture">
 			<h2>Do</h2>
 			<p>
 				We share our innovations abundantly, making them accessible by all.<br/>
@@ -36,7 +36,7 @@ layout: 'default'
 			</p>
 		</section>
 
-		<section>
+		<section id="goal">
 			<h2>Goal</h2>
 			<p>
 				We can work on what we love, give it away for free, and live a great life!<br/>
@@ -44,12 +44,12 @@ layout: 'default'
 			</p>
 		</section>
 
-		<section>
+		<section id="projects">
 			<h2>Did</h2>
 			<%- @partial('list', {items: @projects}) %>
 		</section>
 
-		<section class="future">
+		<section id="office" class="future">
 			<h2>Office</h2>
 			<div class="gallery">
 				<a href="http://www.fotopedia.com/items/flickr-5173590042"><img src="/images/office/flickr-5173590042-original.jpg" title="Chimney Beach Cove, East Shore, Lake Tahoe, NV by SteveD" /></a>
@@ -68,13 +68,13 @@ layout: 'default'
 			</p>
 		</section>
 
-		<section>
+		<section id="leadership">
 			<h2 class="today future">Leadership</h2>
 			<h2 class="past">Who</h2>
 			<%- @partial('list', {items: @people}) %>
 		</section>
 
-		<section class="today future">
+		<section id="members" class="today future">
 			<h2>Members</h2>
 			<div class="facewall">
 				<% for member in @getGithubMembers(): %>
@@ -85,12 +85,12 @@ layout: 'default'
 			</div>
 		</section>
 
-		<section>
+		<section id="friends">
 			<h2>Friends</h2>
 			<%- @partial('list', {items: @partners}) %>
 		</section>
 
-		<section class="today future">
+		<section id="community" class="today future">
 			<h2>Community</h2>
 			<p>
 				To accomplish our grand goals and vision of the world, we can't do it alone!<br/>
@@ -99,7 +99,7 @@ layout: 'default'
 			</p>
 		</section>
 
-		<section>
+		<section id="services">
 			<h2>Services</h2>
 			<p class="today future">
 				Prioritized development for our works available via <a href="https://docs.google.com/document/d/1Tsnx5aU0e4GZqPvkl-S2rucFYYbhZsVRNX9Zbwkfnzo/edit?usp=sharing">sponsorship</a>.<br/>
@@ -108,11 +108,11 @@ layout: 'default'
 			</p>
 			<p class="past">
 				Consulting, support, advisory and training contracts available.<br/>
-				<a href="http://bevry.me/support">Support.</a><br/>
+				<a href="http://bevry.me/support">Support</a><br/>
 			</p>
 		</section>
 
-		<section>
+		<section id="donations">
 			<h2>Donations</h2>
 			<p>
 				We're an <a href="http://www.opencompany.org/">open-company</a> <span class="today future inline">and community</span> which gives away <span class="past inline">it's</span><span class="today future inline">our</span> intellectual property for free.<br/>
@@ -145,12 +145,12 @@ layout: 'default'
 			</p>
 		</section>
 
-		<section>
-		<h2>Contact</h2>
-		<p>
-			<a href="http://bevry.me/support">Support</a><br/>
-			<a href="mailto:us@bevry.me">Email</a><br/>
-		</p>
+		<section id="contact">
+			<h2>Contact</h2>
+			<p>
+				<a href="http://bevry.me/support">Support</a><br/>
+				<a href="mailto:us@bevry.me">Email</a><br/>
+			</p>
 		</section>
 
 	</article>
