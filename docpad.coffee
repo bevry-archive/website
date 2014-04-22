@@ -37,6 +37,9 @@ docpadConfig = {
 						avatar: member.avatar_url
 						url: member.html_url
 
+			# remove leaders from members as it's a bit dodgy if we list them twice
+			delete logins.balupton
+
 			members = (value  for own key,value of logins)
 
 			return members
