@@ -1,4 +1,5 @@
 gittipNames = 'balupton bevry docpad interconnect startuphostel history.js'.split(' ')
+githubNames = 'bevry docpad browserstate webwrite interconnectapp'.split(' ')
 
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
@@ -26,6 +27,20 @@ docpadConfig = {
 		getDonationGoalPercent: (goal) ->
 			return ((@getDonationTotal()/goal)*100).toFixed(2)
 
+		getGithubMembers: ->
+			logins = {}
+
+			for name in githubNames
+				for member in @feedr.feeds['github_members_'+name]
+					logins[member.login] =
+						name: member.login
+						avatar: member.avatar_url
+						url: member.html_url
+
+			members = (value  for own key,value of logins)
+
+			return members
+
 		people: [
 			name: 'Benjamin Lupton'
 			title: 'Benjamin Lupton, Founder'
@@ -49,32 +64,6 @@ docpadConfig = {
 		,
 			name: 'Meeho!'
 			url: "http://meeho.net/"
-		]
-
-		members: [
-			"https://0.gravatar.com/avatar/1254365f8c7b7af893a73fb937799afe?d=https%3A%2F%2Fidenticons.github.com%2F12e326f34aed0974724d3652b11620aa.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/195e7bb9c2826a301f259dc82ca57af2?d=https%3A%2F%2Fidenticons.github.com%2Facb3e29171829ebd25544aa20017060c.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/61000b294b0049e12fccc6b843ee8362?d=https%3A%2F%2Fidenticons.github.com%2Fe5288d00c9e82c82e6efb0e3a2463d13.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/cb9730ee11d50fa2db955d687c653971?d=https%3A%2F%2Fidenticons.github.com%2Ff4ab3d7c9207c8c6a32aabb28771410f.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/f1fde02832bb928ff4aa21003f18b2d0?d=https%3A%2F%2Fidenticons.github.com%2F1be5fc884dcb49bf5b314178e84bd407.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/79fd240b791cb7302f1b3b4db7da29da?d=https%3A%2F%2Fidenticons.github.com%2F634cc4d8c7fc37d109c5c41630665f17.png&r=x&s=140",
-			"https://2.gravatar.com/avatar/de54fa84f07f7200da5a1eb090ec717a?d=https%3A%2F%2Fidenticons.github.com%2Fc6c23de9a86ace2fd9002c29a6e101ae.png&r=x&s=140",
-			"https://0.gravatar.com/avatar/43e5b51eafc17ce863a0e8857129ed3d?d=https%3A%2F%2Fidenticons.github.com%2F34f8abbbdc6ba7c58517087f8fc1273d.png&r=x&s=140",
-			"https://2.gravatar.com/avatar/62f254352f0e2a467a27863a7650214b?d=https%3A%2F%2Fidenticons.github.com%2F6d28cf7ac65740b304b56e3e920cbb74.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/3af2f6446adbf53feecfe8c107c492f5?d=https%3A%2F%2Fidenticons.github.com%2F9bfe669065a2edf1147379d780c803b0.png&r=x&s=140",
-			"https://2.gravatar.com/avatar/998383246165b167b132ae97e312d45c?d=https%3A%2F%2Fidenticons.github.com%2Fa58797a42b13a7382f21cc647464a66e.png&r=x&s=140",
-			"https://0.gravatar.com/avatar/7e945991d1d70075cff59331d72ef4d8?d=https%3A%2F%2Fidenticons.github.com%2F5d6d17375e48728255af334496b52416.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/35eeb838cbb7c747884f5f557408d873?d=https%3A%2F%2Fidenticons.github.com%2Fa0eb6c9b409044e3bd36785d06f1a65e.png&r=x&s=140",
-			"https://2.gravatar.com/avatar/133b8110316db82742129865def45b7a?d=https%3A%2F%2Fidenticons.github.com%2F52c339c2f6c693b435c5d7ba25e868bf.png&r=x&s=140",
-			"https://2.gravatar.com/avatar/70d2c699f89a1f7f76b436bc79b4d5be?d=https%3A%2F%2Fidenticons.github.com%2F02dd9d6fa55c9d5aac64e001ab72dcd2.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/e4926c0cb9fccda01e7abedc774cef36?d=https%3A%2F%2Fidenticons.github.com%2F2069c03086075e10fa9650961a003845.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/1de6337421c1eac0227c88502b275952?d=https%3A%2F%2Fidenticons.github.com%2F245403f0ec118644e403ddd11c5797e9.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/5b5664d512030cbf9f973b6887a1baed?d=https%3A%2F%2Fidenticons.github.com%2F4a268fe717dc162413bb6e173073f28a.png&r=x&s=140",
-			"https://2.gravatar.com/avatar/663c67028e5dc73d70ce113b9e6f60e0?d=https%3A%2F%2Fidenticons.github.com%2Fec217a295ad037d83410386fe4cb8932.png&r=x&s=140",
-			"https://2.gravatar.com/avatar/30eb6199dd8f0703feb4a63440608dff?d=https%3A%2F%2Fidenticons.github.com%2F1e62426dc281bbdcdb05d63ddc0975ab.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/af4c77eab8989748f3e508a19d0375e6?d=https%3A%2F%2Fidenticons.github.com%2F2c361c16489a6af9c09c1d8fa13d2d03.png&r=x&s=140",
-			"https://1.gravatar.com/avatar/2694a5501ec37eab0c6d4bf98c30303a?d=https%3A%2F%2Fidenticons.github.com%2F3af66742fd76c1ad392733d99ece4fcd.png&r=x&s=140",
-			"https://2.gravatar.com/avatar/9400cb5aeb155ccec614652542fd274d?d=https%3A%2F%2Fidenticons.github.com%2F28fbafb0c2a98d9a643600bd876de1b4.png&r=x&s=140"
 		]
 
 		projects: [
@@ -198,7 +187,10 @@ docpadConfig = {
 			feeds:
 				(->
 					result = {}
-					result['gittip_'+name] = "https://www.gittip.com/#{name}/public.json"  for name in gittipNames
+					for name in gittipNames
+						result['gittip_'+name] = {url:"https://www.gittip.com/#{name}/public.json", parse:'json'}
+					for name in githubNames
+						result['github_members_'+name] = {url:"https://api.github.com/orgs/#{name}/public_members", parse:'json'}
 					result
 				)()
 

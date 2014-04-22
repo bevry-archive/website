@@ -16,78 +16,78 @@ layout: 'default'
 
 	<article class="content">
 		<section>
-		<h2>Are</h2>
-		<p class="past">
-			We’re a Sydney based Node.js, JavaScript and HTML5 <a href="http://www.opencompany.org/">open-company</a> focused on empowering developers.
-		</p>
-		<p class="today future">
-			We're an <a href="http://www.opencompany.org/">open-company</a> and community.<br/>
-			United by our shared value of open-collaboration.<br/>
-			Empowering everyone in this world to create the change they wish to see.<br/>
-		</p>
+			<h2>Are</h2>
+			<p class="past">
+				We’re a Sydney based Node.js, JavaScript and HTML5 <a href="http://www.opencompany.org/">open-company</a> focused on empowering developers.
+			</p>
+			<p class="today future">
+				We're an <a href="http://www.opencompany.org/">open-company</a> and community.<br/>
+				United by our shared value of open-collaboration.<br/>
+				Empowering everyone in this world to create the change they wish to see.<br/>
+			</p>
 		</section>
 
 		<section>
-		<h2>Do</h2>
-		<p>
-			We share our innovations abundantly, making them accessible by all.<br/>
-			Remixed and reused, they reach their potential together at an exponential rate.<br/>
-			Birthing experiences of progress and joy wherever they may grow.<br/>
-		</p>
+			<h2>Do</h2>
+			<p>
+				We share our innovations abundantly, making them accessible by all.<br/>
+				Remixed and reused, they reach their potential together at an exponential rate.<br/>
+				Birthing experiences of progress and joy wherever they may grow.<br/>
+			</p>
 		</section>
 
 		<section>
-		<h2>Goal</h2>
-		<p>
-			We can work on what we love, give it away for free, and live a great life!<br/>
-			Embrace open-collaboration and deprecate the flawed notion of intellectual property.<br/>
-		</p>
+			<h2>Goal</h2>
+			<p>
+				We can work on what we love, give it away for free, and live a great life!<br/>
+				Embrace open-collaboration and deprecate the flawed notion of intellectual property.<br/>
+			</p>
 		</section>
 
 		<section>
-		<h2>Did</h2>
-		<%- @partial('list', {items: @projects}) %>
+			<h2>Did</h2>
+			<%- @partial('list', {items: @projects}) %>
 		</section>
 
 		<section class="future">
-		<h2>Office</h2>
-		<div class="gallery">
-			<a href="http://www.fotopedia.com/items/flickr-5173590042"><img src="/images/office/flickr-5173590042-original.jpg" title="Chimney Beach Cove, East Shore, Lake Tahoe, NV by SteveD" /></a>
-			<a href="http://www.fotopedia.com/items/flickr-3247795658"><img src="/images/office/flickr-3247795658-original.jpg" title="Photo by André Solnik" /></a>
-			<a href="http://www.fotopedia.com/items/flickr-7448089582"><img src="/images/office/flickr-7448089582-original.jpg" title="Phra Nang Beach by Mark Fischer" /></a>
-			<a href="http://www.fotopedia.com/items/flickr-7448028946"><img src="/images/office/flickr-7448028946-original.jpg" title="Railay Beach at Sunrise by Mark Fischer"/></a>
-			<a href="http://www.fotopedia.com/items/flickr-3836586727"><img src="/images/office/flickr-3836586727-original.jpg" title="Palolem Beach, Goa, India by dms_303" /></a>
-			<a href="http://www.fotopedia.com/items/flickr-4197635593"><img src="/images/office/flickr-4197635593-original.jpg" title="El Portil. Beach. Sunset. Huelva. Andalusia. Spain by Tomás Fano"/></a>
-			<a href="http://www.fotopedia.com/items/flickr-7166443977"><img src="/images/office/flickr-7166443977-original.jpg" title="Phranang beach by WomEOS" /></a>
-			<!--<img src="/images/office/people.jpg" />-->
-		</div>
-		<p>
-			This is our office. It's a resort in the tropics. You're welcome anytime.<br/>
-			Join our morning standup to share and collaborate with each other.<br/>
-			Staying longer? Rent options are available.<br/>
-		</p>
+			<h2>Office</h2>
+			<div class="gallery">
+				<a href="http://www.fotopedia.com/items/flickr-5173590042"><img src="/images/office/flickr-5173590042-original.jpg" title="Chimney Beach Cove, East Shore, Lake Tahoe, NV by SteveD" /></a>
+				<a href="http://www.fotopedia.com/items/flickr-3247795658"><img src="/images/office/flickr-3247795658-original.jpg" title="Photo by André Solnik" /></a>
+				<a href="http://www.fotopedia.com/items/flickr-7448089582"><img src="/images/office/flickr-7448089582-original.jpg" title="Phra Nang Beach by Mark Fischer" /></a>
+				<a href="http://www.fotopedia.com/items/flickr-7448028946"><img src="/images/office/flickr-7448028946-original.jpg" title="Railay Beach at Sunrise by Mark Fischer"/></a>
+				<a href="http://www.fotopedia.com/items/flickr-3836586727"><img src="/images/office/flickr-3836586727-original.jpg" title="Palolem Beach, Goa, India by dms_303" /></a>
+				<a href="http://www.fotopedia.com/items/flickr-4197635593"><img src="/images/office/flickr-4197635593-original.jpg" title="El Portil. Beach. Sunset. Huelva. Andalusia. Spain by Tomás Fano"/></a>
+				<a href="http://www.fotopedia.com/items/flickr-7166443977"><img src="/images/office/flickr-7166443977-original.jpg" title="Phranang beach by WomEOS" /></a>
+				<!--<img src="/images/office/people.jpg" />-->
+			</div>
+			<p>
+				This is our office. It's a resort in the tropics. You're welcome anytime.<br/>
+				Join our morning standup to share and collaborate with each other.<br/>
+				Staying longer? Rent options are available.<br/>
+			</p>
 		</section>
 
 		<section>
-		<h2 class="today future">Leadership</h2>
-		<h2 class="past">Who</h2>
-		<%- @partial('list', {items: @people}) %>
+			<h2 class="today future">Leadership</h2>
+			<h2 class="past">Who</h2>
+			<%- @partial('list', {items: @people}) %>
 		</section>
 
 		<section class="today future">
 			<h2>Contributors</h2>
 			<div class="facewall">
-			<% for avatar in @members: %>
-				<a href="http://github.com">
-					<img class="avatar" src="<%= avatar %>" />
-				</a>
-			<% end %>
+				<% for member in @getGithubMembers(): %>
+					<a href="<%= member.url %>" title="<%= member.name %>">
+						<img class="avatar" src="<%= member.avatar %>" />
+					</a>
+				<% end %>
 			</div>
 		</section>
 
 		<section>
-		<h2>Friends</h2>
-		<%- @partial('list', {items: @partners}) %>
+			<h2>Friends</h2>
+			<%- @partial('list', {items: @partners}) %>
 		</section>
 
 		<section class="today future">
@@ -100,16 +100,16 @@ layout: 'default'
 		</section>
 
 		<section>
-		<h2>Services</h2>
-		<p class="today future">
-			Prioritized development for our works available via <a href="https://docs.google.com/document/d/1Tsnx5aU0e4GZqPvkl-S2rucFYYbhZsVRNX9Zbwkfnzo/edit?usp=sharing">sponsorship</a>.<br/>
-			Training, speaking and interviews for free if permissively licensed.<br/>
-			<a href="http://bevry.me/support">Support.</a><br/>
-		</p>
-		<p class="past">
-			Consulting, support, advisory and training contracts available.<br/>
-			<a href="http://bevry.me/support">Support.</a><br/>
-		</p>
+			<h2>Services</h2>
+			<p class="today future">
+				Prioritized development for our works available via <a href="https://docs.google.com/document/d/1Tsnx5aU0e4GZqPvkl-S2rucFYYbhZsVRNX9Zbwkfnzo/edit?usp=sharing">sponsorship</a>.<br/>
+				Training, speaking and interviews for free if permissively licensed.<br/>
+				<a href="http://bevry.me/support">Support.</a><br/>
+			</p>
+			<p class="past">
+				Consulting, support, advisory and training contracts available.<br/>
+				<a href="http://bevry.me/support">Support.</a><br/>
+			</p>
 		</section>
 
 		<section>
