@@ -117,27 +117,31 @@ layout: 'default'
 			<p>
 				We're an <a href="http://www.opencompany.org/">open-company</a> <span class="today future inline">and community</span> which gives away <span class="past inline">it's</span><span class="today future inline">our</span> intellectual property for free.<br/>
 				<span class="today future">
-					We rely on your donations and sponsorship contracts to support our families.<br/>
+					We rely on donations and sponsorship from individuals like yourself and companies like yours to support our families.<br/>
 				</span>
-				If you have found benefit in our work, please consider donating.<br/>
 				<span class="today">
-					Earning $6000USD donations a month of our $8000USD/month target.<br/>
+					We're currently earning $<%- @getDonationTotal() %>USD donations a week, <%- @getDonationGoalPercent(2000) %>% of our $2000USD/week requirement.<br/>
 				</span>
 				<span class="future">
-					Earning $24000USD donations a month of our $16000USD/month target.<br/>
+					We're currently earning $6000USD donations a week of our $4000USD/week target.<br/>
+				</span>
+				<span class="today future">
+					If everyone that uses our work gave just $1/week, we would exceed our target.<br/>
 				</span>
 			</p>
 			<p>
+
+				<a href="https://www.gittip.com/bevry/"><strong>
+					Donate weekly via Gittip</strong></a><br/>
 				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
 					Donate once via Paypal</a><br/>
 				<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a">
 					Donate once via Bitcoin</a></br>
-				<a href="https://www.gittip.com/bevry/">
-					Donate weekly via Gittip</a><br/>
 				<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
 					Donate monthly via Flattr</a><br/>
 				<a href="http://amzn.com/w/2F8TXKSNAFG4V">
-					Buy items on our Amazon Wishlist</a>
+					Buy items on our Amazon Wishlist</a><br/>
+				Enquire if your company can sponsor us
 			</p>
 		</section>
 

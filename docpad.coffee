@@ -1,3 +1,5 @@
+gittipNames = 'balupton bevry docpad interconnect startuphostel history.js'.split(' ')
+
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
@@ -8,6 +10,18 @@ docpadConfig = {
 	# To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
 
 	templateData:
+
+		getGittipTotal: ->
+			total = 0
+			for name in gittipNames
+				total += parseFloat(@feedr.feeds['gittip_'+name].receiving, 10)
+			return total
+
+		getDonationTotal: ->
+			return @getGittipTotal()
+
+		getDonationGoalPercent: (goal) ->
+			return ((@getDonationTotal()/goal)*100).toFixed(2)
 
 		people: [
 			name: 'Benjamin Lupton'
@@ -174,6 +188,16 @@ docpadConfig = {
 		getPreparedKeywords: ->
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
+
+
+	plugins:
+		feedr:
+			feeds:
+				(->
+					result = {}
+					result['gittip_'+name] = "https://www.gittip.com/#{name}/public.json"  for name in gittipNames
+					result
+				)()
 
 
 	# =================================
