@@ -65,6 +65,20 @@ docpadConfig = {
 					Bevry is the result of Benjamin's best self, a tool for him and others to create and collaborate on a shared vision of a better world. His works are at the foundations of Bevry and are some of the most popular node and javascript projects, even used by the likes of Microsoft and 37Signals. Besides work, he pursues the timeless quest of understanding the world and spends time with his family.
 				</span>
 				"""
+		,
+			name: 'Michael D Mooring'
+			title: 'Michael D Mooring'
+			url: "http://mikeum.us"
+			avatar: 'https://googledrive.com/host/0BxIxK0gS2WsvTWNTZXFEZ05ueGc/mikeumus-2013_web2.jpg'
+			description: """
+				<span class="today future">
+					Private Space/Open-Hardware Entrepreneur. CoFounder of BetaBulls.<br/>
+					Sees technology as a force of nature for good.
+				</span>
+				<span class="past">
+					MDM, Sol-X, Inkwhy and many other startups have been a part of Mike's path in open-technology that has led him here to the present with Bevry.
+				</span>
+				"""
 		]
 
 		partners: [
@@ -74,6 +88,12 @@ docpadConfig = {
 		,
 			name: 'Meeho!'
 			url: "http://meeho.net/"
+		,
+			name: 'Docport.io'
+			url: "http://docport.io/"
+		,
+			name: 'BetaBulls'
+			url: "http://betabulls.com/"
 		]
 
 		projects: [
