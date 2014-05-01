@@ -24,8 +24,15 @@ docpadConfig = {
 		getDonationTotal: ->
 			return @getGittipTotal()
 
+		getDonationGoal: ->
+			return 2000
+
 		getDonationGoalPercent: (goal) ->
+			goal ?= @getDonationGoal()
 			return ((@getDonationTotal()/goal)*100).toFixed(2)
+
+		isDonationEnough: ->
+			return @getDonationGoalPercent() >= 100
 
 		getGithubMembers: ->
 			logins = {}

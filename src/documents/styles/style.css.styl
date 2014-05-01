@@ -105,14 +105,14 @@ Typography
 =========================================== */
 /*Accent color*/
 
-a
+a, .link
 	text-decoration: none
 	color: inherit
 
-p a
+p a, p .link
 	color: colorTextBlue
 
-a:not(.hover-link)
+a:not(.hover-link), .link
 	font-weight: 400
 	&:hover
 		color: colorTextBlue
@@ -219,3 +219,18 @@ body
 			.logo
 				display: none
 	*/
+
+	.uhoh
+		color: red
+	.yay
+		color: green
+
+#stripe_payment_button
+	appearance: none
+	background: none
+	border: none
+	padding: 0
+	margin: 0
+	font-family: inherit
+	line-height: inherit
+

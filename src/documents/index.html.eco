@@ -120,28 +120,62 @@ layout: 'default'
 					We rely on donations and sponsorship from individuals like yourself and companies like yours to support our families.<br/>
 				</span>
 				<span class="today">
-					We're currently earning $<%- @getDonationTotal() %>USD donations a week, <%- @getDonationGoalPercent(2000) %>% of our $2000USD/week requirement.<br/>
+					We're currently earning $<%- @getDonationTotal() %>USD donations a week, <span class="<%- if @isDonationEnough() then 'yay' else 'uhoh' %>"><%- @getDonationGoalPercent() %>%</span> of our $<%- @getDonationGoal() %>USD/week requirement.<br/>
 				</span>
 				<span class="future">
 					We're currently earning $6000USD donations a week of our $4000USD/week target.<br/>
 				</span>
 				<span class="today future">
-					If everyone that uses our work gave just $1/week, we would exceed our target.<br/>
+					If everyone that uses our work gave $1/week, we would exceed our target.<br/>
 				</span>
 			</p>
 			<p>
 
-				<a href="https://www.gittip.com/bevry/"><strong>
-					Donate weekly via Gittip</strong></a><br/>
+				<a href="https://www.gittip.com/bevry/">
+					<strong>Donate weekly via Gittip</strong>
+				</a><br/>
 				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
-					Donate via Paypal</a><br/>
+					Donate via Paypal
+				</a><br/>
 				<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a">
-					Donate once via Bitcoin</a></br>
+					Donate once via Bitcoin
+				</a></br>
 				<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
-					Donate monthly via Flattr</a><br/>
+					Donate monthly via Flattr
+				</a><br/>
+
+				<script src="https://checkout.stripe.com/checkout.js"></script>
+				<button id="stripe_payment_button" class="link">Donate once via Credit Card</button><br/>
+				<script>
+					var handler = StripeCheckout.configure({
+						key: 'pk_YaaQsFv9x6P6jli6WwGLwQ4wr0971',
+						token: function(token, args) {
+							// Use the token to create the charge with a server-side script.
+							// You can access the token ID with `token.id`
+						}
+					});
+
+					document.getElementById('stripe_payment_button').addEventListener('click', function(e) {
+						e.preventDefault();
+						var amount = prompt('In Australian Dollars, how much would you like to donate?');
+						amount = String(amount).replace(/\..*$/, '').replace(/[^0-9]/g, '');
+						amount = parseInt(amount, 10);
+						if ( amount && !isNaN(amount) ) {
+							// Open Checkout with further options
+							handler.open({
+								name: 'Donation to Bevry',
+								description: 'Support our open-source initiatives',
+								amount: amount*100
+							});
+						}
+					});
+				</script>
+
 				<a href="http://amzn.com/w/2F8TXKSNAFG4V">
-					Buy items on our Amazon Wishlist</a><br/>
-				Enquire if your company can sponsor us
+					Buy items on our Amazon Wishlist
+				</a><br/>
+
+				Enquire below if your company can sponsor us
 			</p>
 		</section>
 
