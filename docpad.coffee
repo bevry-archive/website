@@ -92,7 +92,7 @@ docpadConfig = {
 			name: 'Meeho!'
 			url: "http://meeho.net/"
 		,
-			name: 'DocPort.io'
+			name: 'DocPort'
 			className: 'today future'
 			url: "http://docport.io/"
 		,
