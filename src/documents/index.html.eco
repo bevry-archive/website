@@ -71,7 +71,7 @@ layout: 'default'
 		<section id="leadership">
 			<h2 class="today future">Leadership</h2>
 			<h2 class="past">Who</h2>
-			<%- @partial('list', {items: @people}) %>
+			<%- @partial('list', {items: @leaders}) %>
 		</section>
 
 		<section id="members" class="today future">
@@ -87,7 +87,7 @@ layout: 'default'
 
 		<section id="friends">
 			<h2>Friends</h2>
-			<%- @partial('list', {items: @partners}) %>
+			<%- @partial('list', {items: @friends}) %>
 		</section>
 
 		<section id="community" class="today future">

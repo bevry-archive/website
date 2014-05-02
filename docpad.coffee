@@ -45,15 +45,17 @@ docpadConfig = {
 						url: member.html_url
 
 			# remove leaders from members as it's a bit dodgy if we list them twice
-			delete logins.balupton
+			for leader in @leaders
+				delete logins[leader.githubUsername]  if leader.githubUsername
 
 			members = (value  for own key,value of logins)
 
 			return members
 
-		people: [
+		leaders: [
 			name: 'Benjamin Lupton'
 			title: 'Benjamin Lupton, Founder'
+			githubUsername: 'balupton'
 			url: "http://balupton.com"
 			avatar: '/images/ben-black.jpg'
 			description: """
@@ -68,8 +70,9 @@ docpadConfig = {
 		,
 			name: 'Michael D Mooring'
 			title: 'Michael D Mooring'
+			githubUsername: 'mikeumus'
 			url: "http://mikeum.us"
-			avatar: 'https://googledrive.com/host/0BxIxK0gS2WsvTWNTZXFEZ05ueGc/mikeumus-2013_web2.jpg'
+			avatar: '/images/mikeumus-tinted.jpg'
 			description: """
 				<span class="today future">
 					Private Space/Open-Hardware Entrepreneur. CoFounder of BetaBulls.<br/>
@@ -81,7 +84,7 @@ docpadConfig = {
 				"""
 		]
 
-		partners: [
+		friends: [
 			name: 'Myplanet'
 			className: 'today future'
 			url: "http://myplanet.io"
@@ -89,10 +92,12 @@ docpadConfig = {
 			name: 'Meeho!'
 			url: "http://meeho.net/"
 		,
-			name: 'Docport.io'
+			name: 'DocPort.io'
+			className: 'today future'
 			url: "http://docport.io/"
 		,
 			name: 'BetaBulls'
+			className: 'today future'
 			url: "http://betabulls.com/"
 		]
 
