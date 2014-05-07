@@ -83,23 +83,32 @@ docpadConfig = {
 				</span>
 				"""
 		]
-
+	
 		friends: [
 			name: 'Myplanet'
 			className: 'today future'
 			url: "http://myplanet.io"
+			# sponsorship
 		,
 			name: 'Meeho!'
 			url: "http://meeho.net/"
+			# advisory
+		,
+			name: 'Meltmedia'
+			className: 'today future'
+			url: 'http://meltmedia.com/'
+			# provided docpad branding
 		,
 			name: 'DocPort'
 			className: 'today future'
 			url: "http://docport.io/"
+			# project assistance
 		,
 			name: 'BetaBulls'
 			className: 'today future'
 			url: "http://betabulls.com/"
-		]
+			# ???
+		].sort (a,b) -> return a.name - b.name;
 
 		projects: [
 			name: 'DocPad'
