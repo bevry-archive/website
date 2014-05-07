@@ -108,7 +108,7 @@ docpadConfig = {
 			className: 'today future'
 			url: "http://betabulls.com/"
 			# ???
-		].sort (a,b) -> return a.name - b.name;
+		].sort (a,b) -> a.name - b.name
 
 		projects: [
 			name: 'DocPad'
