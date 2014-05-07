@@ -68,14 +68,14 @@ docpadConfig = {
 				</span>
 				"""
 		,
-			name: 'Michael D Mooring'
-			title: 'Michael D Mooring'
+			name: 'Michael Duane Mooring'
+			title: 'Mike Mooring, Community Custodian'
 			githubUsername: 'mikeumus'
 			url: "http://mikeum.us"
 			avatar: '/images/mikeumus-tinted.jpg'
 			description: """
 				<span class="today future">
-					Private Space/Open-Hardware Entrepreneur. CoFounder of BetaBulls.<br/>
+					<a href="http://www.solarsystemexpress.com/">Private Space/Open-Hardware Entrepreneur</a>. CoFounder of <a href="http://betabulls.com/">BetaBulls.</a><br/>
 					Sees technology as a force of nature for good.
 				</span>
 				<span class="past">
