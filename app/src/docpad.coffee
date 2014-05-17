@@ -451,6 +451,10 @@ docpadConfig =
 			server.get /^\/learn\/docpad\-(.*)$/, (req,res) ->
 				res.redirect(codeRedirectPermanent, "http://docpad.org/docs/#{req.params[0] or ''}")
 
+			# Bevry Documentation (old redirects)
+			server.get /^\/learn\/bevry\-(.*)$/, (req,res) ->
+				res.redirect(codeRedirectPermanent, "/learn/community-#{req.params[0] or ''}")
+
 			# DocPad General
 			server.get /^\/docpad(?:\/(.*))?$/, (req,res) ->
 				res.redirect(codeRedirectPermanent, "http://docpad.org/#{req.params[0] or ''}")
@@ -483,6 +487,7 @@ docpadConfig =
 
 			# Common Redirects
 			redirects =
+					'/donate': 'http://refresh.bevry.me/#donate'
 					'/interconnect': '/project/interconnect'
 					'/payment': '/about#payments'
 					'/goopen': 'https://github.com/bevry/goopen'

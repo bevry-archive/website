@@ -360,6 +360,9 @@
         server.get(/^\/learn\/docpad\-(.*)$/, function(req, res) {
           return res.redirect(codeRedirectPermanent, "http://docpad.org/docs/" + (req.params[0] || ''));
         });
+        server.get(/^\/learn\/bevry\-(.*)$/, function(req, res) {
+          return res.redirect(codeRedirectPermanent, "/learn/community-" + (req.params[0] || ''));
+        });
         server.get(/^\/docpad(?:\/(.*))?$/, function(req, res) {
           return res.redirect(codeRedirectPermanent, "http://docpad.org/" + (req.params[0] || ''));
         });
@@ -388,6 +391,7 @@
           });
         });
         redirects = {
+          '/donate': 'http://refresh.bevry.me/#donate',
           '/interconnect': '/project/interconnect',
           '/payment': '/about#payments',
           '/goopen': 'https://github.com/bevry/goopen',
@@ -396,7 +400,6 @@
           '/premium-support': '/support',
           '/docs/installnode': '/learn/node-install',
           '/node/install': '/learn/node-install',
-          '/docpad/growl': 'http://growl.info/downloads',
           '/talks/handsonnode': 'http://node.eventbrite.com/',
           '/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
         };
