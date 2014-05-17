@@ -1,5 +1,6 @@
 ###
 standalone: true
+uglify: true
 ###
 
 # App

@@ -40,7 +40,10 @@
     "request": "~2.27.0",
     "requirefresh": "~1.1.2",
     "pinjs": "~1.0.0",
-    "uniq": "0.0.2"
+    "uniq": "0.0.2",
+    "docpad-plugin-cleancss": "~2.0.2",
+    "docpad-plugin-htmlmin": "~2.3.2",
+    "docpad-plugin-uglify": "~2.4.0"
   },
   "devDependencies": {
     "passport": "~0.1.16",
