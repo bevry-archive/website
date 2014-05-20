@@ -6,7 +6,7 @@ layout: 'default'
 
 <div class="wrapper">
 	<header class="header">
-		<a href="/"><img class="logo" src="/images/bevry.svg" /></a>
+		<a href="/" class="logo"><img src="/images/bevry.svg" /></a>
 		<nav class="years">
 			<a class="past-link" href="/past">2010</a>
 			<a class="today-link" href="/">Today</a>
