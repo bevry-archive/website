@@ -102,7 +102,7 @@ docpadConfig = {
 			url: 'http://eduanlavaque.com'
 			avatar: '/images/eduan.png'
 			description: """
-				Hobby programmer and freelancer, a <a href="http://eduanlavaque.com">blogger</a>, an aspiring full stack developer and software engineer, a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate,
+				Hobby programmer and freelancer, a <a href="http://eduanlavaque.com">blogger</a>, an aspiring full stack developer and software engineer, a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate.
 				"""
 		]
 
