@@ -83,7 +83,7 @@ docpadConfig = {
 				</span>
 				"""
 		]
-	
+
 		friends: [
 			name: 'Myplanet'
 			className: 'today future'
@@ -159,12 +159,12 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 			# The production url of our website
-			url: "http://website.com"
+			url: "http://bevry.me"
 
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [
-				'www.website.com',
-				'website.herokuapp.com'
+				'refresh.bevry.me',
+				'bevry-refresh.herokuapp.com'
 			]
 
 			# The default title of our website
@@ -172,12 +172,12 @@ docpadConfig = {
 
 			# The website description (for SEO)
 			description: """
-				When your website appears in search results in say Google, the text here will be shown underneath your website's title.
+				An open company and community dedicated to empowering developers everywhere.
 				"""
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
+				bevry, bevryme, balupton, benjamin lupton, docpad, history.js, node.js, javascript, coffee-script, query-engine, open-source, open-collaboration, open-company, free-culture
 				"""
 
 			# The website's styles
@@ -190,7 +190,6 @@ docpadConfig = {
 			# The website's scripts
 			scripts: [
 				"""
-				<!-- jQuery -->
 				<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 				"""
 
@@ -252,6 +251,10 @@ docpadConfig = {
 			# Extract the server from the options
 			{server} = opts
 			docpad = @docpad
+			codeSuccess = 200
+			codeBadRequest = 400
+			codeRedirectPermanent = 301
+			codeRedirectTemporary = 302
 
 			# As we are now running in an event,
 			# ensure we are using the latest copy of the docpad configuraiton
@@ -263,9 +266,62 @@ docpadConfig = {
 			# Redirect any requests accessing one of our sites oldUrls to the new site url
 			server.use (req,res,next) ->
 				if req.headers.host in oldUrls
-					res.redirect(newUrl+req.url, 301)
+					res.redirect(codeRedirectPermanent, newUrl+req.url)
 				else
 					next()
+
+			# Pushover
+			server.all '/pushover', (req,res) ->
+				return res.send(codeSuccess)  if 'development' in docpad.getEnvironments()
+				request(
+					{
+						url: "https://api.pushover.net/1/messages.json"
+						method: "POST"
+						form: extendr.extend(
+							{
+								token: process.env.BEVRY_PUSHOVER_TOKEN
+								user: process.env.BEVRY_PUSHOVER_USER_KEY
+								message: req.query
+							}
+							req.query
+						)
+					}
+					(_req,_res,body) ->
+						res.send(body)
+				)
+
+			# Documentation Projects
+			server.get /^\/((?:docpad|node|queryengine|joe|taskgroup|community|bevry).*)$/, (req,res) ->
+				res.redirect(codeRedirectPermanent, "http://learn.bevry.me/#{req.params[0] or ''}")
+
+			# Documentation
+			server.get /^\/learn(?:\/(.*))$/, (req,res) ->
+				res.redirect(codeRedirectPermanent, "http://learn.bevry.me/#{req.params[0] or ''}")
+
+			# Projects
+			server.get /^\/(?:g|gh|github|project)(?:\/(.*))?$/, (req,res) ->
+				res.redirect(codeRedirectPermanent, "https://github.com/bevry/#{req.params[0] or ''}")
+
+			# Common Redirects
+			redirects =
+					'/donate': 'http://refresh.bevry.me/#donate'
+					'/interconnect': '/project/interconnect'
+					'/payment': '/about#payments'
+					'/goopen': 'https://github.com/bevry/goopen'
+					'/gittip': 'https://www.gittip.com/bevry/'
+					'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
+					'/premium-support': '/support'
+					'/docs/installnode': '/learn/node-install'
+					'/node/install': '/learn/node-install'
+					'/talks/handsonnode': 'http://node.eventbrite.com/'
+					'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
+			server.use (req,res,next) ->
+				target = redirects[req.url]
+				if target
+					res.redirect(codeRedirectPermanent, target)
+				else
+					next()
+
 }
 
 # Export our DocPad Configuration

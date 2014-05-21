@@ -151,7 +151,22 @@
             <script>
                 var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
             </script>
-            <script src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+            <script src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
         </div>
+        <script>
+            var request = new XMLHttpRequest();
+            var message = document.location.href;
+            if ( document.referrer ) {
+                message += '\nfrom: '+document.referrer;
+            }
+            request.open(
+                'POST'
+                ,document.location.protocol+'//'+document.location.host+'/pushover'+
+                    '?title='+escape("Bevry 404")+
+                    '&message='+escape(message)
+                ,true
+            );
+            request.send();
+        </script>
     </body>
 </html>
