@@ -60,3 +60,28 @@ $window.on 'hashchange', ->
 		hideModals()
 
 $window.trigger('hashchange')
+
+`
+var handler = StripeCheckout.configure({
+	key: 'pk_YaaQsFv9x6P6jli6WwGLwQ4wr0971',
+	token: function(token, args) {
+		// Use the token to create the charge with a server-side script.
+		// You can access the token ID with token.id
+	}
+});
+
+document.getElementById('stripe_payment_button').addEventListener('click', function(e) {
+	e.preventDefault();
+	var amount = prompt('In Australian Dollars, how much would you like to donate?');
+	amount = String(amount).replace(/\..*$/, '').replace(/[^0-9]/g, '');
+	amount = parseInt(amount, 10);
+	if ( amount && !isNaN(amount) ) {
+		// Open Checkout with further options
+		handler.open({
+			name: 'Donation to Bevry',
+			description: 'Support our open-source initiatives',
+			amount: amount*100
+		});
+	}
+});
+`

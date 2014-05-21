@@ -223,9 +223,10 @@ docpadConfig = {
 				<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 				"""
 
-				'/vendor/log.js'
+				#'/vendor/log.js'
 				'/vendor/modernizr.js'
-				'/vendor/retina.js'
+				#'/vendor/retina.js'
+				'//checkout.stripe.com/checkout.js'
 				'/scripts/script.js'
 			]
 

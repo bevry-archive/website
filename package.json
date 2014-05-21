@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "docpad": "~6.65.0",
+    "docpad-plugin-cachr": "~2.2.2",
     "docpad-plugin-coffeescript": "~2.4.0",
     "docpad-plugin-eco": "~2.0.3",
     "docpad-plugin-feedr": "~2.7.0",
