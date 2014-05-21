@@ -306,11 +306,11 @@ docpadConfig = {
 			redirects =
 					'/donate': '/#donate'
 					'/interconnect': '/project/interconnect'
-					'/payment': '/about#payments'
+					'/payment': '/about#payments'  # needs to be re-added
 					'/goopen': 'https://github.com/bevry/goopen'
 					'/gittip': 'https://www.gittip.com/bevry/'
 					'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
-					'/premium-support': '/support'
+					'/premium-support': '/support'  # needs to be re-added
 					'/docs/installnode': '/learn/node-install'
 					'/node/install': '/learn/node-install'
 					'/talks/handsonnode': 'http://node.eventbrite.com/'
