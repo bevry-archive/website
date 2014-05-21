@@ -320,6 +320,10 @@ docpadConfig = {
 			server.get /^\/learn(?:\/(.*))$/, (req,res) ->
 				res.redirect(codeRedirectPermanent, "http://learn.bevry.me/#{req.params[0] or ''}")
 
+			# Old Pages
+			server.get /^\/(services|projects|about)\/?$/, (req,res) ->
+				res.redirect(codeRedirectPermanent, "/##{req.params[0] or ''}")
+
 			# Projects
 			server.get /^\/(?:g|gh|github|project)(?:\/(.*))?$/, (req,res) ->
 				res.redirect(codeRedirectPermanent, "https://github.com/bevry/#{req.params[0] or ''}")
