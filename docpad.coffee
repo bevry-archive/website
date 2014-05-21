@@ -94,6 +94,16 @@ docpadConfig = {
 				<a href="http://www.solarsystemexpress.com/">Private Space/Open-Hardware Entrepreneur</a>. CoFounder of <a href="http://betabulls.com/">BetaBulls.</a><br/>
 				Sees technology as a force of nature for good.
 				"""
+		,
+			name: 'Eduardo Lávaque'
+			className: 'today future'
+			title: 'Eduardo Lávaque, King of the Documentation'
+			githubUsername: 'Greduan'
+			url: 'http://eduanlavaque.com'
+			avatar: '/images/eduan.jpg'
+			description: """
+				Hobby programmer and freelancer, a <a href="http://eduanlavaque.com">blogger</a>, an aspiring full stack developer and software engineer, a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate,
+				"""
 		]
 
 		friends: [
