@@ -171,6 +171,10 @@ layout: 'default'
 					});
 				</script>
 
+				<a href="#payment">
+					Donate via Bank Transfer
+				</a><br/>
+
 				<a href="http://amzn.com/w/2F8TXKSNAFG4V">
 					Buy items on our Amazon Wishlist
 				</a><br/>
@@ -186,6 +190,25 @@ layout: 'default'
 				<a href="mailto:us@bevry.me">Email</a><br/>
 			</p>
 		</section>
+
+		<aside class="payment modal" style="display:none">
+			<table>
+				<tbody>
+					<% for own heading,bank of @banks: %>
+						<tr style="background:#EEE">
+							<th colspan="2"><%= heading %></th>
+						</tr>
+						<% for own key,value of bank: %>
+							<tr>
+								<th width="30%"><%= key %></th>
+								<td width="70%"><%= value %></th>
+							</tr>
+						<% end %>
+					<% end %>
+				</tbody>
+			</table>
+		</aside>
+		<aside class="backdrop modal" style="display:none"></aside>
 
 	</article>
 </div>

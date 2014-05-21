@@ -52,6 +52,22 @@ docpadConfig = {
 
 			return members
 
+		banks:
+			"Transfers within Australia":
+				"Account Name":    "Bevry Pty Ltd"
+				"Account Number":  "10 253 342"
+				"BSB":             "062 245"
+				"BIC/Swift Code":  "CTBAAU2S"
+				"Branch Address":  "Commonwealth Bank, Tenancy C3006, Top Ryde Shopping Centre, Cnr Blaxland Rd & Devlin St, Ryde, NSW, Australia, 2112"
+
+			"International Transfers":
+				"Account Name":    "Benjamin Lupton"
+				"Account Number":  "431 033 190"
+				"BSB":             "242 200"
+				"BIC/Swift Code":  "CITIAU2X"
+				"Branch Address":  "Citibank, Citigroup Centre, 2 Park Street, Sydney, NSW, Australia, 2000"
+
+
 		leaders: [
 			name: 'Benjamin Lupton'
 			title: 'Benjamin Lupton, Founder'
@@ -69,6 +85,7 @@ docpadConfig = {
 				"""
 		,
 			name: 'Michael Duane Mooring'
+			className: 'today future'
 			title: 'Mike Mooring, Community Custodian'
 			githubUsername: 'mikeumus'
 			url: "http://mikeum.us"
@@ -308,7 +325,7 @@ docpadConfig = {
 			redirects =
 					'/donate': '/#donate'
 					'/interconnect': '/project/interconnect'
-					'/payment': '/about#payments'  # needs to be re-added
+					'/payment': '/about#payment'
 					'/goopen': 'https://github.com/bevry/goopen'
 					'/gittip': 'https://www.gittip.com/bevry/'
 					'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'

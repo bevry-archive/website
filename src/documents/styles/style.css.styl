@@ -18,6 +18,34 @@ body
 	text-rendering: optimizeLegibility
 	cursor: default
 
+// Modals
+aside.modal.payment
+	z-index: 500
+	position: fixed
+	width: 80%
+	left: 10%
+	padding: 2em
+	background: white
+	border: 1px solid colorTextDefault
+	display: none
+	overflow: auto
+
+	table
+		text-align: left
+
+aside.modal.backdrop
+	z-index: 499
+	position: fixed
+	width: 100%
+	top: 0
+	left: 0
+	padding: 0
+	margin: 0
+	background: white
+	cursor: pointer
+	display: none
+	opacity: 0.5
+
 /* Link to Documentation */
 a.documentation
 	position: fixed
