@@ -312,9 +312,10 @@ docpadConfig = {
 					'/goopen': 'https://github.com/bevry/goopen'
 					'/gittip': 'https://www.gittip.com/bevry/'
 					'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
-					'/premium-support': '/support'  # needs to be re-added
-					'/docs/installnode': '/learn/node-install'
-					'/node/install': '/learn/node-install'
+					'/premium-support': '/support'
+					'/support': '/learn/support'
+					'/docs/installnode': '/learn/node/install'
+					'/node/install': '/learn/node/install'
 					'/talks/handsonnode': 'http://node.eventbrite.com/'
 					'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
 			server.use (req,res,next) ->
