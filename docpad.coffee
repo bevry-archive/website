@@ -251,6 +251,8 @@ docpadConfig = {
 			# Extract the server from the options
 			{server} = opts
 			docpad = @docpad
+			request = require('request')
+			extendr = require('extendr')
 			codeSuccess = 200
 			codeBadRequest = 400
 			codeRedirectPermanent = 301

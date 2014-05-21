@@ -30,7 +30,9 @@
     "docpad-plugin-marked": "~2.2.1",
     "docpad-plugin-partials": "~2.9.1",
     "docpad-plugin-raw": "~2.3.2",
-    "docpad-plugin-stylus": "~2.6.0"
+    "docpad-plugin-stylus": "~2.6.0",
+    "extendr": "~2.1.0",
+    "request": "~2.27.0"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "~2.6.0"
