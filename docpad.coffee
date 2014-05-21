@@ -197,6 +197,14 @@ docpadConfig = {
 				bevry, bevryme, balupton, benjamin lupton, docpad, history.js, node.js, javascript, coffee-script, query-engine, open-source, open-collaboration, open-company, free-culture
 				"""
 
+			# Services
+			services:
+				#disqus: 'bevry'
+				#gauges: '5077ad8cf5a1f5067b000027'
+				googleAnalytics: 'UA-35505181-1'
+				reinvigorate: '52uel-236r9p108l'
+				#zopim: '0tni8T2G7P86SxDwmxCa4HCySsGPRESg'
+
 			# The website's styles
 			styles: [
 				'/vendor/normalize.css'
