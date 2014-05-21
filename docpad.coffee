@@ -293,7 +293,7 @@ docpadConfig = {
 				)
 
 			# Documentation Projects
-			server.get /^\/(docpad|node|queryengine|joe|taskgroup|community|bevry)(?:[\/\-](.*))$/, (req,res) ->
+			server.get /^\/(docpad|node|queryengine|joe|taskgroup|community|bevry)(?:[\/\-](.*))?$/, (req,res) ->
 				res.redirect(codeRedirectPermanent, "http://learn.bevry.me/#{req.params[0] or ''}/#{req.params[1] or ''}")
 
 			# Documentation
