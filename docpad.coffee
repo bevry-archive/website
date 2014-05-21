@@ -202,7 +202,7 @@ docpadConfig = {
 				#disqus: 'bevry'
 				#gauges: '5077ad8cf5a1f5067b000027'
 				googleAnalytics: 'UA-35505181-1'
-				reinvigorate: '52uel-236r9p108l'
+				reinvigorate: 'dy05w-88s5zok1o8'
 				#zopim: '0tni8T2G7P86SxDwmxCa4HCySsGPRESg'
 
 			# The website's styles
