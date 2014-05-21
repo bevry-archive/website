@@ -304,7 +304,7 @@ docpadConfig = {
 
 			# Common Redirects
 			redirects =
-					'/donate': 'http://refresh.bevry.me/#donate'
+					'/donate': '/#donate'
 					'/interconnect': '/project/interconnect'
 					'/payment': '/about#payments'
 					'/goopen': 'https://github.com/bevry/goopen'
