@@ -8,9 +8,9 @@ layout: 'default'
 	<header class="header">
 		<a href="/" class="logo"><img src="/images/bevry-2013-outlines.svg" /></a>
 		<nav class="years">
-			<a class="past-link" href="#past">2010</a>
-			<a class="today-link" href="#today">Today</a>
-			<a class="future-link" href="#future">2020</a>
+			<a title="Who we were in 2010" class="past-link" href="#past">2010</a>
+			<a title="Who we are now" class="today-link" href="#today">Today</a>
+			<a title="Where we'll be in 2020" class="future-link" href="#future">2020</a>
 		</nav>
 	</header>
 
