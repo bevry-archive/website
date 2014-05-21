@@ -1,30 +1,21 @@
 $window = $(window)
 $document = $(document)
 $body = $(document.body)
-$('nav.years a').click (event) ->
-	event.preventDefault()
-	switch @className
-		when 'past-link'
-			$body.removeClass('today future').addClass('past')
-
-		when 'today-link'
-			$body.removeClass('past future').addClass('today')
-
-		when 'future-link'
-			$body.removeClass('past today').addClass('future')
+$modalBackdrop = $('.modal.backdrop')
 
 # Modals
-hideModals = ->
+hideModals = (hash) ->
 	$('.modal').hide()
-	document.location.hash = ''
+	document.location.hash = ''  if hash
 
 $document.on 'keyup', (event) ->
-	hideModals()  if event.keyCode is 27  # escape
+	if $modalBackdrop.is(':visible') and event.keyCode is 27  # escape
+		hideModals(true)
 
-$body.on 'click', '.modal.backdrop', (event) ->
+$modalBackdrop.on 'click', (event) ->
 	event.stopImmediatePropagation()
 	event.preventDefault()
-	hideModals()
+	hideModals(true)
 
 showPaymentModel = ->
 	_gaq?.push(['_trackEvent', "Payment Modal", document.title, document.location.href, 0, true])
@@ -34,7 +25,7 @@ showPaymentModel = ->
 		height: 'auto'
 		opacity: 0
 	}).show()
-	$backdropModal = $('.modal.backdrop').css({
+	$modalBackdrop = $('.modal.backdrop').css({
 		height: window.innerHeight*2
 	})
 
@@ -45,14 +36,27 @@ showPaymentModel = ->
 			height: window.innerHeight-modalOffset.left*2
 		})
 
-	$backdropModal.show()
+	$modalBackdrop.show()
 	$modal.css({
 		opacity: 1
 	})
 
 $window.on 'hashchange', ->
-	if document.location.hash.indexOf('payment') isnt -1
+	hash = document.location.hash.replace('#', '')
+
+	switch hash
+		when 'past'
+			$body.removeClass('today future').addClass('past')
+
+		when 'today'
+			$body.removeClass('past future').addClass('today')
+
+		when 'future'
+			$body.removeClass('past today').addClass('future')
+
+	if hash is 'payment'
 		showPaymentModel()
 	else
 		hideModals()
+
 $window.trigger('hashchange')
