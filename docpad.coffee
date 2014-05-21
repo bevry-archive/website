@@ -91,13 +91,8 @@ docpadConfig = {
 			url: "http://mikeum.us"
 			avatar: '/images/mikeumus-tinted.jpg'
 			description: """
-				<span class="today future">
-					<a href="http://www.solarsystemexpress.com/">Private Space/Open-Hardware Entrepreneur</a>. CoFounder of <a href="http://betabulls.com/">BetaBulls.</a><br/>
-					Sees technology as a force of nature for good.
-				</span>
-				<span class="past">
-					MDM, Sol-X, Inkwhy and many other startups have been a part of Mike's path in open-technology that has led him here to the present with Bevry.
-				</span>
+				<a href="http://www.solarsystemexpress.com/">Private Space/Open-Hardware Entrepreneur</a>. CoFounder of <a href="http://betabulls.com/">BetaBulls.</a><br/>
+				Sees technology as a force of nature for good.
 				"""
 		]
 
