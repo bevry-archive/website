@@ -23,8 +23,9 @@
     "npm": "1.4"
   },
   "dependencies": {
-    "docpad": "~6.65.0",
+    "docpad": "~6.66.0",
     "docpad-plugin-cachr": "~2.2.2",
+    "docpad-plugin-cleanurls": "~2.7.0",
     "docpad-plugin-coffeescript": "~2.4.0",
     "docpad-plugin-eco": "~2.0.3",
     "docpad-plugin-feedr": "~2.7.0",
@@ -32,7 +33,7 @@
     "docpad-plugin-partials": "~2.9.1",
     "docpad-plugin-raw": "~2.3.2",
     "docpad-plugin-services": "~2.6.0",
-    "docpad-plugin-stylus": "~2.6.0",
+    "docpad-plugin-stylus": "~2.7.0",
     "extendr": "~2.1.0",
     "request": "~2.27.0"
   },

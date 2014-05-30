@@ -1,0 +1,38 @@
+<!-- ###
+layout: default
+### -->
+
+<aside class="links">
+	<% if @document.url isnt '/': %>
+		<a href="/">Home</a>
+	<% end %>
+	<a href="http://learn.bevry.me">Learning Centre</a>
+</aside>
+
+<div class="wrapper">
+	<header class="header">
+		<a href="/" class="logo"><img src="/images/bevry-2013-outlines.svg" /></a>
+		<% if @document.url is '/': %>
+			<nav class="years">
+				<a title="Who we were in 2010" class="past-link" href="#past">2010</a>
+				<a title="Who we are now" class="today-link" href="#today">Today</a>
+				<a title="Where we'll be in 2020" class="future-link" href="#future">2020</a>
+			</nav>
+		<% end %>
+	</header>
+
+	<article class="content">
+		<%- @content %>
+	</article>
+
+	<!--
+	<footer class="footer">
+		<a href="http://docpad.org" title="We use DocPad as our Content Management System">
+			Created with love and affection using <span class="link">DocPad</span>
+		</a>
+		&copy; <a href="http://bevry.me">Bevry Pty Ltd</a>. <a href="https://github.com/bevry/website">Some rights reserved.</a>
+	</footer>
+	-->
+</div>
+
+<aside class="backdrop modal" style="display:none"></aside>

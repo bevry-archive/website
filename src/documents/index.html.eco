@@ -1,188 +1,172 @@
-###
-layout: 'default'
-###
+<!-- ###
+layout: page
+url: '/'
+### -->
 
-<a class="documentation" href="http://learn.bevry.me">Learning Centre</a>
+<section id="about">
+	<h2>Are</h2>
+	<p class="past">
+		We’re a Sydney based Node.js, JavaScript and HTML5 <a href="http://www.opencompany.org/">open-company</a> focused on empowering developers.
+	</p>
+	<p class="today future">
+		We're an <a href="http://www.opencompany.org/">open-company</a> and community.<br/>
+		United by our shared value of open-collaboration.<br/>
+		Empowering everyone in this world to create the change they wish to see.<br/>
+	</p>
+</section>
 
-<div class="wrapper">
-	<header class="header">
-		<a href="/" class="logo"><img src="/images/bevry-2013-outlines.svg" /></a>
-		<nav class="years">
-			<a title="Who we were in 2010" class="past-link" href="#past">2010</a>
-			<a title="Who we are now" class="today-link" href="#today">Today</a>
-			<a title="Where we'll be in 2020" class="future-link" href="#future">2020</a>
-		</nav>
-	</header>
+<section id="culture">
+	<h2>Do</h2>
+	<p>
+		We share our innovations abundantly, making them accessible by all.<br/>
+		Remixed and reused, they reach their potential together at an exponential rate.<br/>
+		Birthing experiences of progress and joy wherever they may grow.<br/>
+	</p>
+</section>
 
-	<article class="content">
-		<section id="about">
-			<h2>Are</h2>
-			<p class="past">
-				We’re a Sydney based Node.js, JavaScript and HTML5 <a href="http://www.opencompany.org/">open-company</a> focused on empowering developers.
-			</p>
-			<p class="today future">
-				We're an <a href="http://www.opencompany.org/">open-company</a> and community.<br/>
-				United by our shared value of open-collaboration.<br/>
-				Empowering everyone in this world to create the change they wish to see.<br/>
-			</p>
-		</section>
+<section id="goal">
+	<h2>Goal</h2>
+	<p>
+		Enable us all to work on what we love, share it with the entire world, while living a great life!<br/>
+	</p>
+</section>
 
-		<section id="culture">
-			<h2>Do</h2>
-			<p>
-				We share our innovations abundantly, making them accessible by all.<br/>
-				Remixed and reused, they reach their potential together at an exponential rate.<br/>
-				Birthing experiences of progress and joy wherever they may grow.<br/>
-			</p>
-		</section>
+<section id="projects">
+	<h2>Did</h2>
+	<%- @partial('list', {items: @projects}) %>
+</section>
 
-		<section id="goal">
-			<h2>Goal</h2>
-			<p>
-				Enable us all to work on what we love, share it with the entire world, while living a great life!<br/>
-			</p>
-		</section>
+<section id="office" class="future">
+	<h2>Office</h2>
+	<div class="gallery">
+		<a href="http://www.fotopedia.com/items/flickr-5173590042"><img src="/images/office/flickr-5173590042-original.jpg" title="Chimney Beach Cove, East Shore, Lake Tahoe, NV by SteveD" /></a>
+		<a href="http://www.fotopedia.com/items/flickr-3247795658"><img src="/images/office/flickr-3247795658-original.jpg" title="Photo by André Solnik" /></a>
+		<a href="http://www.fotopedia.com/items/flickr-7448089582"><img src="/images/office/flickr-7448089582-original.jpg" title="Phra Nang Beach by Mark Fischer" /></a>
+		<a href="http://www.fotopedia.com/items/flickr-7448028946"><img src="/images/office/flickr-7448028946-original.jpg" title="Railay Beach at Sunrise by Mark Fischer"/></a>
+		<a href="http://www.fotopedia.com/items/flickr-3836586727"><img src="/images/office/flickr-3836586727-original.jpg" title="Palolem Beach, Goa, India by dms_303" /></a>
+		<a href="http://www.fotopedia.com/items/flickr-4197635593"><img src="/images/office/flickr-4197635593-original.jpg" title="El Portil. Beach. Sunset. Huelva. Andalusia. Spain by Tomás Fano"/></a>
+		<a href="http://www.fotopedia.com/items/flickr-7166443977"><img src="/images/office/flickr-7166443977-original.jpg" title="Phranang beach by WomEOS" /></a>
+		<!--<img src="/images/office/people.jpg" />-->
+	</div>
+	<p>
+		This is our office. It's a resort in the tropics. You're welcome anytime.<br/>
+		Join our morning standup to share and collaborate with each other.<br/>
+		Staying longer? Rent options are available.<br/>
+	</p>
+</section>
 
-		<section id="projects">
-			<h2>Did</h2>
-			<%- @partial('list', {items: @projects}) %>
-		</section>
+<section id="leadership">
+	<h2 class="today future">Leadership</h2>
+	<h2 class="past">Who</h2>
+	<%- @partial('list', {items: @leaders}) %>
+</section>
 
-		<section id="office" class="future">
-			<h2>Office</h2>
-			<div class="gallery">
-				<a href="http://www.fotopedia.com/items/flickr-5173590042"><img src="/images/office/flickr-5173590042-original.jpg" title="Chimney Beach Cove, East Shore, Lake Tahoe, NV by SteveD" /></a>
-				<a href="http://www.fotopedia.com/items/flickr-3247795658"><img src="/images/office/flickr-3247795658-original.jpg" title="Photo by André Solnik" /></a>
-				<a href="http://www.fotopedia.com/items/flickr-7448089582"><img src="/images/office/flickr-7448089582-original.jpg" title="Phra Nang Beach by Mark Fischer" /></a>
-				<a href="http://www.fotopedia.com/items/flickr-7448028946"><img src="/images/office/flickr-7448028946-original.jpg" title="Railay Beach at Sunrise by Mark Fischer"/></a>
-				<a href="http://www.fotopedia.com/items/flickr-3836586727"><img src="/images/office/flickr-3836586727-original.jpg" title="Palolem Beach, Goa, India by dms_303" /></a>
-				<a href="http://www.fotopedia.com/items/flickr-4197635593"><img src="/images/office/flickr-4197635593-original.jpg" title="El Portil. Beach. Sunset. Huelva. Andalusia. Spain by Tomás Fano"/></a>
-				<a href="http://www.fotopedia.com/items/flickr-7166443977"><img src="/images/office/flickr-7166443977-original.jpg" title="Phranang beach by WomEOS" /></a>
-				<!--<img src="/images/office/people.jpg" />-->
-			</div>
-			<p>
-				This is our office. It's a resort in the tropics. You're welcome anytime.<br/>
-				Join our morning standup to share and collaborate with each other.<br/>
-				Staying longer? Rent options are available.<br/>
-			</p>
-		</section>
+<section id="members" class="today future">
+	<h2>Members</h2>
+	<div class="facewall">
+		<% for member in @getGithubMembers(): %>
+			<a href="<%= member.url %>" title="<%= member.name %>">
+				<img class="avatar" src="<%= @cachr member.avatar %>" />
+			</a>
+		<% end %>
+	</div>
+</section>
 
-		<section id="leadership">
-			<h2 class="today future">Leadership</h2>
-			<h2 class="past">Who</h2>
-			<%- @partial('list', {items: @leaders}) %>
-		</section>
+<section id="friends">
+	<h2>Friends</h2>
+	<%- @partial('list', {items: @friends}) %>
+</section>
 
-		<section id="members" class="today future">
-			<h2>Members</h2>
-			<div class="facewall">
-				<% for member in @getGithubMembers(): %>
-					<a href="<%= member.url %>" title="<%= member.name %>">
-						<img class="avatar" src="<%= @cachr member.avatar %>" />
-					</a>
+<section id="community" class="today future">
+	<h2>Community</h2>
+	<p>
+		To accomplish our grand goals and vision of the world, we can't do it alone!<br/>
+		There's plenty to start on and we welcome all contributions regardless of skill or size!<br/>
+		To get started say hello on the <code>#bevry</code> or <code>#docpad</code> freenode IRC channels.
+	</p>
+</section>
+
+<section id="services">
+	<h2>Services</h2>
+	<p class="today future">
+		Prioritized development for our works available via <a href="https://docs.google.com/document/d/1Tsnx5aU0e4GZqPvkl-S2rucFYYbhZsVRNX9Zbwkfnzo/edit?usp=sharing">sponsorship</a>.<br/>
+		Training, speaking and interviews for free if permissively licensed.<br/>
+		<a href="http://bevry.me/support">Support.</a><br/>
+	</p>
+	<p class="past">
+		Consulting, support, advisory and training contracts available.<br/>
+		<a href="http://bevry.me/support">Support</a><br/>
+	</p>
+</section>
+
+<section id="donate">
+	<h2>Donations</h2>
+	<p>
+		We're an <a href="http://www.opencompany.org/">open-company</a> <span class="today future inline">and community</span> which gives away <span class="past inline">it's</span><span class="today future inline">our</span> intellectual property for free.<br/>
+		<span class="today future">
+			We rely on donations and sponsorship from individuals like yourself and companies like yours to support our families.<br/>
+		</span>
+		<span class="today">
+			We're currently earning $<%- @getDonationTotal() %>USD donations a week, <span class="<%- if @isDonationEnough() then 'yay' else 'uhoh' %>"><%- @getDonationGoalPercent() %>%</span> of our $<%- @getDonationGoal() %>USD/week requirement.<br/>
+		</span>
+		<span class="future">
+			We're currently earning $6000USD donations a week of our $4000USD/week target.<br/>
+		</span>
+		<span class="today future">
+			If everyone that uses our work gave $1/week, we would exceed our target.<br/>
+		</span>
+	</p>
+	<p>
+
+		<a href="https://www.gittip.com/bevry/">
+			<strong>Donate weekly via Gittip</strong>
+		</a><br/>
+		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
+			Donate via Paypal
+		</a><br/>
+		<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a">
+			Donate once via Bitcoin
+		</a></br>
+		<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
+			Donate monthly via Flattr
+		</a><br/>
+
+		<button id="stripe_payment_button" class="link">Donate once via Credit Card</button><br/>
+
+		<a href="#payment">
+			Donate via Bank Transfer
+		</a><br/>
+
+		<a href="http://amzn.com/w/2F8TXKSNAFG4V">
+			Buy items on our Amazon Wishlist
+		</a><br/>
+
+		Enquire below if your company can sponsor us
+	</p>
+</section>
+
+<section id="contact">
+	<h2>Contact</h2>
+	<p>
+		<a href="http://bevry.me/support">Support</a><br/>
+		<a href="mailto:us@bevry.me">Email</a><br/>
+	</p>
+</section>
+
+<aside class="payment modal" style="display:none">
+	<table>
+		<tbody>
+			<% for own heading,bank of @banks: %>
+				<tr style="background:#EEE">
+					<th colspan="2"><%= heading %></th>
+				</tr>
+				<% for own key,value of bank: %>
+					<tr>
+						<th width="30%"><%= key %></th>
+						<td width="70%"><%= value %></th>
+					</tr>
 				<% end %>
-			</div>
-		</section>
-
-		<section id="friends">
-			<h2>Friends</h2>
-			<%- @partial('list', {items: @friends}) %>
-		</section>
-
-		<section id="community" class="today future">
-			<h2>Community</h2>
-			<p>
-				To accomplish our grand goals and vision of the world, we can't do it alone!<br/>
-				There's plenty to start on and we welcome all contributions regardless of skill or size!<br/>
-				To get started say hello on the <code>#bevry</code> or <code>#docpad</code> freenode IRC channels.
-			</p>
-		</section>
-
-		<section id="services">
-			<h2>Services</h2>
-			<p class="today future">
-				Prioritized development for our works available via <a href="https://docs.google.com/document/d/1Tsnx5aU0e4GZqPvkl-S2rucFYYbhZsVRNX9Zbwkfnzo/edit?usp=sharing">sponsorship</a>.<br/>
-				Training, speaking and interviews for free if permissively licensed.<br/>
-				<a href="http://bevry.me/support">Support.</a><br/>
-			</p>
-			<p class="past">
-				Consulting, support, advisory and training contracts available.<br/>
-				<a href="http://bevry.me/support">Support</a><br/>
-			</p>
-		</section>
-
-		<section id="donate">
-			<h2>Donations</h2>
-			<p>
-				We're an <a href="http://www.opencompany.org/">open-company</a> <span class="today future inline">and community</span> which gives away <span class="past inline">it's</span><span class="today future inline">our</span> intellectual property for free.<br/>
-				<span class="today future">
-					We rely on donations and sponsorship from individuals like yourself and companies like yours to support our families.<br/>
-				</span>
-				<span class="today">
-					We're currently earning $<%- @getDonationTotal() %>USD donations a week, <span class="<%- if @isDonationEnough() then 'yay' else 'uhoh' %>"><%- @getDonationGoalPercent() %>%</span> of our $<%- @getDonationGoal() %>USD/week requirement.<br/>
-				</span>
-				<span class="future">
-					We're currently earning $6000USD donations a week of our $4000USD/week target.<br/>
-				</span>
-				<span class="today future">
-					If everyone that uses our work gave $1/week, we would exceed our target.<br/>
-				</span>
-			</p>
-			<p>
-
-				<a href="https://www.gittip.com/bevry/">
-					<strong>Donate weekly via Gittip</strong>
-				</a><br/>
-				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
-					Donate via Paypal
-				</a><br/>
-				<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a">
-					Donate once via Bitcoin
-				</a></br>
-				<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
-					Donate monthly via Flattr
-				</a><br/>
-
-				<button id="stripe_payment_button" class="link">Donate once via Credit Card</button><br/>
-
-				<a href="#payment">
-					Donate via Bank Transfer
-				</a><br/>
-
-				<a href="http://amzn.com/w/2F8TXKSNAFG4V">
-					Buy items on our Amazon Wishlist
-				</a><br/>
-
-				Enquire below if your company can sponsor us
-			</p>
-		</section>
-
-		<section id="contact">
-			<h2>Contact</h2>
-			<p>
-				<a href="http://bevry.me/support">Support</a><br/>
-				<a href="mailto:us@bevry.me">Email</a><br/>
-			</p>
-		</section>
-
-		<aside class="payment modal" style="display:none">
-			<table>
-				<tbody>
-					<% for own heading,bank of @banks: %>
-						<tr style="background:#EEE">
-							<th colspan="2"><%= heading %></th>
-						</tr>
-						<% for own key,value of bank: %>
-							<tr>
-								<th width="30%"><%= key %></th>
-								<td width="70%"><%= value %></th>
-							</tr>
-						<% end %>
-					<% end %>
-				</tbody>
-			</table>
-		</aside>
-		<aside class="backdrop modal" style="display:none"></aside>
-
-	</article>
-</div>
+			<% end %>
+		</tbody>
+	</table>
+</aside>
