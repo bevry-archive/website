@@ -66,6 +66,7 @@ $stripeButton = $('#stripe_payment_button')
 if stripeKey
 	stripeHandler = StripeCheckout.configure({
 		key: stripeKey
+		currency: 'AUD'
 	})
 	$stripeButton.click (e) ->
 		e.preventDefault()
