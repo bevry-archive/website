@@ -15,6 +15,8 @@ docpadConfig = {
 
 	templateData:
 
+		stripePublicKey: process.env.BEVRY_STRIPE_PUBLIC_KEY
+
 		getGittipTotal: ->
 			total = 0
 			for name in gittipNames
@@ -180,9 +182,6 @@ docpadConfig = {
 
 		# Specify some site properties
 		site:
-			# Payments
-			stripePublicKey: process.env.BEVRY_STRIPE_PUBLIC_KEY
-
 			# The production url of our website
 			url: "http://bevry.me"
 
