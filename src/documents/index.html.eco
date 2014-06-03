@@ -116,33 +116,44 @@ url: '/'
 			If everyone that uses our work gave $1/week, we would exceed our target.<br/>
 		</span>
 	</p>
-	<p>
-
-		<a href="https://www.gittip.com/bevry/">
-			<strong>Donate weekly via Gittip</strong>
-		</a><br/>
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
-			Donate via Paypal
-		</a><br/>
-		<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a">
-			Donate once via Bitcoin
-		</a></br>
-		<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
-			Donate monthly via Flattr
-		</a><br/>
-
-		<button id="stripe_payment_button" class="link">Donate once via Credit Card</button><br/>
-
-		<a href="#payment">
-			Donate via Bank Transfer
-		</a><br/>
-
-		<a href="http://amzn.com/w/2F8TXKSNAFG4V">
-			Buy items on our Amazon Wishlist
-		</a><br/>
-
-		Enquire below if your company can sponsor us
-	</p>
+	<ul class="payment-methods">
+		<li>
+			<a href="https://www.gittip.com/bevry/">
+				<strong>Donate weekly via Gittip</strong>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
+				Donate via Paypal
+			</a>
+		</li>
+		<li>
+			<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a">
+				Donate once via Bitcoin
+			</a>
+		</li>
+		<li>
+			<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
+				Donate monthly via Flattr
+			</a>
+		</li>
+		<li>
+			<button id="stripe_payment_button" class="link">Donate once via Credit Card</button>
+		</li>
+		<li>
+			<a href="#payment">
+				Donate via Bank Transfer
+			</a>
+		</li>
+		<li>
+			<a href="http://amzn.com/w/2F8TXKSNAFG4V">
+				Buy items on our Amazon Wishlist
+			</a>
+		</li>
+		<li>
+			Enquire below if your company can sponsor us
+		</li>
+	</ul>
 </section>
 
 <section id="contact">

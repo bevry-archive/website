@@ -180,6 +180,9 @@ docpadConfig = {
 
 		# Specify some site properties
 		site:
+			# Payments
+			stripePublicKey: process.env.BEVRY_STRIPE_PUBLIC_KEY
+
 			# The production url of our website
 			url: "http://bevry.me"
 

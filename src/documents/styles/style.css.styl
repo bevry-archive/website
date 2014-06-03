@@ -20,6 +20,9 @@ body
 	text-rendering: optimizeLegibility
 	cursor: default
 
+.hidden
+	display: none
+
 // Modals
 aside.modal.payment
 	z-index: 500
@@ -101,6 +104,11 @@ aside.links
 		max-width: 175px
 		max-height: 100px
 
+.payment-methods
+	&, li
+		list-style: none
+		margin: 0
+
 .gallery
 	border: 1px solid colorBorder
 	border-left: none
@@ -150,9 +158,6 @@ Typography
 
 a, .link
 	text-decoration: none
-	color: inherit
-
-p a, p .link
 	color: colorTextBlue
 
 a:not(.hover-link), .link
@@ -194,6 +199,8 @@ h3
 
 	h3
 		margin: 0
+		a
+			color: inherit
 		&:hover
 			text-decoration: underline
 
