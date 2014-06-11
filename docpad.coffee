@@ -97,11 +97,11 @@ docpadConfig = {
 				Sees technology as a force of nature for good.
 				"""
 		,
-			name: 'Eduardo Lávaque'
+			name: 'Eduán'
 			className: 'today future'
-			title: 'Eduardo Lávaque, King of the Documentation'
+			title: 'Eduán, King of the Documentation'
 			githubUsername: 'Greduan'
-			url: 'http://eduanlavaque.com'
+			url: 'http://greduan.com'
 			avatar: '/images/eduan.png'
 			description: """
 				Hobby programmer and freelancer, a <a href="http://eduanlavaque.com">blogger</a>, an aspiring full stack developer and software engineer, a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate.
