@@ -356,7 +356,6 @@ docpadConfig = {
 					'/node/install': '/learn/node/install'
 					'/talks/handsonnode': 'http://node.eventbrite.com/'
 					'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
-					'/taskgroup/api': 'http://rawgit.com/bevry/taskgroup/master/docs/index.html'
 			server.use (req,res,next) ->
 				target = redirects[req.url]
 				if target
