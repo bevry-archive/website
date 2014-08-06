@@ -104,7 +104,7 @@ docpadConfig = {
 			url: 'http://greduan.com'
 			avatar: '/images/eduan.png'
 			description: """
-				Hobby programmer and freelancer, a <a href="http://eduanlavaque.com">blogger</a>, an aspiring full stack developer and software engineer, a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate.
+				Hobby programmer and freelancer, a <a href="http://eduanlavaque.com">blogger</a>, <br/> an aspiring full stack developer and software engineer, and a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate.
 				"""
 		]
 
@@ -122,16 +122,6 @@ docpadConfig = {
 			className: 'today future'
 			url: 'http://meltmedia.com/'
 			# provided docpad branding
-		,
-			name: 'DocPort'
-			className: 'today future'
-			url: "http://docport.io/"
-			# project assistance
-		,
-			name: 'BetaBulls'
-			className: 'today future'
-			url: "http://betabulls.com/"
-			# ???
 		].sort (a,b) -> a.name - b.name
 
 		projects: [
