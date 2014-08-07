@@ -23,12 +23,12 @@
     "npm": "1.4"
   },
   "dependencies": {
-    "docpad": "~6.66.0",
-    "docpad-plugin-cachr": "~2.2.2",
+    "docpad": "~6.69.0",
+    "docpad-plugin-cachr": "~2.3.0",
     "docpad-plugin-cleanurls": "~2.7.0",
     "docpad-plugin-coffeescript": "~2.4.0",
     "docpad-plugin-eco": "~2.0.3",
-    "docpad-plugin-feedr": "~2.7.0",
+    "docpad-plugin-feedr": "~2.10.0",
     "docpad-plugin-marked": "~2.2.1",
     "docpad-plugin-partials": "~2.9.1",
     "docpad-plugin-raw": "~2.3.2",
