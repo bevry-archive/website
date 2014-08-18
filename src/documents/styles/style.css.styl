@@ -6,12 +6,17 @@ standalone: true
 Base
 =========================================== */
 
+colorBackground = white
 colorBackgroundBlue = #5badf0
 colorBorder = #eee
 colorTextDefault = #777
 colorTextBlue = #5694f1
 colorTextHeading = #222
 colorTextSubheading = #aaa
+fontWeightThin = 300
+fontWeightNormal = 400
+fontWeightBold = 500
+fontWeightHeavy = 600
 
 body
 	font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif
@@ -19,6 +24,18 @@ body
 	font-smoothing: antialiased
 	text-rendering: optimizeLegibility
 	cursor: default
+
+strong, th, thead
+	font-weight: fontWeightBold
+
+table
+	margin-top: -1.5em
+	tr.heading
+		border-top: 1.5em solid colorBackground
+		border-bottom: 0.5em solid colorBackground
+		th
+			background: #EEE
+			padding: 0.5em
 
 .hidden
 	display: none
@@ -30,7 +47,7 @@ aside.modal.payment
 	width: 80%
 	left: 10%
 	padding: 2em
-	background: white
+	background: colorBackground
 	border: 1px solid colorTextDefault
 	display: none
 	overflow: auto
@@ -46,7 +63,7 @@ aside.modal.backdrop
 	left: 0
 	padding: 0
 	margin: 0
-	background: white
+	background: colorBackground
 	cursor: pointer
 	display: none
 	opacity: 0.5
@@ -67,7 +84,7 @@ aside.links
 		color: colorTextSubheading
 
 		font-size: 0.8em
-		font-weight: 600
+		font-weight: fontWeightHeavy
 		line-height: 1.4
 
 		border-radius: 3px
@@ -161,7 +178,7 @@ a, .link
 	color: colorTextBlue
 
 a:not(.hover-link), .link
-	font-weight: 400
+	font-weight: fontWeightNormal
 	&:hover
 		color: colorTextBlue
 		text-decoration: underline
@@ -170,13 +187,13 @@ section
 	margin: 5em 0em 1em 0em
 
 h1, h2, h3, h4, h5, h6, h7
-	font-weight: 400
+	font-weight: fontWeightNormal
 	font-size: 1.25em
 	margin: 1em 0
 	color: colorTextHeading
 
 h2, h3, h4, h5, h6, h7
-	font-weight: 300
+	font-weight: fontWeightThin
 
 h3
 	color: colorTextSubheading
@@ -187,7 +204,7 @@ h3
 	width: 80px
 	border-radius: 50%
 	margin-bottom: 0.5em
-	border: 1px solid white
+	border: 1px solid colorBackground
 
 .item
 	display: block
@@ -237,7 +254,7 @@ body
 	&.future .future
 		display: block
 		transition: background 5s
-		background: white
+		background: colorBackground
 		&.inline
 			display: inline-block
 

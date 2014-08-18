@@ -33,7 +33,7 @@ showPaymentModel = ->
 	if $modal.height()+modalOffset.top*2 > window.innerHeight
 		$modal.css({
 			top: modalOffset.left
-			height: window.innerHeight-modalOffset.left*2
+			maxHeight: window.innerHeight-modalOffset.left*2
 		})
 
 	$modalBackdrop.show()
