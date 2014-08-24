@@ -31,7 +31,7 @@ docpadConfig = {
 
 		getDonationGoalPercent: (goal) ->
 			goal ?= @getDonationGoal()
-			return ((@getDonationTotal()/goal)*100).toFixed(2)
+			return (@getDonationTotal()/goal) * 100
 
 		isDonationEnough: ->
 			return @getDonationGoalPercent() >= 100
