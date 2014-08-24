@@ -108,7 +108,7 @@ url: '/'
 			We rely on donations and sponsorship from individuals like yourself and companies like yours to support our families.<br/>
 		</span>
 		<span class="today">
-			We're currently earning $<%- @getDonationTotal() %>USD donations a week, <span class="<%- if @isDonationEnough() then 'yay' else 'uhoh' %>"><%- @getDonationGoalPercent() %>%</span> of our $<%- @getDonationGoal() %>USD/week requirement.<br/>
+			We're currently earning $<%- @getDonationTotal().toFixed(2) %>USD donations a week, <span class="<%- if @isDonationEnough() then 'yay' else 'uhoh' %>"><%- @getDonationGoalPercent().toFixed(2) %>%</span> of our $<%- @getDonationGoal() %>USD/week requirement.<br/>
 		</span>
 		<span class="future">
 			We're currently earning $6000USD donations a week of our $4000USD/week target.<br/>
