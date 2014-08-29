@@ -336,7 +336,7 @@ docpadConfig = {
 					'/terms': '/tos'
 					'/donate': '/#donate'
 					'/interconnect': '/project/interconnect'
-					'/payment': '/about#payment'
+					'/payment': '/#payment'
 					'/goopen': 'https://github.com/bevry/goopen'
 					'/gittip': 'https://www.gittip.com/bevry/'
 					'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
