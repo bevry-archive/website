@@ -141,7 +141,7 @@ docpadConfig = {
 		,
 			name: 'Startup Hostel Network'
 			className: 'today future'
-			url: 'http://startuphostel.net'
+			url: 'http://startuphostel.org'
 			description: """
 				Co-work and co-live while you travel the world<br/>
 				176 travellers
