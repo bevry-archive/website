@@ -93,7 +93,7 @@ docpadConfig = {
 			url: "http://mikeum.us"
 			avatar: '/images/mikeumus-tinted.jpg'
 			description: """
-				<a href="http://www.solarsystemexpress.com/">Private Space/Open-Hardware Entrepreneur</a>. CoFounder of <a href="http://betabulls.com/">BetaBulls.</a><br/>
+				<a href="http://www.solarsystemexpress.com/">Private Space/Open-Hardware Entrepreneur</a>. CTO at <a href="http://rentalgeek.com/">RentalGeek.com</a><br/>
 				Sees technology as a force of nature for good.
 				"""
 		,
