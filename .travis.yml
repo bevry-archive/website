@@ -1,0 +1,20 @@
+language: node_js
+# ensure npm is the latest version (ignore node versions that can't run it)
+install: "npm install -g npm && npm install"
+before_script: "npm run-script info"
+script: "npm test"
+env:
+  - NODE_ENV="production"
+node_js:
+  - "0.10"
+  - "0.12"
+  - iojs
+cache:
+  directories:
+    - node_modules
+notifications:
+  irc:
+    - "irc.freenode.org#bevry-dev"
+  email:
+    recipients:
+      - travisci@bevry.me
