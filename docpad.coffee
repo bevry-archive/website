@@ -133,7 +133,7 @@ docpadConfig = {
 				"""
 		,
 			name: 'History.js'
-			url: 'http://historyjs.net'
+			url: 'https://github.com/browserstate'
 			description: """
 				Create Stateful Web-Applications<br/>
 				Used in <a href="http://basecamp.com" title="Visit Basecamp's Website">Basecamp</a>
@@ -164,7 +164,7 @@ docpadConfig = {
 		,
 			name: 'Web Write'
 			className: 'today future'
-			url: 'http://github.com/webwrite'
+			url: 'https://github.com/webwrite'
 			description: """
 				Admin Interfaces for any backend
 				"""

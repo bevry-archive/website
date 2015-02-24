@@ -23,7 +23,7 @@
     "npm": "1.4"
   },
   "dependencies": {
-    "docpad": "~6.73.4",
+    "docpad": "~6.73.5",
     "docpad-plugin-cachr": "~2.3.0",
     "docpad-plugin-cleanurls": "~2.7.0",
     "docpad-plugin-coffeescript": "~2.4.0",
@@ -34,8 +34,8 @@
     "docpad-plugin-raw": "~2.3.2",
     "docpad-plugin-services": "~2.6.0",
     "docpad-plugin-stylus": "~2.9.0",
-    "extendr": "~2.1.0",
-    "request": "~2.27.0"
+    "extendr": "^2.1.0",
+    "request": "^2.53.0"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "~2.6.0"
