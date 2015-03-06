@@ -99,12 +99,12 @@ docpadConfig = {
 		,
 			name: 'Eduán'
 			className: 'today future'
-			title: 'Eduán, King of the Documentation'
+			title: 'Eduán, Documentation Man'
 			githubUsername: 'Greduan'
 			url: 'http://greduan.com'
 			avatar: '/images/eduan.png'
 			description: """
-				Hobby programmer and freelancer, a <a href="http://eduanlavaque.com">blogger</a>, <br/> an aspiring full stack developer and software engineer, and a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate.
+				Hobby programmer and freelancer, a <a href="http://blog.greduan.com">blogger</a>, <br/> an aspiring full stack developer and software engineer, and a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate.
 				"""
 		]
 
