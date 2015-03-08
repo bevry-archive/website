@@ -93,18 +93,18 @@ docpadConfig = {
 			url: "http://mikeum.us"
 			avatar: '/images/mikeumus-tinted.jpg'
 			description: """
-				<a href="http://www.solarsystemexpress.com/">Private Space/Open-Hardware Entrepreneur</a>. CoFounder of <a href="http://betabulls.com/">BetaBulls.</a><br/>
+				<a href="http://www.solarsystemexpress.com/">Private Space/Open-Hardware Entrepreneur</a>. CTO at <a href="http://rentalgeek.com/">RentalGeek.com</a><br/>
 				Sees technology as a force of nature for good.
 				"""
 		,
 			name: 'Eduán'
 			className: 'today future'
-			title: 'Eduán, King of the Documentation'
+			title: 'Eduán, Documentation Man'
 			githubUsername: 'Greduan'
 			url: 'http://greduan.com'
 			avatar: '/images/eduan.png'
 			description: """
-				Hobby programmer and freelancer, a <a href="http://eduanlavaque.com">blogger</a>, <br/> an aspiring full stack developer and software engineer, and a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate.
+				Hobby programmer and freelancer, a <a href="http://blog.greduan.com">blogger</a>, <br/> an aspiring full stack developer and software engineer, and a <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a> advocate.
 				"""
 		]
 
@@ -141,7 +141,7 @@ docpadConfig = {
 		,
 			name: 'Startup Hostel Network'
 			className: 'today future'
-			url: 'http://startuphostel.net'
+			url: 'http://startuphostel.org'
 			description: """
 				Co-work and co-live while you travel the world<br/>
 				176 travellers
