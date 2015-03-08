@@ -119,22 +119,22 @@ url: '/'
 	</p>
 	<ul class="payment-methods">
 		<li>
-			<a href="https://www.gittip.com/bevry/">
-				<strong>Donate weekly via Gittip</strong>
+			<a href="/gratipay">
+				<strong>Donate weekly via Gratipay</strong>
 			</a>
 		</li>
 		<li>
-			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6">
+			<a href="/paypal">
 				Donate via Paypal
 			</a>
 		</li>
 		<li>
-			<a href="https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010">
+			<a href="/bitcoin">
 				Donate once via Bitcoin
 			</a>
 		</li>
 		<li>
-			<a href="http://flattr.com/thing/344188/balupton-on-Flattr">
+			<a href="/flattr">
 				Donate monthly via Flattr
 			</a>
 		</li>
@@ -147,7 +147,7 @@ url: '/'
 			</a>
 		</li>
 		<li>
-			<a href="http://amzn.com/w/2F8TXKSNAFG4V">
+			<a href="/wishlist">
 				Buy items on our Amazon Wishlist
 			</a>
 		</li>
