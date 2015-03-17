@@ -249,6 +249,9 @@ body
 	.past, .today, .future
 		display: none
 
+	[id]
+		transition: background 5s
+
 	&.today .today
 	&.past .past
 	&.future .future
@@ -261,6 +264,7 @@ body
 	/*&.today .today:not(.past):not(.future)*/
 	&.past .past:not(.today):not(.future)
 	&.future .future:not(.past):not(.today)
+	:target
 		background: rgba(0, 0, 0, 0.005)
 		border: 2px yellow dashed
 

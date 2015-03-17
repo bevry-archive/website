@@ -333,6 +333,7 @@ docpadConfig = {
 
 			# Common Redirects
 			redirects =
+					'/contact': '/#contact'
 					'/terms': '/tos'
 					'/donate': '/#donate'
 					'/interconnect': '/project/interconnect'
