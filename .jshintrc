@@ -26,7 +26,7 @@
   "maxstatements": false,  // no
   "maxcomplexity": false,  // no
   "maxlen": false,  // no
-
+  
   // relaxing options
   "asi": true,  // we use asi
   "boss": true,  // we understand assignments
@@ -53,11 +53,11 @@
   "sub": false,
   "supernew": false,
   "noyield": false,
-
+  
   // environments
   "browser": true,
   "node": true,
-
+  
   // legacy
   "onevar": false
 }
