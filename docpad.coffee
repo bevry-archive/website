@@ -55,6 +55,7 @@ docpadConfig = {
 			return members
 
 		banks:
+			###
 			"Transfers within Australia":
 				"Account Name":    "Bevry Pty Ltd"
 				"Account Number":  "10 253 342"
@@ -63,6 +64,8 @@ docpadConfig = {
 				"Branch Address":  "Commonwealth Bank, Tenancy C3006, Top Ryde Shopping Centre, Cnr Blaxland Rd & Devlin St, Ryde, NSW, Australia, 2112"
 
 			"International Transfers":
+			###
+			"All Transfers (Within Australia and outside Australia)":
 				"Account Name":    "Benjamin Lupton"
 				"Account Number":  "431 033 190"
 				"BSB":             "242 200"
