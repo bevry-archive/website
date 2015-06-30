@@ -1,4 +1,4 @@
-gittipNames = 'balupton bevry docpad interconnect startuphostel history.js'.split(' ')
+gratipayNames = 'bevry'.split(' ')
 githubNames = 'bevry docpad browserstate webwrite interconnectapp'.split(' ')
 
 # The DocPad Configuration File
@@ -17,14 +17,14 @@ docpadConfig = {
 
 		stripePublicKey: process.env.BEVRY_STRIPE_PUBLIC_KEY
 
-		getGittipTotal: ->
+		getGratipayTotal: ->
 			total = 0
-			for name in gittipNames
-				total += parseFloat(@feedr.feeds['gittip_'+name].receiving, 10)
+			for name in gratipayNames
+				total += parseFloat(@feedr.feeds['gratipay_'+name].receiving, 10)
 			return total
 
 		getDonationTotal: ->
-			return @getGittipTotal()
+			return @getGratipayTotal()
 
 		getDonationGoal: ->
 			return 2000
@@ -55,19 +55,9 @@ docpadConfig = {
 			return members
 
 		banks:
-			###
-			"Transfers within Australia":
-				"Account Name":    "Bevry Pty Ltd"
-				"Account Number":  "10 253 342"
-				"BSB":             "062 245"
-				"BIC/Swift Code":  "CTBAAU2S"
-				"Branch Address":  "Commonwealth Bank, Tenancy C3006, Top Ryde Shopping Centre, Cnr Blaxland Rd & Devlin St, Ryde, NSW, Australia, 2112"
-
-			"International Transfers":
-			###
 			"All Transfers (Within Australia and outside Australia)":
 				"Account Name":    "Benjamin Lupton"
-				"Account Number":  "431 033 190"
+				"Account Number":  "473 167 138"
 				"BSB":             "242 200"
 				"BIC/Swift Code":  "CITIAU2X"
 				"Branch Address":  "Citibank, Citigroup Centre, 2 Park Street, Sydney, NSW, Australia, 2000"
@@ -113,13 +103,18 @@ docpadConfig = {
 
 		friends: [
 			name: 'Myplanet'
-			className: 'today future'
+			className: 'today'
 			url: "http://myplanet.io"
 			# sponsorship
 		,
 			name: 'Meeho!'
 			url: "http://meeho.net/"
 			# advisory
+		,
+			name: 'Hybris'
+			className: 'today'
+			url: "http://hybris.com"
+			# sponsorship
 		,
 			name: 'Meltmedia'
 			className: 'today future'
@@ -256,8 +251,8 @@ docpadConfig = {
 			feeds:
 				(->
 					result = {}
-					for name in gittipNames
-						result['gittip_'+name] = {url:"https://www.gittip.com/#{name}/public.json", parse:'json'}
+					for name in gratipayNames
+						result['gratipay_'+name] = {url:"https://www.gratipay.com/#{name}/public.json", parse:'json'}
 					for name in githubNames
 						result['github_members_'+name] = {url:"https://api.github.com/orgs/#{name}/public_members", parse:'json'}
 					result
