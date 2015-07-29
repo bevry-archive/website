@@ -266,7 +266,7 @@ docpadConfig = {
 
 			advancedRedirects: [
 				# Old URLs
-				[/^https?:\/\/(refresh\.bevry\.me|herokuapp\.com|bevry\.github\.io\/website)(.*)$/, 'https://bevry.me$1']
+				[/^https?:\/\/(?:refresh\.bevry\.me|herokuapp\.com|bevry\.github\.io\/website)(.*)$/, 'https://bevry.me$1']
 
 				# Documentation Projects
 				[/^\/(docpad|node|queryengine|joe|taskgroup|community|bevry)(?:[\/\-](.*))?$/, 'http://learn.bevry.me/$1/$2']
