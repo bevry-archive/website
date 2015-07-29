@@ -47,7 +47,7 @@
   "dependencies": {
     "docpad": "~6.78.1",
     "docpad-plugin-cachr": "~2.3.1",
-    "docpad-plugin-cleanurls": "~2.7.0",
+    "docpad-plugin-cleanurls": "~2.8.0",
     "docpad-plugin-coffeescript": "~2.5.0",
     "docpad-plugin-eco": "~2.1.0",
     "docpad-plugin-feedr": "~2.11.0",
