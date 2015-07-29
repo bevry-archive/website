@@ -163,12 +163,6 @@ docpadConfig = {
 			# The production url of our website
 			url: "http://bevry.me"
 
-			# Here are some old site urls that you would like to redirect from
-			oldUrls: [
-				'refresh.bevry.me',
-				'bevry-refresh.herokuapp.com'
-			]
-
 			# The default title of our website
 			title: "Bevry"
 
@@ -187,7 +181,7 @@ docpadConfig = {
 				#disqus: 'bevry'
 				#gauges: '5077ad8cf5a1f5067b000027'
 				googleAnalytics: 'UA-35505181-1'
-				reinvigorate: 'dy05w-88s5zok1o8'
+				#reinvigorate: 'dy05w-88s5zok1o8'
 				#zopim: '0tni8T2G7P86SxDwmxCa4HCySsGPRESg'
 
 			# The website's styles
@@ -248,103 +242,44 @@ docpadConfig = {
 					result
 				)()
 
+		cleanurls:
 
-	# =================================
-	# DocPad Events
+			simpleRedirects:
+				'/contact': '/#contact'
+				'/terms': '/tos'
+				'/donate': '/#donate'
+				'/interconnect': '/project/interconnect'
+				'/payment': '/#payment'
+				'/goopen': 'https://github.com/bevry/goopen'
+				'/bitcoin': 'https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010'
+				'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6'
+				'/wishlist': 'http://amzn.com/w/2F8TXKSNAFG4V'
+				'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
+				'/gratipay': 'https://www.gratipay.com/bevry/'
+				'/gittip': '/gratipay'
+				'/premium-support': '/support'
+				'/support': '/learn/support'
+				'/docs/installnode': '/learn/node/install'
+				'/node/install': '/learn/node/install'
+				'/talks/handsonnode': 'http://node.eventbrite.com/'
+				'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
 
-	# Here we can define handlers for events that DocPad fires
-	# You can find a full listing of events on the DocPad Wiki
-	events:
+			advancedRedirects: [
+				# Old URLs
+				[/^https?:\/\/(refresh\.bevry\.me|herokuapp\.com|bevry\.github\.io\/website)(.*)^/, 'https://bevry.me$1']
 
-		# Server Extend
-		# Used to add our own custom routes to the server before the docpad routes are added
-		serverExtend: (opts) ->
-			# Extract the server from the options
-			{server} = opts
-			docpad = @docpad
-			request = require('request')
-			extendr = require('extendr')
-			codeSuccess = 200
-			codeBadRequest = 400
-			codeRedirectPermanent = 301
-			codeRedirectTemporary = 302
+				# Documentation Projects
+				[/^\/(docpad|node|queryengine|joe|taskgroup|community|bevry)(?:[\/\-](.*))?$/, 'http://learn.bevry.me/$1/$2']
 
-			# As we are now running in an event,
-			# ensure we are using the latest copy of the docpad configuraiton
-			# and fetch our urls from it
-			latestConfig = docpad.getConfig()
-			oldUrls = latestConfig.templateData.site.oldUrls or []
-			newUrl = latestConfig.templateData.site.url
+				# Documentation
+				[/^\/learn(?:\/(.*))$/, 'http://learn.bevry.me/$1']
 
-			# Redirect any requests accessing one of our sites oldUrls to the new site url
-			server.use (req,res,next) ->
-				if req.headers.host in oldUrls
-					res.redirect(codeRedirectPermanent, newUrl+req.url)
-				else
-					next()
+				# Old Pages
+				[/^\/(services|projects|about)\/?$/, '/#$1']
 
-			# Pushover
-			server.all '/pushover', (req,res) ->
-				return res.send(codeSuccess)  if 'development' in docpad.getEnvironments()
-				request(
-					{
-						url: "https://api.pushover.net/1/messages.json"
-						method: "POST"
-						form: extendr.extend(
-							{
-								token: process.env.BEVRY_PUSHOVER_TOKEN
-								user: process.env.BEVRY_PUSHOVER_USER_KEY
-								message: req.query
-							}
-							req.query
-						)
-					}
-					(_req,_res,body) ->
-						res.send(body)
-				)
-
-			# Documentation Projects
-			server.get /^\/(docpad|node|queryengine|joe|taskgroup|community|bevry)(?:[\/\-](.*))?$/, (req,res) ->
-				res.redirect(codeRedirectPermanent, "http://learn.bevry.me/#{req.params[0] or ''}/#{req.params[1] or ''}")
-
-			# Documentation
-			server.get /^\/learn(?:\/(.*))$/, (req,res) ->
-				res.redirect(codeRedirectPermanent, "http://learn.bevry.me/#{req.params[0] or ''}")
-
-			# Old Pages
-			server.get /^\/(services|projects|about)\/?$/, (req,res) ->
-				res.redirect(codeRedirectPermanent, "/##{req.params[0] or ''}")
-
-			# Projects
-			server.get /^\/(?:g|gh|github|project)(?:\/(.*))?$/, (req,res) ->
-				res.redirect(codeRedirectPermanent, "https://github.com/bevry/#{req.params[0] or ''}")
-
-			# Common Redirects
-			redirects =
-					'/contact': '/#contact'
-					'/terms': '/tos'
-					'/donate': '/#donate'
-					'/interconnect': '/project/interconnect'
-					'/payment': '/#payment'
-					'/goopen': 'https://github.com/bevry/goopen'
-					'/bitcoin': 'https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010'
-					'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6'
-					'/wishlist': 'http://amzn.com/w/2F8TXKSNAFG4V'
-					'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
-					'/gratipay': 'https://www.gratipay.com/bevry/'
-					'/gittip': '/gratipay'
-					'/premium-support': '/support'
-					'/support': '/learn/support'
-					'/docs/installnode': '/learn/node/install'
-					'/node/install': '/learn/node/install'
-					'/talks/handsonnode': 'http://node.eventbrite.com/'
-					'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
-			server.use (req,res,next) ->
-				target = redirects[req.url]
-				if target
-					res.redirect(codeRedirectPermanent, target)
-				else
-					next()
+				# Projects
+				[/^\/(?:g|gh|github|project)(?:\/(.*))?$/, 'https://github.com/bevry/$1']
+			]
 
 }
 
