@@ -1,3 +1,7 @@
+# Prepare
+githubClientId = process.env.BEVRY_GITHUB_CLIENT_ID
+githubClientSecret = process.env.BEVRY_GITHUB_CLIENT_SECRET
+githubAuthString = "client_id=#{githubClientId}&client_secret=#{githubClientSecret}"
 gratipayNames = 'bevry'.split(' ')
 githubNames = 'bevry docpad browserstate webwrite interconnectapp'.split(' ')
 
@@ -235,7 +239,7 @@ docpadConfig = {
 					for name in gratipayNames
 						result['gratipay_'+name] = {url:"https://www.gratipay.com/#{name}/public.json", parse:'json'}
 					for name in githubNames
-						result['github_members_'+name] = {url:"https://api.github.com/orgs/#{name}/public_members", parse:'json'}
+						result['github_members_'+name] = {url:"https://api.github.com/orgs/#{name}/public_members?#{githubAuthString}", parse:'json'}
 					result
 				)()
 
