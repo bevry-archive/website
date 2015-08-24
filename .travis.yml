@@ -1,15 +1,59 @@
-# March 17, 2015
+# August 21, 2015
 # https://docpad.org/docs/deploy
+
+# Use the latest travis infrastructure
+sudo: false
+
+# Run travis only on the master branch
+branches:
+  only:
+    - master
+
+# We use node
 language: node_js
-script: "npm test"
 node_js:
-  - "0.12"
+  - iojs
 cache:
   directories:
     - node_modules
+
+# Prepare and run our tests
+script: "npm test"
+
+# Custom Notifications
+# travis encrypt --org "$TRAVIS_NOTIFICATION_EMAIL" --add notifications.email.recipients
+# travis encrypt --org "$SLACK_SUBDOMAIN:$SLACK_TRAVIS_TOKEN#updates" --add notifications.slack
 notifications:
-  irc:
-    - "irc.freenode.org#bevry-dev"
   email:
     recipients:
-      - travisci@bevry.me
+      secure: Sb7rPIkJX+yoTiijDXBu63uXX/y+wFDv39V1KfWwcPVIlEnIfDgEqlhhl0LW5BFrdVOwJhj+UR0cF0qIR5CWZYLy8kKgJcRIvPpTVDXiz1Yl4YJ22wnbQgmvJOOaFRHsAa8wLBs3fzppsaIxhXa6RPRUeqOOxIhs0Sfne50uChs=
+  slack:
+    secure: PJhq6ckzHamAPNXe4Df2OQeOM+rZExcog196yG8H3hJNi3bn1PKhgeuEO0omYh+qOd/T3fLGUXxTNeUBIHRm3PCmxZfYMebqcZ44s9699IGogxkX8bPHvsMln6AdQntJfwukiwg349C56+sgVD/zT1L9wIAi0MC3+qDO0yAYQuk=
+
+# Deployment
+after_success: >
+  if ([ ! -z "$DEPLOY_TOKEN" ] &&
+      [ "$TRAVIS_BRANCH" == "$DEPLOY_BRANCH" ] &&
+      [ -z "$TRAVIS_TAG" ] &&
+      [ "$TRAVIS_PULL_REQUEST" == "false" ]); then
+    echo "Deploying";
+    git config --global user.email "$DEPLOY_EMAIL";
+    git config --global user.name "$DEPLOY_NAME";
+    git remote rm origin;
+    git remote add origin "https://$DEPLOY_USER:$DEPLOY_TOKEN@github.com/$TRAVIS_REPO_SLUG.git";
+    npm run-script deploy;
+    echo "Deployed";
+  else
+    echo "Skipped deploy"
+  fi
+
+# Custom Configuration
+# travis encrypt --org "DEPLOY_USER=$GITHUB_USERNAME" --add env.global
+# travis encrypt --org "DEPLOY_TOKEN=$GITHUB_TRAVIS_TOKEN" --add env.global
+env:
+  global:
+    - DEPLOY_BRANCH='master'  # this is the branch name that you want tested and deployed, set correctly
+    - DEPLOY_NAME='Travis CI Deployer'  # this is the name that is used for the deployment commit, set to whatever
+    - DEPLOY_EMAIL='deployer@travis-ci.org'  # this is the email that is used for the deployment commit, set to whatever
+    - secure: UFHk6K88JVvN3NJTv/Ss5yTLxtwxEcF0EU8cB0FFQjwTG5XjFZAsr33iPDCf1oudd27NUIFSaV/K+wHRDA1U1gjLm7N9MLAoKLn00ALL/qXEe5Z5v1e7aB8UAQP8/5uHMerPpes1Fh4+ON/kc0R0WqzK2Rxr5kHxnjqizJoCbF0=
+    - secure: c//Fj+XQxOAkeMHl2lQbMC28wMK8w9dR5rHa+V1OUy7tSU9+TePvSMj1rUjPmf84oZbW5z13/7gkHbTGpiNnZhyNqFK0UdEe7UYYyRnYIXvfyiFQnzFchBLVqHQKK24OTQoOlNYR5Jb1Ns/oaxzDQXBdFIe15IU3pa175YO+GhE=
