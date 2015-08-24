@@ -55,5 +55,5 @@ env:
     - DEPLOY_BRANCH='master'  # this is the branch name that you want tested and deployed, set correctly
     - DEPLOY_NAME='Travis CI Deployer'  # this is the name that is used for the deployment commit, set to whatever
     - DEPLOY_EMAIL='deployer@travis-ci.org'  # this is the email that is used for the deployment commit, set to whatever
-    - secure: UFHk6K88JVvN3NJTv/Ss5yTLxtwxEcF0EU8cB0FFQjwTG5XjFZAsr33iPDCf1oudd27NUIFSaV/K+wHRDA1U1gjLm7N9MLAoKLn00ALL/qXEe5Z5v1e7aB8UAQP8/5uHMerPpes1Fh4+ON/kc0R0WqzK2Rxr5kHxnjqizJoCbF0=
-    - secure: c//Fj+XQxOAkeMHl2lQbMC28wMK8w9dR5rHa+V1OUy7tSU9+TePvSMj1rUjPmf84oZbW5z13/7gkHbTGpiNnZhyNqFK0UdEe7UYYyRnYIXvfyiFQnzFchBLVqHQKK24OTQoOlNYR5Jb1Ns/oaxzDQXBdFIe15IU3pa175YO+GhE=
+    - secure: UtujwEOckPjTaBX2PcZztFQv5thnCheG4DubLypWpArr9ldMAkaGoBP1d9B3Te+hB1WjUy3AFh3A731e5is+KzRXJlFRhP/nacXW8MLTIQkUoKgDFyjLaq8R/t3KefArXqMQ3S27KXem8cSbw74hauKLkYb5hld6dWydOY5lfB8=
+    - secure: EP2W35Sro9fvtwrBb91ATu8PvZ7orn2e1/iKj9SkHM+/nxzVty0DrXuH2CREG72NulVDH7EoXsk32nUFzZEu5m12UNEbBjr++GLm+NGv7Of+2GdzRJWkk33j/0+Oa9auocFZZGG7olWjEupdLnlnir2Oecgy/p6OZR1lWZc7bEA=
