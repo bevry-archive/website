@@ -141,14 +141,21 @@ docpadConfig = {
 				224 static site generators
 				"""
 		,
-			name: 'InterConnect'
+			name: 'Chainy (beta)'
 			className: 'today future'
-			url: 'http://bevry.github.io/interconnect/'
+			url: 'https://github.com/chainyjs'
+			description: """
+				Chainable data pipeline for JavaScript
+				"""
+		,
+			name: 'InterConnect (alpha)'
+			className: 'today future'
+			url: 'https://github.com/interconnect'
 			description: """
 				Connect with anyone in the world
 				"""
 		,
-			name: 'Web Write'
+			name: 'Web Write (alpha)'
 			className: 'today future'
 			url: 'https://github.com/webwrite'
 			description: """
@@ -246,7 +253,6 @@ docpadConfig = {
 				'/contact': '/#contact'
 				'/terms': '/tos'
 				'/donate': '/#donate'
-				'/interconnect': 'https://github.com/interconnect'
 
 				# Payment
 				'/payment': '/#payment'
