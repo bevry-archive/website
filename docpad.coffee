@@ -247,7 +247,7 @@ docpadConfig = {
 				'/terms': '/tos'
 				'/donate': '/#donate'
 				'/interconnect': 'https://github.com/interconnect'
-				
+
 				# Payment
 				'/payment': '/#payment'
 				'/goopen': 'https://github.com/bevry/goopen'
@@ -258,15 +258,17 @@ docpadConfig = {
 				'/patreon': 'https://www.patreon.com/bevry'
 				'/gratipay': 'https://www.gratipay.com/bevry'
 				'/gittip': '/gratipay'
-				
+
 				# Support
+				'/slack': 'https://slack.bevry.me'
+				'/forum': 'https://discuss.bevry.me'
 				'/support': 'https://discuss.bevry.me/t/getting-support-guide/63/1'
 				'/premium-support': '/support'
-				
+
 				# Documentation
 				'/node/install': 'https://learn.bevry.me/node/install'
 				'/docs/installnode': '/node/install'
-				
+
 				# Training Resources
 				'/talks/handsonnode': 'http://node.eventbrite.com/'
 				'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
