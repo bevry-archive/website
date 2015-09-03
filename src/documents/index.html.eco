@@ -89,14 +89,10 @@ url: '/'
 
 <section id="services">
 	<h2>Services</h2>
-	<p class="today future">
-		Prioritized development for our works available via <a href="https://docs.google.com/document/d/1Tsnx5aU0e4GZqPvkl-S2rucFYYbhZsVRNX9Zbwkfnzo/edit?usp=sharing">sponsorship</a>.<br/>
-		Training, speaking and interviews for free if permissively licensed.<br/>
-		<a href="http://bevry.me/support">Support.</a><br/>
-	</p>
-	<p class="past">
+	<p>
 		Consulting, support, advisory and training contracts available.<br/>
-		<a href="http://bevry.me/support">Support</a><br/>
+		Speaking/interview engagements available for free when permissively licensed.<br/>
+		<a href="mailto:us@bevry.me">Email</a>
 	</p>
 </section>
 
