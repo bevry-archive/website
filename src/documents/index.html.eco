@@ -117,7 +117,7 @@ url: '/'
 			If everyone that uses our work gave $1/week, we would exceed our target.<br/>
 		</span>
 	</p>
-	<ul class="payment-methods">
+	<ul class="simple-list">
 		<li>
 			<a href="/patreon">
 				<strong>Donate monthly via Patreon</strong>
@@ -164,9 +164,16 @@ url: '/'
 
 <section id="contact">
 	<h2>Contact</h2>
-	<p>
-		<a href="http://bevry.me/support">Support</a><br/>
-		<a href="mailto:us@bevry.me">Email</a><br/>
+	<ul class="simple-list">
+		<li>
+			<script async defer src="//slack.bevry.me/slackin.js"></script>
+		</li>
+		<li>
+			<a href="http://bevry.me/support">Support</a>
+		</li>
+		<li>
+			<a href="mailto:us@bevry.me">Email</a>
+		</li>
 	</p>
 </section>
 
