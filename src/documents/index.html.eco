@@ -129,6 +129,11 @@ url: '/'
 			</a>
 		</li>
 		<li>
+			<a href="/flattr">
+				Donate monthly via Flattr
+			</a>
+		</li>
+		<li>
 			<a href="/paypal">
 				Donate via Paypal
 			</a>
@@ -136,11 +141,6 @@ url: '/'
 		<li>
 			<a href="/bitcoin">
 				Donate once via Bitcoin
-			</a>
-		</li>
-		<li>
-			<a href="/flattr">
-				Donate monthly via Flattr
 			</a>
 		</li>
 		<li>
