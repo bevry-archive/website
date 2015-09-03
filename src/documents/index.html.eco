@@ -82,7 +82,7 @@ url: '/'
 	<p>
 		To accomplish our grand goals and vision of the world, we can't do it alone!<br/>
 		There's plenty to start on and we welcome all contributions regardless of skill or size!<br/>
-		To get started say hello on our <a href="/slack">Slack Channel</a> and traverse our <a href="/forum">Forum</a>.
+		To get started say hello on our <a href="<%= @getFullUrl('/slack') %>">Slack Channel</a> and traverse our <a href="<%= @getFullUrl('/forum') %>">Discussion Forum</a>.
 	</p>
 </section>
 
@@ -114,27 +114,27 @@ url: '/'
 	</p>
 	<ul class="simple-list">
 		<li>
-			<a href="/patreon">
+			<a href="<%= @getFullUrl('/patreon') %>">
 				<strong>Donate monthly via Patreon</strong>
 			</a>
 		</li>
 		<li>
-			<a href="/gratipay">
+			<a href="<%= @getFullUrl('/gratipay') %>">
 				Donate weekly via Gratipay
 			</a>
 		</li>
 		<li>
-			<a href="/flattr">
+			<a href="<%= @getFullUrl('/flattr') %>">
 				Donate monthly via Flattr
 			</a>
 		</li>
 		<li>
-			<a href="/paypal">
+			<a href="<%= @getFullUrl('/paypal') %>">
 				Donate via Paypal
 			</a>
 		</li>
 		<li>
-			<a href="/bitcoin">
+			<a href="<%= @getFullUrl('/bitcoin') %>">
 				Donate once via Bitcoin
 			</a>
 		</li>
@@ -147,7 +147,7 @@ url: '/'
 			</a>
 		</li>
 		<li>
-			<a href="/wishlist">
+			<a href="<%= @getFullUrl('/wishlist') %>">
 				Buy items on our Amazon Wishlist
 			</a>
 		</li>
@@ -164,7 +164,7 @@ url: '/'
 			<script async defer src="//slack.bevry.me/slackin.js"></script>
 		</li>
 		<li>
-			<a href="http://bevry.me/support">Support</a>
+			<a href="<%= @getFullUrl('/support') %>">Support</a>
 		</li>
 		<li>
 			<a href="mailto:us@bevry.me">Email</a>

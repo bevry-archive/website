@@ -114,7 +114,7 @@ docpadConfig = {
 			name: 'DocPad'
 			url: "http://docpad.org"
 			description: """
-				Decoupled Content Management System<br/>
+				Powerful Static Site Generator<br/>
 				500 daily users
 				"""
 		,
@@ -234,6 +234,9 @@ docpadConfig = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
+		# Get Full URL
+		getFullUrl: (shortUrl) ->
+			return docpadConfig.plugins.cleanurls.simpleRedirects[shortUrl] or shortUrl
 
 	plugins:
 		feedr:
