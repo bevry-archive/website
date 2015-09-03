@@ -242,10 +242,13 @@ docpadConfig = {
 		cleanurls:
 
 			simpleRedirects:
+				# Shorthands
 				'/contact': '/#contact'
 				'/terms': '/tos'
 				'/donate': '/#donate'
-				'/interconnect': '/project/interconnect'
+				'/interconnect': 'https://github.com/interconnect'
+				
+				# Payment
 				'/payment': '/#payment'
 				'/goopen': 'https://github.com/bevry/goopen'
 				'/bitcoin': 'https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010'
@@ -255,10 +258,16 @@ docpadConfig = {
 				'/patreon': 'https://www.patreon.com/bevry'
 				'/gratipay': 'https://www.gratipay.com/bevry'
 				'/gittip': '/gratipay'
+				
+				# Support
+				'/support': 'https://learn.bevry.me/support'
 				'/premium-support': '/support'
-				'/support': '/learn/support'
-				'/docs/installnode': '/learn/node/install'
-				'/node/install': '/learn/node/install'
+				
+				# Documentation
+				'/node/install': 'https://learn.bevry.me/node/install'
+				'/docs/installnode': '/node/install'
+				
+				# Training Resources
 				'/talks/handsonnode': 'http://node.eventbrite.com/'
 				'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
 
