@@ -119,6 +119,11 @@ url: '/'
 	</p>
 	<ul class="payment-methods">
 		<li>
+			<a href="/patreon">
+				<strong>Donate monthly via Patreon</strong>
+			</a>
+		</li>
+		<li>
 			<a href="/gratipay">
 				<strong>Donate weekly via Gratipay</strong>
 			</a>
