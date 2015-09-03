@@ -260,7 +260,7 @@ docpadConfig = {
 				'/gittip': '/gratipay'
 				
 				# Support
-				'/support': 'https://learn.bevry.me/support'
+				'/support': 'https://discuss.bevry.me/t/getting-support-guide/63/1'
 				'/premium-support': '/support'
 				
 				# Documentation
