@@ -2,7 +2,6 @@
 githubClientId = process.env.BEVRY_GITHUB_CLIENT_ID
 githubClientSecret = process.env.BEVRY_GITHUB_CLIENT_SECRET
 githubAuthString = "client_id=#{githubClientId}&client_secret=#{githubClientSecret}"
-gratipayNames = 'bevry'.split(' ')
 githubNames = 'bevry docpad browserstate webwrite interconnectapp'.split(' ')
 
 # The DocPad Configuration File
@@ -19,10 +18,8 @@ docpadConfig = {
 		stripePublicKey: process.env.BEVRY_STRIPE_PUBLIC_KEY
 
 		getGratipayTotal: ->
-			total = 0
-			for name in gratipayNames
-				total += parseFloat(@feedr.feeds['gratipay_'+name].receiving, 10)
-			return total
+			# https://github.com/gratipay/gratipay.com/issues/3726
+			return parseFloat(@feedr.feeds['gratipay_bevry'].receiving ? 2.25, 10)
 
 		getDonationTotal: ->
 			return @getGratipayTotal()*(52/12)
@@ -236,8 +233,7 @@ docpadConfig = {
 			feeds:
 				(->
 					result = {}
-					for name in gratipayNames
-						result['gratipay_'+name] = {url:"https://www.gratipay.com/#{name}/public.json", parse:'json'}
+					result['gratipay_bevry'] = {url:"https://www.gratipay.com/bevry/public.json", parse:'json'}
 					for name in githubNames
 						result['github_members_'+name] = {url:"https://api.github.com/orgs/#{name}/public_members?#{githubAuthString}", parse:'json'}
 					result
