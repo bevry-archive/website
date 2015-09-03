@@ -25,10 +25,10 @@ docpadConfig = {
 			return total
 
 		getDonationTotal: ->
-			return @getGratipayTotal()
+			return @getGratipayTotal()*(52/12)
 
 		getDonationGoal: ->
-			return 2000
+			return 4000
 
 		getDonationGoalPercent: (goal) ->
 			goal ?= @getDonationGoal()
@@ -256,7 +256,8 @@ docpadConfig = {
 				'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6'
 				'/wishlist': 'http://amzn.com/w/2F8TXKSNAFG4V'
 				'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
-				'/gratipay': 'https://www.gratipay.com/bevry/'
+				'/patreon': 'https://www.patreon.com/bevry'
+				'/gratipay': 'https://www.gratipay.com/bevry'
 				'/gittip': '/gratipay'
 				'/premium-support': '/support'
 				'/support': '/learn/support'
