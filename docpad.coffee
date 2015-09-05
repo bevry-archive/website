@@ -273,6 +273,7 @@ docpadConfig = {
 				'/forum': 'https://discuss.bevry.me'
 				'/support': 'https://discuss.bevry.me/t/getting-support-guide/63/1'
 				'/premium-support': '/support'
+				'/trello': 'https://trello.com/b/z62c2a6Z/bevry-focus'
 
 				# Documentation
 				'/node/install': 'https://learn.bevry.me/node/install'
