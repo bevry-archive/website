@@ -115,7 +115,7 @@ url: '/'
 	<ul class="simple-list">
 		<li>
 			<a href="<%= @getFullUrl('/patreon') %>">
-				<strong>Donate monthly via Patreon</strong>
+				<strong>Donate or sponsor monthly via Patreon</strong>
 			</a>
 		</li>
 		<li>
