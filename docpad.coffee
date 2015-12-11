@@ -261,7 +261,7 @@ docpadConfig = {
 				'/payment': '/#payment'
 				'/goopen': 'https://github.com/bevry/goopen'
 				'/bitcoin': 'https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010'
-				'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=QB8GQPZAH84N6'
+				'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6'
 				'/wishlist': 'http://amzn.com/w/2F8TXKSNAFG4V'
 				'/flattr': 'http://flattr.com/thing/344188/balupton-on-Flattr'
 				'/patreon': 'https://www.patreon.com/bevry'
