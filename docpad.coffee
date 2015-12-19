@@ -166,7 +166,7 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 			# The production url of our website
-			url: "http://bevry.me"
+			url: "https://bevry.me"
 
 			# The default title of our website
 			title: "Bevry"
