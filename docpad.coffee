@@ -148,9 +148,9 @@ docpadConfig = {
 				Chainable data pipeline for JavaScript
 				"""
 		,
-			name: 'InterConnect (alpha)'
+			name: 'Interconnect (alpha)'
 			className: 'today future'
-			url: 'https://github.com/interconnect'
+			url: 'https://github.com/interconnectapp'
 			description: """
 				Connect with anyone in the world
 				"""
