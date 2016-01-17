@@ -138,7 +138,7 @@ docpadConfig = {
 			url: 'http://staticsitegenerators.net'
 			description: """
 				Discover the right Static Site Generator for you<br/>
-				224 static site generators
+				400 static site generators
 				"""
 		,
 			name: 'Chainy (beta)'
