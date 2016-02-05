@@ -69,8 +69,8 @@ docpadConfig = {
 			avatar: '/images/ben-black.jpg'
 			description: """
 				<span class="today future">
-					Open-Collaboration Entrepreneur. International Speaker & Trainer.<br/>
-					Signer of the <a href="https://gist.github.com/balupton/6937426">Open Information Pledge</a>.
+					Open-Collaboration Entrepreneur. International Speaker & Trainer. <!-- <br/>
+					Signer of the <a href="https://gist.github.com/balupton/6937426">Open Information Pledge</a>. -->
 				</span>
 				<span class="past">
 					Bevry is the result of Benjamin's best self, a tool for him and others to create and collaborate on a shared vision of a better world. His works are at the foundations of Bevry and are some of the most popular node and javascript projects, even used by the likes of Microsoft and 37Signals. Besides work, he pursues the timeless quest of understanding the world and spends time with his family.
