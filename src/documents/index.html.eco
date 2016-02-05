@@ -152,7 +152,9 @@ url: '/'
 			</a>
 		</li>
 		<li>
-			Enquire below if your company can sponsor us
+			<a href="mailto:sponsor@bevry.me">
+				Enquire about Sponsorship
+			</a>
 		</li>
 	</ul>
 </section>
