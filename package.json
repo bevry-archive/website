@@ -68,7 +68,7 @@
   "main": "node_modules/.bin/docpad-server",
   "scripts": {
     "start": "node_modules/.bin/docpad-server",
-    "test": "node_modules/.bin/docpad generate --silent --debug",
+    "test": "node_modules/.bin/docpad generate --silent",
     "info": "node_modules/.bin/docpad info --silent",
     "deploy": "node_modules/.bin/docpad deploy-ghpages --silent --env static"
   }
