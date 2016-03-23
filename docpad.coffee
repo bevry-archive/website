@@ -254,7 +254,6 @@ docpadConfig = {
 				'/goopen': 'https://github.com/bevry/goopen'
 				'/bitcoin': 'https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010'
 				'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6'
-				'/wishlist': 'http://amzn.com/w/2F8TXKSNAFG4V'
 				'/flattr': 'https://flattr.com/profile/balupton'
 				'/patreon': 'https://www.patreon.com/bevry'
 				'/gratipay': 'https://www.gratipay.com/bevry'
