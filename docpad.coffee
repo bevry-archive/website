@@ -258,6 +258,7 @@ docpadConfig = {
 				'/patreon': 'https://www.patreon.com/bevry'
 				'/gratipay': 'https://www.gratipay.com/bevry'
 				'/gittip': '/gratipay'
+				'/wishlist': 'https://balupton.com/wishlist'  # here for legacy reasons as github badges still use it
 
 				# Support
 				'/slack': 'https://slack.bevry.me'
