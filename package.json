@@ -42,7 +42,7 @@
     "url": "http://github.com/bevry/website.git"
   },
   "engines": {
-    "node": "4",
+    "node": "5",
     "npm": "3"
   },
   "dependencies": {
