@@ -147,11 +147,6 @@ url: '/'
 			</a>
 		</li>
 		<li>
-			<a href="<%= @getFullUrl('/wishlist') %>">
-				Buy items on our Amazon Wishlist
-			</a>
-		</li>
-		<li>
 			<a href="mailto:sponsor@bevry.me">
 				Enquire about Sponsorship
 			</a>
