@@ -272,6 +272,7 @@ docpadConfig = {
 				'/docs/installnode': '/node/install'
 
 				# Training Resources
+				'/nodefailsafe': 'https://gist.github.com/balupton/4721905fe5d51c541660'
 				'/talks/handsonnode': 'http://node.eventbrite.com/'
 				'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
 
