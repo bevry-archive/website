@@ -145,9 +145,13 @@ url: '/'
 				Donate once via Bitcoin
 			</a>
 		</li>
+		
+		<!--
 		<li>
 			<button id="stripe_payment_button" class="link">Donate once via Credit Card</button>
 		</li>
+		-->
+		
 		<li>
 			<a href="#payment">
 				Donate via Bank Transfer
