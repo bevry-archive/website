@@ -72,9 +72,16 @@ url: '/'
 	</div>
 </section>
 
-<section id="friends">
-	<h2>Friends</h2>
-	<%- @partial('list', {items: @friends}) %>
+<section id="sponsors">
+	<h2>Sponsors</h2>
+	<p>
+		None currently. <a href="<%= @getFullUrl('/donate') %>">Become one.</a><br/>
+	</p>
+</section>
+
+<section id="past-sponsors">
+	<h2>Past Sponsors</h2>
+	<%- @partial('list', {items: @pastSponsors}) %>
 </section>
 
 <section id="community" class="today future">
