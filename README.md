@@ -2,7 +2,7 @@
 
 <!-- BADGES/ -->
 
-[![Build Status](https://img.shields.io/travis/bevry/bevry-wesite/master.svg)](http://travis-ci.org/bevry/bevry-wesite "Check this project's build status on TravisCI")<br/>
+[![Build Status](https://img.shields.io/travis/bevry/website/master.svg)](http://travis-ci.org/bevry/website "Check this project's build status on TravisCI")<br/>
 [![Gratipay donate button](https://img.shields.io/gratipay/docpad.svg)](https://www.gratipay.com/docpad/ "Donate weekly to this project using Gratipay")
 [![Flattr donate button](https://img.shields.io/badge/flattr-donate-yellow.svg)](http://flattr.com/thing/344188/balupton-on-Flattr "Donate monthly to this project using Flattr")
 [![PayPal donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6 "Donate once-off to this project using Paypal")
