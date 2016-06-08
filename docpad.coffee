@@ -88,8 +88,10 @@ docpadConfig = {
 				Sees technology as a force of nature for good.
 				"""
 		]
-
-		friends: [
+		
+		sponsors: []
+		
+		pastSponsors: [
 			name: 'Myplanet'
 			className: 'today'
 			url: "http://myplanet.io"
