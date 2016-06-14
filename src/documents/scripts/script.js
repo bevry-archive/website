@@ -17,7 +17,6 @@ $modalBackdrop.on 'click', (event) ->
 	event.preventDefault()
 	hideModals(true)
 
-# bank details
 showPaymentModel = ->
 	_gaq?.push(['_trackEvent', "Payment Modal", document.title, document.location.href, 0, true])
 
@@ -45,8 +44,6 @@ showPaymentModel = ->
 $window.on 'hashchange', ->
 	hash = document.location.hash.replace('#', '')
 
-	hideModals()
-
 	switch hash
 		when 'past'
 			$body.removeClass('today future').addClass('past')
@@ -57,7 +54,31 @@ $window.on 'hashchange', ->
 		when 'future'
 			$body.removeClass('past today').addClass('future')
 
-		when 'payment'
-			showPaymentModel()
+	if hash is 'payment'
+		showPaymentModel()
+	else
+		hideModals()
 
 $window.trigger('hashchange')
+
+stripeKey = '<%- @stripePublicKey %>'
+$stripeButton = $('#stripe_payment_button')
+if stripeKey
+	stripeHandler = StripeCheckout.configure({
+		key: stripeKey
+		currency: 'USD'
+	})
+	$stripeButton.click (e) ->
+		e.preventDefault()
+		amount = prompt('In USD, how much would you like to donate?')
+		amount = String(amount).replace(/\..*$/, '').replace(/[^0-9]/g, '')
+		amount = parseInt(amount, 10)
+		if amount and !isNaN(amount)
+			# Open Checkout with further options
+			stripeHandler.open({
+				name: 'Donation to Bevry',
+				description: 'Support our open-source initiatives',
+				amount: amount*100
+			})
+else
+	$stripeButton.parent().addClass('hidden')
