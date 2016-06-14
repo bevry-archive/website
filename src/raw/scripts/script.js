@@ -89,6 +89,7 @@
 				// ignore
 				break
 		}
-		$window.trigger('hashchange')
 	})
+
+	$window.trigger('hashchange')
 }())
