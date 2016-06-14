@@ -58,12 +58,12 @@
 				maxHeight: window.innerHeight - modalOffset.left * 2
 			})
 		}
-	}
 
-	$modalBackdrop.show()
-	$modalPayment.css({
-		opacity: 1
-	})
+		$modalBackdrop.show()
+		$modalPayment.css({
+			opacity: 1
+		})
+	}
 
 	$window.on('hashchange', function () {
 		var hash = document.location.hash.replace('#', '')
