@@ -54,7 +54,6 @@
     "docpad": "~6.78.4",
     "docpad-plugin-cachr": "~2.3.1",
     "docpad-plugin-cleanurls": "~2.8.1",
-    "docpad-plugin-coffeescript": "~2.5.0",
     "docpad-plugin-eco": "~2.1.0",
     "docpad-plugin-feedr": "~2.11.0",
     "docpad-plugin-marked": "~2.3.0",
