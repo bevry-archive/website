@@ -56,9 +56,5 @@ env:
     # application environment variables
     # travis encrypt "BEVRY_GITHUB_CLIENT_ID=$BEVRY_GITHUB_CLIENT_ID" --add env.global
     # travis encrypt "BEVRY_GITHUB_CLIENT_SECRET=$BEVRY_GITHUB_CLIENT_SECRET" --add env.global
-    # travis encrypt "BEVRY_STRIPE_PUBLIC_KEY=$BEVRY_STRIPE_PUBLIC_KEY" --add env.global
-    # travis encrypt "BEVRY_STRIPE_SECRET_KEY=$BEVRY_STRIPE_SECRET_KEY" --add env.global
     - secure: VaWxs+0jAzVy1wNsa/5ugGBWVtLjB9QU5IPD8Y1RXlVbKhDxR56YTXFH8s22d3IW1dmnAqSgCixcToXCeA0UO/HNXD3aG7d4muvU+1lS3CDB5nUUeIQoy/gU94YL+RY2JBZzgN/XG9dEWUB1NvmYVVEzpu+Ofq84AsrgfSYlDrk=
     - secure: Bw7QEa088jRGrRmct9zCwv6ZDwdCva5gwS4YmdFqwjKm3Aeug/gZN+0bUEXiESiq8S0Irvwb0K8PkJajqV4JKtCZ9Xk/DXhQmJ2k75ChY07eeTgACTUTlpMKHJ61aw7MFJofQ03Og49QcG72ETlFuvTFogbZVqP0sOd5lCCTF+8=
-    - secure: H3EVzfBRt0Lo9q9v1aahDFNT9Uz12tKbPQnRjiEGH+Ir9woeg9Kj/kFrgJWXADIhgyRNzOkpeuaa3j5d57l26LZzaJBZwKyL4ZbiR/WkwXOWQoDoSC3dE6zveCqJkLz/Ec9HbW6v8+2oLgP6CJ3B8HO2gBUWcnhYF4lUop9Vclw=
-    - secure: hpwiMDE5m+KLu9nZ5dsKlLoYqMNc/m1ZxHkIIgf805IhN9gKv0U+LRM+lSeQk10Gq2nZ8J/N3vorxuZR81izn3aKNfF+PbymsvJY2tF83GE19f0rJii/alQmvBP404uYFtDyNmtoM1frg6qYe5a0OvpZaOqBB7k1+M3Tw9C/zZ8=

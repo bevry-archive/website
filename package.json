@@ -29,10 +29,15 @@
   },
   "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
   "maintainers": [
-    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
+    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
   ],
   "contributors": [
-    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
+    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
+    "Eduardo Lavaque <me@greduan.com> (http://greduan.com)",
+    "Michael Duane Mooring <Mike@mdm.cc> (http://mikeum.us)",
+    "Dirk Ginader (http://ginader.com)",
+    "Douglas Barton <douglas.barton@gmail.com> (http://douglasbarton.github.io)",
+    "vsopvsop (https://github.com/vsopvsop)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/website/issues"
@@ -42,11 +47,11 @@
     "url": "http://github.com/bevry/website.git"
   },
   "engines": {
-    "node": "5",
+    "node": "6",
     "npm": "3"
   },
   "dependencies": {
-    "docpad": "~6.78.1",
+    "docpad": "~6.78.4",
     "docpad-plugin-cachr": "~2.3.1",
     "docpad-plugin-cleanurls": "~2.8.1",
     "docpad-plugin-coffeescript": "~2.5.0",
@@ -56,14 +61,14 @@
     "docpad-plugin-partials": "~2.9.2",
     "docpad-plugin-raw": "~2.4.1",
     "docpad-plugin-services": "~2.6.0",
-    "docpad-plugin-stylus": "~2.9.0",
-    "extendr": "^2.1.0",
-    "request": "^2.53.0"
+    "docpad-plugin-stylus": "~2.11.0",
+    "extendr": "^3.2.0",
+    "request": "^2.72.0"
   },
   "devDependencies": {
     "docpad-plugin-ghpages": "~2.4.4",
-    "docpad-plugin-livereload": "~2.6.1",
-    "projectz": "^1.0.0"
+    "docpad-plugin-livereload": "~2.7.1",
+    "projectz": "^1.1.6"
   },
   "main": "node_modules/.bin/docpad-server",
   "scripts": {

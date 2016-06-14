@@ -15,8 +15,6 @@ docpadConfig = {
 
 	templateData:
 
-		stripePublicKey: process.env.BEVRY_STRIPE_PUBLIC_KEY
-
 		getGratipayTotal: ->
 			# https://github.com/gratipay/gratipay.com/issues/3726
 			return parseFloat(@feedr.feeds['gratipay_bevry'].receiving ? 2.25, 10)
@@ -88,9 +86,9 @@ docpadConfig = {
 				Sees technology as a force of nature for good.
 				"""
 		]
-		
+
 		sponsors: []
-		
+
 		pastSponsors: [
 			name: 'Myplanet'
 			className: 'today'
@@ -199,7 +197,6 @@ docpadConfig = {
 				#'/vendor/log.js'
 				'/vendor/modernizr.js'
 				#'/vendor/retina.js'
-				'//checkout.stripe.com/checkout.js'
 				'/scripts/script.js'
 			]
 
