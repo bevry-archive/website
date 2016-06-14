@@ -20,7 +20,7 @@
 		}
 	})
 
-	$modalBackdrop.on('click', (event) {
+	$modalBackdrop.on('click', function (event) {
 		event.stopImmediatePropagation()
 		event.preventDefault()
 		hideModals(true)
