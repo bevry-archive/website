@@ -1,8 +1,10 @@
 (function () {
+	var $ = window.jQuery
 	var $window = $(window)
 	var $document = $(document)
 	var $body = $(document.body)
 	var $modalBackdrop = $('.modal.backdrop')
+	var $modalPayment = $('.payment.modal')
 	var googleAnalytics = window._gaq
 
 	// Modals
@@ -27,7 +29,7 @@
 	})
 
 	// bank details
-	function showPaymentModel {
+	function showPaymentModel () {
 		if ( googleAnalytics ) {
 			googleAnalytics.push([
 				'_trackEvent',
@@ -39,19 +41,19 @@
 			])
 		}
 
-		var $modal = $('.payment.modal').css({,
+		$modalPayment.css({
 			top: '5.5em',
 			height: 'auto',
 			opacity: 0
 		}).show()
 
-		var $modalBackdrop = $('.modal.backdrop').css({
+		$modalBackdrop.css({
 			height: window.innerHeight * 2
 		})
 
-		var modalOffset = $modal.offset()
-		if ( $modal.height() + modalOffset.top * 2 > window.innerHeight ) {
-			$modal.css({
+		var modalOffset = $modalPayment.offset()
+		if ( $modalPayment.height() + modalOffset.top * 2 > window.innerHeight ) {
+			$modalPayment.css({
 				top: modalOffset.left,
 				maxHeight: window.innerHeight - modalOffset.left * 2
 			})
@@ -59,7 +61,7 @@
 	}
 
 	$modalBackdrop.show()
-	$modal.css({
+	$modalPayment.css({
 		opacity: 1
 	})
 
@@ -82,7 +84,11 @@
 			case 'payment':
 				showPaymentModel()
 				break
+
+			default:
+				// ignore
+				break
 		}
 		$window.trigger('hashchange')
 	})
-})()
+}())
