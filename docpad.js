@@ -201,10 +201,6 @@ const docpadConfig = {
 
 			// The website's scripts
 			scripts: [
-				'<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>',
-				// '/vendor/log.js',
-				'/vendor/modernizr.js',
-				// #'/vendor/retina.js',
 				'/scripts/script.js'
 			]
 		},

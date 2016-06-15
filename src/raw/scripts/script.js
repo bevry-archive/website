@@ -1,34 +1,33 @@
+/* eslint no-var:0 */
 (function () {
-	var $ = window.jQuery
-	var $window = $(window)
-	var $document = $(document)
-	var $body = $(document.body)
-	var $modalBackdrop = $('.modal.backdrop')
-	var $modalPayment = $('.payment.modal')
+	var body = document.body
+	var modals = document.querySelectorAll('.modal')
+	var modalBackdrop = document.querySelector('.modal.backdrop')
+	var modalPayment = document.querySelector('.modal.payment')
 	var googleAnalytics = window._gaq
 
-	// Modals
 	function hideModals (hash) {
-		$('.modal').hide()
+		for (var i = 0; i < modals.length; ++i) {
+			modals[i].style.display = 'none'
+		}
 		if ( hash ) {
-			document.location.hash = ''
+			document.location.hash = 'ok'
 		}
 	}
 
-	$document.on('keyup', function (event) {
+	function documentKeyUp (event) {
 		// 27 is escape key
-		if ( $modalBackdrop.is(':visible') && event.keyCode === 27 ) {
+		if ( modalBackdrop.style.display !== 'none' && event.keyCode === 27 ) {
 			hideModals(true)
 		}
-	})
+	}
 
-	$modalBackdrop.on('click', function (event) {
+	function backdropClick (event) {
 		event.stopImmediatePropagation()
 		event.preventDefault()
 		hideModals(true)
-	})
+	}
 
-	// bank details
 	function showPaymentModel () {
 		if ( googleAnalytics ) {
 			googleAnalytics.push([
@@ -41,44 +40,38 @@
 			])
 		}
 
-		$modalPayment.css({
-			top: '5.5em',
-			height: 'auto',
-			opacity: 0
-		}).show()
+		modalPayment.style.top = '5.5em'
+		modalPayment.style.height = 'auto'
+		modalPayment.style.opacity = 0
+		modalPayment.style.display = 'block'
 
-		$modalBackdrop.css({
-			height: window.innerHeight * 2
-		})
+		modalBackdrop.style.height = window.innerHeight * 2 + 'px'
 
-		var modalOffset = $modalPayment.offset()
-		if ( $modalPayment.height() + modalOffset.top * 2 > window.innerHeight ) {
-			$modalPayment.css({
-				top: modalOffset.left,
-				maxHeight: window.innerHeight - modalOffset.left * 2
-			})
+		var top = modalPayment.offsetTop
+		var left = modalPayment.offsetLeft
+		if ( modalPayment.height + top * 2 > window.innerHeight ) {
+			modalPayment.style.top = left + 'px'
+			modalPayment.style.maxHeight = window.innerHeight - left * 2 + 'px'
 		}
 
-		$modalBackdrop.show()
-		$modalPayment.css({
-			opacity: 1
-		})
+		modalBackdrop.style.display = 'block'
+		modalPayment.style.opacity = 1
 	}
 
-	$window.on('hashchange', function () {
+	function windowHashChange () {
 		var hash = document.location.hash.replace('#', '')
 		hideModals()
 		switch ( hash ) {
 			case 'past':
-				$body.removeClass('today future').addClass('past')
+				body.className = body.className.replace(/today|future/, '') + ' past'
 				break
 
 			case 'today':
-				$body.removeClass('past future').addClass('today')
+				body.className = body.className.replace(/past|future/, '') + ' today'
 				break
 
 			case 'future':
-				$body.removeClass('past today').addClass('future')
+				body.className = body.className.replace(/past|today/, '') + ' future'
 				break
 
 			case 'payment':
@@ -89,7 +82,10 @@
 				// ignore
 				break
 		}
-	})
+	}
 
-	$window.trigger('hashchange')
+	document.onkeyup = documentKeyUp
+	modalBackdrop.onclick = backdropClick
+	window.onhashchange = windowHashChange
+	windowHashChange()
 }())
