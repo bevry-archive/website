@@ -252,7 +252,7 @@ const docpadConfig = {
 				'/contact': '/#contact',
 				'/terms': '/tos',
 				'/donate': '/#donate',
-				'/source': 'https://github.com/bevry/website'
+				'/source': 'https://github.com/bevry/website',
 
 				// Payment
 				'/payment': '/#payment',
