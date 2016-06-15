@@ -18,6 +18,11 @@ fontWeightNormal = 400
 fontWeightBold = 500
 fontWeightHeavy = 600
 
+/*
+*
+	box-sizing: border-box
+*/
+
 body
 	font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif
 	color: colorTextDefault
@@ -46,7 +51,6 @@ aside.modal.payment
 	position: fixed
 	width: 80%
 	left: 10%
-	padding: 2em
 	background: colorBackground
 	border: 1px solid colorTextDefault
 	display: none
@@ -54,6 +58,11 @@ aside.modal.payment
 
 	table
 		text-align: left
+		width: 100%
+		tbody
+			border: 1em solid colorBackground
+			border-bottom: 0.5em solid colorBackground
+			border-top: 0
 
 aside.modal.backdrop
 	z-index: 499
@@ -301,5 +310,6 @@ body
 body.terms, body.tos, body.privacy
 	.content
 		text-align: left
-		width: 60%
+		width: 90%
+		max-width: 800px
 		font-size: 0.8em

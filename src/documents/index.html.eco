@@ -176,11 +176,15 @@ url: '/'
 
 <aside class="payment modal" style="display:none">
 	<table>
-		<tbody>
+		<thead>
 			<% for own heading,bank of @banks: %>
 				<tr class="heading">
 					<th colspan="2"><%= heading %></th>
 				</tr>
+			<% end %>
+		</thead>
+		<tbody>
+			<% for own heading,bank of @banks: %>
 				<% for own key,value of bank: %>
 					<tr>
 						<th width="30%"><%= key %></th>

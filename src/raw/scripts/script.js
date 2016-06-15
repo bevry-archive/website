@@ -40,18 +40,20 @@
 			])
 		}
 
-		modalPayment.style.top = '5.5em'
 		modalPayment.style.height = 'auto'
+		modalBackdrop.style.height = window.innerHeight * 2 + 'px'
+
 		modalPayment.style.opacity = 0
 		modalPayment.style.display = 'block'
 
-		modalBackdrop.style.height = window.innerHeight * 2 + 'px'
-
-		var top = modalPayment.offsetTop
-		var left = modalPayment.offsetLeft
-		if ( modalPayment.height + top * 2 > window.innerHeight ) {
-			modalPayment.style.top = left + 'px'
-			modalPayment.style.maxHeight = window.innerHeight - left * 2 + 'px'
+		var t = modalPayment.offsetTop
+		var l = modalPayment.offsetLeft
+		if ( modalPayment.clientHeight + t * 2 > window.innerHeight ) {
+			modalPayment.style.top = l + 'px'
+			modalPayment.style.maxHeight = window.innerHeight - l * 2 + 'px'
+		}
+		else {
+			modalPayment.style.top = '5.5em'
 		}
 
 		modalBackdrop.style.display = 'block'
