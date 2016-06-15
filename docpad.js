@@ -266,14 +266,17 @@ const docpadConfig = {
 				'/wishlist': 'https://balupton.com/wishlist',  // here for legacy reasons as github badges still use it
 
 				// Social
-				'/google+': 'https://plus.google.com/+BevryMe'
+				'/google+': 'https://plus.google.com/+BevryMe',
+				'/twitter': 'https://twitter.com/BevryMe',
+				'/youtube': 'https://www.youtube.com/channel/UC0HLq-UQ49GA43aHbxJlXNg',
+				'/trello': 'https://trello.com/b/z62c2a6Z/bevry-focus',
+				'/blog': 'https://blog.bevry.me',
 
 				// Support
 				'/slack': 'https://slack.bevry.me',
 				'/forum': 'https://discuss.bevry.me',
 				'/support': 'https://discuss.bevry.me/t/getting-support-guide/63/1',
 				'/premium-support': '/support',
-				'/trello': 'https://trello.com/b/z62c2a6Z/bevry-focus',
 
 				// Documentation
 				'/node/install': 'https://learn.bevry.me/node/install',
