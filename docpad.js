@@ -252,6 +252,7 @@ const docpadConfig = {
 				'/contact': '/#contact',
 				'/terms': '/tos',
 				'/donate': '/#donate',
+				'/source': 'https://github.com/bevry/website'
 
 				// Payment
 				'/payment': '/#payment',
@@ -263,6 +264,9 @@ const docpadConfig = {
 				'/gratipay': 'https://www.gratipay.com/bevry',
 				'/gittip': '/gratipay',
 				'/wishlist': 'https://balupton.com/wishlist',  // here for legacy reasons as github badges still use it
+
+				// Social
+				'/google+': 'https://plus.google.com/+BevryMe'
 
 				// Support
 				'/slack': 'https://slack.bevry.me',
