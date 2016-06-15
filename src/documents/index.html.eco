@@ -39,14 +39,14 @@ url: '/'
 <section id="office" class="future">
 	<h2>Office</h2>
 	<div class="gallery">
-		<a href="http://www.fotopedia.com/items/flickr-5173590042"><img src="/images/office/flickr-5173590042-original.jpg" title="Chimney Beach Cove, East Shore, Lake Tahoe, NV by SteveD" /></a>
-		<a href="http://www.fotopedia.com/items/flickr-3247795658"><img src="/images/office/flickr-3247795658-original.jpg" title="Photo by André Solnik" /></a>
-		<a href="http://www.fotopedia.com/items/flickr-7448089582"><img src="/images/office/flickr-7448089582-original.jpg" title="Phra Nang Beach by Mark Fischer" /></a>
-		<a href="http://www.fotopedia.com/items/flickr-7448028946"><img src="/images/office/flickr-7448028946-original.jpg" title="Railay Beach at Sunrise by Mark Fischer"/></a>
-		<a href="http://www.fotopedia.com/items/flickr-3836586727"><img src="/images/office/flickr-3836586727-original.jpg" title="Palolem Beach, Goa, India by dms_303" /></a>
-		<a href="http://www.fotopedia.com/items/flickr-4197635593"><img src="/images/office/flickr-4197635593-original.jpg" title="El Portil. Beach. Sunset. Huelva. Andalusia. Spain by Tomás Fano"/></a>
-		<a href="http://www.fotopedia.com/items/flickr-7166443977"><img src="/images/office/flickr-7166443977-original.jpg" title="Phranang beach by WomEOS" /></a>
-		<!--<img src="/images/office/people.jpg" />-->
+		<a href="http://www.fotopedia.com/items/flickr-5173590042"><img data-src="/images/office/flickr-5173590042-original.jpg" title="Chimney Beach Cove, East Shore, Lake Tahoe, NV by SteveD" /></a>
+		<a href="http://www.fotopedia.com/items/flickr-3247795658"><img data-src="/images/office/flickr-3247795658-original.jpg" title="Photo by André Solnik" /></a>
+		<a href="http://www.fotopedia.com/items/flickr-7448089582"><img data-src="/images/office/flickr-7448089582-original.jpg" title="Phra Nang Beach by Mark Fischer" /></a>
+		<a href="http://www.fotopedia.com/items/flickr-7448028946"><img data-src="/images/office/flickr-7448028946-original.jpg" title="Railay Beach at Sunrise by Mark Fischer"/></a>
+		<a href="http://www.fotopedia.com/items/flickr-3836586727"><img data-src="/images/office/flickr-3836586727-original.jpg" title="Palolem Beach, Goa, India by dms_303" /></a>
+		<a href="http://www.fotopedia.com/items/flickr-4197635593"><img data-src="/images/office/flickr-4197635593-original.jpg" title="El Portil. Beach. Sunset. Huelva. Andalusia. Spain by Tomás Fano"/></a>
+		<a href="http://www.fotopedia.com/items/flickr-7166443977"><img data-src="/images/office/flickr-7166443977-original.jpg" title="Phranang beach by WomEOS" /></a>
+		<!--<img data-src="/images/office/people.jpg" />-->
 	</div>
 	<p>
 		This is our office. It's a resort in the tropics. You're welcome anytime.<br/>
@@ -66,7 +66,7 @@ url: '/'
 	<div class="facewall">
 		<% for member in @getGithubMembers(): %>
 			<a href="<%= member.url %>" title="<%= member.name %>">
-				<img class="avatar" src="<%= @cachr member.avatar %>" />
+				<img class="avatar" data-src="<%= @cachr member.avatar %>" />
 			</a>
 		<% end %>
 	</div>

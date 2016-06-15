@@ -60,19 +60,29 @@
 		modalPayment.style.opacity = 1
 	}
 
+	function showImages (nodes) {
+		for (var i = 0; i < nodes.length; ++i) {
+			nodes[i].src = nodes[i].getAttribute('data-src')
+			nodes[i].removeAttribute('data-src')
+		}
+	}
+
 	function windowHashChange () {
 		var hash = document.location.hash.replace('#', '')
 		hideModals()
 		switch ( hash ) {
 			case 'past':
+				showImages(document.querySelectorAll('.past [data-src]'))
 				body.className = body.className.replace(/today|future/, '') + ' past'
 				break
 
 			case 'today':
+				showImages(document.querySelectorAll('.today [data-src]'))
 				body.className = body.className.replace(/past|future/, '') + ' today'
 				break
 
 			case 'future':
+				showImages(document.querySelectorAll('.future [data-src]'))
 				body.className = body.className.replace(/past|today/, '') + ' future'
 				break
 
