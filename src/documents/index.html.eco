@@ -126,6 +126,11 @@ url: '/'
 			</a>
 		</li>
 		<li>
+			<a href="<%= @getFullUrl('/opencollective') %>">
+				Donate or sponsor monthly via Open Collective
+			</a>
+		</li>
+		<li>
 			<a href="<%= @getFullUrl('/gratipay') %>">
 				Donate weekly via Gratipay
 			</a>
