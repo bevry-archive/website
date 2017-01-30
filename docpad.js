@@ -89,10 +89,16 @@ const docpadConfig = {
 
 		/* eslint key-spacing:0 */
 		banks: {
-			'All Transfers (Within Australia and outside Australia)': {
+			'EUR Transfers': {
 				'Account Name':    'Benjamin Lupton',
-				'Account Number':  '473 167 138',
-				'BSB':             '242 200',
+				'IBAN':            'DE42512308002620156007',
+				'BIC/Swift Code':  'WIREDEMMXXX',
+				'Branch Address':  'N26 Bank GmbH, Klosterstraße 62, 10179 Berlin, Germany'
+			},
+			'AUD Transfers': {
+				'Account Name':    'Benjamin Lupton',
+				'Account Number':  '473167138',
+				'BSB':             '242200',
 				'BIC/Swift Code':  'CITIAU2X',
 				'Branch Address':  'Citibank, Citigroup Centre, 2 Park Street, Sydney, NSW, Australia, 2000'
 			}
