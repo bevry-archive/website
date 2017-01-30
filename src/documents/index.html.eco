@@ -181,25 +181,20 @@ url: '/'
 
 <aside class="payment modal" style="display:none">
 	<table>
-		<thead>
-			<% for own heading,bank of @banks: %>
-				<tr class="heading">
-					<th colspan="2"><%= heading %></th>
+		<% for own heading,bank of @banks: %>
+			<tr class="heading">
+				<th colspan="2"><%= heading %></th>
+			</tr>
+			<% for own key,value of bank: %>
+				<tr>
+					<th width="30%"><%= key %></th>
+					<td width="70%"><%= value %></th>
 				</tr>
 			<% end %>
-		</thead>
-		<tbody>
-			<% for own heading,bank of @banks: %>
-				<% for own key,value of bank: %>
-					<tr>
-						<th width="30%"><%= key %></th>
-						<td width="70%"><%= value %></th>
-					</tr>
-				<% end %>
-			<% end %>
-		</tbody>
-	</table>
-	
-	<p>Transferring with another currency? <a href="https://balupton.com/transferwise">Use Transferwise.</a></p>
+		<% end %>
 
+			<tr class="heading">
+				<th colspan="2">Transferring with another currency? <a href="https://balupton.com/transferwise">Use Transferwise.</a></th>
+			</tr>
+	</table>
 </aside>

@@ -34,13 +34,24 @@ strong, th, thead
 	font-weight: fontWeightBold
 
 table
-	margin-top: -1.5em
+	text-align: left
+	width: 100%
+	margin-top: -1em
+
+	tr
+		th, td
+			padding: 0.1em 0.5em
+
 	tr.heading
-		border-top: 1.5em solid colorBackground
-		border-bottom: 0.5em solid colorBackground
-		th
+		border-top: 1em solid colorBackground
+
+		&:not(:last-child)
+			border-bottom: 0.25em solid colorBackground
+
+		th, td
+			margin: 0
+			padding: 0.4em 0.5em
 			background: #EEE
-			padding: 0.5em
 
 .hidden
 	display: none
@@ -58,14 +69,6 @@ aside.modal.payment
 	border: 1px solid colorTextDefault
 	display: none
 	overflow: auto
-
-	table
-		text-align: left
-		width: 100%
-		tbody
-			border: 1em solid colorBackground
-			border-bottom: 0.5em solid colorBackground
-			border-top: 0
 
 aside.modal.backdrop
 	z-index: 499
