@@ -199,4 +199,7 @@ url: '/'
 			<% end %>
 		</tbody>
 	</table>
+	
+	<p>Transferring with another currency? <a href="https://balupton.com/transferwise">Use Transferwise.</a></p>
+
 </aside>
