@@ -264,12 +264,13 @@ const docpadConfig = {
 				'/payment': '/#payment',
 				'/goopen': 'https://github.com/bevry/goopen',
 				'/bitcoin': 'https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010',
+				'/coinbase': '/bitcoin',
 				'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6',
 				'/flattr': 'https://flattr.com/profile/balupton',
 				'/patreon': 'https://www.patreon.com/bevry',
 				'/opencollective': 'https://opencollective.com/bevry',
 				'/gratipay': 'https://www.gratipay.com/bevry',
-				'/cash': 'https://cash.me/$balupton'
+				'/cash': 'https://cash.me/$balupton',
 				'/gittip': '/gratipay',
 				'/wishlist': 'https://balupton.com/wishlist',  // here for legacy reasons as github badges still use it
 
