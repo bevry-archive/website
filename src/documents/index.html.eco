@@ -127,7 +127,7 @@ url: '/'
 		</li>
 		<li>
 			<a href="<%= @getFullUrl('/opencollective') %>">
-				Donate or sponsor monthly via Open Collective
+				Donate monthly via Open Collective
 			</a>
 		</li>
 		<li>
@@ -141,16 +141,20 @@ url: '/'
 			</a>
 		</li>
 		<li>
-			<a href="<%= @getFullUrl('/paypal') %>">
-				Donate via Paypal
+			<a href="<%= @getFullUrl('/coinbase') %>">
+				Donate once via Coinbase (accepts Bitcoin)
 			</a>
 		</li>
 		<li>
-			<a href="<%= @getFullUrl('/bitcoin') %>">
-				Donate once via Bitcoin
+			<a href="<%= @getFullUrl('/paypal') %>">
+				Donate via Paypal (accepts Card and Bank Account)
 			</a>
 		</li>
-
+		<li>
+			<a href="<%= @getFullUrl('/cash') %>">
+				Donate once via Cash.me (accepts Card and USA Bank Account)
+			</a>
+		</li>
 		<li>
 			<a href="#payment">
 				Donate via Bank Transfer
