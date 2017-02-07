@@ -269,6 +269,7 @@ const docpadConfig = {
 				'/patreon': 'https://www.patreon.com/bevry',
 				'/opencollective': 'https://opencollective.com/bevry',
 				'/gratipay': 'https://www.gratipay.com/bevry',
+				'/cash': 'https://cash.me/$balupton'
 				'/gittip': '/gratipay',
 				'/wishlist': 'https://balupton.com/wishlist',  // here for legacy reasons as github badges still use it
 
