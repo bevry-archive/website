@@ -91,8 +91,8 @@ const docpadConfig = {
 		banks: {
 			'EUR Transfers': {
 				'Account Name':    'Benjamin Lupton',
-				'IBAN':            'DE42512308002620156007',
-				'BIC/Swift Code':  'WIREDEMMXXX',
+				'IBAN':            'DE08100110012620156007',
+				'BIC/Swift Code':  'NTSBDEB1XXX',
 				'Branch Address':  'N26 Bank GmbH, Klosterstraße 62, 10179 Berlin, Germany'
 			},
 			'AUD Transfers': {
