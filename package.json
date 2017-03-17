@@ -80,7 +80,7 @@
     "our:compile": "echo 'no need for a compile'",
     "our:meta": "npm run our:meta:projectz",
     "our:meta:projectz": "projectz compile",
-    "our:verify": "npm run our:verify:eslintt",
+    "our:verify": "npm run our:verify:eslint",
     "our:verify:eslint": "eslint --fix ./ --ignore-path .gitignore",
     "our:test": "npm run our:verify && npm test",
     "our:release": "npm run deploy",
