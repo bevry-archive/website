@@ -51,7 +51,7 @@
   },
   "engines": {
     "node": "6",
-    "npm": "3"
+    "npm": "4"
   },
   "dependencies": {
     "docpad": "~6.79.0",
@@ -65,19 +65,28 @@
     "docpad-plugin-services": "~2.6.0",
     "docpad-plugin-stylus": "~2.11.0",
     "extendr": "^3.2.2",
-    "request": "^2.79.0"
+    "request": "^2.81.0"
   },
   "devDependencies": {
-    "docpad-plugin-ghpages": "~2.4.4",
     "docpad-plugin-livereload": "~2.7.1",
-    "eslint": "^3.14.1",
-    "projectz": "^1.3.2"
+    "eslint": "^3.17.1",
+    "projectz": "^1.3.2",
+    "surge": "^0.18.0"
   },
   "main": "docpad-server",
   "scripts": {
+    "our:setup": "npm install",
+    "our:clean": "rm -Rf ./docs ./es2015 ./out",
+    "our:compile": "echo 'no need for a compile'",
+    "our:meta": "npm run our:meta:projectz",
+    "our:meta:projectz": "projectz compile",
+    "our:verify": "npm run our:verify:eslintt",
+    "our:verify:eslint": "eslint --fix ./ --ignore-path .gitignore",
+    "our:test": "npm run our:verify && npm test",
+    "our:release": "npm run deploy",
     "start": "docpad-server",
-    "test": "docpad generate --silent",
+    "test": "docpad generate --silent --env static",
     "info": "docpad info --silent",
-    "deploy": "docpad deploy-ghpages --silent --env static"
+    "deploy": "surge --project ./out --domain https://bevry.me"
   }
 }
