@@ -1,3 +1,5 @@
+'use strict'
+
 // Prepare
 const githubClientId = process.env.BEVRY_GITHUB_CLIENT_ID
 const githubClientSecret = process.env.BEVRY_GITHUB_CLIENT_SECRET
@@ -302,7 +304,7 @@ const docpadConfig = {
 				[/^https?:\/\/(?:refresh\.bevry\.me|bevry\.herokuapp\.com|bevry\.github\.io\/website)(.*)$/, 'https://bevry.me$1'],
 
 				// Documentation Projects
-				[/^\/(docpad|node|queryengine|joe|taskgroup|community|bevry)(?:[\/\-](.*))?$/, 'http://learn.bevry.me/$1/$2'],
+				[/^\/(docpad|node|queryengine|joe|taskgroup|community|bevry)(?:[/-](.*))?$/, 'http://learn.bevry.me/$1/$2'],
 
 				// Documentation
 				[/^\/learn(?:\/(.*))$/, 'http://learn.bevry.me/$1'],
