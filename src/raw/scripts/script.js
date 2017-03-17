@@ -43,16 +43,16 @@ function showPaymentModel () {
 	}
 
 	modalPayment.style.height = 'auto'
-	modalBackdrop.style.height = window.innerHeight * 2 + 'px'
+	modalBackdrop.style.height = (window.innerHeight * 2) + 'px'
 
 	modalPayment.style.opacity = 0
 	modalPayment.style.display = 'block'
 
 	const t = modalPayment.offsetTop
 	const l = modalPayment.offsetLeft
-	if ( modalPayment.clientHeight + t * 2 > window.innerHeight ) {
+	if ( modalPayment.clientHeight + (t * 2) > window.innerHeight ) {
 		modalPayment.style.top = l + 'px'
-		modalPayment.style.maxHeight = window.innerHeight - l * 2 + 'px'
+		modalPayment.style.maxHeight = window.innerHeight - (l * 2) + 'px'
 	}
 	else {
 		modalPayment.style.top = '5.5em'
@@ -63,7 +63,7 @@ function showPaymentModel () {
 }
 
 function showImages (nodes) {
-	for (const i = 0; i < nodes.length; ++i) {
+	for (let i = 0; i < nodes.length; ++i) {
 		nodes[i].src = nodes[i].getAttribute('data-src')
 		nodes[i].removeAttribute('data-src')
 	}
