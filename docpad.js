@@ -59,10 +59,11 @@ const docpadConfig = {
 		},
 
 		getGithubMembers () {
+			const feedr = this.feedr
 			const logins = {}
 
 			githubNames.forEach(function (name) {
-				this.feedr.feeds['github_members_' + name].forEach(function (member) {
+				feedr.feeds['github_members_' + name].forEach(function (member) {
 					logins[member.login] = {
 						name: member.login,
 						avatar: member.avatar_url,
