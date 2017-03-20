@@ -13,12 +13,12 @@ const feeds = (function () {
 			parse: 'json'
 		}
 	}
-	for ( const name of githubNames ) {
+	githubNames.forEach(function (name) {
 		result['github_members_' + name] = {
 			url: `https://api.github.com/orgs/${name}/public_members?${githubAuthString}`,
 			parse: 'json'
 		}
-	}
+	})
 	return result
 }())
 
@@ -61,22 +61,22 @@ const docpadConfig = {
 		getGithubMembers () {
 			const logins = {}
 
-			for ( const name of githubNames ) {
-				for ( const member of this.feedr.feeds['github_members_' + name] ) {
+			githubNames.forEach(function (name) {
+				this.feedr.feeds['github_members_' + name].forEach(function (member) {
 					logins[member.login] = {
 						name: member.login,
 						avatar: member.avatar_url,
 						url: member.html_url
 					}
-				}
-			}
+				})
+			})
 
 			// remove leaders from members as it's a bit dodgy if we list them twice
-			for ( const leader of this.leaders ) {
+			this.leaders.forEach(function (leader) {
 				if ( leader.githubUsername ) {
 					delete logins[leader.githubUsername]
 				}
-			}
+			})
 
 			const members = []
 			for ( const key in logins ) {
