@@ -1,8 +1,8 @@
 'use strict'
 
 // Prepare
-const githubClientId = process.env.BEVRY_GITHUB_CLIENT_ID
-const githubClientSecret = process.env.BEVRY_GITHUB_CLIENT_SECRET
+const githubClientId = process.env.GITHUB_CLIENT_ID
+const githubClientSecret = process.env.GITHUB_CLIENT_SECRET
 const githubAuthString = `client_id=${githubClientId}&client_secret=${githubClientSecret}`
 const githubNames = 'bevry docpad browserstate webwrite interconnectapp'.split(' ')
 const feeds = (function () {
