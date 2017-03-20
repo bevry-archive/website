@@ -126,6 +126,11 @@ url: '/'
 			</a>
 		</li>
 		<li>
+			<a href="http://www.codefund.io/view.php?id=4">
+				<strong>Crowd-fund DocPad v7</strong>
+			</a>
+		</li>
+		<li>
 			<a href="<%= @getFullUrl('/opencollective') %>">
 				Donate monthly via Open Collective
 			</a>
