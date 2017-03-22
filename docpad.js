@@ -279,7 +279,7 @@ const docpadConfig = {
 
 				// Social
 				'/google+': 'https://plus.google.com/+BevryMe',
-				'/twitter': 'https://twitter.com/BevryMe',
+				'/twitter': 'https://discuss.bevry.me/t/official-twitter-accounts/86',
 				'/youtube': 'https://www.youtube.com/channel/UC0HLq-UQ49GA43aHbxJlXNg',
 				'/trello': 'https://trello.com/b/z62c2a6Z/bevry-focus',
 				'/blog': 'https://blog.bevry.me',
