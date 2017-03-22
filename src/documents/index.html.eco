@@ -187,10 +187,10 @@ url: '/'
 		</li>
 	</p>
 </section>
-		
+
 <section>
 	<h2>Social</h2>
-	<ul class="simple-list">
+	<ul class="inline-list">
 		<li>
 			<a href="/forum">Forum</a>
 		</li>
