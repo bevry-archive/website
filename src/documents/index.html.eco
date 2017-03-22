@@ -187,6 +187,30 @@ url: '/'
 		</li>
 	</p>
 </section>
+		
+<section>
+	<h2>Social</h2>
+	<ul class="simple-list">
+		<li>
+			<a href="/forum">Forum</a>
+		</li>
+		<li>
+			<a href="/slack">Slack</a>
+		</li>
+		<li>
+			<a href="/blog">Blog</a>
+		</li>
+		<li>
+			<a href="/twitter">Twitter</a>
+		</li>
+		<li>
+			<a href="/youtube">YouTube</a>
+		</li>
+		<li>
+			<a href="/google+">Google+</a>
+		</li>
+	</p>
+</section>
 
 <aside class="payment modal" style="display:none">
 	<table>
