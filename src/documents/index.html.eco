@@ -188,7 +188,7 @@ url: '/'
 	</p>
 </section>
 
-<section>
+<section id="social">
 	<h2>Social</h2>
 	<ul class="inline-list">
 		<li>
