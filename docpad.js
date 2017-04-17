@@ -288,6 +288,7 @@ const docpadConfig = {
 				'/slack': 'https://slack.bevry.me',
 				'/forum': 'https://discuss.bevry.me',
 				'/support': 'https://discuss.bevry.me/t/getting-support-guide/63/1',
+				'/contribute': 'https://discuss.bevry.me/t/official-contribution-guide/141/1',
 				'/premium-support': '/support',
 
 				// Documentation
