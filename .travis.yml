@@ -12,7 +12,7 @@ cache:
 before_script:
 - npm run our:verify
 after_success:
-- eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-deploy.bash)"
+- eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/custom-deploy.bash)"
 notifications:
   slack:
     secure: nAAs02f2LHKm9/sLJBCYz9mVmH9WbGx0jFPpOX4maObPE6SlzLN6ucXyRuPzlNlDlvc5YY+19xdsPWrZ4tubPkBWdlUpxQxQYF4kCmkqY/M4Csa9+ThcjT7A/qb0oVmevFbRgJpjTEhQBWoRMfs0jzlotmwWx8QunDYOY3C89F4=
