@@ -50,8 +50,8 @@
     "url": "http://github.com/bevry/website.git"
   },
   "engines": {
-    "node": "6",
-    "npm": "4"
+    "node": "8",
+    "npm": "5"
   },
   "dependencies": {
     "docpad": "~6.79.0",
