@@ -7,6 +7,9 @@ const modals = document.querySelectorAll('.modal')
 const modalBackdrop = document.querySelector('.modal.backdrop')
 const modalPayment = document.querySelector('.modal.payment')
 const googleAnalytics = window._gaq
+const state = {
+	page: 'today'
+}
 
 function hideModals () {
 	for (let i = 0; i < modals.length; ++i) {
@@ -17,14 +20,14 @@ function hideModals () {
 function documentKeyUp (event) {
 	// 27 is escape key
 	if ( modalBackdrop.style.display !== 'none' && event.keyCode === 27 ) {
-		document.location.hash = 'ok'
+		document.location.hash = state.page
 	}
 }
 
 function backdropClick (event) {
 	event.stopImmediatePropagation()
 	event.preventDefault()
-	document.location.hash = 'ok'
+	document.location.hash = state.page
 }
 
 function showPaymentModel () {
@@ -66,40 +69,30 @@ function showImages (nodes) {
 	}
 }
 
-let lastPage = 'today'
 function windowHashChange () {
-	// fetch the hash, could be empty
 	const hash = document.location.hash.replace('#', '')
-	
-	// use 'ok' for modal closes to avoid '' scrolling to the top
-	// will reset page to the last page
-	if ( hash === 'ok' ) {
-		document.location.hash = lastPage
+	if ( !hash ) {
+		document.location.hash = state.page
 		return
 	}
-	
-	// hide modals
 	hideModals()
-	
-	// perform action for the hash
-	// have no hash (the initial load) to mean the 'today' page
-	switch ( hash || 'today' ) {
+	switch ( hash ) {
 		case 'past':
 			showImages(document.querySelectorAll('.past [data-src]'))
 			body.className = body.className.replace(/today|future/, '') + ' past'
-			lastPage = hash
+			state.page = hash
 			break
 
 		case 'today':
 			showImages(document.querySelectorAll('.today [data-src]'))
 			body.className = body.className.replace(/past|future/, '') + ' today'
-			lastPage = hash
+			state.page = hash
 			break
 
 		case 'future':
 			showImages(document.querySelectorAll('.future [data-src]'))
 			body.className = body.className.replace(/past|today/, '') + ' future'
-			lastPage = hash
+			state.page = hash
 			break
 
 		case 'payment':
