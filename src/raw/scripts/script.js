@@ -82,7 +82,7 @@ function windowHashChange () {
 	if ( hash === 'payment' ) {
 		showPaymentModal()
 	}
-	else if ( config.pages.indexOf(hash) === -1 ) {
+	else if ( config.pages.indexOf(hash) !== -1 ) {
 		showImages(document.querySelectorAll(`.${hash} [data-src]`))
 		config.pages.forEach((page) => body.classList.remove(page))
 		body.classList.add(hash)
