@@ -33,7 +33,7 @@ function backdropClick (event) {
 	document.location.hash = state.page
 }
 
-function showPaymentModel () {
+function showPaymentModal () {
 	if ( googleAnalytics ) {
 		googleAnalytics.push([
 			'_trackEvent',
