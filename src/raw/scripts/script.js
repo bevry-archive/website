@@ -8,26 +8,23 @@ const modalBackdrop = document.querySelector('.modal.backdrop')
 const modalPayment = document.querySelector('.modal.payment')
 const googleAnalytics = window._gaq
 
-function hideModals (hash) {
+function hideModals () {
 	for (let i = 0; i < modals.length; ++i) {
 		modals[i].style.display = 'none'
-	}
-	if ( hash ) {
-		document.location.hash = 'ok'
 	}
 }
 
 function documentKeyUp (event) {
 	// 27 is escape key
 	if ( modalBackdrop.style.display !== 'none' && event.keyCode === 27 ) {
-		hideModals(true)
+		document.location.hash = ''
 	}
 }
 
 function backdropClick (event) {
 	event.stopImmediatePropagation()
 	event.preventDefault()
-	hideModals(true)
+	document.location.hash = ''
 }
 
 function showPaymentModel () {
@@ -69,8 +66,16 @@ function showImages (nodes) {
 	}
 }
 
+let lastHash = 'today'
 function windowHashChange () {
 	const hash = document.location.hash.replace('#', '')
+	if ( !hash ) {
+		hash = lastHash
+		document.location.hash = hash
+	}
+	else {
+		lastHash = hash
+	}
 	hideModals()
 	switch ( hash ) {
 		case 'past':
