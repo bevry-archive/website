@@ -68,7 +68,7 @@ function showImages (nodes) {
 
 let lastHash = 'today'
 function windowHashChange () {
-	const hash = document.location.hash.replace('#', '')
+	let hash = document.location.hash.replace('#', '')
 	if ( !hash ) {
 		hash = lastHash
 		document.location.hash = hash
