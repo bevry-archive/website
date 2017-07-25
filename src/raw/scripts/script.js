@@ -66,31 +66,27 @@ function showImages (nodes) {
 	}
 }
 
-let lastHash
+let page = 'today'
 function windowHashChange () {
-	let hash = document.location.hash.replace('#', '')
-	if ( !hash ) {
-		hash = lastHash || 'today'
-		document.location.hash = hash
-	}
+	let hash = document.location.hash.replace('#', '') || page || 'today'
 	hideModals()
 	switch ( hash ) {
 		case 'past':
 			showImages(document.querySelectorAll('.past [data-src]'))
 			body.className = body.className.replace(/today|future/, '') + ' past'
-			lastHash = hash
+			page = hash
 			break
 
 		case 'today':
 			showImages(document.querySelectorAll('.today [data-src]'))
 			body.className = body.className.replace(/past|future/, '') + ' today'
-			lastHash = hash
+			page = hash
 			break
 
 		case 'future':
 			showImages(document.querySelectorAll('.future [data-src]'))
 			body.className = body.className.replace(/past|today/, '') + ' future'
-			lastHash = hash
+			page = hash
 			break
 
 		case 'payment':
