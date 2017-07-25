@@ -17,14 +17,14 @@ function hideModals () {
 function documentKeyUp (event) {
 	// 27 is escape key
 	if ( modalBackdrop.style.display !== 'none' && event.keyCode === 27 ) {
-		document.location.hash = ''
+		document.location.hash = 'ok'
 	}
 }
 
 function backdropClick (event) {
 	event.stopImmediatePropagation()
 	event.preventDefault()
-	document.location.hash = ''
+	document.location.hash = 'ok'
 }
 
 function showPaymentModel () {
@@ -66,27 +66,40 @@ function showImages (nodes) {
 	}
 }
 
-let page = 'today'
+let lastPage = 'today'
 function windowHashChange () {
-	let hash = document.location.hash.replace('#', '') || page || 'today'
+	// fetch the hash, could be empty
+	const hash = document.location.hash.replace('#', '')
+	
+	// use 'ok' for modal closes to avoid '' scrolling to the top
+	// will reset page to the last page
+	if ( hash === 'ok' ) {
+		document.location.hash = lastPage
+		return
+	}
+	
+	// hide modals
 	hideModals()
-	switch ( hash ) {
+	
+	// perform action for the hash
+	// have no hash (the initial load) to mean the 'today' page
+	switch ( hash || 'today' ) {
 		case 'past':
 			showImages(document.querySelectorAll('.past [data-src]'))
 			body.className = body.className.replace(/today|future/, '') + ' past'
-			page = hash
+			lastPage = hash
 			break
 
 		case 'today':
 			showImages(document.querySelectorAll('.today [data-src]'))
 			body.className = body.className.replace(/past|future/, '') + ' today'
-			page = hash
+			lastPage = hash
 			break
 
 		case 'future':
 			showImages(document.querySelectorAll('.future [data-src]'))
 			body.className = body.className.replace(/past|today/, '') + ' future'
-			page = hash
+			lastPage = hash
 			break
 
 		case 'payment':
@@ -94,7 +107,8 @@ function windowHashChange () {
 			break
 
 		default:
-			// ignore
+			// some other hash that we don't need to do anything special for
+			// for instance an anchor/target
 			break
 	}
 }
