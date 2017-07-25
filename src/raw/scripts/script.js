@@ -7,6 +7,9 @@ const modals = document.querySelectorAll('.modal')
 const modalBackdrop = document.querySelector('.modal.backdrop')
 const modalPayment = document.querySelector('.modal.payment')
 const googleAnalytics = window._gaq
+const config = {
+	pages: ['past', 'today', 'future']
+}
 const state = {
 	page: 'today'
 }
@@ -76,33 +79,14 @@ function windowHashChange () {
 		return
 	}
 	hideModals()
-	switch ( hash ) {
-		case 'past':
-			showImages(document.querySelectorAll('.past [data-src]'))
-			body.className = body.className.replace(/today|future/, '') + ' past'
-			state.page = hash
-			break
-
-		case 'today':
-			showImages(document.querySelectorAll('.today [data-src]'))
-			body.className = body.className.replace(/past|future/, '') + ' today'
-			state.page = hash
-			break
-
-		case 'future':
-			showImages(document.querySelectorAll('.future [data-src]'))
-			body.className = body.className.replace(/past|today/, '') + ' future'
-			state.page = hash
-			break
-
-		case 'payment':
-			showPaymentModel()
-			break
-
-		default:
-			// some other hash that we don't need to do anything special for
-			// for instance an anchor/target
-			break
+	if ( hash === 'payment' ) {
+		showPaymentModal()
+	}
+	else if ( config.pages.indexOf(hash) === -1 ) {
+		showImages(document.querySelectorAll(`.${hash} [data-src]`))
+		config.pages.forEach((page) => body.classList.remove(page))
+		body.classList.add(hash)
+		state.page = hash
 	}
 }
 
