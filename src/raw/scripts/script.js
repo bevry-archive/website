@@ -66,31 +66,31 @@ function showImages (nodes) {
 	}
 }
 
-let lastHash = 'today'
+let lastHash
 function windowHashChange () {
 	let hash = document.location.hash.replace('#', '')
 	if ( !hash ) {
-		hash = lastHash
+		hash = lastHash || 'today'
 		document.location.hash = hash
-	}
-	else {
-		lastHash = hash
 	}
 	hideModals()
 	switch ( hash ) {
 		case 'past':
 			showImages(document.querySelectorAll('.past [data-src]'))
 			body.className = body.className.replace(/today|future/, '') + ' past'
+			lastHash = hash
 			break
 
 		case 'today':
 			showImages(document.querySelectorAll('.today [data-src]'))
 			body.className = body.className.replace(/past|future/, '') + ' today'
+			lastHash = hash
 			break
 
 		case 'future':
 			showImages(document.querySelectorAll('.future [data-src]'))
 			body.className = body.className.replace(/past|today/, '') + ' future'
+			lastHash = hash
 			break
 
 		case 'payment':
