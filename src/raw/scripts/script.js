@@ -7,30 +7,33 @@ const modals = document.querySelectorAll('.modal')
 const modalBackdrop = document.querySelector('.modal.backdrop')
 const modalPayment = document.querySelector('.modal.payment')
 const googleAnalytics = window._gaq
+const config = {
+	pages: ['past', 'today', 'future']
+}
+const state = {
+	page: 'today'
+}
 
-function hideModals (hash) {
+function hideModals () {
 	for (let i = 0; i < modals.length; ++i) {
 		modals[i].style.display = 'none'
-	}
-	if ( hash ) {
-		document.location.hash = 'ok'
 	}
 }
 
 function documentKeyUp (event) {
 	// 27 is escape key
 	if ( modalBackdrop.style.display !== 'none' && event.keyCode === 27 ) {
-		hideModals(true)
+		document.location.hash = state.page
 	}
 }
 
 function backdropClick (event) {
 	event.stopImmediatePropagation()
 	event.preventDefault()
-	hideModals(true)
+	document.location.hash = state.page
 }
 
-function showPaymentModel () {
+function showPaymentModal () {
 	if ( googleAnalytics ) {
 		googleAnalytics.push([
 			'_trackEvent',
@@ -71,30 +74,19 @@ function showImages (nodes) {
 
 function windowHashChange () {
 	const hash = document.location.hash.replace('#', '')
+	if ( !hash ) {
+		document.location.hash = state.page
+		return
+	}
 	hideModals()
-	switch ( hash ) {
-		case 'past':
-			showImages(document.querySelectorAll('.past [data-src]'))
-			body.className = body.className.replace(/today|future/, '') + ' past'
-			break
-
-		case 'today':
-			showImages(document.querySelectorAll('.today [data-src]'))
-			body.className = body.className.replace(/past|future/, '') + ' today'
-			break
-
-		case 'future':
-			showImages(document.querySelectorAll('.future [data-src]'))
-			body.className = body.className.replace(/past|today/, '') + ' future'
-			break
-
-		case 'payment':
-			showPaymentModel()
-			break
-
-		default:
-			// ignore
-			break
+	if ( hash === 'payment' ) {
+		showPaymentModal()
+	}
+	else if ( config.pages.indexOf(hash) !== -1 ) {
+		showImages(document.querySelectorAll(`.${hash} [data-src]`))
+		config.pages.forEach((page) => body.classList.remove(page))
+		body.classList.add(hash)
+		state.page = hash
 	}
 }
 

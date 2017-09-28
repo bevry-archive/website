@@ -141,6 +141,11 @@ url: '/'
 			</a>
 		</li>
 		<li>
+			<a href="<%= @getFullUrl('/liberapay') %>">
+				Donate weekly via Liberapay
+			</a>
+		</li>
+		<li>
 			<a href="<%= @getFullUrl('/flattr') %>">
 				Donate monthly via Flattr
 			</a>
