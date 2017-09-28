@@ -109,7 +109,7 @@ const docpadConfig = {
 				'Account Name':        'Benjamin Arthur Lupton',
 				'Account Number':      '19295940',
 				'UK Sort Code':        '23-14-70',
-				'Branch Address':      'TransferWise, 56 Shoreditch High Street, London, E1 6JJ, United Kingdom
+				'Branch Address':      'TransferWise, 56 Shoreditch High Street, London, E1 6JJ, United Kingdom'
 			},
 			'AUD Transfers': {
 				'Account Name':        'Benjamin Arthur Lupton',
