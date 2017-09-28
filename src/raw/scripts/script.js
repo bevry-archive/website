@@ -22,7 +22,7 @@ function hideModals () {
 
 function documentKeyUp (event) {
 	// 27 is escape key
-	if ( modalBackdrop.style.display !== 'none' && event.keyCode === 27 ) {
+	if (modalBackdrop.style.display !== 'none' && event.keyCode === 27) {
 		document.location.hash = state.page
 	}
 }
@@ -34,7 +34,7 @@ function backdropClick (event) {
 }
 
 function showPaymentModal () {
-	if ( googleAnalytics ) {
+	if (googleAnalytics) {
 		googleAnalytics.push([
 			'_trackEvent',
 			'Payment Modal',
@@ -53,7 +53,7 @@ function showPaymentModal () {
 
 	const t = modalPayment.offsetTop
 	const l = modalPayment.offsetLeft
-	if ( modalPayment.clientHeight + (t * 2) > window.innerHeight ) {
+	if (modalPayment.clientHeight + (t * 2) > window.innerHeight) {
 		modalPayment.style.top = l + 'px'
 		modalPayment.style.maxHeight = window.innerHeight - (l * 2) + 'px'
 	}
@@ -74,16 +74,16 @@ function showImages (nodes) {
 
 function windowHashChange () {
 	const hash = document.location.hash.replace('#', '')
-	if ( !hash ) {
+	if (!hash) {
 		document.location.hash = state.page
 		return
 	}
 	hideModals()
-	if ( hash === 'payment' ) {
+	if (hash === 'payment') {
 		showPaymentModal()
 	}
-	else if ( config.pages.indexOf(hash) !== -1 ) {
-		showImages(document.querySelectorAll(`.${hash} [data-src]`))
+	else if (config.pages.indexOf(hash) !== -1) {
+		showImages(document.querySelectorAll('.' + hash + ' [data-src]'))
 		config.pages.forEach((page) => body.classList.remove(page))
 		body.classList.add(hash)
 		state.page = hash
