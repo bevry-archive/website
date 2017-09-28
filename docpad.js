@@ -92,18 +92,30 @@ const docpadConfig = {
 
 		/* eslint key-spacing:0 */
 		banks: {
+			'USD Transfers': {
+				'Account Name':        'Benjamin Arthur Lupton',
+				'Account Number':      '8310013710',
+				'ACH Routing Number':  '026073150',
+				'Wire Routing Number': '026073008',
+				'Branch Address':      'TransferWise, 19 W 24th Street, New York, 10010, United States of America'
+			},
 			'EUR Transfers': {
-				'Account Name':    'Benjamin Lupton',
-				'IBAN':            'DE08100110012620156007',
-				'BIC/Swift Code':  'NTSBDEB1XXX',
-				'Branch Address':  'N26 Bank GmbH, Klosterstraße 62, 10179 Berlin, Germany'
+				'Account Name':        'TW Benjamin Arthur Lupton',
+				'IBAN':                'DE03 7001 1110 6050 3324 28',
+				'BIC/Swift Code':      'DEKTDE7GXXX',
+				'Branch Address':      'Deutsche Handelsbank, Südliche Münchner Str. 2, Grünwald, 82031, Deutschland'
+			},
+			'GBP Transfers': {
+				'Account Name':        'Benjamin Arthur Lupton',
+				'Account Number':      '19295940',
+				'UK Sort Code':        '23-14-70',
+				'Branch Address':      'TransferWise, 56 Shoreditch High Street, London, E1 6JJ, United Kingdom
 			},
 			'AUD Transfers': {
-				'Account Name':    'Benjamin Lupton',
-				'Account Number':  '473167138',
-				'BSB':             '242200',
-				'BIC/Swift Code':  'CITIAU2X',
-				'Branch Address':  'Citibank, Citigroup Centre, 2 Park Street, Sydney, NSW, Australia, 2000'
+				'Account Name':        'Benjamin Arthur Lupton',
+				'Account Number':      '454000526',
+				'BSB':                 '082-182',
+				'Branch Address':      'TransferWise, 800 Bourke Street, Melbourne, 3000, Australia'
 			}
 		},
 
