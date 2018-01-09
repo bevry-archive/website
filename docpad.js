@@ -140,7 +140,7 @@ const docpadConfig = {
 			url: 'https://twitter.com/mikeumus',
 			avatar: '/images/mikeumus-tinted.jpg',
 			description: `
-				<a href="http://www.solarsystemexpress.com/">Private Space/Open-Hardware Entrepreneur</a>. Web Engineer at <a href="http://pixm.net/">Pixm</a>.<br/>
+				<a href="https://newspace.nyc/">Private Space Entrepreneur</a>. Founder at <a href="https://mdm.cc/">Mass Distribution Media</a>.<br/>
 				Sees technology as a force of nature for good.`
 		}],
 
