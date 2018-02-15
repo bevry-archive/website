@@ -126,18 +126,8 @@ url: '/'
 			</a>
 		</li>
 		<li>
-			<a href="http://www.codefund.io/view.php?id=4">
-				<strong>Crowd-fund DocPad v7</strong>
-			</a>
-		</li>
-		<li>
 			<a href="<%= @getFullUrl('/opencollective') %>">
 				Donate monthly via Open Collective
-			</a>
-		</li>
-		<li>
-			<a href="<%= @getFullUrl('/gratipay') %>">
-				Donate weekly via Gratipay
 			</a>
 		</li>
 		<li>
@@ -158,11 +148,6 @@ url: '/'
 		<li>
 			<a href="<%= @getFullUrl('/paypal') %>">
 				Donate via Paypal (accepts Card and Bank Account)
-			</a>
-		</li>
-		<li>
-			<a href="<%= @getFullUrl('/cash') %>">
-				Donate once via Cash.me (accepts Card and USA Bank Account)
 			</a>
 		</li>
 		<li>
