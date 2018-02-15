@@ -284,9 +284,9 @@ const docpadConfig = {
 				'/flattr': 'https://flattr.com/profile/balupton',
 				'/patreon': 'https://www.patreon.com/bevry',
 				'/opencollective': 'https://opencollective.com/bevry',
-				'/gratipay': 'https://www.gratipay.com/bevry',
+				'/gratipay': 'https://gratipay.news/the-end-cbfba8f50981',
 				'/liberapay': 'https://liberapay.com/bevry',
-				'/cash': 'https://cash.me/$balupton',
+				'/cash': '/bitcoin',
 				'/gittip': '/gratipay',
 				'/wishlist': 'https://balupton.com/wishlist',  // here for legacy reasons as github badges still use it
 
