@@ -7,12 +7,7 @@ const githubAuthString = `client_id=${githubClientId}&client_secret=${githubClie
 const githubNames = 'bevry docpad browserstate webwrite interconnectapp'.split(' ')
 const feeds = (function () {
 	/* eslint camelcase:0 */
-	const result = {
-		gratipay_bevry: {
-			url: 'https://www.gratipay.com/bevry/public.json',
-			parse: 'json'
-		}
-	}
+	const result = {}
 	githubNames.forEach(function (name) {
 		result['github_members_' + name] = {
 			url: `https://api.github.com/orgs/${name}/public_members?${githubAuthString}`,
@@ -35,10 +30,7 @@ const docpadConfig = {
 	templateData: {
 
 		getGratipayTotal () {
-			// https://github.com/gratipay/gratipay.com/issues/3726
-			const amount = this.feedr.feeds.gratipay_bevry.receiving
-			const defaulted = amount == null ? 3.25 : amount
-			return parseFloat(defaulted, 10)
+			return 0
 		},
 
 		getDonationTotal () {
@@ -50,7 +42,7 @@ const docpadConfig = {
 		},
 
 		getDonationGoalPercent (goal) {
-			if ( goal == null )  goal = this.getDonationGoal()
+			if (goal == null) goal = this.getDonationGoal()
 			return (this.getDonationTotal() / goal) * 100
 		},
 
@@ -74,14 +66,14 @@ const docpadConfig = {
 
 			// remove leaders from members as it's a bit dodgy if we list them twice
 			this.leaders.forEach(function (leader) {
-				if ( leader.githubUsername ) {
+				if (leader.githubUsername) {
 					delete logins[leader.githubUsername]
 				}
 			})
 
 			const members = []
-			for ( const key in logins ) {
-				if ( logins.hasOwnProperty(key) ) {
+			for (const key in logins) {
+				if (logins.hasOwnProperty(key)) {
 					const value = logins[key]
 					members.push(value)
 				}
@@ -93,29 +85,29 @@ const docpadConfig = {
 		/* eslint key-spacing:0 */
 		banks: {
 			'USD Transfers': {
-				'Account Name':        'Benjamin Arthur Lupton',
-				'Account Number':      '8310013710',
-				'ACH Routing Number':  '026073150',
+				'Account Name': 'Benjamin Arthur Lupton',
+				'Account Number': '8310013710',
+				'ACH Routing Number': '026073150',
 				'Wire Routing Number': '026073008',
-				'Branch Address':      'TransferWise, 19 W 24th Street, New York, 10010, United States of America'
+				'Branch Address': 'TransferWise, 19 W 24th Street, New York, 10010, United States of America'
 			},
 			'EUR Transfers': {
-				'Account Name':        'TW Benjamin Arthur Lupton',
-				'IBAN':                'DE03 7001 1110 6050 3324 28',
-				'BIC/Swift Code':      'DEKTDE7GXXX',
-				'Branch Address':      'Deutsche Handelsbank, Südliche Münchner Str. 2, Grünwald, 82031, Deutschland'
+				'Account Name': 'TW Benjamin Arthur Lupton',
+				'IBAN': 'DE03 7001 1110 6050 3324 28',
+				'BIC/Swift Code': 'DEKTDE7GXXX',
+				'Branch Address': 'Deutsche Handelsbank, Südliche Münchner Str. 2, Grünwald, 82031, Deutschland'
 			},
 			'GBP Transfers': {
-				'Account Name':        'Benjamin Arthur Lupton',
-				'Account Number':      '19295940',
-				'UK Sort Code':        '23-14-70',
-				'Branch Address':      'TransferWise, 56 Shoreditch High Street, London, E1 6JJ, United Kingdom'
+				'Account Name': 'Benjamin Arthur Lupton',
+				'Account Number': '19295940',
+				'UK Sort Code': '23-14-70',
+				'Branch Address': 'TransferWise, 56 Shoreditch High Street, London, E1 6JJ, United Kingdom'
 			},
 			'AUD Transfers': {
-				'Account Name':        'Benjamin Arthur Lupton',
-				'Account Number':      '454000526',
-				'BSB':                 '082-182',
-				'Branch Address':      'TransferWise, 800 Bourke Street, Melbourne, 3000, Australia'
+				'Account Name': 'Benjamin Arthur Lupton',
+				'Account Number': '454000526',
+				'BSB': '082-182',
+				'Branch Address': 'TransferWise, 800 Bourke Street, Melbourne, 3000, Australia'
 			}
 		},
 
@@ -235,7 +227,7 @@ const docpadConfig = {
 		// we can apply that formatting here
 		getPreparedTitle () {
 			// if we have a document title, then we should use that and suffix the site's title onto it
-			if ( this.document.title ) {
+			if (this.document.title) {
 				return `${this.document.title} | ${this.site.title}`
 			}
 
@@ -264,7 +256,7 @@ const docpadConfig = {
 	},
 
 	plugins: {
-		feedr: {feeds},
+		feedr: { feeds },
 
 		cleanurls: {
 
