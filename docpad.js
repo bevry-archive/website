@@ -263,7 +263,7 @@ const docpadConfig = {
 			simpleRedirects: {
 				// Shorthands
 				'/contact': '/#contact',
-				'/terms': '/tos',
+				'/terms': '/tos/',
 				'/donate': '/#donate',
 				'/source': 'https://github.com/bevry/website',
 
