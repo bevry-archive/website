@@ -89,6 +89,7 @@ const docpadConfig = {
 				'Account Number': '8310013710',
 				'ACH Routing Number': '026073150',
 				'Wire Routing Number': '026073008',
+				'Bank Name': 'COMMUNITY FEDERAL SAVINGS BANK',
 				'Branch Address': 'TransferWise, 19 W 24th Street, New York, 10010, United States of America'
 			},
 			'EUR Transfers': {
@@ -107,6 +108,7 @@ const docpadConfig = {
 				'Account Name': 'Benjamin Arthur Lupton',
 				'Account Number': '454000526',
 				'BSB': '082-182',
+				'Bank Name': 'National Australia Bank Limited (NAB)',
 				'Branch Address': 'TransferWise, 800 Bourke Street, Melbourne, 3000, Australia'
 			}
 		},
