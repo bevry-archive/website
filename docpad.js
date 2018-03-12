@@ -89,19 +89,21 @@ const docpadConfig = {
 				'Account Number': '8310013710',
 				'ACH Routing Number': '026073150',
 				'Wire Routing Number': '026073008',
-				'Bank Name': 'COMMUNITY FEDERAL SAVINGS BANK',
+				'Bank Name': 'Community Federal Savings Bank (CFSB)',
 				'Branch Address': 'TransferWise, 19 W 24th Street, New York, 10010, United States of America'
 			},
 			'EUR Transfers': {
 				'Account Name': 'TW Benjamin Arthur Lupton',
 				'IBAN': 'DE03 7001 1110 6050 3324 28',
 				'BIC/Swift Code': 'DEKTDE7GXXX',
+				'Bank Name': 'Deutsche Handelsbank',
 				'Branch Address': 'Deutsche Handelsbank, Südliche Münchner Str. 2, Grünwald, 82031, Deutschland'
 			},
 			'GBP Transfers': {
 				'Account Name': 'Benjamin Arthur Lupton',
 				'Account Number': '19295940',
 				'UK Sort Code': '23-14-70',
+				'Bank Name': 'TransferWise',
 				'Branch Address': 'TransferWise, 56 Shoreditch High Street, London, E1 6JJ, United Kingdom'
 			},
 			'AUD Transfers': {
