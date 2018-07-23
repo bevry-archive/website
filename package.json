@@ -86,7 +86,8 @@
     "our:release": "npm run our:release:prepare && npm run our:release:push",
     "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
     "our:release:push": "git push origin master && git push origin --tags",
-    "my:deploy": "echo 'now deployed automatically with zeit/now'",
+    "my:deploy": "now && now alias",
+    "build": "npm test",
     "test": "docpad generate --silent --env static"
   },
   "now": {
