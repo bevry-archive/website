@@ -294,7 +294,7 @@ const docpadConfig = {
 				'/blog': 'https://blog.bevry.me',
 
 				// Support
-				'/slack': 'https://slack.bevry.me',
+				'/slack': 'https://discuss.bevry.me/t/official-slack-chat-rooms/59',
 				'/forum': 'https://discuss.bevry.me',
 				'/support': 'https://discuss.bevry.me/t/getting-support-guide/63/1',
 				'/contribute': 'https://discuss.bevry.me/t/official-contribution-guide/141/1',

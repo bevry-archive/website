@@ -18,9 +18,7 @@
       "flattr",
       "paypal",
       "bitcoin",
-      "wishlist",
-      "---",
-      "slackin"
+      "wishlist"
     ],
     "config": {
       "patreonUsername": "bevry",
@@ -28,8 +26,7 @@
       "flattrUsername": "balupton",
       "paypalURL": "https://bevry.me/paypal",
       "bitcoinURL": "https://bevry.me/bitcoin",
-      "wishlistURL": "https://bevry.me/wishlist",
-      "slackinURL": "https://slack.bevry.me"
+      "wishlistURL": "https://bevry.me/wishlist"
     }
   },
   "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
@@ -43,7 +40,8 @@
     "Dirk Ginader (http://ginader.com)",
     "Douglas Barton <douglas.barton@gmail.com> (http://douglasbarton.github.io)",
     "vsopvsop (https://github.com/vsopvsop)",
-    "Michael Duane Mooring (http://mdm.cc)"
+    "Michael Duane Mooring (http://mdm.cc)",
+    "Douglas Barton (https://github.com/douglasbarton)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/website/issues"

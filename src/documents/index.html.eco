@@ -89,7 +89,7 @@ url: '/'
 	<p>
 		To accomplish our grand goals and vision of the world, we can't do it alone!<br/>
 		There's plenty to start on and we welcome all contributions regardless of skill or size!<br/>
-		To get started say hello on our <a href="<%= @getFullUrl('/slack') %>">Slack Channel</a> and traverse our <a href="<%= @getFullUrl('/forum') %>">Discussion Forum</a>.
+		To get started say hello on our <a href="<%= @getFullUrl('/forum') %>">Discussion Forum</a>.
 	</p>
 </section>
 
@@ -167,9 +167,6 @@ url: '/'
 	<h2>Contact</h2>
 	<ul class="simple-list">
 		<li>
-			<script async defer src="//slack.bevry.me/slackin.js"></script>
-		</li>
-		<li>
 			<a href="<%= @getFullUrl('/support') %>">Support</a>
 		</li>
 		<li>
@@ -183,9 +180,6 @@ url: '/'
 	<ul class="inline-list">
 		<li>
 			<a href="/forum">Forum</a>
-		</li>
-		<li>
-			<a href="/slack">Slack</a>
 		</li>
 		<li>
 			<a href="/blog">Blog</a>
