@@ -81,13 +81,11 @@
     "our:meta": "npm run our:meta:projectz",
     "our:meta:projectz": "projectz compile",
     "our:verify": "echo no need for this project",
-    "our:deploy": "npm run my:deploy",
+    "our:deploy": "echo no need for this project",
     "our:test": "npm run our:verify && npm test",
     "our:release": "npm run our:release:prepare && npm run our:release:push",
     "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
     "our:release:push": "git push origin master && git push origin --tags",
-    "my:deploy": "now && now alias",
-    "build": "npm test",
     "test": "docpad generate --silent --env static"
   },
   "now": {
