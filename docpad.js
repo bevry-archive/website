@@ -89,6 +89,7 @@ const docpadConfig = {
 				'Account Number': '8310013710',
 				'ACH Routing Number': '026073150',
 				'Wire Routing Number': '026073008',
+				'BIC/Swift Code': 'CMFGUS33',
 				'Bank Name': 'Community Federal Savings Bank (CFSB)',
 				'Branch Address': 'TransferWise, 19 W 24th Street, New York, 10010, United States of America'
 			},
@@ -272,6 +273,7 @@ const docpadConfig = {
 				'/source': 'https://github.com/bevry/website',
 
 				// Payment
+				'/bank': '/payment',
 				'/payment': '/#payment',
 				'/goopen': 'https://github.com/bevry/goopen',
 				'/bitcoin': 'https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010',
