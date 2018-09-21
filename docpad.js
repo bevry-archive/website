@@ -89,7 +89,8 @@ const docpadConfig = {
 				'Account Number': '8310013710',
 				'ACH Routing Number': '026073150',
 				'Wire Routing Number': '026073008',
-				'BIC/Swift Code': 'CMFGUS33',
+				'BIC Routing Number': '026073008',
+				'Swift Code': 'CMFGUS33',
 				'Bank Name': 'Community Federal Savings Bank (CFSB)',
 				'Branch Address': 'TransferWise, 19 W 24th Street, New York, 10010, United States of America'
 			},
