@@ -277,7 +277,7 @@ const docpadConfig = {
 				'/bank': '/payment',
 				'/payment': '/#payment',
 				'/goopen': 'https://github.com/bevry/goopen',
-				'/bitcoin': 'https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010',
+				'/bitcoin': 'https://commerce.coinbase.com/checkout/e97d699c-de97-4bbc-9bfc-2812411d6523',
 				'/coinbase': '/bitcoin',
 				'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6',
 				'/flattr': 'https://flattr.com/profile/balupton',
