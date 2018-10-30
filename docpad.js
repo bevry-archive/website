@@ -282,14 +282,14 @@ const docpadConfig = {
 				'/flattr': 'https://flattr.com/profile/balupton',
 				'/patreon': 'https://www.patreon.com/bevry',
 				'/opencollective': 'https://opencollective.com/bevry',
-				'/gratipay': 'https://gratipay.news/the-end-cbfba8f50981',
 				'/liberapay': 'https://liberapay.com/bevry',
 				'/buymeacoffee': 'https://www.buymeacoffee.com/balupton',
 				'/thanksapp': 'https://givethanks.app/u/balupton',
 				'/coinbase': '/crypto',
 				'/bitcoin': '/crypto',
 				'/cash': '/crypto',
-				'/gittip': '/gratipay',
+				'/gratipay': '/liberapay',
+				'/gittip': '/liberapay',
 				'/wishlist': 'https://balupton.com/wishlist',  // here for legacy reasons as github badges still use it
 
 				// Social
