@@ -274,8 +274,9 @@ const docpadConfig = {
 				'/source': 'https://github.com/bevry/website',
 
 				// Payment
-				'/bank': '/payment',
 				'/payment': '/#payment',
+				'/payments': '/payment',
+				'/bank': '/payment',
 				'/goopen': 'https://github.com/bevry/goopen',
 				'/crypto': 'https://commerce.coinbase.com/checkout/e97d699c-de97-4bbc-9bfc-2812411d6523',
 				'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6',
