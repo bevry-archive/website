@@ -114,6 +114,11 @@ const docpadConfig = {
 				'BSB': '082-182',
 				'Bank Name': 'National Australia Bank Limited (NAB)',
 				'Branch Address': 'TransferWise, 800 Bourke Street, Melbourne, 3000, Australia'
+			},
+			'NZD Transfers': {
+				'Account Name': 'Benjamin Arthur Lupton',
+				'Account Number': '02-1291-0055769-000',
+				'Branch Address': 'BNZ, Deloitte Centre, 80 Queen Street, Auckland, 92208, New Zealand'
 			}
 		},
 
