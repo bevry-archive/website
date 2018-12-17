@@ -85,7 +85,7 @@ const docpadConfig = {
 		/* eslint key-spacing:0 */
 		banks: {
 			'USD Transfers': {
-				'Account Name': 'Benjamin Arthur Lupton',
+				'Account Name': 'TransferWise FBO Benjamin Arthur Lupton',
 				'Account Number': '8310013710',
 				'ACH Routing Number': '026073150',
 				'Wire Routing Number': '026073008',
