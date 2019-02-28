@@ -330,9 +330,9 @@ const docpadConfig = {
 				'/premium-support': '/support',
 
 				// Documentation
-				'/install/node': 'https://learn.bevry.me/install-node.js',
-				'/node/install': 'https://learn.bevry.me/install-node.js',
-				'/docs/installnode': '/node/install',
+				'/install/node': 'https://learn.bevry.me/install-node',
+				'/node/install': '/install/node',
+				'/docs/installnode': '/install/node',
 
 				// Training Resources
 				'/nodefailsafe':
