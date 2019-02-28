@@ -4,7 +4,9 @@
 const githubClientId = process.env.GITHUB_CLIENT_ID
 const githubClientSecret = process.env.GITHUB_CLIENT_SECRET
 const githubAuthString = `client_id=${githubClientId}&client_secret=${githubClientSecret}`
-const githubNames = 'bevry docpad browserstate webwrite interconnectapp'.split(' ')
+const githubNames = 'bevry docpad browserstate webwrite interconnectapp'.split(
+	' '
+)
 const feeds = (function () {
 	/* eslint camelcase:0 */
 	const result = {}
@@ -17,18 +19,15 @@ const feeds = (function () {
 	return result
 }())
 
-
 // The DocPad Configuration File
 // It is simply a CoffeeScript Object which is parsed by CSON
 const docpadConfig = {
-
 	// =================================
 	// Template Data
 	// These are variables that will be accessible via our templates
 	// To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
 
 	templateData: {
-
 		getGratipayTotal () {
 			return 0
 		},
@@ -85,122 +84,138 @@ const docpadConfig = {
 		/* eslint key-spacing:0 */
 		banks: {
 			'USD Transfers': {
-				'Account Name': 'TransferWise FBO Benjamin Arthur Lupton',
+				'Account Name': 'Benjamin Arthur Lupton',
 				'Account Number': '8310013710',
 				'ACH Routing Number': '026073150',
 				'Wire Routing Number': '026073008',
-				'BIC Routing Number': '026073008',
-				'Swift Code': 'CMFGUS33',
 				'Bank Name': 'Community Federal Savings Bank (CFSB)',
-				'Branch Address': 'TransferWise, 19 W 24th Street, New York, 10010, United States of America'
+				'Branch Address':
+					'TransferWise, 19 W 24th Street, New York, 10010, United States of America'
 			},
 			'EUR Transfers': {
 				'Account Name': 'TW Benjamin Arthur Lupton',
-				'IBAN': 'DE03 7001 1110 6050 3324 28',
+				"IBAN": 'DE03 7001 1110 6050 3324 28',
 				'BIC/Swift Code': 'DEKTDE7GXXX',
 				'Bank Name': 'Deutsche Handelsbank',
-				'Branch Address': 'Deutsche Handelsbank, Südliche Münchner Str. 2, Grünwald, 82031, Deutschland'
+				'Branch Address':
+					'Deutsche Handelsbank, Südliche Münchner Str. 2, Grünwald, 82031, Deutschland'
 			},
 			'GBP Transfers': {
 				'Account Name': 'Benjamin Arthur Lupton',
 				'Account Number': '19295940',
 				'UK Sort Code': '23-14-70',
 				'Bank Name': 'TransferWise',
-				'Branch Address': 'TransferWise, 56 Shoreditch High Street, London, E1 6JJ, United Kingdom'
+				'Branch Address':
+					'TransferWise, 56 Shoreditch High Street, London, E1 6JJ, United Kingdom'
 			},
 			'AUD Transfers': {
 				'Account Name': 'Benjamin Arthur Lupton',
 				'Account Number': '454000526',
-				'BSB': '082-182',
+				"BSB": '082-182',
 				'Bank Name': 'National Australia Bank Limited (NAB)',
-				'Branch Address': 'TransferWise, 800 Bourke Street, Melbourne, 3000, Australia'
-			},
-			'NZD Transfers': {
-				'Account Name': 'Benjamin Arthur Lupton',
-				'Account Number': '02-1291-0055769-000',
-				'Branch Address': 'BNZ, Deloitte Centre, 80 Queen Street, Auckland, 92208, New Zealand'
+				'Branch Address':
+					'TransferWise, 800 Bourke Street, Melbourne, 3000, Australia'
 			}
 		},
 
-		leaders: [{
-			name: 'Benjamin Lupton',
-			title: 'Benjamin Lupton, Founder',
-			githubUsername: 'balupton',
-			url: 'http://balupton.com',
-			avatar: '/images/ben-black.jpg',
-			description: `
+		leaders: [
+			{
+				name: 'Benjamin Lupton',
+				title: 'Benjamin Lupton, Founder',
+				githubUsername: 'balupton',
+				url: 'http://balupton.com',
+				avatar: '/images/ben-black.jpg',
+				description: `
 				<span class="today future">
 					Open-Collaboration Entrepreneur. International Speaker & Trainer.
 				</span>
 				<span class="past">
 					Bevry is the result of Benjamin's best self, a tool for him and others to create and collaborate on a shared vision of a better world. His works are at the foundations of Bevry and are some of the most popular node and javascript projects, even used by the likes of Microsoft and 37Signals. Besides work, he pursues the timeless quest of understanding the world and spends time with his family.
 				</span>`
-		}, {
-			name: 'Michael Duane Mooring',
-			className: 'today future',
-			title: 'Mike Mooring, Community Custodian',
-			githubUsername: 'mikeumus',
-			url: 'https://twitter.com/mikeumus',
-			avatar: '/images/mikeumus-tinted.jpg',
-			description: `
+			},
+			{
+				name: 'Michael Duane Mooring',
+				className: 'today future',
+				title: 'Mike Mooring, Community Custodian',
+				githubUsername: 'mikeumus',
+				url: 'https://twitter.com/mikeumus',
+				avatar: '/images/mikeumus-tinted.jpg',
+				description: `
 				<a href="https://newspace.nyc/">Private Space Entrepreneur</a>. Founder at <a href="https://mdm.cc/">Mass Distribution Media</a>.<br/>
 				Sees technology as a force of nature for good.`
-		}],
+			}
+		],
 
 		sponsors: [],
 
-		pastSponsors: [{
-			name: 'Myplanet',
-			className: 'today',
-			url: 'http://myplanet.io'
-		}, {
-			name: 'Meeho!',
-			className: 'today',
-			url: 'http://meeho.net'
-		}, {
-			name: 'Hybris',
-			className: 'today',
-			url: 'http://hybris.co'
-		}, {
-			name: 'Meltmedia',
-			className: 'today',
-			url: 'http://meltmedia.com/'
-		}].sort((a, b) => a.name - b.name),
+		pastSponsors: [
+			{
+				name: 'Myplanet',
+				className: 'today',
+				url: 'http://myplanet.io'
+			},
+			{
+				name: 'Meeho!',
+				className: 'today',
+				url: 'http://meeho.net'
+			},
+			{
+				name: 'Hybris',
+				className: 'today',
+				url: 'http://hybris.co'
+			},
+			{
+				name: 'Meltmedia',
+				className: 'today',
+				url: 'http://meltmedia.com/'
+			}
+		].sort((a, b) => a.name - b.name),
 
-		projects: [{
-			name: 'DocPad',
-			url: 'http://docpad.org',
-			description: 'Powerful Static Site Generator<br/>500 daily users'
-		}, {
-			name: 'History.js',
-			url: 'https://github.com/browserstate',
-			description: 'Create Stateful Web-Applications<br/>Used in <a href="http://basecamp.com" title="Visit Basecamp\'s Website">Basecamp</a>'
-		}, {
-			name: 'Startup Hostel Network',
-			className: 'today future',
-			url: 'http://startuphostel.org',
-			description: 'Co-work and co-live while you travel the world<br/>176 travellers'
-		}, {
-			name: 'Static Site Generators',
-			className: 'today future',
-			url: 'http://staticsitegenerators.net',
-			description: 'Discover the right Static Site Generator for you<br/>400 static site generators'
-		}, {
-			name: 'Chainy (beta)',
-			className: 'today future',
-			url: 'https://github.com/chainyjs',
-			description: 'Chainable data pipeline for JavaScript'
-		}, {
-			name: 'Interconnect (alpha)',
-			className: 'today future',
-			url: 'https://github.com/interconnectapp',
-			description: 'Connect with anyone in the world'
-		}, {
-			name: 'Web Write (alpha)',
-			className: 'today future',
-			url: 'https://github.com/webwrite',
-			description: 'Admin Interfaces for any backend'
-		}],
+		projects: [
+			{
+				name: 'DocPad',
+				url: 'http://docpad.org',
+				description: 'Powerful Static Site Generator<br/>500 daily users'
+			},
+			{
+				name: 'History.js',
+				url: 'https://github.com/browserstate',
+				description:
+					'Create Stateful Web-Applications<br/>Used in <a href="http://basecamp.com" title="Visit Basecamp\'s Website">Basecamp</a>'
+			},
+			{
+				name: 'Startup Hostel Network',
+				className: 'today future',
+				url: 'http://startuphostel.org',
+				description:
+					'Co-work and co-live while you travel the world<br/>176 travellers'
+			},
+			{
+				name: 'Static Site Generators',
+				className: 'today future',
+				url: 'http://staticsitegenerators.net',
+				description:
+					'Discover the right Static Site Generator for you<br/>400 static site generators'
+			},
+			{
+				name: 'Chainy (beta)',
+				className: 'today future',
+				url: 'https://github.com/chainyjs',
+				description: 'Chainable data pipeline for JavaScript'
+			},
+			{
+				name: 'Interconnect (alpha)',
+				className: 'today future',
+				url: 'https://github.com/interconnectapp',
+				description: 'Connect with anyone in the world'
+			},
+			{
+				name: 'Web Write (alpha)',
+				className: 'today future',
+				url: 'https://github.com/webwrite',
+				description: 'Admin Interfaces for any backend'
+			}
+		],
 
 		// Specify some site properties
 		site: {
@@ -211,10 +226,12 @@ const docpadConfig = {
 			title: 'Bevry',
 
 			// The website description (for SEO)
-			description: 'An open company and community dedicated to empowering developers everywhere.',
+			description:
+				'An open company and community dedicated to empowering developers everywhere.',
 
 			// The website keywords (for SEO) separated by commas
-			keywords: 'bevry, bevryme, balupton, benjamin lupton, docpad, history.js, node.js, javascript, coffee-script, query-engine, open-source, open-collaboration, open-company, free-culture',
+			keywords:
+				'bevry, bevryme, balupton, benjamin lupton, docpad, history.js, node.js, javascript, coffee-script, query-engine, open-source, open-collaboration, open-company, free-culture',
 
 			// The website's styles
 			styles: [
@@ -224,11 +241,8 @@ const docpadConfig = {
 			],
 
 			// The website's scripts
-			scripts: [
-				'/scripts/script.js'
-			]
+			scripts: ['/scripts/script.js']
 		},
-
 
 		// -----------------------------
 		// Helper Functions
@@ -262,7 +276,9 @@ const docpadConfig = {
 
 		// Get Full URL
 		getFullUrl (shortUrl) {
-			return docpadConfig.plugins.cleanurls.simpleRedirects[shortUrl] || shortUrl
+			return (
+				docpadConfig.plugins.cleanurls.simpleRedirects[shortUrl] || shortUrl
+			)
 		}
 	},
 
@@ -270,7 +286,6 @@ const docpadConfig = {
 		feedr: { feeds },
 
 		cleanurls: {
-
 			simpleRedirects: {
 				// Shorthands
 				'/contact': '/#contact',
@@ -280,23 +295,20 @@ const docpadConfig = {
 
 				// Payment
 				'/payment': '/#payment',
-				'/payments': '/payment',
-				'/bank': '/payment',
 				'/goopen': 'https://github.com/bevry/goopen',
-				'/crypto': 'https://commerce.coinbase.com/checkout/e97d699c-de97-4bbc-9bfc-2812411d6523',
-				'/paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6',
+				'/bitcoin':
+					'https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a?r=516032d5fc3baa863b000010',
+				'/coinbase': '/bitcoin',
+				'/paypal':
+					'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6',
 				'/flattr': 'https://flattr.com/profile/balupton',
 				'/patreon': 'https://www.patreon.com/bevry',
 				'/opencollective': 'https://opencollective.com/bevry',
+				'/gratipay': 'https://gratipay.news/the-end-cbfba8f50981',
 				'/liberapay': 'https://liberapay.com/bevry',
-				'/buymeacoffee': 'https://www.buymeacoffee.com/balupton',
-				'/thanksapp': 'https://givethanks.app/u/balupton',
-				'/coinbase': '/crypto',
-				'/bitcoin': '/crypto',
-				'/cash': '/crypto',
-				'/gratipay': '/liberapay',
-				'/gittip': '/liberapay',
-				'/wishlist': 'https://balupton.com/wishlist',  // here for legacy reasons as github badges still use it
+				'/cash': '/bitcoin',
+				'/gittip': '/gratipay',
+				'/wishlist': 'https://balupton.com/wishlist', // here for legacy reasons as github badges still use it
 
 				// Social
 				'/google+': 'https://plus.google.com/+BevryMe',
@@ -309,7 +321,8 @@ const docpadConfig = {
 				'/slack': 'https://discuss.bevry.me/t/official-slack-chat-rooms/59',
 				'/forum': 'https://discuss.bevry.me',
 				'/support': 'https://discuss.bevry.me/t/getting-support-guide/63/1',
-				'/contribute': 'https://discuss.bevry.me/t/official-contribution-guide/141/1',
+				'/contribute':
+					'https://discuss.bevry.me/t/official-contribution-guide/141/1',
 				'/premium-support': '/support',
 
 				// Documentation
@@ -317,17 +330,25 @@ const docpadConfig = {
 				'/docs/installnode': '/node/install',
 
 				// Training Resources
-				'/nodefailsafe': 'https://gist.github.com/balupton/4721905fe5d51c541660',
+				'/nodefailsafe':
+					'https://gist.github.com/balupton/4721905fe5d51c541660',
 				'/talks/handsonnode': 'http://node.eventbrite.com/',
-				'/node.zip': 'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
+				'/node.zip':
+					'https://www.dropbox.com/s/masz4vl1b4btwfw/hands-on-node-examples.zip'
 			},
 
 			advancedRedirects: [
 				// Old URLs
-				[/^https?:\/\/(?:refresh\.bevry\.me|bevry\.herokuapp\.com|bevry\.github\.io\/website)(.*)$/, 'https://bevry.me$1'],
+				[
+					/^https?:\/\/(?:refresh\.bevry\.me|bevry\.herokuapp\.com|bevry\.github\.io\/website)(.*)$/,
+					'https://bevry.me$1'
+				],
 
 				// Documentation Projects
-				[/^\/(docpad|node|queryengine|joe|taskgroup|community|bevry)(?:[/-](.*))?$/, 'http://learn.bevry.me/$1/$2'],
+				[
+					/^\/(docpad|node|queryengine|joe|taskgroup|community|bevry)(?:[/-](.*))?$/,
+					'http://learn.bevry.me/$1/$2'
+				],
 
 				// Documentation
 				[/^\/learn(?:\/(.*))$/, 'http://learn.bevry.me/$1'],
@@ -336,7 +357,10 @@ const docpadConfig = {
 				[/^\/(services|projects|about)\/?$/, '/#$1'],
 
 				// Projects
-				[/^\/(?:g|gh|github|project)(?:\/(.*))?$/, 'https://github.com/bevry/$1']
+				[
+					/^\/(?:g|gh|github|project)(?:\/(.*))?$/,
+					'https://github.com/bevry/$1'
+				]
 			]
 		}
 	}
