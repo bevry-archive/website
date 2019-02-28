@@ -318,11 +318,15 @@ const docpadConfig = {
 				'/blog': 'https://blog.bevry.me',
 
 				// Support
-				'/slack': 'https://discuss.bevry.me/t/official-slack-chat-rooms/59',
 				'/forum': 'https://discuss.bevry.me',
-				'/support': 'https://discuss.bevry.me/t/getting-support-guide/63/1',
+				'/coding-standards':
+					'https://discuss.bevry.me/t/official-coding-standards/562/1',
+				'/bounties': 'https://discuss.bevry.me/t/bounty-services/649/1',
+				'/slack': 'https://discuss.bevry.me/t/official-slack-chat-rooms/607/1',
+				'/support':
+					'https://discuss.bevry.me/t/official-bevry-support-channels/606/1',
 				'/contribute':
-					'https://discuss.bevry.me/t/official-contribution-guide/141/1',
+					'https://discuss.bevry.me/t/official-contribution-guide/559/1',
 				'/premium-support': '/support',
 
 				// Documentation
