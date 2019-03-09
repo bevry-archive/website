@@ -327,6 +327,7 @@ const docpadConfig = {
 					'https://discuss.bevry.me/t/official-bevry-support-channels/606/1',
 				'/contribute':
 					'https://discuss.bevry.me/t/official-contribution-guide/559/1',
+				'/meetings': 'https://discuss.bevry.me/t/about-the-meetings/92/1',
 				'/premium-support': '/support',
 
 				// Documentation
