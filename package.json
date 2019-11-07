@@ -54,7 +54,7 @@
     "node": "8"
   },
   "dependencies": {
-    "docpad": "~6.80.6",
+    "docpad": "~6.82.5",
     "docpad-plugin-cachr": "~2.6.0",
     "docpad-plugin-cleanurls": "~2.11.0",
     "docpad-plugin-eco": "~2.3.0",
