@@ -64,7 +64,7 @@
     "docpad-plugin-raw": "~2.6.0",
     "docpad-plugin-services": "~2.8.0",
     "docpad-plugin-stylus": "~2.14.0",
-    "extendr": "^3.2.2",
+    "extendr": "^4.0.0",
     "request": "^2.83.0"
   },
   "devDependencies": {
